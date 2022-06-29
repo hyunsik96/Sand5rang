@@ -1,16 +1,16 @@
-package com.s5.sand5rang.hyunsik.service;
+package com.s5.sand5rang.sein.service;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.s5.sand5rang.hyunsik.dao.HyunsikDao;
+import com.s5.sand5rang.sein.dao.SeinDao;
 
 @Service
-public class HyunsikService {
+public class SeinService {
 
 	@Autowired
-	private HyunsikDao hyunsikDao;
+	private SeinDao seinDao;
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
