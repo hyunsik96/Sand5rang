@@ -14,6 +14,6 @@ public class HyunsikController {
 	
 	@RequestMapping(value="hyunsikTest.hs")
 	public String gg() {
-		return "hyunsik/focus-main/theme/index";
+		return "home";
 	}
 }
