@@ -4,5 +4,56 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+
+	 <!-- DB 연결용 bean 등록 (어느 클래스 타입의 어느 객체를 만들건지) 총 3단계 -->
+	 <!-- 1 단계. DB 연결을 위한 도구를 설정 -->
+	 <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+	 	<!-- 어느 DB에 접속할건지 지정 -->
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="ORANG" />
+		<property name="password" value="ORANG" />
+	 </bean>
+	 <!-- 
+	 	객체가 필요할 때마다 내부적으로 이 코드가 실행됨
+	 	BasicDataSource dataSource = new BasiceDataSource();
+	 	dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+	 	dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
+	 	dataSource.setUsername("SPRING");
+	 	dataSource.setPassword("SPRING");
+	  -->
+	 
+	 <!-- 2단계. MyBatis Spring 에서 제공하는 SQL 명령어를 실행할 수 있게 도와주는 도구 등록 -->
+	 <!-- SqlSessionFactoryBean -> SqlSessionTemplate -->
+	 <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+	 	<property name="configLocation" value="classpath:mybatis-config.xml" />
+	 	<property name="dataSource" ref="dataSource" />
+	 </bean>
+	 <!-- 마찬가지의 과정이 내부적으로 실행될 것임 -->
+	 
+	 <!-- 3단계. SQL 구문 실행을 위한 템플릿을 제공하는 도구 등록 -->
+	 <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+	 	<constructor-arg ref="sqlSessionFactory" />
+	 </bean>
+	 <!-- 
+		객체 필요하면 아래 생성자 내부적으로 실행됨
+	 	SqlSessionTemplate SqlSession = new SqlSessionTemplate(sqlSessionFactory)
+	 -->
+	 
+	 <!-- 
+	 	property : setter 주입
+	 	constructor-arg : 생성자 주입
+	  -->
+
+	  <!-- 파일 업로드 기능을 담당하는 도구 등록 -->
+	  <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+	  	<!-- defaultEncoding : 업로드 되는 파일에 대한 인코딩 설정 -->
+	  	<property name="defaultEncoding" value="UTF-8" />
+	  	<!-- maxUploadSize : 한번에 전체 업로드 되는 파일의 총 용량 (여긴 자동계산 안돼서 직접 계산한 값 넣어야함 -->
+	  	<property name="maxUploadSize" value="10485760" />
+	  	<!-- maxInMemorySize : 메모리 상의 파일 최대 용량 -->
+	  	<property name="maxInMemorySize" value="10485760" />
+	  </bean>
+
+
 </beans>
