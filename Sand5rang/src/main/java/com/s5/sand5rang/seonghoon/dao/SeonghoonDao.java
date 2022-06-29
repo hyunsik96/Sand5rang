@@ -1,9 +1,9 @@
-package com.s5.sand5rang.hyunsik.dao;
+package com.s5.sand5rang.seonghoon.dao;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class HyunsikDao {
+public class SeonghoonDao {
 	
 
 
