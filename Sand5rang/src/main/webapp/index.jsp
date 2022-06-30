@@ -14,7 +14,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="resources/images/logo.png" type="">
+  <link rel="shortcut icon" href="/resources/images/logo.png" type="">
 
   <title> Sand5rang </title>
 
@@ -63,7 +63,7 @@
                 <a class="nav-link" href="index.html">About Sand</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Menu book</a>
+                <a class="nav-link" href="menu.ma">Menu book</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.html">지사안내</a>
@@ -294,7 +294,7 @@
         </div>
         <div class="col-md-6">
           <div class="map_container ">
-            <div id="googleMap"></div>
+            <div id="kakao_map"></div>
           </div>
         </div>
       </div>
@@ -372,8 +372,8 @@
             <div class="box">
               <div class="detail-box">
                 <p>
-                  Sand5rang 가맹점 가입하고 주변에서 많이 물어봤어요!<br>
-                  워낙 착한 기업으로 소문이 나있기 때문에 본사가 이미지가 좋으니까 덩달아 가맹점도 어깨가 으쓱해지더라구요!<br>
+                  Sand5rang 주변에서 많이 물어봤어요! 워낙 착한 기업으로 소문이 나있기 때문에 
+                  	본사가 이미지가 좋으니까 덩달아 가맹점도 어깨가 으쓱해지더라구요!<br>
                 </p>
                 <h6>
                   Sand5rang 4호점
@@ -490,10 +490,70 @@
   <!-- custom js -->
   <script src="resources/js/custom.js"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script> -->
   <!-- End Google Map -->
 
-</body>
+	<!-- KakaoMap -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3155633b205b28f3450a223ef4f05578"></script>
+	
+	
+	<script>
+	 var mapContainer = document.getElementById('kakao_map'), // 지도를 표시할 div  
+	    mapOption = {  
+	        center: new kakao.maps.LatLng(37.533798, 126.896768), // 지도의 중심좌표 
+	        level: 3 // 지도의 확대 레벨 (레벨 클수록 축소)
+	 		
+	    }; 
 
+	    var map = new kakao.maps.Map(mapContainer, mapOption);  // 지도를 생성합니다 
+
+	    // 마커가 표시될 위치입니다 
+	    var markerPosition  = new kakao.maps.LatLng(37.533798, 126.896768); 
+
+	    // 마커를 생성합니다
+	    var marker = new kakao.maps.Marker({
+	   		 position: markerPosition, 
+	   		text: 'Sand5rang 당산지점'
+	    });
+
+	    // 마커가 지도 위에 표시되도록 설정합니다
+	    marker.setMap(map);
+
+	   /*  var markers = [
+	        {
+	            position: new kakao.maps.LatLng(37.533798, 126.896768)
+	        },
+	        {
+	            position: new kakao.maps.LatLng(37.533798, 126.896768), 
+	            text: 'Sand5rang 당산지점' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다     
+	        }
+	    ];
+
+	    var staticMapContainer  = document.getElementById('kakao_map'), // 이미지 지도를 표시할 div  
+	        staticMapOption = { 
+	            center: new kakao.maps.LatLng(37.533798, 126.896768), // 이미지 지도의 중심좌표
+	            level: 3, // 이미지 지도의 확대 레벨
+	            marker: markers // 이미지 지도에 표시할 마커 
+	        };    
+
+	    // 이미지 지도를 생성합니다
+	    var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);	 */
+	   
+	    
+	    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+	    // marker.setMap(null);    
+
+	    // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+	    var mapTypeControl = new kakao.maps.MapTypeControl();
+
+	    // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+	    // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+	    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+	    var zoomControl = new kakao.maps.ZoomControl();
+	    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	</script>
+</body>
 </html>
