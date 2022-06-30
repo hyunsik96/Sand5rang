@@ -1,23 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   
 <head>
     <meta charset="utf-8">
-    <title>Account Upgrade - Bootstrap Admin Template</title>
+    <title>Sand5rang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
     
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
-    
-    <link href="css/style.css" rel="stylesheet">
-    
-    
-    <link href="css/pages/plans.css" rel="stylesheet"> 
+   
+
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -27,6 +23,12 @@
   </head>
 
 <body>
+
+<jsp:include page="include/1.jsp" />
+<jsp:include page="include/2.jsp" />
+<jsp:include page="include/3.jsp" />
+<jsp:include page="include/4.jsp" />
+<jsp:include page="include/5.jsp" />
 
 <div class="navbar navbar-fixed-top">
 	
@@ -41,7 +43,7 @@
 			</a>
 			
 			<a class="brand" href="index.html">
-				Bootstrap Admin Template				
+				Sand5rang Admin				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -49,7 +51,7 @@
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="icon-cog"></i>
-							Account
+							설정
 							<b class="caret"></b>
 						</a>
 						
@@ -62,7 +64,7 @@
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="icon-user"></i> 
-							EGrappler.com
+							관리자 님
 							<b class="caret"></b>
 						</a>
 						
@@ -72,10 +74,7 @@
 						</ul>						
 					</li>
 				</ul>
-			
-				<form class="navbar-search pull-right">
-					<input type="text" class="search-query" placeholder="Search">
-				</form>
+
 				
 			</div><!--/.nav-collapse -->	
 	
@@ -100,57 +99,44 @@
 				<li>
 					<a href="index.html">
 						<i class="icon-dashboard"></i>
-						<span>Dashboard</span>
+						<span>메인</span>
 					</a>	    				
 				</li>
-				
-				
-				
-				<li>
-					<a href="reports.html">
-						<i class="icon-list-alt"></i>
-						<span>Reports</span>
-					</a>    				
-				</li>
-				
-				<li>					
-					<a href="guidely.html">
-						<i class="icon-facetime-video"></i>
-						<span>App Tour</span>
-					</a>  									
-				</li>
                 
                 
-                <li>					
-					<a href="charts.html">
-						<i class="icon-bar-chart"></i>
-						<span>Charts</span>
-					</a>  									
-				</li>
-                
-                
-                <li>					
-					<a href="shortcodes.html">
-						<i class="icon-code"></i>
-						<span>Shortcodes</span>
-					</a>  									
-				</li>
-				
-				<li class="active dropdown">					
+				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
-						<span>Drops</span>
+						<span>가맹점 업무처리</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                    	<li><a href="icons.html">Icons</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-                        <li><a href="pricing.html">Pricing Plans</a></li>
-                        <li><a href="login.html">Login</a></li>
-						<li><a href="signup.html">Signup</a></li>
-						<li><a href="error.html">404</a></li>
+                        <li><a href="icons.html">가맹점 주문처리</a></li>
+						<li><a href="faq.html">공장발주내역</a></li>
                     </ul>    				
+				</li>
+				
+				<li class="dropdown">					
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-long-arrow-down"></i>
+						<span>가맹점 관리</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="icons.html">가맹점 조회</a></li>
+						<li><a href="faq.html">가맹가입신청</a></li>
+						<li><a href="faq.html">문의 조회</a></li>
+                    </ul>    				
+				</li>
+                
+				
+				<li>
+					<a href="reports.html">
+						<i class="icon-list-alt"></i>
+						<span>결제대금</span>
+					</a>    				
 				</li>
 			
 			</ul>
@@ -162,6 +148,7 @@
 </div> <!-- /subnavbar -->
     
     
+
 <div class="main">
 	
 	<div class="main-inner">
@@ -170,120 +157,32 @@
 	
 	      <div class="row">
 	      	
-	      	<div class="span12">
+	      	<div class="span12">      		
 	      		
-	      		<div class="widget">
-						
-					<div class="widget-header">
-						<i class="icon-th-large"></i>
-						<h3>Choose Your Plan</h3>
-					</div> <!-- /widget-header -->
+	      		<div class="widget ">
+	      			
+	      			<div class="widget-header">
+	      				<i class="icon-user"></i>
+	      				<h3>페이지 제목 적는곳</h3>
+	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
-						
-						<div class="pricing-plans plans-3">
-							
-						<div class="plan-container">
-					        <div class="plan">
-						        <div class="plan-header">
-					                
-						        	<div class="plan-title">
-						        		First Agent	        		
-					        		</div> <!-- /plan-title -->
-					                
-						            <div class="plan-price">
-					                	$0<span class="term">For Life</span>
-									</div> <!-- /plan-price -->
-									
-						        </div> <!-- /plan-header -->	        
-						        
-						        <div class="plan-features">
-									<ul>
-										<li><strong>Perfect</strong> for a small company looking to tackle  customer service across email.</li>
-										<li>Easy to upgrade anytime</li>
-										<li>Pay only what you need</li>
-										<li>Chat support</li>
-									</ul>
-								</div> <!-- /plan-features -->
-								
-								<div class="plan-actions">				
-									<a href="javascript:;" class="btn">Signup Now</a>				
-								</div> <!-- /plan-actions -->
-					
-							</div> <!-- /plan -->
-					    </div> <!-- /plan-container -->
-					    
-					    
-					    
-					    <div class="plan-container">
-					        <div class="plan green">
-						        <div class="plan-header">
-					                
-						        	<div class="plan-title">
-						        		Flex Package	        		
-					        		</div> <!-- /plan-title -->
-					                
-						            <div class="plan-price">
-					                	$5<span class="term">Per Agent</span>
-									</div> <!-- /plan-price -->
-									
-						        </div> <!-- /plan-header -->	          
-						        
-						        <div class="plan-features">
-									<ul>					
-										<li><strong>Perfect</strong> for mid size companies with round the clock support </li>
-										<li>Flexible package</li>
-										<li>Email & Chat support</li>
-										<li>Multimedia support</li>
-									</ul>
-								</div> <!-- /plan-features -->
-								
-								<div class="plan-actions">				
-									<a href="javascript:;" class="btn">Signup Now</a>				
-								</div> <!-- /plan-actions -->
-					
-							</div> <!-- /plan -->
-					    </div> <!-- /plan-container -->
-					    
-					    <div class="plan-container">
-					        <div class="plan">
-						        <div class="plan-header">
-					                
-						        	<div class="plan-title">
-						        		Virtual Agent	        		
-					        		</div> <!-- /plan-title -->
-					                
-						            <div class="plan-price">
-					                	$30<span class="term">Per Month</span>
-									</div> <!-- /plan-price -->
-									
-						        </div> <!-- /plan-header -->	       
-						        
-						        <div class="plan-features">
-									<ul>
-										<li><strong>Perfect</strong> for big companies with round the clock support and knwledge base.</li>
-										<li>Easy to setup and use</li>
-										<li>Mobile agent and multimedia support</li>
-										<li>Universal inbox and cases</li>
-									</ul>
-								</div> <!-- /plan-features -->
-								
-								<div class="plan-actions">				
-									<a href="javascript:;" class="btn">Signup Now</a>				
-								</div> <!-- /plan-actions -->
-					
-							</div> <!-- /plan -->
-							
-					    </div> <!-- /plan-container -->
-				
-				
-					</div> <!-- /pricing-plans -->
-						
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- 여기가 content 채우는 영역입니다 - 현식 -
+	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
+	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
+	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
+-->
+
+
 					</div> <!-- /widget-content -->
 						
-				</div> <!-- /widget -->					
-				
-		    </div> <!-- /span12 -->     	
+				</div> <!-- /widget -->
+	      		
+		    </div> <!-- /span8 -->
+	      	
+	      	
 	      	
 	      	
 	      </div> <!-- /row -->
@@ -294,8 +193,9 @@
     
 </div> <!-- /main -->
     
-
-
+    
+    
+ 
 <div class="extra">
 
 	<div class="extra-inner">
@@ -378,13 +278,9 @@
 </div> <!-- /footer -->
     
 
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery-1.7.2.min.js"></script>
 
-<script src="js/bootstrap.js"></script>
-<script src="js/base.js"></script>
+<jsp:include page="include/6.jsp" />
+
 
   </body>
 
