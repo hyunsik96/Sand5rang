@@ -369,10 +369,10 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    [로티세리바비큐치킨] Rotisserie Barbecue
+                    [로티세리치킨] Rotisserie
                   </h5>
                   <p>
-                   	 손으로 찢어 더욱 부드러운 치킨의 혁명
+                   	 손으로 직접 찢어만들어 더욱 부드러워진 치킨의 혁명
                   </p>
                   <div class="options">
                     <h6>
@@ -435,14 +435,13 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    [로스트치킨아보카도] Roasted Avocado 
-                  </h5>
+					[로스트치킨아보카도] 손으로 찢어 더욱 부드러운 치킨의 혁명
                   <p>
-                   	 담백한 닭가슴살 위 아보카도 한스쿱!입안 가득 부드러운 신선함!
+                   	담백한 닭가슴살 위 아보카도 한스쿱!입안 가득 부드러운 신선함!
                   </p>
                   <div class="options">
                     <h6>
-                       357 Kcal / 267(g)
+                      357 Kcal / 267(g)
                     </h6>
                   </div>
                 </div>
@@ -450,6 +449,7 @@
             </div>
           </div>
       </div>
+      
     </div>
   </section>
 
