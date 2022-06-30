@@ -12,4 +12,11 @@ public class SeinController {
 	@Autowired
 	private SeinService seinService;
 	
+	
+	@RequestMapping("/menu.ma")
+    public String menuController()
+    {
+        return "sein/menu";
+    }
+	
 }
