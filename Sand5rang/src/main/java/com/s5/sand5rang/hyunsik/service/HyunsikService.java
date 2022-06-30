@@ -15,6 +15,10 @@ public class HyunsikService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	public String test() {
+		return hyunsikDao.test(sqlSession);
+	}
+	
 	
 }
 

@@ -14,6 +14,9 @@ public class HyunsikController {
 	
 	@RequestMapping(value="hyunsikTest.hs")
 	public String gg() {
+		
+		String a = hyunsikService.test();
+		System.out.println(a);
 		return "hyunsik/관리자작성용";
 	}
 
