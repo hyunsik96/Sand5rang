@@ -156,14 +156,14 @@
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">All Sandwitch</li>
-        <li data-filter=".burger">Classic</li>
+        <li data-filter=".classic">Classic</li>
         <li data-filter=".pasta">Perimum</li>
         <li data-filter=".fries">Light</li>
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all classic">
             <div class="box">
               <div>
                 <div class="img-box">
