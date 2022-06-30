@@ -513,7 +513,7 @@
 
 	    // 마커를 생성합니다
 	    var marker = new kakao.maps.Marker({
-	   		 position: markerPosition, 
+	   		position: markerPosition, 
 	   		text: 'Sand5rang 당산지점'
 	    });
 
