@@ -390,7 +390,7 @@ a:focus {
   background-color: #062c10;
 }
 
-.detail-box{
+.filters-content .detail-box{
 	background-color: rgb(16, 76, 25);
   color :rgb(241, 243, 242);
   font-family: 'Noto Sans KR', sans-serif;
@@ -423,7 +423,7 @@ a:focus {
 .slider_section .carousel-indicators li.active {
   width: 20px;
   height: 20px;
-  background-color: #062c10;
+  background-color: #040404;
 }
 
 .offer_section {
@@ -442,9 +442,9 @@ a:focus {
   border-radius: 5px;
   padding: 20px 15px;
   margin-bottom: 30px;
-  /* background-color: #d8d8d9; */
-  /* border : 2px solid #d8d8d9; */
-  /* background-color: #eeeeee; */
+  /* background-color: #d8d8d9;  */
+  /* border : 2px solid #d8d8d9;  */
+   /* background-color: #eeeeee; */
   color: #ffffff;
 }
 
@@ -580,7 +580,7 @@ a:focus {
 }
 
 .food_section .box .detail-box p {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .food_section .box .detail-box h6 {
