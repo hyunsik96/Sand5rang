@@ -155,15 +155,15 @@
       </div>
 
       <ul class="filters_menu">
-        <li class="active" data-filter="*">All Sandwitch</li>
+        <li class="active" data-filter="*">All</li>
         <li data-filter=".classic">Classic</li>
-        <li data-filter=".pasta">Perimum</li>
-        <li data-filter=".fries">Light</li>
+        <li data-filter=".premium">Premium</li>
+        <li data-filter=".light">Light</li>
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all classic">
+          <div class="col-sm-6 col-lg-4 all light">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -186,7 +186,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all burger">
+          <div class="col-sm-6 col-lg-4 all light">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -208,7 +208,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all light">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -230,7 +230,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all light">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -252,7 +252,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all fries">
+          <div class="col-sm-6 col-lg-4 all classic">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -274,7 +274,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all classic">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -296,7 +296,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all burger">
+          <div class="col-sm-6 col-lg-4 all classic">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -318,7 +318,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all burger">
+          <div class="col-sm-6 col-lg-4 all classic">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -340,7 +340,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all premium">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -362,7 +362,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all premium">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -370,7 +370,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    [로티세리바비큐치킨] Rotisserie Barbecue Chicken
+                    [로티세리바비큐치킨] Rotisserie Barbecue
                   </h5>
                   <p>
                    	 손으로 찢어 더욱 부드러운 치킨의 혁명
@@ -384,7 +384,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all premium">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -392,7 +392,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    [스테이크 & 치즈] Steak & Cheese 
+                    [스테이크&치즈] Steak&Cheese 
                   </h5>
                   <p>
                    	 담백한 터키와 바삭한 베이컨 환상조합에 부드러운 아보카도는 신의 한수
@@ -406,7 +406,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all premium">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -414,7 +414,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    [풀드포크바비큐] Pulled Pork Barbecue
+                    [풀드포크바비큐] Pulled Pork
                   </h5>
                   <p>
                    	 미국 스타일의 풀드 포크 바비큐가 가득 들어간 샌드위치
@@ -428,7 +428,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
+          <div class="col-sm-6 col-lg-4 all premium">
             <div class="box">
               <div>
                 <div class="img-box">
