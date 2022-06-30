@@ -16,24 +16,5 @@ public class HyunsikController {
 	public String gg() {
 		return "hyunsik/관리자작성용";
 	}
-	
-	@RequestMapping(value="hyunsikTest2.hs")
-	public String gg2() {
-		return "anna/관리자작성용";
-	}
-	
-	@RequestMapping(value="hyunsikTest3.hs")
-	public String gg3() {
-		return "sangmi/관리자작성용";
-	}
-	
-	@RequestMapping(value="hyunsikTest4.hs")
-	public String gg4() {
-		return "seonghoon/관리자작성용";
-	}
-	
-	@RequestMapping(value="hyunsikTest5.hs")
-	public String gg5() {
-		return "sein/관리자작성용";
-	}
+
 }
