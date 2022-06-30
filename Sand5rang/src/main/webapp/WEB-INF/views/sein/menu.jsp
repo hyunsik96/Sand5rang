@@ -180,7 +180,6 @@
                     <h6>
                      209 Kcal / 164(g)
                     </h6>
-                    
                   </div>
                 </div>
               </div>
@@ -197,7 +196,7 @@
                     [에그마요] Egg Mayo
                   </h5>
                   <p>
-                                    부드러운 달걀과 고소한 마요네즈가 만나 더 부드러운 스테디셀러
+                     부드러운 달걀과 고소한 마요네즈가 만나 더 부드러운 스테디셀러
                   </p>
                   <div class="options">
                     <h6>
@@ -436,7 +435,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    [로스트치킨아보카도] Roasted Chicken Avocado 
+                    [로스트치킨아보카도] Roasted Avocado 
                   </h5>
                   <p>
                    	 담백한 닭가슴살 위 아보카도 한스쿱!입안 가득 부드러운 신선함!
@@ -450,12 +449,6 @@
               </div>
             </div>
           </div>
-          
-      </div>
-      <div class="btn-box">
-        <a href="">
-          View More
-        </a>
       </div>
     </div>
   </section>
