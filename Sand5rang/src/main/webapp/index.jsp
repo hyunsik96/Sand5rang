@@ -100,7 +100,7 @@
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        가맹문의
+                        	가맹문의
                       </a>
                     </div>
                   </div>
