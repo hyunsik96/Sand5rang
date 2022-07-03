@@ -96,14 +96,14 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="hyunsikTest.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
                 
                 
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>가맹점 업무처리</span>
@@ -111,7 +111,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
+                        <li class="active"><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
 						<li><a href="faq.html">공장발주내역</a></li>
                     </ul>    				
 				</li>
