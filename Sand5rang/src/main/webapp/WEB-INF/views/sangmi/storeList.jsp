@@ -183,55 +183,19 @@
 			          </tr>
 			         </thead>
 			          <tbody align="center">
-			             <c:forEach var="s" items="${ list }">
+			             <c:forEach var="s" items="${ list }" varStatus="status">
 			              <tr>
 			                <td>${s.storeName}</td>
 			                <td>${s.storeId}</td>
 			                <td>${s.address}</td> 
-			                <td>${s.phone}</td>
-			                <td>${s.email}</td>
+			                <td>${e[status.index].phone}</td>
+			                <td>${e.[status.index].email}</td>
 			                <td><button type="submit">폐업</button></td>
 			              </tr>
 			             </c:forEach>   
 			          </tbody>  
 			     </table>
 			
-<!-- 페이징 -->
-<!--  수정해야 함 
-            <div id="pagingArea">
-                <ul class="pagination">
-                    
-                   <c:choose>
-                     <c:when test="${ pi.currentPage eq 1 }">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                     </c:when>
-                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }">Previous</a></li>
-                     </c:otherwise>
-                   </c:choose> 
-                    
-                    
-                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-	                    <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
-                    </c:forEach>
-                    
-                    <c:choose>
-                      <c:when test="${ pi.currentPage eq pi.maxPage }">
-                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-                      </c:when>
-                      <c:otherwise>
-                         <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
-                      </c:otherwise>
-                    </c:choose>
-                    
-           -->         
-                    
-                    
-                </ul>
-            </div>
-
-
-
 
 
 					</div> <!-- /widget-content -->
