@@ -322,7 +322,7 @@
 
              <table class="table table-striped table-bordered">
                   <tr>
-                    <td class="td-actions">우장산점</td>
+                    <td class="td-actions">우장산2점</td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9006">999</span></td>          
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9007">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9008">999</span></td>
