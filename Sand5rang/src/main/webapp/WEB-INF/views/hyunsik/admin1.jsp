@@ -167,7 +167,7 @@
 					
 					<div class="widget-content">
 
-              <table class="table table-striped table-bordered click-to-modal">
+              <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th class="td-actions">가맹점명</th>
@@ -180,55 +180,41 @@
                     <th class="td-actions">승인 / 반려</th>
                   </tr>
                 </thead>
-                <tbody>
-               
-                  <tr class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#11111">
-                    <td class="td-actions">우장산점</td>
-                    <td class="td-actions"><span>999</span></td>          
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-danger btn-small">반려</a></td>
-                  </tr>
-                
-
-              <div id="11111" class="accordion-body collapse">
-              <div class="accordion-inner">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-              </div>
-              </div>
-
-                  <tr class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#22222">
-                    <td class="td-actions">우장산점</td>
-                    <td class="td-actions"><span>999</span></td>          
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><span>999</span></td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-danger btn-small">반려</a></td>
-                  </tr>
-                
-
-              <div id="22222" class="accordion-body collapse">
-              <div class="accordion-inner">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-              </div>
-              </div>
-
-                
-                </tbody>
               </table>
               
+             <table class="table table-striped table-bordered">
+                  <tr class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#11111">
+                    <td class="td-actions">우장산점</td>
+                    <td class="td-actions">999</td>          
+                    <td class="td-actions">999</td>
+                    <td class="td-actions">999</td>
+                    <td class="td-actions">999</td>
+                    <td class="td-actions">999</td>
+                    <td class="td-actions">999</td>
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-danger btn-small">반려</a></td>
+                  </tr>
+              </table>
+			
 
-                                                        
-                                                        
+              <div id="11111" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="td-actions">우장산점</th>
+			                    <th class="td-actions">빵</th>
+			                    <th class="td-actions">채소</th>
+			                    <th class="td-actions">치즈</th>
+			                    <th class="td-actions">고기</th>
+			                    <th class="td-actions">소스</th>
+			                    <th class="td-actions">날짜</th>
+							</tr>
+						</thead>
+	            	</table>
+              	</div>
+              </div>
+
+
 
 
 
