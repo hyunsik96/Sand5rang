@@ -138,12 +138,10 @@
 						<div class="widget ">
 							<div class="widget-header">
 								<i class="icon-user"></i>
-								<h3>XXX 가맹점주님 환영합니다</h3>
+								<h3>XXX 가맹점 발주 리스트 조회</h3>
 							</div>
 
 							<div class="widget-content">
-								<br>
-								<h2>&nbsp;&nbsp;금천구청점 발주 리스트 조회</h2>
 								<!-- /widget-header -->
 								<div class="widget-content">
 									<table class="table table-striped table-bordered">
@@ -272,7 +270,7 @@
 									</table>
 								</div>
 								<!-- /widget-content -->
-								<ul class="pagination pagination-sm">
+								<ul class="pagination"> <!-- pagination-sm -->
 									<li class="page-item"><a class="page-link" href="#"><</a></li>
 									<li class="page-item"><a class="page-link" href="#">1</a></li>
 									<li class="page-item"><a class="page-link" href="#">2</a></li>
