@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+.click-to-modal>tbody>tr>td>span:hover {
+	cursor: pointer;
+}
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
 	display: block;
 }

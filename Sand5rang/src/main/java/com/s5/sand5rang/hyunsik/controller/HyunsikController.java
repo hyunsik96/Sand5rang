@@ -14,23 +14,9 @@ public class HyunsikController {
 	private HyunsikService hyunsikService;
 	
 	@RequestMapping(value="hyunsikTest.hs")
-	public String gg(Model model) {
-		
-//		String a = hyunsikService.test();
-//		System.out.println(a);
-//		model.addAttribute("a", a);
-		
-		return "hyunsik/메인";
-	}
+	public String gg() {return "hyunsik/메인";}
 	
 	@RequestMapping(value="hyunsikTest2.hs")
-	public String ggdd(Model model) {
-		
-//		String a = hyunsikService.test();
-//		System.out.println(a);
-//		model.addAttribute("a", a);
-		
-		return "hyunsik/관리자작성용";
-	}
+	public String ggdd() {return "hyunsik/admin1";}
 
 }
