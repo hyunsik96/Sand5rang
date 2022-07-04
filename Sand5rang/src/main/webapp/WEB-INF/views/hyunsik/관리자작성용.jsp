@@ -166,7 +166,23 @@
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
-
+													 <!-- Button to trigger modal -->
+                                                    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+                                                     
+                                                    <!-- Modal -->
+                                                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h3 id="myModalLabel">Thank you for visiting EGrappler.com</h3>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <p>One fine body…</p>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                        <button class="btn btn-primary">Save changes</button>
+                                                      </div>
+                                                    </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 여기가 content 채우는 영역입니다 - 현식 -
 	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
