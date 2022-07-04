@@ -333,6 +333,28 @@ margin-bottom: 26px;}
 		width: 48%;
 	}
 }
+
+.bread{
+	display:inline-block;
+	margin-left : 20px;
+}
+.vegetable{
+	display:inline-block;
+	margin-left : 20px;
+}
+.meat{
+	display:inline-block;
+	margin-left : 20px;
+}
+.sauce{
+	display:inline-block;
+	margin-left : 20px;
+}
+.cheese{
+	display:inline-block;
+	margin-left : 20px;
+}
+
 </style>
 </head>
 <body>
