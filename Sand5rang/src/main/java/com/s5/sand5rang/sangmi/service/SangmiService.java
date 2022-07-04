@@ -15,6 +15,10 @@ public class SangmiService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	public String storeList() {
+		
+		return SangmiDao.storeList(sqlSession);
+	}
 	
 }
 
