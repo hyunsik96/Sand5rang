@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
   
@@ -163,20 +164,71 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>storeList</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
-<!-- 여기가 content 채우는 영역입니다 - 현식 -
-	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
-	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
-	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
--->
-          
+<br><br><br><br><br><br>
 
+			   <table id="storeList" align="center">
+			       <thead align="center"> 
+			          <tr>
+			              <th>가맹점명</th>
+			              <th>아이디</th>
+			              <th>주소</th>
+			              <th>번호</th>
+			              <th>이메일</th>
+			              <th>폐업</th>
+			          </tr>
+			         </thead>
+			          <tbody align="center">
+			             <c:forEach var="s" items="${ list }">
+			              <tr>
+			                <td>${s.storeName}</td>
+			                <td>${s.storeId}</td>
+			                <td>${s.address}</td> 
+			                <td>${s.phone}</td>
+			                <td>${s.email}</td>
+			                <td><button type="submit">폐업</button></td>
+			              </tr>
+			             </c:forEach>   
+			          </tbody>  
+			     </table>
+			
+<!-- 페이징 -->
+<!--  수정해야 함 
+            <div id="pagingArea">
+                <ul class="pagination">
+                    
+                   <c:choose>
+                     <c:when test="${ pi.currentPage eq 1 }">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                     </c:when>
+                     <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }">Previous</a></li>
+                     </c:otherwise>
+                   </c:choose> 
+                    
+                    
+                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
+	                    <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+                    </c:forEach>
+                    
+                    <c:choose>
+                      <c:when test="${ pi.currentPage eq pi.maxPage }">
+                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                      </c:when>
+                      <c:otherwise>
+                         <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
+                      </c:otherwise>
+                    </c:choose>
+                    
+           -->         
+                    
+                    
+                </ul>
+            </div>
 
 
 
