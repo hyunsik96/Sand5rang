@@ -333,6 +333,23 @@ margin-bottom: 26px;}
 		width: 48%;
 	}
 }
+
+/* 세부페이지마다 공통적으로 유지할 style */
+        .content {
+            background-color:rgb(247, 245, 245);
+            width:80%;
+            margin:auto;
+        }
+        .innerOuter {
+            border:1px solid lightgray;
+            width:80%;
+            margin:auto;
+            padding:5% 10%;
+            background-color:white;
+        }
+
+
+
 </style>
 </head>
 <body>

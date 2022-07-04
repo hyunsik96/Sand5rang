@@ -164,13 +164,17 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>storeList</h3>
+	      				<h3>가맹점 전체조회</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br>
-
+<br><br><br><br>
+           
+           <div class="content">
+           
+             <br><br>
+             <div class="innerOuter" style="padding:5% 10%;">
 			   <table id="storeList" align="center">
 			       <thead align="center"> 
 			          <tr>
@@ -195,7 +199,10 @@
 			             </c:forEach>   
 			          </tbody>  
 			     </table>
-			
+			     </div>
+			     <br><br>
+			     
+			</div>
 
 
 					</div> <!-- /widget-content -->
