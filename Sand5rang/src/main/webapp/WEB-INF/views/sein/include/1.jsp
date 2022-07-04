@@ -2828,10 +2828,11 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 	display: block;
    	text-align: center;
 }
+
 .pagination ul {
 	display: inline-block;
-*display:inline;
-*zoom:1;
+	*display:inline;
+	*zoom:1;
 	margin-left: 0;
 	margin-bottom: 0;
 	-webkit-border-radius: 3px;
@@ -2852,6 +2853,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
    border: 1px solid #ddd;
    border-left-width: 0;
    margin-left: -5px;
+   margin-top: 30px;
 }
 .pagination a:hover, .pagination .active a {
 	background-color: #f5f5f5;

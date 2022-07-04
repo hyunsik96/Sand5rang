@@ -15,7 +15,7 @@
 <link
 	href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
 	rel="stylesheet">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -135,13 +135,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<div class="widget ">
+						<div class="widget-content widget-table action-table">
 							<div class="widget-header">
 								<i class="icon-user"></i>
 								<h3>XXX 가맹점 발주 리스트 조회</h3>
 							</div>
 
-							<div class="widget-content">
+							
 								<!-- /widget-header -->
 								<div class="widget-content">
 									<table class="table table-striped table-bordered">
@@ -162,11 +162,11 @@
 											<tr>
 												<td class="th1">10</td>
 												<td class="th2">2022-07-03</td>
-												<td class="th3"><a href="#">90</a></td>
-												<td class="th4"><a href="#">90</a></td>
-												<td class="th5"><a href="#">90</a></td>
-												<td class="th6"><a href="#">70</a></td>
-												<td class="th7"><a href="#">10</a></td>
+												<td class="th3"><a data-toggle="modal" href="#vModal1" >90</a></td>
+												<td class="th4"><a data-toggle="modal" href="#vModal2">90</a></td>
+												<td class="th5"><a data-toggle="modal" href="#vModal3">90</a></td>
+												<td class="th6"><a data-toggle="modal" href="#vModal4">70</a></td>
+												<td class="th7"><a data-toggle="modal" href="#vModal5">10</a></td>
 												<td class="td-actions">승인대기
 													<a href="javascript:;"class="btn btn-small btn-success">
 														수정
@@ -269,8 +269,12 @@
 										</tbody>
 									</table>
 								</div>
-								<!-- /widget-content -->
-								<ul class="pagination"> <!-- pagination-sm -->
+							</div>
+							</div>
+							
+							<div style="margin-top: 100px">
+							<!-- /widget-content -->
+								<ul class="pagination pagination-sm"> <!-- pagination-sm -->
 									<li class="page-item"><a class="page-link" href="#"><</a></li>
 									<li class="page-item"><a class="page-link" href="#">1</a></li>
 									<li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -278,39 +282,16 @@
 									<li class="page-item"><a class="page-link" href="#">></a></li>
 								</ul>
 							</div>
-							</div>
-							
-							<!-- The Modal -->
-							<!--<div class="modal" id="myModal">
-							  <div class="modal-dialog">
-								<div class="modal-content">-->	 
-							
-								  <!-- Modal Header -->
-								  <!--<div class="modal-header">
-									<h4 class="modal-title">Modal Heading</h4>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-								  </div>-->	 
-							
-								  <!-- Modal body -->
-								  <!--<div class="modal-body">
-									Modal body..
-								  </div>-->	 
-							
-								  <!-- Modal footer -->
-								  <!--<div class="modal-footer">
-									<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-								  </div>
-								-->	  
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
 
 
-
+	<br><br><br>
 	<div class="extra">
 
 		<div class="extra-inner">
@@ -402,6 +383,205 @@
 
 	<jsp:include page="include/6.jsp" />
 
+	<!-- The Modal -->
+	<div class="modal" id="vModal1" style="display: none;">
+		<div class="modal-dialog">
+		  <div class="modal-content">	 
+	  
+		  <!-- Modal Header -->
+		  <div class="modal-header">
+			  <h4 class="modal-title">Bread(빵) 발주내역</h4>
+		  </div> 
+		  
+		  <!-- Modal body -->
+		  <div class="modal-body">
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/파마산.jpg">
+			  </div>
+			  <div class="bb">
+				<b>파마산 오레가노</b><br>
+				<input id="count" value="3"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+
+			   <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/플렛.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>플렛 브레드</b><br>
+				  <input id="count" value="2"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+			 
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/화이트.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>화이트 브레드</b><br>
+				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+		  </div>
+
+		  
+		  <!-- Modal footer -->
+		  <div class="modal-footer">
+			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
+			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+		  </div>  
+	  </div>
+	</div>
+  </div>
+
+  <!-- The Modal -->
+	<div class="modal" id="vModal2" style="display: none;">
+		<div class="modal-dialog">
+		  <div class="modal-content">	 
+	  
+		  <!-- Modal Header -->
+		  <div class="modal-header">
+			  <h4 class="modal-title">VEGETABLE(야채) 발주내역</h4>
+		  </div> 
+		  
+		  <!-- Modal body -->
+		  <div class="modal-body">
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/양상추.jpg">
+			  </div>
+			  <div class="bb">
+				<b>양상추</b><br>
+				<input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+
+			   <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/토마토.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>토마토</b><br>
+				  <input id="count" value="20"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+			 
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/오이.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>오이</b><br>
+				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/양파.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>양파</b><br>
+				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/피망.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>피망</b><br>
+				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/할라피뇨.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>할라피뇨</b><br>
+				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+
+			  <div class="bimg">
+				<img src="/sand5rang/resources/images/ingredient/아보카도.jpg">
+			  </div>
+			  <div class="bb">
+			  	<b>아보카도</b><br>
+				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+			  </div>
+		  </div>
+
+
+		  <div class="modal" id="vModal3" style="display: none;">
+			<div class="modal-dialog">
+			  <div class="modal-content">	 
+		  
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				  <h4 class="modal-title">MEAT(고기) 발주내역</h4>
+			  </div> 
+			  
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/페퍼로니.jpg">
+				  </div>
+				  <div class="bb">
+					<b>페퍼로니</b><br>
+					<input id="count" value="3"><input type="button" value="▲"><input type="button" value="▼">
+				  </div>
+	
+				   <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/에그.jpg">
+				  </div>
+				  <div class="bb">
+					  <b>에그</b><br>
+					  <input id="count" value="2"><input type="button" value="▲"><input type="button" value="▼">
+				  </div>
+				 
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/치킨.jpg">
+				  </div>
+				  <div class="bb">
+					  <b>치킨</b><br>
+					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+				  </div>
+
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/쉬림프.jpg">
+				  </div>
+				  <div class="bb">
+					  <b>쉬림프</b><br>
+					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+				  </div>
+
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/비프.jpg">
+				  </div>
+				  <div class="bb">
+					  <b>비프</b><br>
+					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+				  </div>
+			  </div>
+	
+			  
+			  <!-- Modal footer -->
+			  <div class="modal-footer">
+				  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
+				  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+			  </div>  
+		  </div>
+		</div>
+	  </div>
+
+		  
+		  <!-- Modal footer -->
+		  <div class="modal-footer">
+			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
+			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+		  </div>  
+	  </div>
+	</div>
+  </div>
+
+
+	  <script>
+
+		function closeModal(){
+
+			window.close();
+
+		}
+
+	  </script>
 
 </body>
 

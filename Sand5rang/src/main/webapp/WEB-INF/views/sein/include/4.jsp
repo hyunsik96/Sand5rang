@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
 /*------------------------------------------------------------------
@@ -250,17 +250,14 @@ textarea {
 }
 
 
-
-
-
 /*------------------------------------------------------------------
 [4. Main / .main]
 */
 
 .main {
 	padding-bottom: 2em;
-	
-	border-bottom: 1px solid #000;
+	margin-bottom: 100px;
+	/* border-bottom: 1px solid #000; */
 }
 
 
@@ -408,9 +405,6 @@ textarea {
 			
 		}
 
-
-
-
 .widget-content {
 	padding: 20px 15px 15px;
 	
@@ -525,10 +519,6 @@ textarea {
 	border-left: none;
 }
 
-.pagination{
-	margin-left: 42%;
-}
-
 /* Widget Plain */
 
 .widget-plain {
@@ -548,10 +538,6 @@ textarea {
 
 
 /* Widget Box */
-
-.widget-box {	
-	
-}
 
 .widget-box .widget-content {	
 	background: #E3E3E3;	
@@ -1344,6 +1330,43 @@ color: #333;
 	
 }
 
+/*-----------------------------------------------------------------*/
+/*[sein_add]*/
+
+
+.modal-body{
+	width: 90%;
+	height: 100%;
+}
+
+.modal-body>.bimg>img{
+	display: block;
+	float: left;
+	width: 120px;
+	height: 120px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.modal-body>.bb{
+	margin-top: 40px;
+	display: block;
+	float: left;
+}
+
+.modal-body>.bb input{
+	display: block;
+	float: left;
+	width: 20px;
+	margin: 0px;
+}
+
+.modal-body>.bb input[type=button]{
+	width: 25px;
+	display: inline-block;
+	margin-left: 3px;
+}
 
 </style>
 </head>

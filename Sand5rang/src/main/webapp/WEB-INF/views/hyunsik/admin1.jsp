@@ -458,7 +458,7 @@
               </div>
 
 
-					</div> <!-- /widget-content -->
+				</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		
