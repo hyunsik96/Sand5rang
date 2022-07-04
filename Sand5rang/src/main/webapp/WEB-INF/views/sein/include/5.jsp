@@ -176,8 +176,6 @@ Bootstrap Admin Template by EGrappler.com
 	color: #888;
 }
 
-
-
 /*------------------------------------------------------------------
 [4. Action Table / .action-table]
 */

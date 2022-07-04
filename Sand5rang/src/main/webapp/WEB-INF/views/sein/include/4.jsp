@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,16 +60,12 @@ textarea {
 	background:linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
-	
-	font-size: 10px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 12px;
 	color: #444;
 	text-transform: uppercase;
+
 }
-
-
-
-
-
 
 
 /*------------------------------------------------------------------
@@ -419,7 +417,7 @@ textarea {
 	background: #FFF;
 	
 	
-	border: 1px solid #D5D5D5;
+	/* border: 1px solid #D5D5D5; */
 	
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -462,12 +460,62 @@ textarea {
 .widget-table .widget-content {
 	padding: 0;
 }
+ 
 
-.widget-table .table {
+.widget-content .table .th1 {
+	width: 30px;
+	text-align: center;
+}
+
+.widget-content .table .th2 {
+	width: 130px;
+	text-align: center;
+}
+
+.widget-content .table .th3{
+	width: 70px;
+	text-align: center;
+}
+
+.widget-content .table .th4{
+	width: 70px;
+	text-align: center;
+}
+
+.widget-content .table .th5{
+	width: 70px;
+	text-align: center;
+}
+
+.widget-content .table .th6{
+	width: 70px;
+	text-align: center;
+}
+
+.widget-content .table .th7{
+	width: 70px;
+	text-align: center;
+}
+
+.widget-content .table .th6{
+	width: 70px;
+	text-align: center;
+}
+
+.widget-content .table td{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.widget-content .table .td-actions{
+	width: 200px;
+	text-align: center;
+}
+
+.widget-table .table{
 	margin-bottom: 0;
-	
 	border: none;
 }
+
 
 .widget-table .table tr td:first-child {
 	border-left: none;
@@ -477,6 +525,9 @@ textarea {
 	border-left: none;
 }
 
+.pagination{
+	margin-left: 42%;
+}
 
 /* Widget Plain */
 
