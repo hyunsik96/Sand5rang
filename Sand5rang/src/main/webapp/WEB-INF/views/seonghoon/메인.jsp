@@ -130,6 +130,21 @@
 						<li><a href="faq.html">문의 조회</a></li>
                     </ul>    				
 				</li>
+				
+				<li class="dropdown">					
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-long-arrow-down"></i>
+						<span>재고관리</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="icons.html">오늘의 재고</a></li>
+						<li><a href="faq.html">전체 재고 현황</a></li>
+						<li><a href="faq.html">재료별 재고 현황</a></li>
+						<li><a href="faq.html">폐기 현황 </a></li>
+                    </ul>    				
+				</li>				
                 
 				
 				<li>
