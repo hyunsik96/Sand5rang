@@ -178,7 +178,7 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>오늘의 재고</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -189,9 +189,7 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-	
-<h2 style="margin-left:20px">오늘의 재고</h2>
-<br>
+
 <h3 style="margin-left:20px">빵(Bread)</h3>
 <div class="bread" style="margin-top : 10px;">
 	<h4>파마산</h4>
@@ -219,6 +217,7 @@
 </div>
 <br>
 <br>
+<hr>
 <h3 style="margin-left:20px">야채(Vegetable)</h3>
 <div class="vegetable" style="margin-top:10px">
 	<h4>양상추</h4>
@@ -278,6 +277,7 @@
 </div>
 <br>
 <br>
+<hr>
 <h3 style="margin-left:20px">고기(Meat)</h3>
 <div class="meat" style="margin-top:10px">
 	<h4>페퍼로니</h4>
@@ -327,6 +327,8 @@
 	유통기한 : 2022-07-04
 	</p>
 </div>
+<br><br>
+<hr>
 <h3 style="margin-left:20px">소스(sauce)</h3>
 <div class="sauce" style="margin-top:10px">
 	<h4>랜치</h4>
@@ -368,6 +370,8 @@
 	유통기한 : 2022-07-04
 	</p>
 </div>
+<br><br>
+<hr>
 <h3 style="margin-left:20px">치즈(cheese)</h3>
 <div class="cheese" style="margin-top:10px">
 	<h4>아메리카</h4>

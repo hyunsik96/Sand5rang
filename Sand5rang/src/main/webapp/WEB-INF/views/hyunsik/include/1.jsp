@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.click-to-slide>tbody>tr:hover {
+.td-actions>span:hover {
 	cursor: pointer;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
@@ -1017,6 +1017,7 @@ table {
 .table thead th {
 	vertical-align: bottom;
 }
+
 .table colgroup+thead tr:first-child th, .table colgroup+thead tr:first-child td, .table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td {
 	border-top: 0;
 }
@@ -1039,7 +1040,7 @@ table {
 	border-left: 1px solid #dddddd;
 }
 .table-bordered thead:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child td {
-	border-top: 0;
+	border-top:  1px solid #dddddd;
 }
 .table-bordered thead:first-child tr:first-child th:first-child, .table-bordered tbody:first-child tr:first-child td:first-child {
 	-webkit-border-radius: 4px 0 0 0;
@@ -2826,6 +2827,8 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 	color: #333333;
 }
 .pagination {
+	display: block;
+	text-align: center;
 	height: 36px;
 	margin: 18px 0;
 }
@@ -2846,12 +2849,13 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 	display: inline;
 }
 .pagination a {
-	float: left;
+	display: inline-block;
 	padding: 0 14px;
 	line-height: 34px;
 	text-decoration: none;
 	border: 1px solid #ddd;
 	border-left-width: 0;
+	margin-left: -5px;
 }
 .pagination a:hover, .pagination .active a {
 	background-color: #f5f5f5;
