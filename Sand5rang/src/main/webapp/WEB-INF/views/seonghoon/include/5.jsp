@@ -338,6 +338,9 @@ margin-bottom: 26px;}
 	display:inline-block;
 	margin-left : 20px;
 }
+.bread>p{
+	font-size:15px;
+}
 .vegetable{
 	display:inline-block;
 	margin-left : 20px;
