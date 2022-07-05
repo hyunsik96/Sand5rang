@@ -17,6 +17,9 @@ public class HyunsikController {
 	public String gg() {return "hyunsik/메인";}
 	
 	@RequestMapping(value="hyunsikTest2.hs")
-	public String ggdd() {return "hyunsik/admin1";}
+	public String gg2() {return "hyunsik/admin1";}
+	
+	@RequestMapping(value="hyunsikTest3.hs")
+	public String gg3() {return "hyunsik/admin2";}
 
 }

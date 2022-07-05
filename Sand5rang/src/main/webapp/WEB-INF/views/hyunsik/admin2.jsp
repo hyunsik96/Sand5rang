@@ -111,8 +111,8 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li class="active"><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
+                        <li><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
+						<li class="active"><a href="hyunsikTest3.hs">공장발주내역</a></li>
                     </ul>    				
 				</li>
 				
@@ -158,42 +158,314 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget widget-table action-table">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<i class="icon-indent-right"></i>
+	      				<h3>공장발주내역</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
-													 <!-- Button to trigger modal -->
-                                                    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-                                                     
-                                                    <!-- Modal -->
-                                                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                      <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                        <h3 id="myModalLabel">Thank you for visiting EGrappler.com</h3>
-                                                      </div>
-                                                      <div class="modal-body">
-                                                        <p>One fine body…</p>
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                                                        <button class="btn btn-primary">Save changes</button>
-                                                      </div>
-                                                    </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!-- 여기가 content 채우는 영역입니다 - 현식 -
-	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
-	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
-	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
--->
+
+
+
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th class="td-actions">날짜</th>
+                    <th class="td-actions">빵</th>
+                    <th class="td-actions">채소</th>
+                    <th class="td-actions">치즈</th>
+                    <th class="td-actions">고기</th>
+                    <th class="td-actions">소스</th>
+                  </tr>
+                </thead>
+              </table>
+              
+             <table class="table table-striped table-bordered">
+                  <tr>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9001, #9002, #9003, #9004, #9005">22/07/13</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9001">999</span></td>          
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9002">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9003">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9004">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9005">999</span></td>
+                  </tr>
+              </table>
+			
+
+              <div id="9001" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">파마산</th>
+			                    <th class="td-actions">화이트</th>
+			                    <th class="td-actions">플랫</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+
+              <div id="9002" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">양상추</th>
+			                    <th class="td-actions">토마토</th>
+			                    <th class="td-actions">오이</th>
+			                    <th class="td-actions">양파</th>
+			                    <th class="td-actions">피망</th>
+			                    <th class="td-actions">할라피뇨</th>
+			                    <th class="td-actions">아보카도</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+              
+              <div id="9003" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">아메리칸</th>
+			                    <th class="td-actions">모짜렐라</th>
+			                    <th class="td-actions">슈레드</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+              
+              <div id="9004" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">페퍼로니</th>
+			                    <th class="td-actions">에그</th>
+			                    <th class="td-actions">치킨</th>
+			                    <th class="td-actions">쉬림프</th>
+			                    <th class="td-actions">비프</th>
+			                    <th class="td-actions">베이컨</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+
+              <div id="9005" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">랜치</th>
+			                    <th class="td-actions">스위트칠리</th>
+			                    <th class="td-actions">올리브오일</th>
+			                    <th class="td-actions">머스타드</th>
+			                    <th class="td-actions">후추</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+              
+
+             <table class="table table-striped table-bordered">
+                  <tr>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9006, #9007, #9008, #9009, #9010">22/07/12</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9006">999</span></td>          
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9007">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9008">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9009">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9010">999</span></td>
+                  </tr>
+              </table>
+			
+
+              <div id="9006" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">파마산</th>
+			                    <th class="td-actions">화이트</th>
+			                    <th class="td-actions">플랫</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+
+              <div id="9007" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">양상추</th>
+			                    <th class="td-actions">토마토</th>
+			                    <th class="td-actions">오이</th>
+			                    <th class="td-actions">양파</th>
+			                    <th class="td-actions">피망</th>
+			                    <th class="td-actions">할라피뇨</th>
+			                    <th class="td-actions">아보카도</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+              
+              <div id="9008" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">아메리칸</th>
+			                    <th class="td-actions">모짜렐라</th>
+			                    <th class="td-actions">슈레드</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+              
+              <div id="9009" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">페퍼로니</th>
+			                    <th class="td-actions">에그</th>
+			                    <th class="td-actions">치킨</th>
+			                    <th class="td-actions">쉬림프</th>
+			                    <th class="td-actions">비프</th>
+			                    <th class="td-actions">베이컨</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+
+              <div id="9010" class="accordion-body collapse">
+	          	<div class="accordion-inner">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+			                    <th class="td-actions">랜치</th>
+			                    <th class="td-actions">스위트칠리</th>
+			                    <th class="td-actions">올리브오일</th>
+			                    <th class="td-actions">머스타드</th>
+			                    <th class="td-actions">후추</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+								<td class="td-actions">9</td>
+							</tr>
+						</tbody>
+	            	</table>
+              	</div>
+              </div>
+
 
 
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
+				
+								<ul class="pagination pagination-sm">
+									<li class="page-item"><a class="page-link" href="#"><</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item"><a class="page-link" href="#">></a></li>
+								</ul>
 	      		
 		    </div> <!-- /span8 -->
 	      	
