@@ -17,8 +17,7 @@ body{
 	cursor: pointer;
 }
 .td-actions>span {
-    color: #19bc9c;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .hyunsik-table td, .hyunsik-table th, .hyunsik-table td{
 	text-align: center;
