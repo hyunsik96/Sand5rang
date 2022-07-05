@@ -1,7 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
   
@@ -30,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -98,7 +96,7 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="hyunsikTest.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
@@ -113,8 +111,8 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
+                        <li><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
+						<li><a href="hyunsikTest3.hs">공장발주내역</a></li>
                     </ul>    				
 				</li>
 				
@@ -133,8 +131,8 @@
 				</li>
                 
 				
-				<li>
-					<a href="reports.html">
+				<li class="active">
+					<a href="hyunsikTest4.hs">
 						<i class="icon-list-alt"></i>
 						<span>결제대금</span>
 					</a>    				
@@ -160,84 +158,113 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget widget-table action-table">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3>가맹점 전체조회</h3>
+	      				<i class="icon-money"></i>
+	      				<h3>가맹점별 결제내역 확인</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br>	
-           
-           <div class="content">
-           
-             <br><br>
-             <div class="innerOuter" style="padding:5% 10%;">
-			   <table class="table table-striped table-bordered" id="storeList" align="center">
-			       <thead align="center"> 
-			          <tr>
-			              <th>가맹점명</th>
-			              <th>아이디</th>
-			              <th>주소</th>
-			              <th>번호</th>
-			              <th>이메일</th>
-			              <th>폐업</th>
-			          </tr>
-			         </thead>
-			          <tbody align="center">
-			             <c:forEach var="s" items="${ list }">
-			              <tr>
-			                <td>${s.storeName}</td>
-			                <td>${s.storeId}</td>
-			                <td>${s.address}</td> 
-			                <td>${s.phone}</td>
-			                <td>${s.email}</td>
-			                <td><button type="submit">폐업</button></td>
-			              </tr>
-			             </c:forEach>   
-			          </tbody>  
-			     </table>
-			     </div>
-			     <br><br><br>
-			     
-			</div>
-  <div id="pagingArea">
-                <ul class="pagination">
-                    
-                   <c:choose>
-                     <c:when test="${ pi.currentPage eq 1 }">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                     </c:when>
-                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }">Previous</a></li>
-                     </c:otherwise>
-                   </c:choose> 
-                    
-                    
-                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-	                    <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
-                    </c:forEach>
-                    
-                    <c:choose>
-                      <c:when test="${ pi.currentPage eq pi.maxPage }">
-                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-                      </c:when>
-                      <c:otherwise>
-                         <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
-                      </c:otherwise>
-                    </c:choose>
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
+              <table class="table table-striped table-bordered hyunsik-table">
+                <thead>
+                  <tr>
+                    <th>No.</td>
+                    <th>가맹점명</td>
+                    <th>입금액</td>
+                    <th>결제금액</td>
+                    <th>잔액</td>
+                    <th>담당자명</td>
+                    <th>처리날짜</td>
+                    <th>명세서발행이메일</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>9</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                </tbody>
+              </table>
 
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
+	      		
+								<ul class="pagination pagination-sm">
+									<li class="page-item"><a class="page-link" href="#"><</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item"><a class="page-link" href="#">></a></li>
+								</ul>
 	      		
 		    </div> <!-- /span8 -->
 	      	

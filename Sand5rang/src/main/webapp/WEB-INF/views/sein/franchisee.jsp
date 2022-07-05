@@ -135,7 +135,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<div class="widget-content widget-table action-table">
+						<div class="widget widget-table action-table">
 							<div class="widget-header">
 								<i class="icon-user"></i>
 								<h3>XXX 가맹점 발주 리스트 조회</h3>

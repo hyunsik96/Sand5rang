@@ -1,7 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
   
@@ -30,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -98,14 +96,14 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="hyunsikTest.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
                 
                 
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>가맹점 업무처리</span>
@@ -113,7 +111,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
+                        <li class="active"><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
 						<li><a href="faq.html">공장발주내역</a></li>
                     </ul>    				
 				</li>
@@ -164,76 +162,34 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>가맹점 전체조회</h3>
+	      				<h3>페이지 제목 적는곳</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
+													 <!-- Button to trigger modal -->
+                                                    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+                                                     
+                                                    <!-- Modal -->
+                                                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h3 id="myModalLabel">Thank you for visiting EGrappler.com</h3>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <p>One fine body…</p>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                        <button class="btn btn-primary">Save changes</button>
+                                                      </div>
+                                                    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- 여기가 content 채우는 영역입니다 - 현식 -
+	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
+	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
+	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
+-->
 
-<br><br><br>	
-           
-           <div class="content">
-           
-             <br><br>
-             <div class="innerOuter" style="padding:5% 10%;">
-			   <table class="table table-striped table-bordered" id="storeList" align="center">
-			       <thead align="center"> 
-			          <tr>
-			              <th>가맹점명</th>
-			              <th>아이디</th>
-			              <th>주소</th>
-			              <th>번호</th>
-			              <th>이메일</th>
-			              <th>폐업</th>
-			          </tr>
-			         </thead>
-			          <tbody align="center">
-			             <c:forEach var="s" items="${ list }">
-			              <tr>
-			                <td>${s.storeName}</td>
-			                <td>${s.storeId}</td>
-			                <td>${s.address}</td> 
-			                <td>${s.phone}</td>
-			                <td>${s.email}</td>
-			                <td><button type="submit">폐업</button></td>
-			              </tr>
-			             </c:forEach>   
-			          </tbody>  
-			     </table>
-			     </div>
-			     <br><br><br>
-			     
-			</div>
-  <div id="pagingArea">
-                <ul class="pagination">
-                    
-                   <c:choose>
-                     <c:when test="${ pi.currentPage eq 1 }">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                     </c:when>
-                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }">Previous</a></li>
-                     </c:otherwise>
-                   </c:choose> 
-                    
-                    
-                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-	                    <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
-                    </c:forEach>
-                    
-                    <c:choose>
-                      <c:when test="${ pi.currentPage eq pi.maxPage }">
-                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-                      </c:when>
-                      <c:otherwise>
-                         <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
-                      </c:otherwise>
-                    </c:choose>
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
 
 					</div> <!-- /widget-content -->
 						

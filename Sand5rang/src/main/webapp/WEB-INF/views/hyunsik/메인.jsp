@@ -112,7 +112,7 @@
 				
 					<ul class="dropdown-menu">
                         <li><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
+						<li><a href="hyunsikTest3.hs">공장발주내역</a></li>
                     </ul>    				
 				</li>
 				
@@ -132,7 +132,7 @@
                 
 				
 				<li>
-					<a href="reports.html">
+					<a href="hyunsikTest4.hs">
 						<i class="icon-list-alt"></i>
 						<span>결제대금</span>
 					</a>    				

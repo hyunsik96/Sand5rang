@@ -112,7 +112,7 @@
 				
 					<ul class="dropdown-menu">
                         <li class="active"><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
+						<li><a href="hyunsikTest3.hs">공장발주내역</a></li>
                     </ul>    				
 				</li>
 				
@@ -132,7 +132,7 @@
                 
 				
 				<li>
-					<a href="reports.html">
+					<a href="hyunsikTest4.hs">
 						<i class="icon-list-alt"></i>
 						<span>결제대금</span>
 					</a>    				
@@ -184,14 +184,14 @@
               
              <table class="table table-striped table-bordered">
                   <tr>
-                    <td class="td-actions">우장산점</td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9001, #9002, #9003, #9004, #9005">우장산점</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9001">999</span></td>          
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9002">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9003">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9004">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9005">999</span></td>
                     <td class="td-actions">22/07/13</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-success">승인</a><a href="javascript:;" class="btn btn-danger">반려</a></td>
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-small btn-danger">반려</a></td>
                   </tr>
               </table>
 			
@@ -322,14 +322,14 @@
 
              <table class="table table-striped table-bordered">
                   <tr>
-                    <td class="td-actions">우장산2점</td>
+                    <td class="td-actions"><span  class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9006, #9007, #9008, #9009, #9010">우장산2점</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9006">999</span></td>          
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9007">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9008">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9009">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9010">999</span></td>
                     <td class="td-actions">22/07/13</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-success">승인</a><a href="javascript:;" class="btn btn-danger">반려</a></td>
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-small btn-danger">반려</a></td>
                   </tr>
               </table>
 			
