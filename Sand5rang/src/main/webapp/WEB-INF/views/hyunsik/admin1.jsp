@@ -191,7 +191,7 @@
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9004">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9005">999</span></td>
                     <td class="td-actions">22/07/13</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-success">승인</a><a href="javascript:;" class="btn btn-danger">반려</a></td>
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-small btn-danger">반려</a></td>
                   </tr>
               </table>
 			
@@ -329,7 +329,7 @@
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9009">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9010">999</span></td>
                     <td class="td-actions">22/07/13</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-success">승인</a><a href="javascript:;" class="btn btn-danger">반려</a></td>
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-small btn-danger">반려</a></td>
                   </tr>
               </table>
 			
