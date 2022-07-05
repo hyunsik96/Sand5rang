@@ -29,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -96,8 +95,8 @@
 
 			<ul class="mainnav">
 			
-				<li>
-					<a href="index.html">
+				<li class="active">
+					<a href="hyunsikTest.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
@@ -112,7 +111,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
+                        <li><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
 						<li><a href="faq.html">공장발주내역</a></li>
                     </ul>    				
 				</li>
@@ -130,7 +129,7 @@
 						<li><a href="faq.html">문의 조회</a></li>
                     </ul>    				
 				</li>
-				
+                
 				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
@@ -144,8 +143,7 @@
 						<li><a href="faq.html">재료별 재고 현황</a></li>
 						<li><a href="faq.html">폐기 현황 </a></li>
                     </ul>    				
-				</li>				
-                
+				</li>	                
 				
 				<li>
 					<a href="reports.html">
@@ -165,48 +163,79 @@
     
 
 <div class="main">
-	
-	<div class="main-inner">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <div class="widget widget-nopad">
+      		<div style="background-color:white; height:460px; width:600px; border-color:black">
+      			<img src="resources/images/ingredient/메인.png" style="width:100%; height:100%" >
+      		</div>
+          </div>
+        </div>
+      	
+      <!-- 자동으로 크기를 조절하는 Css찾아서 적용할 것. -->
+        <div class="span6">
+          <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="icon-list-alt"></i>
+              <h3> 오늘의 현황</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              <div class="widget big-stats-container">
+                <div class="widget-content">
+                  <h6 class="bigstats">A fully responsive premium quality admin template built on Twitter Bootstrap by <a href="http://www.egrappler.com" target="_blank">EGrappler.com</a>.  These are some dummy lines to fill the area.</h6>
+                  <div id="big_stats" class="cf">
+                    <div class="stat"> <div>발주</div> <span class="value">100</span> </div>
+                    <!-- .stat -->
+                    
+                    <div class="stat"> <div>결제</div><span class="value">100</span> </div>
+                    <!-- .stat -->
+                    
+                    <div class="stat"> <div>문의</div> <span class="value">100</span> </div>
+                    <!-- .stat -->
+                    
+                    <div class="stat"> <div>재고</div> <span class="value">100</span> </div>
+                    <!-- .stat --> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /span6 -->
+        <div class="span6">
+          <div class="widget">
+            <div class="widget-header"> <i class="icon-bookmark"></i>
+              <h3>바로가기</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              <div class="shortcuts"> <a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">가맹점 업무처리</span></a>
+                                        <a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-bookmark"></i><span class="shortcut-label">가맹점 관리</span> </a>
+                                        <a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-signal"></i> <span class="shortcut-label">재고 관리</span> </a>
+                                        <a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-comment"></i><span class="shortcut-label">결제 관리</span> </a>
+             </div>
+              <!-- /shortcuts --> 
+            </div>
+            <!-- /widget-content --> 
+          </div>
+          <!-- /widget -->
+            <!-- /widget-content --> 
+          </div>
+          
 
-	    <div class="container">
-	
-	      <div class="row">
-	      	
-	      	<div class="span12">      		
-	      		
-	      		<div class="widget ">
-	      			
-	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
-	  				</div> <!-- /widget-header -->
-					
-					<div class="widget-content">
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!-- 여기가 content 채우는 영역입니다 - 현식 -
-	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
-	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
-	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
--->
-
-
-					</div> <!-- /widget-content -->
-						
-				</div> <!-- /widget -->
-	      		
-		    </div> <!-- /span8 -->
-	      	
-	      	
-	      	
-	      	
-	      </div> <!-- /row -->
-	
-	    </div> <!-- /container -->
-	    
-	</div> <!-- /main-inner -->
-    
-</div> <!-- /main -->
+          <!-- /widget -->
+        </div>
+        <!-- /span6 --> 
+      </div>
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /main-inner --> 
+</div>
+<!-- /main -->
     
     
     
@@ -295,7 +324,127 @@
 
 
 <jsp:include page="include/6.jsp" />
+<script>     
 
+        var lineChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+				{
+				    fillColor: "rgba(220,220,220,0.5)",
+				    strokeColor: "rgba(220,220,220,1)",
+				    pointColor: "rgba(220,220,220,1)",
+				    pointStrokeColor: "#fff",
+				    data: [65, 59, 90, 81, 56, 55, 40]
+				},
+				{
+				    fillColor: "rgba(151,187,205,0.5)",
+				    strokeColor: "rgba(151,187,205,1)",
+				    pointColor: "rgba(151,187,205,1)",
+				    pointStrokeColor: "#fff",
+				    data: [28, 48, 40, 19, 96, 27, 100]
+				}
+			]
+
+        }
+
+        var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
+
+
+        var barChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+				{
+				    fillColor: "rgba(220,220,220,0.5)",
+				    strokeColor: "rgba(220,220,220,1)",
+				    data: [65, 59, 90, 81, 56, 55, 40]
+				},
+				{
+				    fillColor: "rgba(151,187,205,0.5)",
+				    strokeColor: "rgba(151,187,205,1)",
+				    data: [28, 48, 40, 19, 96, 27, 100]
+				}
+			]
+
+        }    
+
+        $(document).ready(function() {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+        var calendar = $('#calendar').fullCalendar({
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+          },
+          selectable: true,
+          selectHelper: true,
+          select: function(start, end, allDay) {
+            var title = prompt('Event Title:');
+            if (title) {
+              calendar.fullCalendar('renderEvent',
+                {
+                  title: title,
+                  start: start,
+                  end: end,
+                  allDay: allDay
+                },
+                true // make the event "stick"
+              );
+            }
+            calendar.fullCalendar('unselect');
+          },
+          editable: true,
+          events: [
+            {
+              title: 'All Day Event',
+              start: new Date(y, m, 1)
+            },
+            {
+              title: 'Long Event',
+              start: new Date(y, m, d+5),
+              end: new Date(y, m, d+7)
+            },
+            {
+              id: 999,
+              title: 'Repeating Event',
+              start: new Date(y, m, d-3, 16, 0),
+              allDay: false
+            },
+            {
+              id: 999,
+              title: 'Repeating Event',
+              start: new Date(y, m, d+4, 16, 0),
+              allDay: false
+            },
+            {
+              title: 'Meeting',
+              start: new Date(y, m, d, 10, 30),
+              allDay: false
+            },
+            {
+              title: 'Lunch',
+              start: new Date(y, m, d, 12, 0),
+              end: new Date(y, m, d, 14, 0),
+              allDay: false
+            },
+            {
+              title: 'Birthday Party',
+              start: new Date(y, m, d+1, 19, 0),
+              end: new Date(y, m, d+1, 22, 30),
+              allDay: false
+            },
+            {
+              title: 'EGrappler.com',
+              start: new Date(y, m, 28),
+              end: new Date(y, m, 29),
+              url: 'http://EGrappler.com/'
+            }
+          ]
+        });
+      });
+    </script><!-- /Calendar -->
 
   </body>
 

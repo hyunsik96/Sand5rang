@@ -22,4 +22,9 @@ public class SeonghoonController {
 	public String todayStockList(Model model) {
 		return "seonghoon/오늘의재고";
 	}
+	
+	@RequestMapping(value="ingredientStock.csh")
+	public String ingredientStockList(Model model) {
+		return "seonghoon/재료별재고현황";
+	}
 }
