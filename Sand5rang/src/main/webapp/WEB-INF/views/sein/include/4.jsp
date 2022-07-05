@@ -411,7 +411,7 @@ textarea {
 	background: #FFF;
 	
 	
-	/* border: 1px solid #D5D5D5; */
+	border: 1px solid #D5D5D5; 
 	
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;

@@ -426,6 +426,9 @@ margin-bottom: 26px;}
 		margin-bottom: 20px;
 	}
 
+	.sein-table td, .sein-table th, .sein-table td{
+		text-align: center;
+	}
 </style>
 </head>
 <body>
