@@ -18,6 +18,8 @@ public class Store {
     private String status;
     private int enrollNo;
     
+    private String phone;
+    private String email;
     
 	
 	

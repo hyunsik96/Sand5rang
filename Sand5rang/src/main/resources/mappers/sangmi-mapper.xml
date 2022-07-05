@@ -4,8 +4,13 @@
 
  <resultMap id="enrollResultSet" type="com.s5.sand5rang.sangmi.vo.Enroll">
    <result column="ENROLL_NO" property="enrollNo" />
+   <result column="STORE_NAME" property="storeName" />
+   <result column="ENROLL_ADD" property="enrollAdd" />
    <result column="EMAIL" property="email" />
    <result column="PHONE" property="phone" />
+   <result column="TITLE" property="title" />
+   <result column="CONTENT" property="content" />
+   <result column="STATUS" property="status" />
  </resultMap>
 
  <resultMap id="storeResultSet" type="com.s5.sand5rang.sangmi.vo.Store">
@@ -14,13 +19,27 @@
   <result column="STORE_NAME" property="storeName"/>
   <result column="ADDRESS" property="address" />
   <result column="STATUS" property="status" /> 
+   <result column="EMAIL" property="email" />
+   <result column="PHONE" property="phone" />
  </resultMap>
  
+ <!-- 게시글 총 갯수 조회 -->
+ <select id="selectListCount" resultType="_int">
+  SELECT COUNT(*)
+  FROM STORE
+ </select>
+ <!--가맹점 전체리스트 조회-->
   <select id="storeList" parameterType="com.s5.sand5rang.sangmi.vo.Store" resultMap="storeResultSet">
  SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL
  FROM STORE S
  JOIN ENROLL E USING(ENROLL_NO)
   </select>
 
+<!--가맹가입신청 list 조회  -->
+
+<select id="storeEnrollList" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
+ SELECT STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS
+ FROM ENROLL
+</select>
 
 </mapper>
