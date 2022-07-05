@@ -167,10 +167,8 @@
     <div class="container">
       <div class="row">
         <div class="span6">
-          <div class="widget widget-nopad">
-      		<div style="background-color:white; height:460px; width:600px; border-color:black">
+          <div class="widget widget-nopad" style="background-color:white; height:450px; width:570px; border-color:black">
       			<img src="resources/images/ingredient/메인.png" style="width:100%; height:100%" >
-      		</div>
           </div>
         </div>
       	
@@ -223,7 +221,12 @@
           <!-- /widget -->
             <!-- /widget-content --> 
           </div>
-          
+
+        <div class="span6">
+          <div class="widget widget-nopad" style="background-color:white; height:450px; width:1170px; border-color:black">
+          	채우고 싶은자 나에게로
+          </div>
+        </div>
 
           <!-- /widget -->
         </div>
