@@ -167,13 +167,8 @@
 												<td class="th5"><a data-toggle="modal" href="#vModal3">90</a></td>
 												<td class="th6"><a data-toggle="modal" href="#vModal4">70</a></td>
 												<td class="th7"><a data-toggle="modal" href="#vModal5">10</a></td>
-												<td class="td-actions">승인대기
-													<a href="javascript:;"class="btn btn-small btn-success">
-														수정
-													</a>
-													<a href="javascript:;" class="btn btn-danger btn-small">
-														삭제
-													</a>
+												<td class="td-actions" style="color: red;">승인대기
+													
 												</td>
 											</tr>
 											<tr>
@@ -423,8 +418,7 @@
 		  
 		  <!-- Modal footer -->
 		  <div class="modal-footer">
-			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
-			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
 		  </div>  
 	  </div>
 	</div>
@@ -500,8 +494,7 @@
 		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
-			<button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+			<button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
 		</div>  
 	</div>
   </div>
@@ -558,12 +551,19 @@
 					  <b>비프</b><br>
 					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
 				  </div>
-			  </div>
 	
+
+				<div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/베이컨.jpg">
+				</div>
+				<div class="bb">
+					<b>베이컨</b><br>
+					<input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
+				</div>
+		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer">
-			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
-			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
 		  </div>  
 	  </div>
 	</div>
@@ -581,7 +581,7 @@
 	  <!-- Modal body -->
 	  <div class="modal-body">
 		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/아메리칸치즈.jpg">
+			<img src="/sand5rang/resources/images/ingredient/아메리칸.jpg">
 		  </div>
 		  <div class="bb">
 			<b>아메리칸치즈</b><br>
@@ -607,8 +607,7 @@
 
   <!-- Modal footer -->
   <div class="modal-footer">
-	  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
-	  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+	  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
   </div>  
 </div> 
 </div>
@@ -658,7 +657,7 @@
 		  </div>
 
 		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/렌치.jpg">
+			<img src="/sand5rang/resources/images/ingredient/랜치.jpg">
 		  </div>
 		  <div class="bb">
 			  <b>렌치</b><br>
@@ -668,13 +667,12 @@
 
   <!-- Modal footer -->
   <div class="modal-footer">
-	  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">저장</button>
-	  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal();">삭제</button>
+	  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
   </div>  
 </div> 
 </div>
 </div>
-
+ 
 	  <script>
 
 		function closeModal(){

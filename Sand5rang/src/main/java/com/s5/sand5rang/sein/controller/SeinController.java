@@ -24,5 +24,9 @@ public class SeinController {
         return "sein/franchisee";
     }
 	
-	
+	@RequestMapping("/orderEnroll.se")
+    public String orderEnrollController()
+    {
+        return "sein/order_enroll";
+    }
 }

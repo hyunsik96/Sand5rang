@@ -1342,8 +1342,8 @@ color: #333;
 	display: block;
 	float: left;
 	width: 115px;
-	height: 120px;
-	margin-left: 20px;
+	height: 100px;
+	margin-left: 25px;
 	margin-top: 10px;
 	margin-right: 10px;
 }
