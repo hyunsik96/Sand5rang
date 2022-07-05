@@ -330,46 +330,101 @@ margin-bottom: 26px;}
 	.shortcuts .shortcut {
 		width: 48%;
 	}
-}
+	}
 
-.bread{
-	display:inline-block;
-	margin-left : 20px;
-}
+	/*sein add*/
+	.bread{
+		display:inline-block;
+		margin-left : 20px;
+	}
 
-.bread p>input{ 
-	display: block;
-	float: left;
-	width: 20px;
-	margin: 0px;
-}
+	.bread p>input{ 
+		display: block;
+		float: left;
+		width: 20px;
+		margin: 0px;
+	}
 
-.bread input[type=button]{ 
-	display: block;
-	float: left;
-	width: 25px;
-	margin: 0px;
-}
+	.bread input[type=button]{ 
+		display: block;
+		float: left;
+		width: 25px;
+		margin: 0px;
+	}
 
-.vegetable{
-	display:inline-block;
-	margin-left : 20px;
-}
-.meat{
-	display:inline-block;
-	margin-left : 20px;
-}
-.sauce{
-	display:inline-block;
-	margin-left : 20px;
-}
-.cheese{
-	display:inline-block;
-	margin-left : 20px;
-}
+	.vegetable{
+		display:inline-block;
+		margin-left : 20px;
+	}
+	.meat{
+		display:inline-block;
+		margin-left : 20px;
+	}
+	.sauce{
+		display:inline-block;
+		margin-left : 20px;
+	}
+	.cheese{
+		display:inline-block;
+		margin-left : 20px;
+	}
 
+	.deposit_form{
+		margin-top: 30px;
+	}
 
+	.deposit_form h2{
+		width: 140px;
+		display: inline-block;
+	}
 
+	.deposit_name, .deposit_price, .deposit_method, .deposit_email{
+		display: inline-block;
+	}
+
+	.deposit_method{
+		padding: 0px;
+	}
+
+	.deposit_price input[type=radio]{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.deposit_price span{
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
+	.deposit_email input, select{
+		width: 130px;
+	}
+
+	.deposit_explain{
+		display: block;
+		float: right;
+		width: 400px;
+		background-color: #fef7f0;
+	}
+
+	.deposit_explain .deposit_p{
+		text-align: center;
+	}
+
+	.deposit_p span{
+		color: red;
+	}
+
+	.deposit_explain h2{
+		width: 500px;
+		margin-left: 40px;
+		margin-top: 10px;
+	}
+
+	.btn_deposit{
+		margin-top: 120px;
+		margin-left: 500px; 
+		margin-bottom: 20px;
+	}
 
 </style>
 </head>

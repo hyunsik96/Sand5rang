@@ -29,4 +29,10 @@ public class SeinController {
     {
         return "sein/order_enroll";
     }
+	
+	@RequestMapping("/deposit.se")
+    public String depositController()
+    {
+        return "sein/deposit";
+    }
 }
