@@ -173,11 +173,11 @@
                 <thead>
                   <tr>
                     <th class="td-actions">날짜</th>
-                    <th class="td-actions">빵</th>
-                    <th class="td-actions">채소</th>
-                    <th class="td-actions">치즈</th>
-                    <th class="td-actions">고기</th>
-                    <th class="td-actions">소스</th>
+                    <th class="td-actions">BREAD</th>
+                    <th class="td-actions">VEGETABLE</th>
+                    <th class="td-actions">CHEESE</th>
+                    <th class="td-actions">MEAT</th>
+                    <th class="td-actions">SAUCE</th>
                   </tr>
                 </thead>
               </table>
