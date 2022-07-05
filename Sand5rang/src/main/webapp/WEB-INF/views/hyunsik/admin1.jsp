@@ -204,6 +204,10 @@
 			                    <th class="td-actions">파마산</th>
 			                    <th class="td-actions">화이트</th>
 			                    <th class="td-actions">플랫</th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -211,6 +215,10 @@
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
@@ -254,6 +262,10 @@
 			                    <th class="td-actions">아메리칸</th>
 			                    <th class="td-actions">모짜렐라</th>
 			                    <th class="td-actions">슈레드</th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -261,6 +273,10 @@
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
@@ -278,6 +294,7 @@
 			                    <th class="td-actions">쉬림프</th>
 			                    <th class="td-actions">비프</th>
 			                    <th class="td-actions">베이컨</th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -288,6 +305,7 @@
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
@@ -304,6 +322,8 @@
 			                    <th class="td-actions">올리브오일</th>
 			                    <th class="td-actions">머스타드</th>
 			                    <th class="td-actions">후추</th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -313,6 +333,8 @@
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
 								<td class="td-actions">9</td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
