@@ -184,7 +184,7 @@
               
              <table class="table table-striped table-bordered">
                   <tr>
-                    <td class="td-actions">우장산점</td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9001, #9002, #9003, #9004, #9005">우장산점</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9001">999</span></td>          
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9002">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9003">999</span></td>
@@ -322,7 +322,7 @@
 
              <table class="table table-striped table-bordered">
                   <tr>
-                    <td class="td-actions">우장산2점</td>
+                    <td class="td-actions"><span  class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9006, #9007, #9008, #9009, #9010">우장산2점</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9006">999</span></td>          
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9007">999</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9008">999</span></td>

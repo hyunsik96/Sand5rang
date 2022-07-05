@@ -1333,7 +1333,6 @@ color: #333;
 /*-----------------------------------------------------------------*/
 /*[sein_add]*/
 
-
 .modal-body{
 	width: 90%;
 	height: 100%;
@@ -1342,7 +1341,7 @@ color: #333;
 .modal-body>.bimg>img{
 	display: block;
 	float: left;
-	width: 120px;
+	width: 115px;
 	height: 120px;
 	margin-left: 20px;
 	margin-top: 10px;
