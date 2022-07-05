@@ -25,6 +25,15 @@ body{
 .whyunsik{
 	background-color: rgb(205, 205, 205);
 }
+.news-item-detail>a{
+
+}
+.news-item-preview>a{
+
+}
+.news-item-date{
+margin-right:15px;
+}
 </style>
 </head>
 <body>
