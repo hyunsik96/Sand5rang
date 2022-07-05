@@ -22,4 +22,7 @@ public class HyunsikController {
 	@RequestMapping(value="hyunsikTest3.hs")
 	public String gg3() {return "hyunsik/admin2";}
 
+	@RequestMapping(value="hyunsikTest4.hs")
+	public String gg4() {return "hyunsik/admin3";}
+	
 }

@@ -11,7 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap" rel="stylesheet">
 <style>
 body{
-font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.td-actions>span:hover {
+	cursor: pointer;
+}
+.td-actions>span {
+    color: #19bc9c;
+    text-decoration: none;
+}
+.hyunsik-table td, .hyunsik-table th, .hyunsik-table td{
+	text-align: center;
 }
 </style>
 </head>

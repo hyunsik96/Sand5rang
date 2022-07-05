@@ -3659,13 +3659,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endCo
 .invisible {
 	visibility: hidden;
 }
-.td-actions>span:hover {
-	cursor: pointer;
-}
-.td-actions>span {
-    color: #19bc9c;
-    text-decoration: none;
-}
 </style>
 </head>
 <body>
