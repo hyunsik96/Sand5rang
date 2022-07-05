@@ -163,17 +163,82 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>문의게시판</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!-- 여기가 content 채우는 영역입니다 - 현식 -
-	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
-	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
-	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
--->
+<br>
+
+    <div class="wrap">
+       
+        <div class="content">
+         <!--   <div class="content_title">
+                 <div>
+                     <h2>문의게시판</h2><hr>
+                 </div>
+            </div>
+		-->
+            
+            <!--content 영역-->
+            <div class="content_detail">
+
+                <!--가맹점이 작성한 문의 제목-->
+                <div class="inq_title"> 
+                     <table border="0">
+                         <tr>
+                             <td colspan="6" width="800"><h1>채소류 발주에 대한 문의 드립니다.</h1></td>
+                             
+                         </tr>
+                         <tr><!--작성글 세부 정보 및 답변 상태-->
+                            <th width="80">청계천점 </th>
+                            <th width="50">조회</th>
+                            <td width="30">9999</td>
+                            <th width="100">2022-06-26</th>
+                            <th width="70">답변상태</th>
+                            <td>답변완료</td>
+                         </tr>
+                     </table><br>
+                </div>
+
+                <!--가맹점이 작성한 문의 본문-->
+                <div class="inq_content"> 
+                    <pre>
+                    안녕하세요 샌드오랑 청계천점입니다.
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?  
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. 
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. </pre>
+                 </div>
+
+            </div><br>
+            
+             <!--관리자 답변 버튼 -->
+             <div  align="center">
+                <button type="submit" class="btn btn-light btn-sm">답변</button>
+                <button type="reset"  class="btn btn-dark btn-sm" >문의 목록</button>
+            </div>
+
+
+
+         </div>
+     
+     </div>
+
 
 
 					</div> <!-- /widget-content -->

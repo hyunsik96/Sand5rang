@@ -168,15 +168,16 @@
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
 
 		<table border="1">
-			<form action="test.do">
-				<select name="category">
-					<option value="date">작성일</option>
-					<option value="writer">작성자</option>
-					
-			</form>
+			<div class="sort" align="right">
+				<form action="test.do">
+					<select name="category">
+						<option value="date">작성일</option>
+						<option value="writer">작성자</option>       
+				</form>
+		   </div><br>
 		
 			<thead>
 				<tr>
