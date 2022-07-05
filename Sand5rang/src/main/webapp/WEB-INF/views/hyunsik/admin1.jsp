@@ -96,7 +96,7 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="hyunsikTest.hs">
+					<a href="ctest.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				

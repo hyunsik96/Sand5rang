@@ -173,8 +173,8 @@
   
     <br><br>
     <div class="innerOuter" style="padding:5% 10%;">
-    <table class="table table-striped table-bordered" id="storeList" align="center">
-        <thead align="center"> 
+    <table id="storeEnrollList" class="table table-striped table-bordered">
+        <thead> 
            <tr>
                <th>이름</th>
                <th>연락처</th>
@@ -183,7 +183,7 @@
                <th>상태(비포B)</th>
            </tr>
           </thead>
-           <tbody align="center">
+           <tbody>
               <c:forEach var="e" items="${ list }">
                <tr>
                  <td>${e.storeName}</td>
@@ -196,9 +196,23 @@
            </tbody>
       </table>
       </div>
-      <br><br>
-      
+      <br><br>    
     </div>
+    
+    <script>
+      $(function(){
+    	 
+    	  $("#storeEnrollList>tbody>tr").click(function(){
+    		 
+    		  location.href="storeEnrollDetail.sm?eno=" +$(this).children(".eno").text();
+    	  });
+    	  
+      });  
+    
+    </script>
+    
+    
+    
 <div id="pagingArea">
                 <ul class="pagination">
                     

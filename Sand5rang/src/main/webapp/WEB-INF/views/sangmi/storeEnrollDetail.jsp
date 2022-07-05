@@ -170,47 +170,58 @@
 
 <br><br><br><br>
 <div class="content">
-  <br><br>
-   
-    <table id="storeList" align="center">
-        <thead align="center"> 
+  
+  <br>
+  
+    <a class="btn btn-secondary" style="float:right;" href="storeEnrollList.sm">목록으로</a>
+    <br><br>
+  
+  
+   <div class="innerOuter" style="padding:5% 10%;">
+    <table class="table table-striped table-bordered" align="center"> 
+                
            <tr>
-               <th>이름</th>
-               <th>연락처</th>
-               <th>이메일</th>
-               <th>지역</th>
-               <th>제목</th>
-               <th>내용</th>
+               <th width="200px">이름</th>
+               <td>${e.storeName}</td>
+           </tr>  
+           <tr>
+             <th>연락처</th>
+             <td>${e.phone}</td>
+           </tr>  
+           <tr>
+             <th>이메일</th>
+             <td>${e.email}</td> 
            </tr>
-          </thead>
-           <tbody align="center">
-              <c:forEach var="e" items="${ list }">
-               <tr>
-                 <td>${e.storeName}</td>
-                 <td>${e.phone}</td>
-                 <td>${e.email}</td> 
-                 <td>${e.enrollAdd}</td>
-                 <td>${e.title}</td>
-                 <td>${e.content}</td>
-               </tr>
-              </c:forEach>   
-           </tbody>
+           <tr>
+             <th>지역</th>
+             <td>${e.enrollAdd}</td>
+           </tr>
+           <tr>
+             <th>제목</th>
+             <td>${e.title}</td>
+           </tr>
+           <tr>
+             <th>내용</th>
+             <td>${e.content}</td>
+           </tr>   
       </table>
     
     <hr>
   <br><br><br><br>
 
-  
-    <div class="innerOuter" style="padding:5% 10%;">
-     <form id="enrollForm" method="post" action="" >
-        <table algin="center">
+  <!-- 
+  <div class="tab-content">
+   <div class="tab-pane" id="formcontrols">
+     <form id="edit-profile" class="form-horizontal" method="post" action="" >
+     	<fieldset>
+          <table class="table table-striped table-bordered" align="center">
             <tr>
                 <th><label for="name">가맹점 명</label></th>
                 <td><input type="text" id="name" class="form-control" name="storeEnrollName" ></td>
             </tr>
             <tr>
                 <th><label for="id">가맹점 아이디</label></th>
-                <td><input type="text" id="id" class="form-control" value="${ loginUser.userId }" name="storeEnrollId" readonly></td>
+                <td><input type="text" id="id" class="form-control" name="storeEnrollId" ></td>
             </tr>
             <tr>
                 <th><label for="password">가맹점 비밀번호</label></th>
@@ -227,6 +238,7 @@
                 <td><textarea id="content" class="form-control" rows="10" style="resize:none;" name="" ></textarea></td>
             </tr>
         </table>
+        </fieldset>
         <br>
 
         <div align="center">
@@ -234,11 +246,14 @@
             <button type="submit" class="btn btn-danger">반려</button>
         </div>
     </form>
-   </div> 
+     </div> 
+     
+    </div>
+   </div>
    
 </div>
 <br><br>
-
+ -->
           
 
 

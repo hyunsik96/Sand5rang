@@ -36,5 +36,13 @@ public class SangmiService {
 		return SangmiDao.storeEnrollList(sqlSession,pi);
 	}
 	
+	//가맹가입신청 상세페이지
+	public Enroll storeEnrollDetail(int enrollNo) {
+		
+		return SangmiDao.storeEnrollDetail(sqlSession, enrollNo);
+	}
+	
+	
+	
 }
 

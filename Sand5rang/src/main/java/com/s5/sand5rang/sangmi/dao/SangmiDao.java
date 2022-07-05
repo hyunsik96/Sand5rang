@@ -27,7 +27,7 @@ public class SangmiDao {
 	   int offset = (pi.getCurrentPage() -1)*limit;
 	   
 	   RowBounds rowBounds = new RowBounds(offset, limit);
-	   
+	 
 	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeList");
    }
  //가맹 가입신청 리스트 조회
@@ -38,9 +38,16 @@ public class SangmiDao {
 	   
 	   RowBounds rowBounds = new RowBounds(offset, limit);
 	   
-	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeEnrollList");
-	   
+	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeEnrollList");   
 	   
    }
+ //가맹가입신청 상세페이지
+   public Enroll storeEnrollDetail(SqlSessionTemplate sqlSession, int enrollNo){
+	   
+	   return sqlSession.selectOne("sangmiMapper.storeEnrollDetail");
+   }
+   
+   
+   
 
 }
