@@ -175,7 +175,7 @@
            
              <br><br>
              <div class="innerOuter" style="padding:5% 10%;">
-			   <table class="table table-striped table-bordered" id="storeList" align="center">
+			   <table class="table table-striped table-bordered" align="center">
 			       <thead align="center"> 
 			          <tr>
 			              <th>가맹점명</th>

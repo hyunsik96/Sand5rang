@@ -29,17 +29,24 @@
   FROM STORE
  </select>
  <!--가맹점 전체리스트 조회-->
-  <select id="storeList" parameterType="com.s5.sand5rang.sangmi.vo.Store" resultMap="storeResultSet">
- SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL
- FROM STORE S
- JOIN ENROLL E USING(ENROLL_NO)
+  <select id="storeList" resultMap="storeResultSet">
+	 SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL 
+	 FROM STORE S 
+	 JOIN ENROLL E USING(ENROLL_NO)
   </select>
 
 <!--가맹가입신청 list 조회  -->
 
 <select id="storeEnrollList" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
- SELECT STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS
+ SELECT ENROLL_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
+</select>
+
+<!-- 가맹가입신청 상세페이지 -->
+<select id="storeEnrollDetail" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
+SELECT STORE_NAME,PHONE, EMAIL, ENROLL_ADD, TITLE, CONTENT
+FROM ENROLL
+WHERE STATUS = 'B'
 </select>
 
 </mapper>
