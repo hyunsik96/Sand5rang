@@ -170,38 +170,87 @@
               <table class="table table-striped table-bordered hyunsik-table">
                 <thead>
                   <tr>
-                    <th> Free Resource </th>
-                    <th> Download</th>
-                    <th class="td-actions"> </th>
+                    <th>No.</td>
+                    <th>가맹점명</td>
+                    <th>입금액</td>
+                    <th>결제금액</td>
+                    <th>잔액</td>
+                    <th>담당자명</td>
+                    <th>처리날짜</td>
+                    <th>명세서발행이메일</td>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    <td>9</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
                   </tr>
                   <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    <td>8</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
                   </tr>
                   <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    <td>7</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
                   </tr>
                   <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    <td>6</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
                   </tr>
                   <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    <td>5</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
                   </tr>
-                
+                  <tr>
+                    <td>4</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>우장산점</td>
+                    <td>500,000</td>
+                    <td>0</td>
+                    <td>500,000</td>
+                    <td>성현식</td>
+                    <td>22/07/13</td>
+                    <td>hyunsig96@gmail.com</td>
+                  </tr>
                 </tbody>
               </table>
 
