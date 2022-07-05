@@ -467,12 +467,93 @@
 </div>
 <hr>
 <div>
-    <h2 style="margin-left:20px; margin-bottom: 10px">[ 발주 신청내역 ]</h2>
+    <h2 style="margin-left: 480px; margin-bottom: 20px; margin-top: 40px;">[ 발주 신청 내역 ]</h2>
     <div class="widget widget-table action-table">
        
-        <!-- /widget-header -->
+        <!-- 상단 재료별 테이블-->
         <div class="widget-content">
-          <table class="table table-striped table-bordered" style="width: 1100px; margin: auto;">
+            <table class="table table-striped table-bordered" style="width: 1100px; margin: auto; margin-bottom: 50px; border: 1px solid silver;">
+              <thead>
+                <tr>
+                  <th style="text-align: center;">No</th>
+                  <th style="text-align: center;">재료종류</th>
+                  <th style="text-align: center;">원재료명</th>
+                  <th style="text-align: center;">수량</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center;">10</td>
+                  <td style="text-align: center;">Bread</td>
+                  <td style="text-align: center;">파마산오레가노</td>
+                  <td style="text-align: center;">10</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">9</td>
+                    <td style="text-align: center;">Bread</td>
+                    <td style="text-align: center;">화이트</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">8</td>
+                    <td style="text-align: center;">Bread</td>
+                    <td style="text-align: center;">플렛</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">7</td>
+                    <td style="text-align: center;">Vegetable</td>
+                    <td style="text-align: center;">피망</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">6</td>
+                    <td style="text-align: center;">Vegetable</td>
+                    <td style="text-align: center;">토마토</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">5</td>
+                    <td style="text-align: center;">Vegetable</td>
+                    <td style="text-align: center;">할라피뇨</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: center;">Meat</td>
+                    <td style="text-align: center;">페퍼로니</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">3</td>
+                    <td style="text-align: center;">Meat</td>
+                    <td style="text-align: center;">베이컨</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: center;">Meat</td>
+                    <td style="text-align: center;">비프</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: center;">Sauce</td>
+                    <td style="text-align: center;">후추</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="3">총 발주 갯수</td>
+                    <td style="text-align: center;">100</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+
+         <h2 style="margin-left: 510px; margin-bottom: 20px; margin-top: 40px;">[ 발주 금액 ]</h2>
+        <!-- 발주 가격 테이블 -->
+        <div class="widget-content">
+          <table class="table table-striped table-bordered" style="width: 1100px; margin: auto; border: 1px solid silver;">
             <thead>
               <tr>
                 <th style="text-align: center;">총 발주 수량(단위/개)</th>
