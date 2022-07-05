@@ -23,7 +23,7 @@ body{
 .hyunsik-table td, .hyunsik-table th, .hyunsik-table td{
 	text-align: center;
 }
-.widget-content{
+.whyunsik{
 	background-color: rgb(205, 205, 205);
 }
 </style>

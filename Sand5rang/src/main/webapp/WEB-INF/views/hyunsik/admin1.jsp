@@ -165,7 +165,7 @@
 	      				<h3>가맹점 주문조회</h3>
 	  				</div> <!-- /widget-header -->
 					
-					<div class="widget-content">
+					<div class="widget-content whyunsik">
 
               <table class="table table-striped table-bordered">
                 <thead>
