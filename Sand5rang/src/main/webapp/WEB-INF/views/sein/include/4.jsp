@@ -401,8 +401,6 @@ textarea {
 			color: #555;
 			vertical-align: middle;
 			
-			
-			
 		}
 
 .widget-content {

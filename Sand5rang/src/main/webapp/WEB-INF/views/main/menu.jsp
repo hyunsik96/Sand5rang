@@ -46,7 +46,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.jsp">
+          <a class="navbar-brand" href="/sand5rang">
             <img src="resources/images/logo.png" width="85px" height="80px">
             <span>
               Sand5rang
@@ -60,7 +60,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">About Sand</a>
+                <a class="nav-link" href="aboutSand.ma">About Sand</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.ma">Menu book</a>

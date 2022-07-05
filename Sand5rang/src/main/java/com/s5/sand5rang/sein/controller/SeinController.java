@@ -15,7 +15,13 @@ public class SeinController {
 	@RequestMapping("/menu.ma")
     public String menuController()
     {
-        return "sein/menu";
+        return "main/menu";
+    }
+	
+	@RequestMapping("/aboutSand.ma")
+    public String aboutController()
+    {
+        return "main/aboutSand";
     }
 	
 	@RequestMapping("/orderList.se")
