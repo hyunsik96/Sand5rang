@@ -25,14 +25,24 @@ body{
 .whyunsik{
 	background-color: rgb(205, 205, 205);
 }
-.news-item-detail>a{
-
+.news-item-detail>div>a>mark{
+  background-color: white;
+}
+.news-item-preview>a>mark{
+  background-color: white;
+}
+.news-item-detail>div>a{
+	font-weight: bolder;
+  background-color: white;
 }
 .news-item-preview>a{
-
+  background-color: white;
 }
 .news-item-date{
-margin-right:15px;
+padding-right:20px;
+}
+.gustlr{
+padding-bottom:10px;
 }
 </style>
 </head>
