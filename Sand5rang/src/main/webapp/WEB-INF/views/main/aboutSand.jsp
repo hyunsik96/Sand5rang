@@ -115,54 +115,42 @@
 <!-- About End -->
 
 
-<!-- Firm Visit Start -->
-<div class="container-fluid bg-icon mt-5 py-4" style="background-color: #062c10; text-align: center;">
-    <div class="main_wrapper" style="margin-left: 400px;">
-        <div class="container ">
-            <div class="row g-5 align-items-center">
-                <div class="col-md-7 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="display-5 text-white mb-3">Visit Our Firm</h1>
-                    <p class="text-white mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet. Diam dolor diam ipsum sit.<br> 
-                        Aliqu diam amet diam et eos.</p>
-                    <a class="btn btn-lg btn-secondary rounded-pill py-3 px-5" href="">Visit Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Firm Visit End -->
-<br><br>
-
 <!-- Feature Start -->
-<div class="container-fluid bg-light bg-icon py-6">
+<div class="container-fluid bg-light bg-icon py-5" style="font-family: 'Noto Sans KR', sans-serif;">
     <div class="container">
-        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h1 class="display-5 mb-3">Our Features</h1>
-            <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h1 class="display-5 mb-3">Sand5rang Service</h1>
+            <p>Sand5rang만이 자부할 수 있는 본사와 가맹점 모두를 위한 상생 Service</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="bg-white text-center h-100 p-4 p-xl-5">
-                    <img class="img-fluid mb-4" src="img/icon-1.png" alt="">
-                    <h4 class="mb-3">Natural Process</h4>
-                    <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
-                    <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                <div class="bg-white text-center h-100 p-5 p-xl-5">
+                    <img src="resources/images/배송.png"class="img-fluid mb-4">
+                    <h4 class="mb-3" style="margin-top: 20px;">발주배송서비스</h4>
+                    <p class="mb-4">15시까지 발주신청 시<br>다음날 오전까지 배송완료!</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="bg-white text-center h-100 p-4 p-xl-5">
-                    <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
-                    <h4 class="mb-3">Organic Products</h4>
-                    <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
-                    <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    <img class="img-fluid mb-4" src="resources/images/환경.png">
+                    <h4 class="mb-3">환경을 위한 노력</h4>
+                    <p class="mb-4">
+                        Sand5rang 매장 내 제공되는 용기는<br> 
+                        95% 재생 용기로 만들어졌으며<br>
+                        이외에도 매장 내 일회용품 사용을 <br>
+                        줄여 나가고 있습니다.
+                    </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="bg-white text-center h-100 p-4 p-xl-5">
-                    <img class="img-fluid mb-4" src="img/icon-3.png" alt="">
-                    <h4 class="mb-3">Biologically Safe</h4>
-                    <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
-                    <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    <img class="img-fluid mb-4" src="resources/images/가맹비.png">
+                    <h4 class="mb-3">착한가맹비 실천</h4>
+                    <p class="mb-4">
+                        Sand5rang은 본사와 가맹점 모두<br> 
+                        상생하는 착한 가맹비를<br> 
+                        실천하고 있습니다.
+                    </p>
                 </div>
             </div>
         </div>
