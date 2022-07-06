@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="admain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -116,7 +116,7 @@
                     </ul>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>가맹점 관리</span>
@@ -125,7 +125,7 @@
 				
 					<ul class="dropdown-menu">
                         <li><a href="storeList.sm">가맹점 조회</a></li>
-						<li><a href="storeEnrollList.sm">가맹가입신청</a></li>
+						<li class="active"><a href="storeEnrollList.sm">가맹가입신청</a></li>
 						<li><a href="annatest3.an">문의 조회</a></li>
                     </ul>    				
 				</li>

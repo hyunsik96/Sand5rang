@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -131,7 +131,7 @@
                     </ul>    				
 				</li>
                 
-				<li>
+				<li class="active">
 					<a href="inqueryList.sm">
 						<i class="icon-list-alt"></i>
 						<span>본사문의</span>

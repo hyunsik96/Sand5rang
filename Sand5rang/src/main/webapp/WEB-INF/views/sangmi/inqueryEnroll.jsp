@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+  <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -29,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -42,8 +41,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Sand5rang Admin				
+			<a class="brand" href="frmain.hs">
+				Sand5rang 가맹점				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -96,58 +95,60 @@
 
 			<ul class="mainnav">
 			
-				<li>
-					<a href="index.html">
+				<li class="active">
+					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
                 
+                
 				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">재고현황 리스트</a></li>
-						<li><a href="faq.html">폐기 필요 항목</a></li>
-						<li><a href="faq.html">일일메뉴매출기입페이지</a></li>
+                        <li><a href="menuSales.csh">매출기입</a></li>
+						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li><a href="ingredientAllStock.csh">재고현황</a></li>
+						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
-                
+				
 				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>발주</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">발주현황 리스트</a></li>
-						<li><a href="faq.html">발주신청</a></li>
+                        <li><a href="orderEnroll.se">발주신청</a></li>
+						<li><a href="orderList.se">발주조회</a></li>
                     </ul>    				
+				</li>
+                
+				<li>
+					<a href="inqueryList.sm">
+						<i class="icon-list-alt"></i>
+						<span>본사문의</span>
+					</a>    				
 				</li>
 				
 				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>본사문의</span>
+					<a href="depositList.se" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-money"></i>
+						<span>결제대금</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">문의글 리스트</a></li>
-						<li><a href="faq.html">문의글 작성</a></li>
+                        <li><a href="depositList.se">대금내역</a></li>
+						<li><a href="deposit.se">입금</a></li>
                     </ul>    				
-				</li>
-                			
-				<li>
-					<a href="reports.html">
-						<i class="icon-list-alt"></i>
-						<span>결제대금관리</span>
-					</a>    				
 				</li>
 			
 			</ul>
