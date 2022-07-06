@@ -24,6 +24,12 @@ public class SeinController {
         return "main/aboutSand";
     }
 	
+	@RequestMapping("/branch.ma")
+    public String branchController()
+    {
+        return "main/branch";
+    }
+	
 	@RequestMapping("/orderList.se")
     public String orderListController()
     {
