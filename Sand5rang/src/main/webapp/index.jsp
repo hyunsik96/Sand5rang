@@ -66,9 +66,9 @@
                 <a class="nav-link" href="menu.ma">Menu book</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="branch.ma">지사안내</a>
+                <a class="nav-link" href="branch.ma">지사안내</a> 
               </li>
-              <li class="nav-item">
+              <li class="nav-item"> 
                 <a class="nav-link" href="">가맹문의</a>
               </li>
             </ul>

@@ -85,18 +85,31 @@
   </div>
 
   <!-- 지사안내 -->
-  <div style="height : 800px">
-    <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; margin-top: 50px; font-weight: bolder; color: #0B571F; font-size: 30px;">
+  
+  <div class="branch_img" style="background-color: #222831;">
+    <br><br>
+    <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; font-weight: bolder; color: #ffffff; font-size: 30px;">
       Sand5rang 지사안내
     </h2>
-    <div style="margin-top: 70px;">
-      <img src="resources/images/branch_map01.png" style="margin-left: 170px;">
+    <div style="margin-left: 23%; margin-top: 50px;">
+      <img src="resources/images/branch_map01.png">
     </div>
     <br>
-    <div>
-      <img src="resources/images/지사.png" style="float: left; margin-left: 370px; width: 300px; height: 40px; margin-top: 30px;">
+    <div style="margin-left: 60%; margin-top: 50px;">
+      <img src="resources/images/지사.png" style="width: 300px; height: 40px;">
     </div>
   </div>
+
+
+  <!-- <div class="branch_search" style="border: 1px solid rgb(175, 175, 175); width: 400px; height: 650px; display: block; margin-left: 900px;">
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 30px; ">
+        <span>매장찾기</span>
+    </div>
+    <div>
+        <input type="text">
+    </div> -->
+</div>
+
   <br><br>
   <!-- 지사안내 끝-->
 
@@ -104,7 +117,7 @@
   <footer class="footer_section">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 footer-col">
+        <div class="col-md-4 footer-col"> 
           <div class="footer_contact">
             <h4>
               Contact Us
