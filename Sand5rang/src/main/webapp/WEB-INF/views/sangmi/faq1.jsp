@@ -14,7 +14,7 @@
 .faq_wrapper .faq_contet{border-top:4px solid #009223;}
 .faq_wrapper .faq_contet li{border-bottom:1px solid #dddddd; background-color:#fff;}
 .faq_wrapper .fre{cursor:pointer; position:relative; padding:20px 100px 25px;}
-.faq_wrapper .fre:after{content:''; background:url(image/add1.png) 0 0 no-repeat; width:20px; height:20px; position:absolute; right:40px; top:50%; margin-top:-10px;}
+.faq_wrapper .fre:after{content:''; background: 0 0 no-repeat; width:20px; height:20px; position:absolute; right:40px; top:50%; margin-top:-10px;}
 .faq_wrapper .fre .q{position:absolute; left:35px; top:50%; margin-top:-15px; color:#fff; font-weight:bold; font-family:font_sw; font-size:18px; width:30px; height:30px; padding-top:1px; box-sizing:border-box; background-color:#073614; text-align:center; border-radius:15px;}
 .faq_wrapper .fre strong{display:block; color:#292929; line-height:26px; font-size:16px; font-weight:normal;}
 .faq_wrapper .ask{position:relative; padding:0 100px; overflow:hidden; height:0px;}
@@ -37,7 +37,7 @@
 </head>
 <body>
   <div id="content">
-    <h2 class="subTitle">가맹관련 FAQ</h2>
+    <h2 class="subTitle">가맹관련 자주하는 질문&답변</h2>
      <div class="content">
         <div class="faq_wrapper">
           <ul class="faq_contet" id="ui_faq_items">
@@ -108,16 +108,16 @@
         </div>
     </div>
   </div>
+
+
+</body>
   <script>
     $(function(){
        
-         $("div").onclick(function(){
-
+         $("div").click(function(){
 
 
             var $p = $(this).next();  
-
-            console.log($p.css("display")); 
             
             
             if($p.css("display") =="none"){ 
@@ -136,6 +136,4 @@
 
     });
 </script>
-
-</body>
 </html>
