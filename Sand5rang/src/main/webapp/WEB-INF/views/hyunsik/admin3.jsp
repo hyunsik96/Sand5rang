@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="admain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -131,7 +131,7 @@
 				</li>
                 
 				
-				<li>
+				<li class="active">
 					<a href="hyunsikTest4.hs">
 						<i class="icon-money"></i>
 						<span>결제대금</span>
