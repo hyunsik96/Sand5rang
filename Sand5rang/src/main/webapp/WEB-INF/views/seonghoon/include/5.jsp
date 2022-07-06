@@ -333,7 +333,6 @@ margin-bottom: 26px;}
 		width: 48%;
 	}
 }
-
 .bread{
 	display:inline-block;
 	margin-left : 20px;
@@ -353,6 +352,22 @@ margin-bottom: 26px;}
 .cheese{
 	display:inline-block;
 	margin-left : 20px;
+}
+
+.sales{
+	float:left;
+	
+}
+.sales.image{
+	margin-left : 300px;
+	margin-top : 100px;
+}
+.sales.image>h3{
+	margin-left:100px;
+}
+.sales.name{
+	margin-left : 50px;
+	margin-top : 100px;
 }
 
 

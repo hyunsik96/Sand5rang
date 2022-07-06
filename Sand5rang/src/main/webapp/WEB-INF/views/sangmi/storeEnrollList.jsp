@@ -166,13 +166,7 @@
 	      				<h3>가맹가입신청 리스트</h3>
 	  				</div> <!-- /widget-header -->
 					
-					<div class="widget-content">
-
-
-  <div class="content">
-  
-    <br><br>
-    <div class="widget-content" style="padding:5% 10%;">
+					
     <table id="storeEnrollList" class="table table-striped table-bordered">
         <thead> 
            <tr>
@@ -195,9 +189,7 @@
               </c:forEach>   
            </tbody>
       </table>
-      </div>
-      <br><br>    
-    </div>
+ 
     
     <script>
       $(function(){
@@ -214,7 +206,7 @@
     
     
     
-  <div id="pagingArea">
+
                 <ul class="pagination">
                     
                    <c:choose>
@@ -239,18 +231,12 @@
                          <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
                       </c:otherwise>
                     </c:choose>
-                    
-                    
-                    
-                    
+                                  
                 </ul>
-            </div>
+      
 
 
 
-
-
-					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		

@@ -41,7 +41,7 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
+			<a class="brand" href="admain.hs">
 				Sand5rang Admin				
 			</a>		
 			
@@ -96,7 +96,7 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="ctest.hs">
+					<a href="admain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
@@ -133,7 +133,7 @@
 				
 				<li>
 					<a href="hyunsikTest4.hs">
-						<i class="icon-list-alt"></i>
+						<i class="icon-money"></i>
 						<span>결제대금</span>
 					</a>    				
 				</li>

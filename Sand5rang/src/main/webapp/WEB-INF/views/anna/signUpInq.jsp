@@ -169,64 +169,7 @@
 					<div class="widget-content">
 
 <br>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-.inquiry_wrapper{background-color:#fff; width:1028px; margin:0 auto; border:1px solid #e8e8e8; padding:0 70px 49px;}
-.inquiry_wrapper h2.subTitle{padding:72px 0 76px !important;}
-.inquiry_wrapper .summary_txt{padding-top:21px;color:#666;font-size:16px;line-height:26px;text-align:center;letter-spacing:-0.4px;font-weight:normal;}
-.inquiry_wrapper .board_write_wrapper .agree_info{overflow:hidden; border-bottom:1px solid #e8e8e8; padding:25px 0 13px 0}
-.inquiry_wrapper .board_write_wrapper .agree_info >p{float:left; color:#666666; font-size:16px; font-weight:300; letter-spacing:-0.03em; text-indent:10px;}
-.inquiry_wrapper .board_write_wrapper .agree_info >p:after{content:''; background:url(../images/common/icon_ess.png) no-repeat; width:7px; height:6px; display:inline-block; vertical-align:middle; position:relative; margin-left:4px; top:-2px;}
-.inquiry_wrapper .board_write_wrapper .agree_info >.form_checkbox{float:right; top:-5px;}
-.inquiry_wrapper .inquiry_notice{margin:30px 0 100px;}
-.inquiry_wrapper .btns_wrapper{border-top:1px solid #e8e8e8; position:relative; left:-70px; margin-right:-140px; padding-top:40px;}
-.inquiry_wrapper .pd_agree_wrapper{overflow:hidden; margin-bottom:96px;}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree{float:left; width:490px;}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree:first-child{margin-right:48px;}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree h3{color:#666666; font-size:18px; font-weight:300; letter-spacing:-0.05em; padding-bottom:19px;}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper{border:2px solid #e5e5e5; height:150px; padding:13px 0 13px 17px; overflow:hidden; color:#bbbbbb; font-size:13px; line-height:21px; margin-bottom:14px;}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_inside>.mCSB_container{margin-right:17px;}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_scrollTools .mCSB_draggerRail{opacity:0 !important}
-.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width:5px !important; background-color:#dddddd !important}
-.inquiry_wrapper .form_select{margin-right:7px;}
-.inquiry_wrapper .em{display:inline-block; vertical-align:middle; width:63px; text-align:center; color:#292929; font-size:15px;}
-.inquiry_wrapper .board_write_wrapper .agree_info.type01{border-bottom:0;}
-.inquiry_wrapper .board_write_wrapper .agree_info.type01 >p{float:none;text-indent:0;}
 
-.inquiry_wrapper .btn_post_num{position:relative;}
-.inquiry_wrapper .btn_post_num a{padding:0 20px;color:#009223;letter-spacing:-.4px;font-weight:300;}
-.inquiry_wrapper .btn_post_num:before{content:'';position:absolute;top:calc(50% - 8px);left:0;width:2px;height:16px;background-color:#e8e8e8;}
-.inquiry_wrapper .post_wrap {margin-bottom:10px;border:2px solid #ddd;width:470px;box-sizing: border-box;}
-.inquiry_wrapper .post_wrap .form_text{background-color:#fff;width:340px}
-
-.board_write_wrapper .rt_note {
-    color: #999999;
-    font-size: 16px;
-    letter-spacing: -0.05em;
-    position: absolute;
-    right: 0;
-    top: -29px;
-    background: url(../images/common/icon_ess.png) 0 7px no-repeat;
-    padding-left: 10px;
-}
-
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-</style>
-<body>
 
     <div class="inquiry_wrapper">
         <div class="subTitle" align="center">
@@ -437,11 +380,6 @@ p {
         </div>
        </div> 
     </div>
-</body>
-</html>
-
-
-					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		

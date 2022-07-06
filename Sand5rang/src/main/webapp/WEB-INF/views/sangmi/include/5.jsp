@@ -351,7 +351,38 @@ margin-bottom: 26px;}
         }
 
 */
-
+       .content_detail,cd_table_content_title{
+            width:800px;
+            height:2000px;
+            /* border:1px solid red; */
+        }
+        .cd_table_title{
+            font-size: 25px;
+            font-weight: 700;
+            text-align: left;
+        }
+        
+        .cd_table_title>td>input{
+            width:700px;
+            height:45px;
+            font-size: 20px;
+            border:1px solid gray;
+        }
+        .cd_table_content1>td>textarea{
+     
+            font-size: 15px;
+        
+        }
+        .cd_table_content2>td>textarea{
+   
+            font-size: 15px;
+        
+        }
+        .cd_table_content_title{
+            font-size: 20px;
+            font-weight: 700;
+            height:40px;
+        }
 </style>
 </head>
 <body>

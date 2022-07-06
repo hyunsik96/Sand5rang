@@ -27,4 +27,24 @@ public class SeonghoonController {
 	public String ingredientStockList(Model model) {
 		return "seonghoon/재료별재고현황";
 	}
+	
+	@RequestMapping(value="ingredientAllStock.csh")
+	public String ingredientAllStockList(Model model) {
+		return "seonghoon/전체재고현황";
+	}
+	
+	@RequestMapping(value="ingredientDisposal.csh")
+	public String ingredientDisposalList(Model model) {
+		return "seonghoon/폐기현황";
+	}
+	@RequestMapping(value="menuSales.csh")
+	public String menuSalesList(Model model) {
+		return "seonghoon/제품판매현황";
+	}
+	
+	@RequestMapping(value="salesPage.csh")
+	public String salesPage(Model model) {
+		return "seonghoon/제품판매페이지";
+	}
+	
 }

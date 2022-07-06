@@ -179,31 +179,57 @@
 					
 					<div class="widget-content">
 
-<br><br><br><br>
+
 
  
-           	 <div class="content_detail" align="center">
+         
                 <table class="cd_table"  align="center">
                     <tr class="cd_table_title">
-                        <td width="70px;">제목 : </td>
-                        <td width="700px" height="150px"><input type="text" disabled></td>
+                        <td width="70px;">
+                                                         제목 : 
+                         </td>
+                        <td width="400px" height="150px">
+                          <input type="text" disabled value="문의합니다!!!">
+                         </td>
                     </tr>
                     <tr class="cd_table_content1">
                         <td colspan="2">
                             <div class="cd_table_content_title">문의내용</div>
-                            <textarea name="" cols="110" rows="10" style="resize:none" disabled></textarea>
+                            <textarea name=""  style="resize:none; width:100%; height:200px" disabled>
+                                  안녕하세요 샌드오랑 청계천점입니다.
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?  
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. 
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                            </textarea>
                         </td>
                     </tr>																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	
                     <tr class="cd_table_content1">
                         <td colspan="2">
                         	<hr>
                             <div class="cd_table_content_title">답변내용</div>
-                            <textarea name="" cols="110" rows="10" style="resize:none" disabled></textarea>
+                            <textarea name=""  style="resize:none; width:100%; height:200px" disabled>
+                            안녕하세요 샌드오랑 본사입니다.
+                            발주에 문제가 생겨서 대단히 죄송합니다. 
+                            해당 발주는 공장에서 현재 최대한 빨리 처리하겠습니다.
+                            해당 발주에 대해서는 공장과 문의를 하고 신속히 연락드리겠습니다.
+                            다시한번 죄송합니다.                
+                            
+                            </textarea>
                         </td>
                     </tr>
                 </table>
 
-        </div>
+
         <div id="paging" align="center">
             <a href="" class="btn btn-secondary btn-sm">목록가기</a>       
         </div>

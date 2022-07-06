@@ -25,5 +25,8 @@ public class HyunsikController {
 	@RequestMapping(value="hyunsikTest4.hs")
 	public String gg4() {return "hyunsik/admin3";}
 	
+	@RequestMapping(value="hyunsikTest5.hs")
+	public String gg5() {return "anna/비로그인메인틀";}
+	
 	
 }

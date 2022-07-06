@@ -179,21 +179,40 @@
 					
 					<div class="widget-content">
 
-<br><br><br><br>
 
-<div class="widget-content" style="padding:5% 10%;">
-        <form id="enrollForm" method="post" action="insert.bo" enctype="multipart/form-data">
-            <table algin="center">
-                <tr>
-                    <th width="70px;"><label for="title" >제목</label></th>
-                    <td width="700px" height="150px"> <input type="text" id="title" class="form-control" name="boardTitle" required></td>
-                </tr>
-                <tr>
-                    <th><label for="content">내용</label></th>
-                    <td><textarea id="content" class="form-control"  cols="110" rows="10" style="resize:none;" name="boardContent" required></textarea></td>
-                </tr>
-            </table>
-            <br>
+
+                 <table class="cd_table"  align="center">
+                    <tr class="cd_table_title">
+                        <td width="70px;">
+                                                         제목 : 
+                         </td>
+                        <td width="400px" height="150px">
+                          <input type="text"  value="문의합니다!!!">
+                         </td>
+                    </tr>
+                    <tr class="cd_table_content1">
+                        <td colspan="2">
+                            <div class="cd_table_content_title">문의내용</div>
+                            <textarea name=""  style="resize:none; width:100%; height:200px">
+                                  안녕하세요 샌드오랑 청계천점입니다.
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?  
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. 
+
+                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
+                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+
+                            </textarea>
+        </td>
+        </table>
+        <br>
+
     
             <div align="center">
                 <button type="submit" class="btn btn-primary">수정하기</button>

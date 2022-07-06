@@ -165,12 +165,12 @@
 	      				<i class="icon-user"></i>
 	      				<h3>문의 게시판</h3>
 	  				</div> <!-- /widget-header -->
-					
-					<div class="widget-content">
+	  				
+	  				<div class="widget-content">
 
 <br>
 
-		<table border="1">
+		<table class="table table-striped table-bordered" border="1">
 			<div class="sort" align="right">
 				<form action="test.do">
 					<select name="category">
@@ -225,8 +225,7 @@
 
 		</table>
 
-
-					</div> <!-- /widget-content -->
+		</div>
 						
 				</div> <!-- /widget -->
 	      		
