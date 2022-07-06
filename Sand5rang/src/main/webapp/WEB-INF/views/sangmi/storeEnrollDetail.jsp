@@ -165,10 +165,7 @@
 	      				<i class="icon-user"></i>
 	      				<h3>가맹가입신청 상세페이지</h3>
 	  				</div> <!-- /widget-header -->
-					
-					<div class="widget-content">
-
-
+	
 <div class="content">
   
   <br>
@@ -253,16 +250,7 @@
    
 </div>
 <br><br>
-
-          
-
-
-
-
-
-
-					</div> <!-- /widget-content -->
-						
+	
 				</div> <!-- /widget -->
 	      		
 		    </div> <!-- /span8 -->
