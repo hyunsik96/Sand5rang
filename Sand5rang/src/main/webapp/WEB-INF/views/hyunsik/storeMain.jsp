@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+  <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -42,7 +42,7 @@
 			</a>
 			
 			<a class="brand" href="frmain.hs">
-				Sand5rang Franchisee				
+				Sand5rang 가맹점				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -104,50 +104,50 @@
                 
                 
 				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="frmain.hs">매출기입</a></li>
-						<li><a href="frmain.hs">오늘의 재고</a></li>
-						<li><a href="frmain.hs">재고현황</a></li>
-						<li><a href="frmain.hs">폐기현황</a></li>
+                        <li><a href="menuSales.csh">매출기입</a></li>
+						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li><a href="ingredientAllStock.csh">재고현황</a></li>
+						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
 				
 				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>발주</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="frmain.hs">발주신청</a></li>
-						<li><a href="frmain.hs">발주조회</a></li>
+                        <li><a href="orderEnroll.se">발주신청</a></li>
+						<li><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
                 
 				<li>
-					<a href="frmain.hs">
+					<a href="inqueryList.sm">
 						<i class="icon-list-alt"></i>
 						<span>본사문의</span>
 					</a>    				
 				</li>
 				
 				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="depositList.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-money"></i>
 						<span>결제대금</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="frmain.hs">대금내역</a></li>
-						<li><a href="frmain.hs">입금</a></li>
+                        <li><a href="depositList.se">대금내역</a></li>
+						<li><a href="deposit.se">입금</a></li>
                     </ul>    				
 				</li>
 			

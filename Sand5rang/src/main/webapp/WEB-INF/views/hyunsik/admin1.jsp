@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+  <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -42,7 +42,7 @@
 			</a>
 			
 			<a class="brand" href="admain.hs">
-				Sand5rang Admin				
+				Sand5rang 관리자				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -124,9 +124,9 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
+                        <li><a href="storeList.sm">가맹점 조회</a></li>
+						<li><a href="storeEnrollList.sm">가맹가입신청</a></li>
+						<li><a href="annatest3.an">문의 조회</a></li>
                     </ul>    				
 				</li>
                 
@@ -145,8 +145,7 @@
 	</div> <!-- /subnavbar-inner -->
 
 </div> <!-- /subnavbar -->
-    
-    
+
 
 <div class="main">
 	

@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+  <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -29,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -42,8 +41,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Sand5rang Admin				
+			<a class="brand" href="admain.hs">
+				Sand5rang 관리자				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -96,8 +95,8 @@
 
 			<ul class="mainnav">
 			
-				<li>
-					<a href="index.html">
+				<li class="active">
+					<a href="admain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
@@ -112,8 +111,8 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
+                        <li><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
+						<li><a href="hyunsikTest3.hs">공장발주내역</a></li>
                     </ul>    				
 				</li>
 				
@@ -125,16 +124,16 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
+                        <li><a href="storeList.sm">가맹점 조회</a></li>
+						<li><a href="storeEnrollList.sm">가맹가입신청</a></li>
+						<li><a href="annatest3.an">문의 조회</a></li>
                     </ul>    				
 				</li>
                 
 				
 				<li>
-					<a href="reports.html">
-						<i class="icon-list-alt"></i>
+					<a href="hyunsikTest4.hs">
+						<i class="icon-money"></i>
 						<span>결제대금</span>
 					</a>    				
 				</li>
@@ -146,8 +145,6 @@
 	</div> <!-- /subnavbar-inner -->
 
 </div> <!-- /subnavbar -->
-    
-    
 
 <div class="main">
 	
