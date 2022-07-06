@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -103,7 +103,7 @@
 				</li>
                 
                 
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
@@ -113,7 +113,7 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
-						<li><a href="ingredientAllStock.csh">재고현황</a></li>
+						<li class="active"><a href="ingredientAllStock.csh">재고현황</a></li>
 						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>

@@ -199,10 +199,8 @@
 	<div class="sales name" >
 		<h3>샌드위치 이름</h3>
 		<input type="text" readonly style="background-color:white; width:100px;" value="K-바비큐">
-		<br>
 		<h3>샌드위치 개수</h3>
 		<input type="number" readonly style="background-color:white; width:100px;" value="100">
-		<br>
 		<h3>샌드위치 가격</h3>
 		<input type="number" readonly style="background-color:white; width:100px;" value="10000">
 	</div>

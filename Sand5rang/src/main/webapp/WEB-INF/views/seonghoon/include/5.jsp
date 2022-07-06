@@ -363,11 +363,15 @@ margin-bottom: 26px;}
 	margin-top : 100px;
 }
 .sales.image>h3{
-	margin-left:100px;
+	margin-left:80px;
 }
 .sales.name{
 	margin-left : 50px;
 	margin-top : 100px;
+}
+.sales.name>input{
+	border-ladius:none;
+	font-size : 18px;
 }
 
 
