@@ -166,16 +166,13 @@
 	      				<h3>가맹가입신청 상세페이지</h3>
 	  				</div> <!-- /widget-header -->
 	
-<div class="content">
-  
-  <br>
+
   
     <a class="btn btn-secondary" style="float:right;" href="storeEnrollList.sm">목록으로</a>
-    <br><br>
+    <br>
   
   
-   <div class="widget-content" style="padding:5% 10%;">
-    <table class="table table-striped table-bordered" style="padding: 10%; border:1px solid gray" > 
+    <table class="table table-striped table-bordered"> 
                 
            <tr>
                <th width="20%">이름</th>
@@ -204,38 +201,37 @@
       </table>
     
     <hr>
-  <br><br><br><br>
 
 
 
 
-     <form id="" class="" method="post" action="" style="margin: 1% 15%; padding:5%; border:1px solid gray">
-     	<fieldset>
+     <form id="" class="" method="post" action="" style=" padding:5%; border:1px solid lightgrey">
+ 
           <table class="" align="center">
             <tr>
-                <th width="300px"><label for="name">가맹점 명</label></th>
-                <td width="500px"><input type="text" id="name" name="storeEnrollName" ></td>
+                <th align=""><label for="name">가맹점 명</label></th>
+                <td><input type="text" id="name" name="storeEnrollName" style="width:400px;"></td>
             </tr>
             <tr>
                 <th><label for="id">가맹점 아이디</label></th>
-                <td><input type="text" id="id"  name="storeEnrollId" ></td>
+                <td><input type="text" id="id"  name="storeEnrollId" style="width:400px;" ></td>
             </tr>
             <tr>
                 <th><label for="password">가맹점 비밀번호</label></th>
-                <td><input type="text" id="password"  name=""></td>
+                <td><input type="text" id="password"  name="" style="width:400px;"></td>
             </tr>
             <tr>
                 <th><label for="address">가맹점 주소</label></th>
-                <td><input type="text" id="address"  name=""></td>
+                <td><input type="text" id="address"  name="" style="width:400px;"></td>
                 
             </tr>
 
             <tr>
                 <th><label for="content">반려이유</label></th>
-                <td><textarea id="content" rows="10" style="resize:none;" name="" ></textarea></td>
+                <td><textarea id="content" rows="10" style="width:400px; resize:none;" name="" ></textarea></td>
             </tr>
         </table>
-        </fieldset>
+      
         <br>
 
         <div align="center">
@@ -245,10 +241,7 @@
     </form>
 
      
-     </div>
- 
-   
-</div>
+
 <br><br>
 	
 				</div> <!-- /widget -->

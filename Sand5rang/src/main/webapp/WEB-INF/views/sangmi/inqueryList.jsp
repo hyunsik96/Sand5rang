@@ -177,13 +177,6 @@
 	      				<h3>문의글 전체 리스트</h3>
 	  				</div> <!-- /widget-header -->
 					
-					<div class="widget-content">
-
-
-<div class="content">
-
-   <br><br>
-   <div class="widget-content" style="padding:5% 10%;">
     
     <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
@@ -235,9 +228,7 @@
 
         </tbody>
     </table>
-    <br>
 
- </div>
 
  
 <!-- 로그인 후 상태일 경우만 보여지는 글쓰기 버튼 -->
@@ -279,11 +270,7 @@
 		
 		
 	</ul>
-</div>
 
-
-
-					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		

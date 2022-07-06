@@ -167,14 +167,7 @@
 	      				<h3>가맹점 전체조회</h3>
 	  				</div> <!-- /widget-header -->
 					
-					<div class="widget-content">
-
 	
-           
-           <div class="content">
-           
-             <br><br>
-             <div class="widget-content" style="padding:5% 10%;">
 			   <table class="table table-striped table-bordered" align="center">
 			       <thead align="center"> 
 			          <tr>
@@ -199,11 +192,9 @@
 			             </c:forEach>   
 			          </tbody>  
 			     </table>
-			     </div>
-			     <br><br><br>
-			     
-			</div>
-  <div id="pagingArea">
+		
+		
+            
                 <ul class="pagination">
                     
                    <c:choose>
@@ -233,9 +224,10 @@
                     
                     
                 </ul>
-            </div>
+         
 
-					</div> <!-- /widget-content -->
+				
+
 						
 				</div> <!-- /widget -->
 	      		
