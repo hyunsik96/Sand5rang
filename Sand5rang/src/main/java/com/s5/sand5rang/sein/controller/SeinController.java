@@ -27,7 +27,7 @@ public class SeinController {
 	@RequestMapping("/orderList.se")
     public String orderListController()
     {
-        return "sein/franchisee";
+        return "sein/orderlist";
     }
 	
 	@RequestMapping("/orderEnroll.se")

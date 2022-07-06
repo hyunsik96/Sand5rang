@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -118,16 +118,16 @@
                     </ul>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>발주</span>
 						<b class="caret"></b>
 					</a>	
 				
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu active">
                         <li><a href="orderEnroll.se">발주신청</a></li>
-						<li><a href="orderList.se">발주조회</a></li>
+						<li class="active"><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
                 

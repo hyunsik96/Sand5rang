@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -138,15 +138,15 @@
 					</a>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="depositList.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-money"></i>
 						<span>결제대금</span>
 						<b class="caret"></b>
 					</a>	
 				
-					<ul class="dropdown-menu">
-                        <li><a href="depositList.se">대금내역</a></li>
+					<ul class="dropdown-menu active">
+                        <li class="active"><a href="depositList.se">대금내역</a></li>
 						<li><a href="deposit.se">입금</a></li>
                     </ul>    				
 				</li>
