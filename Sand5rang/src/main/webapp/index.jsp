@@ -173,7 +173,7 @@
       <div class="main_wrapper">
       <div class="container ">
         <div class="heading_container">
-          <h2 style="margin-left: 410px; margin-top: 30px;">
+          <h2 style="margin-left: 410px; margin-top: 50px;">
             Sand5rang Best Menu3
           </h2>
         </div>

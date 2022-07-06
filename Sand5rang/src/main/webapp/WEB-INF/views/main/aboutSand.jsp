@@ -18,31 +18,20 @@
 
   <title>Sand5rang</title>
 
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="/sand5rang/resources/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" />
 
-  <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Libraries Stylesheet -->
-  <link href="/sand5rang/resources/css/animate.min.css" rel="stylesheet">
-
-  <!--owl slider stylesheet --> 
+  <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
-  <link href="/sand5rang/resources/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="resources/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="/sand5rang/resources/css/style.css" rel="stylesheet" />
+  <link href="resources/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="/sand5rang/resources/css/responsive.css" rel="stylesheet" />
+  <link href="resources/css/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -95,40 +84,46 @@
     <!-- end header section -->
   </div>
 
+  <div class="about_wrapper" style="text-align: center;">
+    <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; margin-top: 50px; font-weight: bolder; color: #0B571F">SEARCH FOR BETTER®</h2>
+    <p class="mb-1" style="font-family: 'Noto Sans KR', sans-serif;">Sand5rang은 더 나은 품질의 메뉴와 재료공급을 위해 노력합니다.</p>
+  </div>
 
   <!-- About Start -->
-  <div class="container-xxl py-5">
+  <div class="container-xxl py-7">
     <div class="container">
-        <div class="row g-5 align-items-center">
+        <!-- <div class="row g-5 align-items-center"> -->
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                    <img class="img-fluid w-100" src="resources/images/main_ad.png">
+                <div class="about-img position-relative pe-0">
+                    <img class="img-fluid w-100" src="resources/images/about2.png" style="margin-left: 250px; margin-left:66 ;">
+                    <!-- <h1 class="display-5 mb-4">About Sand5rang</h1> -->
+                    <!-- <p style="font-family: 'Noto Sans KR', sans-serif; margin-left: 250px;"><i class="fa fa-check text-primary me-3"></i>엄격한 규율에 따라 세척 과정을 거친 야채들만 제공됩니다</p>
+                    <p style="font-family: 'Noto Sans KR', sans-serif;"><i class="fa fa-check text-primary me-3"></i>당일 판매되는 양만큼 준비되며 언제나 신선한 최상의 야채를 제공합니다</p>
+                    <p style="font-family: 'Noto Sans KR', sans-serif;"><i class="fa fa-check text-primary me-3"></i>신선도와 안전성을 따져 원재료를 제공하는 것이 샌드오랑의 목표입니다.</p> -->
                 </div>
             </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <h1 class="display-5 mb-4">About Sand5rang</h1>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
-            </div>
-        </div>
-    </div>
+            <br>
+            <div>
+                <!-- <h1 class="display-5 mb-4">About Sand5rang</h1> -->
+                 <p style="font-family: 'Noto Sans KR', sans-serif; text-align: center;"><i class="fa fa-check text-primary me-3"></i>엄격한 규율에 따라 세척 과정을 거친 야채들만 제공됩니다</p> 
+                <p style="font-family: 'Noto Sans KR', sans-serif; text-align: center;"><i class="fa fa-check text-primary me-3"></i>당일 판매되는 양만큼 준비되며 언제나 신선한 최상의 야채를 제공합니다</p> 
+                <p style="font-family: 'Noto Sans KR', sans-serif; text-align: center;"><i class="fa fa-check text-primary me-3"></i>신선도와 안전성을 따져 원재료를 제공하는 것이 샌드오랑의 목표입니다.</p> 
+           </div> 
+     </div>
 </div>
+<br>
 <!-- About End -->
 
 
 <!-- Firm Visit Start -->
-<div class="container-fluid bg-primary bg-icon mt-5 py-6">
-    <div class="main_wrapper">
+<div class="container-fluid bg-icon mt-5 py-4" style="background-color: #062c10; text-align: center;">
+    <div class="main_wrapper" style="margin-left: 400px;">
         <div class="container ">
             <div class="row g-5 align-items-center">
                 <div class="col-md-7 wow fadeIn" data-wow-delay="0.1s">
                     <h1 class="display-5 text-white mb-3">Visit Our Firm</h1>
-                    <p class="text-white mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.</p>
-                </div>
-                <div class="col-md-5 text-md-end wow fadeIn" data-wow-delay="0.5s">
+                    <p class="text-white mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet. Diam dolor diam ipsum sit.<br> 
+                        Aliqu diam amet diam et eos.</p>
                     <a class="btn btn-lg btn-secondary rounded-pill py-3 px-5" href="">Visit Now</a>
                 </div>
             </div>
@@ -136,7 +131,7 @@
     </div>
 </div>
 <!-- Firm Visit End -->
-
+<br><br>
 
 <!-- Feature Start -->
 <div class="container-fluid bg-light bg-icon py-6">
@@ -173,6 +168,7 @@
         </div>
     </div>
 </div>
+<br><br><br>
 <!-- Feature End -->
 
   
@@ -257,6 +253,7 @@
     </div>
   </footer>
   <!-- footer section -->
+
 
   <!-- jQery -->
   <script src="/sand5rang/resources/js/jquery-3.4.1.min.js"></script>
