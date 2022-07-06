@@ -95,7 +95,7 @@
 
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="admain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -116,7 +116,7 @@
                     </ul>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>가맹점 관리</span>
@@ -126,7 +126,7 @@
 					<ul class="dropdown-menu">
                         <li><a href="storeList.sm">가맹점 조회</a></li>
 						<li><a href="storeEnrollList.sm">가맹가입신청</a></li>
-						<li><a href="annatest3.an">문의 조회</a></li>
+						<li class="active"><a href="annatest3.an">문의 조회</a></li>
                     </ul>    				
 				</li>
                 
@@ -160,12 +160,22 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>문의 게시판</h3>
+	      				
+	      				<h3 style="width:87%; ">문의 게시판</h3>
+						
+						<div class="sort" align="right" style="display: inline-block;">
+							<form action="test.do">
+								<select name="category" style="width: 75px; margin-top: 6px">
+									<option value="date">작성일</option>
+									<option value="writer">작성자</option> 
+								</select>      
+							</form>
+		   				</div>
 	  				</div> <!-- /widget-header -->
 	  				
 	  				<div class="widget-content">
 
-<br>
+					<br>
 
 		<table class="table table-striped table-bordered" border="1">
 			<div class="sort" align="right">
