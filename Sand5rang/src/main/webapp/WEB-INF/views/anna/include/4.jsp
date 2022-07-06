@@ -396,6 +396,23 @@ textarea {
 		text-shadow: 1px 1px 2px rgba(255,255,255,.5);
 	}
 	
+	.widget-header div {
+		
+		position: relative;
+		top: 2px;
+		left: 10px;
+		
+		display: inline-block;
+		margin-right: 3em;
+		height: 100%;
+		font-size: 14px;
+		font-weight: 800;
+		color: #525252;
+		line-height: 18px;
+		
+		text-shadow: 1px 1px 2px rgba(255,255,255,.5);
+	}
+	
 		.widget-header [class^="icon-"], .widget-header [class*=" icon-"] {
 			
 			display: inline-block;

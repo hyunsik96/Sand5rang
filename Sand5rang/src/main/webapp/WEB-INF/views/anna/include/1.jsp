@@ -612,7 +612,7 @@ input[type="file"] {
 }
 select {
 	width: 220px;
-	background-color: #ffffff;
+	background-color: #cccccc;
 }
 select[multiple], select[size] {
 	height: auto;

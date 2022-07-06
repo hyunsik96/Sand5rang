@@ -161,16 +161,19 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				
-	      				<h3 style="width:87%; ">문의 게시판</h3>
-						
-						<div class="sort" align="right" style="display: inline-block;">
-							<form action="test.do">
+	      				<div>문의 게시판
+
+							<form action="test.do" style="display: inline-block;">
 								<select name="category" style="width: 75px; margin-top: 6px">
 									<option value="date">작성일</option>
 									<option value="writer">작성자</option> 
 								</select>      
 							</form>
-		   				</div>
+
+	      				
+	      				</div>
+						
+
 	  				</div> <!-- /widget-header -->
 	  				
 	  				<div class="widget-content">
