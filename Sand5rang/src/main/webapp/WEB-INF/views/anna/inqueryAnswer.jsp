@@ -162,21 +162,20 @@
 	      		<div class="widget ">
 	      			
 	      			<div class="widget-header">
+	      			
+	      			
 	      				<i class="icon-user"></i>
 	      				<h3>문의 게시판 : 답변하기</h3>
 	  				</div> <!-- /widget-header -->
+					
+					<div class="widget-content">
 					
 
 <br>
 		<div class="wrap">
 			
 			<div class="content">
-				<div class="content_title">
-					<div>
-						<h2>문의게시판</h2><hr>
-					</div>
-				</div>
-				
+		
 				<!--content 영역-->
 				<div class="content_detail">
 
