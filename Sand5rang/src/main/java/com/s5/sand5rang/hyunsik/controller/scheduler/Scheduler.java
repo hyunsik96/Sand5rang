@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Scheduler {
     
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(cron="00 00 15 * * ?")
     public void firstTask() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date now = new Date();
         String strDate = sdf.format(now);
-//        System.out.println("현재시간: " + strDate);
+        System.out.println("현재시간: " + strDate);
     }
 }
