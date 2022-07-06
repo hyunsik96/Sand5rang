@@ -333,6 +333,8 @@ margin-bottom: 26px;}
 		width: 48%;
 	}
 }
+
+/* 오늘의 재고 CSS */
 .bread{
 	display:inline-block;
 	margin-left : 20px;
@@ -354,6 +356,57 @@ margin-bottom: 26px;}
 	margin-left : 20px;
 }
 
+.stock_style{
+	width:80px;
+	height:10px;
+	margin-top:5px;
+	font-weight:900;
+}
+.expiration_style{
+	width:80px;
+	height:10px;
+	margin-top:5px;
+	background-color: white;	
+	font-weight:900;
+}
+input[type=number]{
+	background-color: white;
+	border:none;
+}
+input[type=text]{
+	background-color: white;
+	border:none;
+}
+
+
+/* 전체 재고현황 페이지 CSS */
+.stockSum{
+	margin-top:30px;
+	margin-bottom:10px;
+	margin-left : 20px;
+}
+
+.stockTable1{
+	width:600px;
+	margin-left:20px;
+}
+
+.stockTable2{
+	width:1100px;
+	margin-left:20px;
+}
+
+
+.st_head th{
+	text-align:center;
+}
+.st_body td{
+	text-align:center;
+}
+
+
+
+/* 제품판매페이지 CSS */
 .sales{
 	float:left;
 	

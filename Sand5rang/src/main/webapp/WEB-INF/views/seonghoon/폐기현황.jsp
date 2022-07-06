@@ -176,19 +176,38 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>폐기 현황</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 여기가 content 채우는 영역입니다 - 현식 -
 	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-
-33333333333333333
+	<table class="table table-bordered">
+		<thead>
+			<tr class="st_head">
+				<th>재료명</th>
+				<th>재료개수</th>
+				<th>입고날짜</th>
+				<th>폐기여부</th>
+				<th>폐기승인</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach var="i" begin="1" end="10" step="1">
+			<tr class="st_body">
+				<td>파마산</td>
+				<td>30</td>
+				<td>2022-07-06</td>
+				<td>X</td>
+				<td><a data-toggle="modal" href="#Modal${i}" class="btn btn-danger">폐기</a></td>
+			</tr>	
+		</c:forEach>															
+		</tbody>
+	</table>
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
@@ -293,8 +312,49 @@
 
 
 <jsp:include page="include/6.jsp" />
+		<c:forEach var="i" begin="1" end="10" step="1">
+<!-- 모달의 id의 끝에 재료번호를 부여해주어서 재료마다 뽑아올 수 있도록 -->
+	<!-- The Modal -->
+	<div class="modal" id="Modal${i}" style="display: none;">
+		<div class="modal-dialog">
+		  <div class="modal-content">	 
+	  
+		  <!-- Modal Header -->
+		  <div class="modal-header">
+			  <h4 class="modal-title">폐기승인</h4>
+		  </div> 
+		  
+		  <!-- Modal body -->
+		  <div class="modal-body">
+		  	<h4>다음과 같은 폐기의 항목이 존재합니다.</h4>
+		  	<br>
+			<div class="bread" style="margin-top : 10px;">
+				<h4>파마산</h4>
+				<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+				<p>
+				재료개수 : <input type="number" class="stock_style" value="10000" readonly><br> 
+				입고날짜 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+				</p>
+			</div>	
+		  	
+		  </div>
 
+		  <!-- Modal footer -->
+		  <div class="modal-footer">
+			  <button type="button" class="btn btn-danger">폐기</button>
+			  <button type="button" class="btn btn-success" data-dismiss="modal" onclick="closeModal();">취소</button>
+		  </div>  
+	  </div>
+	</div>
+  </div>
+</c:forEach>
 
-  </body>
+<script>
+// 모달 끄기
+
+</script>
+ 
+ 
+ </body>
 
 </html>

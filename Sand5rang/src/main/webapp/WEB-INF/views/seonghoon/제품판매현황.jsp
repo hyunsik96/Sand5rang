@@ -176,19 +176,71 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>제품 판매 현황</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 여기가 content 채우는 영역입니다 - 현식 -
 	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 	<!-- 가게 마감 시간에 제품이 실제로 판매가 이루어졌다고 가정하고 해당 리스트에 오늘판매된 제품 목록을 기입해줌. -->
-
+	<table class="table table-bordered">
+		<thead>
+			<tr class="st_head">
+				<th>제품이름</th>
+				<th>재료</th>
+				<th>제품가격</th>
+				<th>판매개수</th>
+				<th>총액</th>
+				<th>판매날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="st_body">
+				<td>에그마요</td>
+				<td>양상추, 토마토, 에그</td>
+				<td>3000</td>
+				<td>10</td>
+				<td>30000</td>
+				<td>2022-07-06</td>
+			</tr>
+						<tr class="st_body">
+				<td>에그마요</td>
+				<td>양상추, 토마토, 에그</td>
+				<td>3000</td>
+				<td>10</td>
+				<td>30000</td>
+				<td>2022-07-06</td>
+			</tr>
+			<tr class="st_body">
+				<td>에그마요</td>
+				<td>양상추, 토마토, 에그</td>
+				<td>3000</td>
+				<td>10</td>
+				<td>30000</td>
+				<td>2022-07-06</td>
+			</tr>
+			<tr class="st_body">
+				<td>에그마요</td>
+				<td>양상추, 토마토, 에그</td>
+				<td>3000</td>
+				<td>10</td>
+				<td>30000</td>
+				<td>2022-07-06</td>
+			</tr>
+			<tr class="st_body">
+				<td>에그마요</td>
+				<td>양상추, 토마토, 에그</td>
+				<td>3000</td>
+				<td>10</td>
+				<td>30000</td>
+				<td>2022-07-06</td>
+			</tr>									
+		</tbody>
+	</table>
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->

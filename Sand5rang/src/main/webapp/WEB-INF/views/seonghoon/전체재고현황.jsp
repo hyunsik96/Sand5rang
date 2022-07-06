@@ -176,25 +176,159 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>전체 재고현황</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 여기가 content 채우는 영역입니다 - 현식 -
 	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
+<!-- /widget-header -->
+<h4 class="stockSum">재고합계</h4>
+	<table class="table table-bordered stockTable1">
+		<thead>
+			<tr class="st_head">
+				<th>빵</th>
+				<th>야채</th>
+				<th>고기</th>
+				<th>치즈</th>
+				<th>소스</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+			</tr>
+		</tbody>
+	</table>
+									
+<h4 class="stockSum">재고현황</h4>
+	<table class="table table-bordered stockTable2">
+		<thead>
+			<tr class="st_head">
+				<th>빵</th>
+				<th>야채</th>
+				<th>고기</th>
+				<th>치즈</th>
+				<th>소스</th>
+				<th>입고일</th>
+				<th>폐기여부</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>		
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>		
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>				<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>				<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>				<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>				<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>2022-07-06</td>
+				<td>O</td>
+			</tr>								
+		</tbody>
+	</table>				
+	
+					
 
-11111111111111
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		
+	<!-- /widget-content -->
+		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
+			<li class="page-item"><a class="page-link" href="#"><</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">></a></li>
+		</ul>
+	</div>		      	
 		    </div> <!-- /span8 -->
-	      	
+	<div>
 	      	
 	      	
 	      	

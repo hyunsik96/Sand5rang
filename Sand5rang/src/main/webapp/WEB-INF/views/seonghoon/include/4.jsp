@@ -414,7 +414,7 @@ textarea {
 
 
 .widget-content {
-	padding: 20px 15px 15px;
+	/*padding: 20px 15px 15px;*/
 	
 	background: #FFF;
 	
