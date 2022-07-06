@@ -41,7 +41,7 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
+			<a class="brand" href="frmain.hs">
 				Sand5rang Franchisee				
 			</a>		
 			
@@ -96,7 +96,7 @@
 			<ul class="mainnav">
 			
 				<li class="active">
-					<a href="ctest.hs">
+					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
@@ -106,36 +106,49 @@
 				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 업무처리</span>
+						<span>재고관리</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="hyunsikTest2.hs">가맹점 주문처리</a></li>
-						<li><a href="hyunsikTest3.hs">공장발주내역</a></li>
+                        <li><a href="frmain.hs">매출기입</a></li>
+						<li><a href="frmain.hs">오늘의 재고</a></li>
+						<li><a href="frmain.hs">재고현황</a></li>
+						<li><a href="frmain.hs">폐기현황</a></li>
                     </ul>    				
 				</li>
 				
 				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 관리</span>
+						<span>발주</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
+                        <li><a href="frmain.hs">발주신청</a></li>
+						<li><a href="frmain.hs">발주조회</a></li>
                     </ul>    				
 				</li>
                 
-				
 				<li>
-					<a href="hyunsikTest4.hs">
+					<a href="frmain.hs">
 						<i class="icon-list-alt"></i>
-						<span>결제대금</span>
+						<span>본사문의</span>
 					</a>    				
+				</li>
+				
+				<li class="dropdown">					
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-money"></i>
+						<span>결제대금</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="frmain.hs">대금내역</a></li>
+						<li><a href="frmain.hs">입금</a></li>
+                    </ul>    				
 				</li>
 			
 			</ul>
@@ -153,41 +166,41 @@
     <div class="container">
       <div class="row">
         <div class="span6">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3>홍보이미지</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-<img src="resources/images/ingredient/메인.png" style="width:100%; height:100%">
-            </div>
-          </div>
           <!-- /widget -->
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3>미처리 작업 현황</h3>
+              <h3>가맹점 현황</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   <div id="big_stats" class="cf">
-                    <div class="stat"> <div>주문</div> <span class="value">100</span> </div>
-                    <!-- 가맹점주들에게 받은 미처리 주문 총 수 -->
+                    <div class="stat"> <div>발주대기</div> <span class="value">100</span> </div>
+                    <!-- 오늘 발주 신청했으나 아직 승인안된 총 수 -->
                     
-                    <div class="stat"> <div>전날발주</div><span class="value">100</span> </div>
-                    <!-- 전날 공장으로 자동발주한 원재료 총 수 -->
+                    <div class="stat"> <div>입고대기</div><span class="value">100</span> </div>
+                    <!-- 어제 발주 승인되어 오늘 들어오기로한 원재료 총 수 -->
                     
-                    <div class="stat"> <div>가맹신청</div> <span class="value">100</span> </div>
-                    <!-- 미처리 가맹신청 수 -->
+                    <div class="stat"> <div>발주잔액</div> <span class="value">100</span> </div>
+                    <!-- 발주잔액 -->
                     
-                    <div class="stat"> <div>문의글</div> <span class="value">100</span> </div>
-                    <!-- 미답변 문의글 수 --> 
+                    <div class="stat"> <div>문의현황</div> <span class="value">100</span> </div>
+                    <!-- 가맹점주가 작성한 문의글 총 수 --> 
                   </div>
                 </div>
               </div>
             </div>
             <!-- /widget-content --> 
+          </div>
+          <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="icon-list-alt"></i>
+              <h3>7월 광고이미지</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+<img src="resources/images/ingredient/메인.png" style="width:100%; height:100%">
+            </div>
           </div>
           <!-- /widget -->
           <div class="widget">
@@ -273,7 +286,7 @@
 
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
+              <h3>샌드위치 관련 최근 기사</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
