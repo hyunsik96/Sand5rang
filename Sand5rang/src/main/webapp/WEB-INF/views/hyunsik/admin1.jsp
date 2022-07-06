@@ -133,7 +133,7 @@
 				
 				<li>
 					<a href="hyunsikTest4.hs">
-						<i class="icon-list-alt"></i>
+						<i class="icon-money"></i>
 						<span>결제대금</span>
 					</a>    				
 				</li>
