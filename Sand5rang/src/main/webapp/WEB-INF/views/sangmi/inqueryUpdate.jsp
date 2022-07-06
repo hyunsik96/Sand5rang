@@ -181,7 +181,7 @@
 
 <br><br><br><br>
 
-<div class="innerOuter" style="padding:5% 10%;">
+<div class="widget-content" style="padding:5% 10%;">
         <form id="enrollForm" method="post" action="insert.bo" enctype="multipart/form-data">
             <table algin="center">
                 <tr>

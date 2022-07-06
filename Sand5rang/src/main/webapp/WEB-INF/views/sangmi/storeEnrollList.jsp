@@ -13,7 +13,7 @@
     
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -168,11 +168,11 @@
 					
 					<div class="widget-content">
 
-<br><br><br><br>
+
   <div class="content">
   
     <br><br>
-    <div class="innerOuter" style="padding:5% 10%;">
+    <div class="widget-content" style="padding:5% 10%;">
     <table id="storeEnrollList" class="table table-striped table-bordered">
         <thead> 
            <tr>
@@ -203,8 +203,9 @@
       $(function(){
     	 
     	  $("#storeEnrollList>tbody>tr").click(function(){
-    		 
-    		  location.href="storeEnrollDetail.sm?eno=" +$(this).children(".eno").text();
+    		
+    		  
+    		  location.href="storeEnrollDetail.sm?eno="+$(this).children(".eno").text();
     	  });
     	  
       });  
@@ -213,7 +214,7 @@
     
     
     
-<div id="pagingArea">
+  <div id="pagingArea">
                 <ul class="pagination">
                     
                    <c:choose>

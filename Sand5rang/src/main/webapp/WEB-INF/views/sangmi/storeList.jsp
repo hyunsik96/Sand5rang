@@ -169,12 +169,12 @@
 					
 					<div class="widget-content">
 
-<br><br><br>	
+	
            
            <div class="content">
            
              <br><br>
-             <div class="innerOuter" style="padding:5% 10%;">
+             <div class="widget-content" style="padding:5% 10%;">
 			   <table class="table table-striped table-bordered" align="center">
 			       <thead align="center"> 
 			          <tr>

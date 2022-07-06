@@ -179,53 +179,107 @@
 					
 					<div class="widget-content">
 
-<br><br><br><br>
+
 <div class="content">
 
    <br><br>
-   <div class="innerOuter" style="padding:5% 10%;">
+   <div class="widget-content" style="padding:5% 10%;">
     
-    <table id="boardList" class="table table-hover" align="center">
+    <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
             <tr>
-                <th>글번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>답변유무</th>
+                <th width="10%">글번호</th>
+                <th width="30%">제목</th>
+                <th width="10%">작성자</th>
+                <th width="10%">작성일</th>
+                <th width="10%">답변유무</th>
             </tr>
         </thead>
         <tbody>
-         <c:forEach var="i" items="${ list }">
+        
             <tr>
-               <td class="ino">${ i.inqNo }</td>
-                <td>${ i.inqTitle }</td>
-                <td>${ i.storeId }</td>
-                <td>${ i.idate}</td>
-                <td>${ i.status }</td>
+               <td class="ino">10</td>
+                <td>제목1</td>
+                <td>user01</td>
+                <td>2022/07/05</td>
+                <td>미답변</td>
             </tr>
-         </c:forEach>
+			<tr>
+				<td class="ino">10</td>
+				 <td>제목1</td>
+				 <td>user01</td>
+				 <td>2022/07/05</td>
+				 <td>문의답변완료</td>
+			 </tr>
+			 <tr>
+				<td class="ino">10</td>
+				 <td>제목1</td>
+				 <td>user01</td>
+				 <td>2022/07/05</td>
+				 <td>문의답변완료</td>
+			 </tr>
+			 <tr>
+				<td class="ino">10</td>
+				 <td>제목1</td>
+				 <td>user01</td>
+				 <td>2022/07/05</td>
+				 <td>문의답변완료</td>
+			 </tr>
+			 <tr>
+				<td class="ino">10</td>
+				 <td>제목1</td>
+				 <td>user01</td>
+				 <td>2022/07/05</td>
+				 <td>문의답변완료</td>
+			 </tr>
+
         </tbody>
     </table>
     <br>
 
  </div>
-<br><br>
+
  
 <!-- 로그인 후 상태일 경우만 보여지는 글쓰기 버튼 -->
 <c:if test="${ not empty loginUser }">
-    <a class="btn btn-secondary" style="float:right;" href="inqueryPlus.bo">글추가</a>
-    <a class="btn btn-secondary" style="float:right;" href="inqueryUpdate.bo">글수정</a>
+    <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm">글등록</a>
+    <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
     <br>
 </c:if>
 
-
-
-
-
-
 </div>
 
+<div id="pagingArea">
+	<ul class="pagination">
+		
+	   <c:choose>
+		 <c:when test="${ pi.currentPage eq 1 }">
+			<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+		 </c:when>
+		 <c:otherwise>
+			<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }">Previous</a></li>
+		 </c:otherwise>
+	   </c:choose> 
+		
+		
+		<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
+			<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+		</c:forEach>
+		
+		<c:choose>
+		  <c:when test="${ pi.currentPage eq pi.maxPage }">
+			<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+		  </c:when>
+		  <c:otherwise>
+			 <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
+		  </c:otherwise>
+		</c:choose>
+		
+		
+		
+		
+	</ul>
+</div>
 
 
 

@@ -13,7 +13,7 @@
     
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
-
+    
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -168,7 +168,7 @@
 					
 					<div class="widget-content">
 
-<br><br><br><br>
+
 <div class="content">
   
   <br>
@@ -177,65 +177,65 @@
     <br><br>
   
   
-   <div class="innerOuter" style="padding:5% 10%;">
-    <table class="table table-striped table-bordered" align="center"> 
+   <div class="widget-content" style="padding:5% 10%;">
+    <table class="table table-striped table-bordered" style="padding: 10%; border:1px solid gray" > 
                 
            <tr>
-               <th width="200px">이름</th>
-               <td>${e.storeName}</td>
+               <th width="20%">이름</th>
+               <td width="50%">김강남</td>
            </tr>  
            <tr>
              <th>연락처</th>
-             <td>${e.phone}</td>
+             <td>010-1111-2222</td>
            </tr>  
            <tr>
              <th>이메일</th>
-             <td>${e.email}</td> 
+             <td>user01@naver.com</td> 
            </tr>
            <tr>
              <th>지역</th>
-             <td>${e.enrollAdd}</td>
+             <td>서울시 강남구</td>
            </tr>
            <tr>
              <th>제목</th>
-             <td>${e.title}</td>
+             <td>가맹문의입니다.</td>
            </tr>
            <tr>
              <th>내용</th>
-             <td>${e.content}</td>
+             <td>새로 강남구에 가맹을 희망합니다. 부탁!</td>
            </tr>   
       </table>
     
     <hr>
   <br><br><br><br>
 
-  <!-- 
-  <div class="tab-content">
-   <div class="tab-pane" id="formcontrols">
-     <form id="edit-profile" class="form-horizontal" method="post" action="" >
+
+
+
+     <form id="" class="" method="post" action="" style="margin: 1% 15%; padding:5%; border:1px solid gray">
      	<fieldset>
-          <table class="table table-striped table-bordered" align="center">
+          <table class="" align="center">
             <tr>
-                <th><label for="name">가맹점 명</label></th>
-                <td><input type="text" id="name" class="form-control" name="storeEnrollName" ></td>
+                <th width="300px"><label for="name">가맹점 명</label></th>
+                <td width="500px"><input type="text" id="name" name="storeEnrollName" ></td>
             </tr>
             <tr>
                 <th><label for="id">가맹점 아이디</label></th>
-                <td><input type="text" id="id" class="form-control" name="storeEnrollId" ></td>
+                <td><input type="text" id="id"  name="storeEnrollId" ></td>
             </tr>
             <tr>
                 <th><label for="password">가맹점 비밀번호</label></th>
-                <td><input type="text" id="password" class="form-control-file border" name=""></td>
+                <td><input type="text" id="password"  name=""></td>
             </tr>
             <tr>
                 <th><label for="address">가맹점 주소</label></th>
-                <td><input type="text" id="address" class="form-control-file border" name=""></td>
+                <td><input type="text" id="address"  name=""></td>
                 
             </tr>
 
             <tr>
                 <th><label for="content">반려이유</label></th>
-                <td><textarea id="content" class="form-control" rows="10" style="resize:none;" name="" ></textarea></td>
+                <td><textarea id="content" rows="10" style="resize:none;" name="" ></textarea></td>
             </tr>
         </table>
         </fieldset>
@@ -246,14 +246,14 @@
             <button type="submit" class="btn btn-danger">반려</button>
         </div>
     </form>
-     </div> 
+
      
-    </div>
-   </div>
+     </div>
+ 
    
 </div>
 <br><br>
- -->
+
           
 
 
