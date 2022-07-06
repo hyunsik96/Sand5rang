@@ -79,7 +79,7 @@ textarea {
 .navbar-inner {
 	padding: 7px 0;
 	
-	background: #00ba8b !important;
+	background: #073614 !important;
 	
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
@@ -1145,7 +1145,7 @@ width: 11px;}
 	height: 250px;
 }
 
-.dropdown-menu li>a:hover, .dropdown-menu .active>a, .dropdown-menu .active>a:hover { background:#00ba8b;}
+.dropdown-menu li>a:hover, .dropdown-menu .active>a, .dropdown-menu .active>a:hover { background:#073614;}
 
 .accordion-heading { background:#e5e5e5;  }
 .accordion-heading a { color:#545454; text-decoration:none; font-weight:bold; }

@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap" rel="stylesheet">
+<style>
+body{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+</style>
 </head>
 <body>
 <script src="/sand5rang/resources/member/anna/js/jquery-1.7.2.min.js"></script> 
