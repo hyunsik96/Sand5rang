@@ -651,7 +651,9 @@ input[type="hidden"] {
 	margin-left: 10px;
 }
 input, textarea {
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
 	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
 	-ms-transition: border linear 0.2s, box-shadow linear 0.2s;

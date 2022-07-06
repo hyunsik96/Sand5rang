@@ -95,11 +95,6 @@
 </style>
 
 <body class="sub_page">
-<jsp:include page="include/1.jsp" />
-<jsp:include page="include/2.jsp" />
-<jsp:include page="include/3.jsp" />
-<jsp:include page="include/4.jsp" />
-<jsp:include page="include/5.jsp" />
 
   <div class="hero_area">
     <div class="bg-box active">
