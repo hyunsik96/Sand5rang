@@ -7,6 +7,112 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+<!--내가 추가한 것들 -->
+ .input-box{
+                position:relative;
+                margin:10px 0;
+            }
+            .input-box > input{
+                background:transparent;
+                border:none;
+                border-bottom: solid 1px #ccc;
+                padding:20px 0px 5px 0px;
+                font-size:14pt;
+                width:100%;
+            }
+            input::placeholder{
+                color:transparent;
+            }
+            input:placeholder-shown + label{
+                color:#aaa;
+                font-size:14pt;
+                top:15px;
+
+            }
+            input:focus + label, label{
+                color:#8aa1a1;
+                font-size:10pt;
+                pointer-events: none;
+                position: absolute;
+                left:0px;
+                top:0px;
+                transition: all 0.2s ease ;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+            }
+
+            input:focus, input:not(:placeholder-shown){
+                border-bottom: solid 1px #8aa1a1;
+                outline:none;
+            }
+            input[type=submit]{
+                background-color: #8aa1a1;
+                border:none;
+                color:white;
+                border-radius: 5px;
+                width:100%;
+                height:35px;
+                font-size: 14pt;
+                margin-top:100px;
+            }
+            #forgot{
+                text-align: right;
+                font-size:12pt;
+                color:rgb(164, 164, 164);
+                margin:10px 0px;
+            }
+            
+.inquiry_wrapper{background-color:#fff; width:80%; margin:0 auto; border:1px solid #e8e8e8; padding:0 70px 49px;}
+.inquiry_wrapper h1.subTitle{padding:72px 10px 76px !important; padding-top: 30px;}
+.inquiry_wrapper .summary_txt{padding-top:21px;color:#666;font-size:16px;line-height:26px;text-align:center;letter-spacing:-0.4px;font-weight:normal;}
+.inquiry_wrapper .board_write_wrapper .agree_info{overflow:hidden; border-bottom:1px solid #e8e8e8; padding:25px 0 13px 0}
+.inquiry_wrapper .board_write_wrapper .agree_info >p{float:left; color:#666666; font-size:16px; font-weight:300; letter-spacing:-0.03em; text-indent:10px;}
+.inquiry_wrapper .board_write_wrapper .agree_info >p:after{content:''; background:url(../images/common/icon_ess.png) no-repeat; width:7px; height:6px; display:inline-block; vertical-align:middle; position:relative; margin-left:4px; top:-2px;}
+.inquiry_wrapper .board_write_wrapper .agree_info >.form_checkbox{float:right; top:-5px;}
+.inquiry_wrapper .inquiry_notice{margin:30px 0 100px;}
+.inquiry_wrapper .btns_wrapper{border-top:1px solid #e8e8e8; position:relative; left:-70px; margin-right:-140px; padding-top:40px;}
+.inquiry_wrapper .pd_agree_wrapper{overflow:hidden; margin-bottom:60px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree{float:left; width:500px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree:first-child{margin-right:48px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree h3{color:#666666; font-size:18px; font-weight:300; letter-spacing:-0.05em; padding-bottom:19px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper{border:2px solid #e5e5e5; height:150px; padding:13px 0 13px 17px; overflow:hidden; color:#bbbbbb; font-size:13px; line-height:21px; margin-bottom:14px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_inside>.mCSB_container{margin-right:17px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_scrollTools .mCSB_draggerRail{opacity:0 !important}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width:5px !important; background-color:#dddddd !important}
+.inquiry_wrapper .form_select{margin-right:7px;}
+.inquiry_wrapper .em{display:inline-block; vertical-align:middle; width:63px; text-align:center; color:#292929; font-size:15px;}
+.inquiry_wrapper .board_write_wrapper .agree_info.type01{border-bottom:0;}
+.inquiry_wrapper .board_write_wrapper .agree_info.type01 >p{float:none;text-indent:0;}
+
+.inquiry_wrapper .btn_post_num{position:relative;}
+.inquiry_wrapper .btn_post_num a{padding:0 20px;color:#009223;letter-spacing:-.4px;font-weight:300;}
+.inquiry_wrapper .btn_post_num:before{content:'';position:absolute;top:calc(50% - 8px);left:0;width:2px;height:16px;background-color:#e8e8e8;}
+.inquiry_wrapper .post_wrap {margin-bottom:10px;border:2px solid #ddd;width:470px;box-sizing: border-box;}
+.inquiry_wrapper .post_wrap .form_text{background-color:#fff;width:340px}
+
+.board_write_wrapper .rt_note {
+    color: #999999;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+    position: absolute;
+    right: 0;
+    top: -29px;
+    background: url(../images/common/icon_ess.png) 0 7px no-repeat;
+    padding-left: 10px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+            
+
+<!-- 추가한 것들 -->
+
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
 	display: block;
 }
@@ -105,7 +211,7 @@ textarea {
 }
 body {
 	margin: 0;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Noto Sans KR", sans-serif;
 	font-size: 13px;
 	line-height: 18px;
 	color: #333333;
@@ -289,7 +395,7 @@ margin-left:2.127659574%;
 }
 p {
 	margin: 0 0 9px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Noto Sans KR", sans-serif;
 	font-size: 13px;
 	line-height: 18px;
 }
@@ -540,10 +646,10 @@ legend small {
 label, input, button, select, textarea {
 	font-size: 13px;
 	font-weight: normal;
-	line-height: 18px;
+	line-height: px;
 }
 input, button, select, textarea {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Noto Sans KR", sans-serif;
 }
 label {
 	display: block;
@@ -612,7 +718,7 @@ input[type="file"] {
 }
 select {
 	width: 220px;
-	background-color: #cccccc;
+	background-color: #f2efea;
 }
 select[multiple], select[size] {
 	height: auto;
@@ -1007,6 +1113,7 @@ table {
 	text-align: left;
 	vertical-align: top;
 	border-top: 1px solid #dddddd;
+	size: 14px;
 }
 .table th {
 	font-weight: bold;
@@ -1024,6 +1131,7 @@ table {
 	padding: 4px 5px;
 }
 .table-bordered {
+	text-align: center;
 	border: 1px solid #dddddd;
 	border-left: 0;
 	border-collapse: separate;
@@ -1033,6 +1141,7 @@ table {
 	border-radius: 4px;
 }
 .table-bordered th, .table-bordered td {
+	text-align: center;
 	border-left: 1px solid #dddddd;
 }
 .table-bordered thead:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child td {
@@ -2624,7 +2733,7 @@ filter:progid:dximagetransform.microsoft.gradient(enabled=false);
 }
 .navbar-search .search-query {
 	padding: 4px 9px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Noto Sans KR", sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	line-height: 1;

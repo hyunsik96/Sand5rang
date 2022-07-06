@@ -32,6 +32,12 @@ public class AnnaController {
 	@RequestMapping(value="annatest4.an")
 	public String annatest4() {return "anna/signUpInq";}
 	
+	@RequestMapping(value="login.an")
+	public String annatest5() {return "anna/login";}
+	
+	@RequestMapping(value="joinForm.an")
+	public String annatest6() {return "anna/joinForm";}
+	
 	
 	// 문의게시판 전체리스트 조회
 		@RequestMapping(value="inqueryList.an")

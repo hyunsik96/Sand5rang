@@ -176,26 +176,16 @@
 
 	  				</div> <!-- /widget-header -->
 	  				
-	  				<div class="widget-content">
-
-					<br>
+	  			
 
 		<table class="table table-striped table-bordered" border="1">
-			<div class="sort" align="right">
-				<form action="test.do">
-					<select name="category">
-						<option value="date">작성일</option>
-						<option value="writer">작성자</option>       
-				</form>
-		   </div><br>
-		
 			<thead>
 				<tr>
-					<th width="50">글번호</th>
-					<th width="450">제목</th>
-					<th width="100">작성자</th>
-					<th width="100">작성일</th>
-					<th width="100">답변상태</th>
+					<th width="50" style="text-align:center">글번호</th>
+					<th width="450" style="text-align:center">제목</th>
+					<th width="100" style="text-align:center">작성자</th>
+					<th width="100" style="text-align:center">작성일</th>
+					<th width="100" style="text-align:center">답변상태</th>
 				</tr>
 			</thead>
 			<tbody> 
@@ -235,14 +225,20 @@
 
 		</table>
 
-		</div>
 						
 				</div> <!-- /widget -->
+				
+						<ul class="pagination pagination-sm">
+									<li class="page-item"><a class="page-link" href="#"><</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item"><a class="page-link" href="#">></a></li>
+								</ul>
+	      		
 	      		
 		    </div> <!-- /span8 -->
-	      	
-	      	
-	      	
+
 	      	
 	      </div> <!-- /row -->
 	

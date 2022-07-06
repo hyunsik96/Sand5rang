@@ -2,178 +2,99 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-  
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Sand5rang</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">    
-    
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-   
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/sand5rang/resources/images/logo.png" type="">
+
+  <title>Sand5rang</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/sand5rang/resources/css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="/sand5rang/resources/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/sand5rang/resources/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/sand5rang/resources/css/responsive.css" rel="stylesheet" />
+
+</head>
 
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-  </head>
-
-<body>
-
+<body class="sub_page">
 <jsp:include page="include/1.jsp" />
 <jsp:include page="include/2.jsp" />
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
 
-<div class="navbar navbar-fixed-top">
-	
-	<div class="navbar-inner">
-		
-		<div class="container">
-			
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			
-			<a class="brand" href="index.html">
-				Sand5rang Admin				
-			</a>		
-			
-			<div class="nav-collapse">
-				<ul class="nav pull-right">
-					<li class="dropdown">						
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
-							설정
-							<b class="caret"></b>
-						</a>
-						
-						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Settings</a></li>
-							<li><a href="javascript:;">Help</a></li>
-						</ul>						
-					</li>
-			
-					<li class="dropdown">						
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
-							관리자 님
-							<b class="caret"></b>
-						</a>
-						
-						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Profile</a></li>
-							<li><a href="javascript:;">Logout</a></li>
-						</ul>						
-					</li>
-				</ul>
+  <div class="hero_area">
+    <div class="bg-box active">
+      <img src="resources/images/burger.png" alt="">
+    </div>
 
-				
-			</div><!--/.nav-collapse -->	
-	
-		</div> <!-- /container -->
-		
-	</div> <!-- /navbar-inner -->
-	
-</div> <!-- /navbar -->
-    
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/sand5rang">
+            <img src="resources/images/logo.png" width="85px" height="80px">
+            <span>
+              Sand5rang
+            </span>
+          </a>
 
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
 
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="aboutSand.ma">About Sand</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.ma">Menu book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">지사안내</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="hyunsikTest.hs">가맹문의</a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a href="" class="order_online">
+                Login
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
 
-    
-<div class="subnavbar">
-
-	<div class="subnavbar-inner">
-	
-		<div class="container">
-
-			<ul class="mainnav">
-			
-				<li>
-					<a href="index.html">
-						<i class="icon-dashboard"></i>
-						<span>메인</span>
-					</a>	    				
-				</li>
-                
-                
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 업무처리</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
-                    </ul>    				
-				</li>
-				
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 관리</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
-                    </ul>    				
-				</li>
-                
-				
-				<li>
-					<a href="reports.html">
-						<i class="icon-list-alt"></i>
-						<span>결제대금</span>
-					</a>    				
-				</li>
-			
-			</ul>
-
-		</div> <!-- /container -->
-	
-	</div> <!-- /subnavbar-inner -->
-
-</div> <!-- /subnavbar -->
-    
-    
-
-<div class="main">
-	
-	<div class="main-inner">
-
-	    <div class="container">
-	
-	      <div class="row">
-	      	
-	      	<div class="span12">      		
-	      		
-	      		<div class="widget ">
-	      			
-	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3></h3>
-	  				</div> <!-- /widget-header -->
-					
-					<div class="widget-content">
 
 <br>
 
-
     <div class="inquiry_wrapper">
         <div class="subTitle" align="center">
-            <h1>가맹 신청ㆍ문의 </h1>
+            <h1>가맹 신청ㆍ문의 </h1><br>
         </div>
 
         <div class="pd_agree_wrapper">
@@ -200,12 +121,18 @@
                     - 계약 또는 청약철회 등에 관한 기록 : 5년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
                     - 대금결제 및 재화 등의 공급에 관한 기록: 5년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
                     - 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
-                </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 72px; max-height: 140px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-                <!--// 20180131 -->
+                </div>
+                
+                <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" 
+                		style="display: block;"><div class="mCSB_draggerContainer">
+                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 72px; max-height: 140px; top: 0px;">
+                <div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail">
+                </div></div></div></div></div>
+              
                 <!-- checkbox -->
                 <label class="form_checkbox">
                     <input name="agree1" type="checkbox">
-                    <span class="icon"></span>개인정보수집 및 이용에 동의합니다. <em>(필수)</em>
+                    <span class="icon"></span>개인정보수집 및 이용에 동의합니다.(필수)
                 </label>
                 <!--// checkbox -->
             </div>
@@ -213,7 +140,7 @@
             <!-- 개인정보 위탁동의 -->
             <div class="pd_agree">
                 <h3>개인정보 위탁동의</h3>
-                            <!-- 20180131 -->
+                       
                 <div class="scroll_wrapper mCustomScrollbar _mCS_2"><div id="mCSB_2" class="scrollbox" tabindex="0" style="max-height: none;"><div id="mCSB_2_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
                     회사는 서비스의 향상을 위하여 아래와 같이 외부 전문업체를 통하여 업무를 위탁하여
                     운영하고 있습니다. 위탁 업무를 위해 제공되는 정보는 해당 업무를 위해 필요한 최소
@@ -221,7 +148,7 @@
 
                     - 데이터 전산 처리 및 유지관리 : Wylie.Co.Ltd, IMT Soft Corporation<br>
                     - 결제 처리업체 : Fiserv<br>
-                    - 고객 경험 관리 서비스 제공, 써브카드 프로그램 및 마케팅 관리 : 써브카드 코리아<br>
+                    - 고객 경험 관리 서비스 제공, 샌드오랑 프로그램 및 마케팅 관리 : 써브카드 코리아<br>
                     ,IPCA, Simplicity Australasia Ltd<br>
                     - 고객센터 운영 : 씨엔티테크 ㈜<br><br>
 
@@ -275,11 +202,11 @@
                             <span class="em">@</span>
                             <span class="form_text" style="width:200px">
                                 <!--<input type="text" name="email2" id="franchiseEmail2" maxlength="50" onkeypress="view.onchangeEmailDomail(); return true;" onkeyup="subwayCommon.inputEmail(this);" th:value="${email2}"/>-->
-                                <input id="franchiseEmail2" maxlength="50" name="email2" type="text" readonly="readonly" value="">
+                                <input id="franchiseEmail2" maxlength="50" name="email2" type="text" value="">
                             </span>
                             <div class="form_select" style="width:196px; margin-left:7px;">
                                 <!-- #210416 이름, 연락처, 이메일 readonly 추가 요청 -->
-                                <select id="emailDomain" name="dmain" onchange="view.domain();" readonly="readonly">
+                                <select id="emailDomain" name="dmain" onchange="view.domain();">
                                     <option value="" disabled="">직접입력</option>
                                     <option value="naver.com">naver.com</option>
                                     <option value="hanmail.net" disabled="">hanmail.net</option>
@@ -379,112 +306,111 @@
             <a class="btn" href="#" onclick="view.save();return false;" style="width:170px;"><span>등록하기</span></a>
         </div>
        </div> 
+  
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call 02) 807-4421 
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  Sand5rang@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Sand5rang
+            </a>
+            <p>
+              Korea tradition Sandwich Franchise Sand5rang 
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Sand5rang</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">Sand5rang</a>
+        </p>
+      </div>
     </div>
-						
-				</div> <!-- /widget -->
-	      		
-		    </div> <!-- /span8 -->
-	      	
-	      	
-	      	
-	      	
-	      </div> <!-- /row -->
-	
-	    </div> <!-- /container -->
-	    
-	</div> <!-- /main-inner -->
-    
-</div> <!-- /main -->
-    
-    
-    
- 
-<div class="extra">
+  </footer>
+  <!-- footer section -->
 
-	<div class="extra-inner">
+  <!-- jQery -->
+  <script src="/sand5rang/resources/js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="/sand5rang/resources/js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="/sand5rang/resources/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
 
-		<div class="container">
-
-			<div class="row">
-                    <div class="span3">
-                        <h4>
-                            About Free Admin Template</h4>
-                        <ul>
-                            <li><a href="javascript:;">EGrappler.com</a></li>
-                            <li><a href="javascript:;">Web Development Resources</a></li>
-                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Support</h4>
-                        <ul>
-                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:;">Ask a Question</a></li>
-                            <li><a href="javascript:;">Video Tutorial</a></li>
-                            <li><a href="javascript:;">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Something Legal</h4>
-                        <ul>
-                            <li><a href="javascript:;">Read License</a></li>
-                            <li><a href="javascript:;">Terms of Use</a></li>
-                            <li><a href="javascript:;">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="">Open Source jQuery Plugins</a></li>
-                            <li><a href="">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="">Free Contact Form Plugin</a></li>
-                            <li><a href="">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                </div> <!-- /row -->
-
-		</div> <!-- /container -->
-
-	</div> <!-- /extra-inner -->
-
-</div> <!-- /extra -->
-
-
-    
-    
-<div class="footer">
-	
-	<div class="footer-inner">
-		
-		<div class="container">
-			
-			<div class="row">
-				
-    			<div class="span12">
-    				&copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.
-    			</div> <!-- /span12 -->
-    			
-    		</div> <!-- /row -->
-    		
-		</div> <!-- /container -->
-		
-	</div> <!-- /footer-inner -->
-	
-</div> <!-- /footer -->
-    
-
-
-<jsp:include page="include/6.jsp" />
-
-
-  </body>
+</body>
 
 </html>
