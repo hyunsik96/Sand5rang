@@ -14,6 +14,6 @@ public class Scheduler {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date now = new Date();
         String strDate = sdf.format(now);
-        System.out.println("현재시간: " + strDate);
+//        System.out.println("현재시간: " + strDate);
     }
 }
