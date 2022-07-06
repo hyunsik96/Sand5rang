@@ -165,8 +165,6 @@
 	      				<i class="icon-user"></i>
 	      				<h3>문의게시판</h3>
 	  				</div> <!-- /widget-header -->
-					
-					<div class="widget-content">
 
 <br>
 
@@ -240,8 +238,6 @@
      </div>
 
 
-
-					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		

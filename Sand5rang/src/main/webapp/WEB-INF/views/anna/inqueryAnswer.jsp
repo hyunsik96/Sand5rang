@@ -166,7 +166,6 @@
 	      				<h3>문의 게시판 : 답변하기</h3>
 	  				</div> <!-- /widget-header -->
 					
-					<div class="widget-content">
 
 <br>
 		<div class="wrap">
@@ -242,7 +241,6 @@
 		</div>
 
 
-					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	      		
