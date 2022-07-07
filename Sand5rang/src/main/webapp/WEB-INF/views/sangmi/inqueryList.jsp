@@ -233,10 +233,32 @@
  <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
  <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
 
+<br><br>
+     
+      <form id="searchForm" action="" method="get" align="center">
+   
+              <select class="custom-select" name="condition">
+                  <option value="writer">작성자</option>
+                  <option value="title">제목</option>
+              </select>
+
+   
+              <input type="text" class="form-control" name="keyword">
+
+          <button type="submit" class="searchBtn btn btn-secondary">검색</button>
+      </form>
+      <br><br>
+  </div>
+
+
+
+
+
+
 <script>
   $(function(){
 	  $("#boardList>tbody>tr").click(function(){
-		 location.href="inqueryDetail.sm?eno="+$(this).children(".eno").text();" 
+		 location.href="inqueryDetail.sm?eno="+$(this).children(".eno").text();
 	  });
   });
 </script>
@@ -247,17 +269,15 @@
     <br>
 </c:if>
 -->
-</div>
-
 <div id="pagingArea">
 	<ul class="pagination">
 		
 	   <c:choose>
 		 <c:when test="${ pi.currentPage eq 1 }">
-			<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+			<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
 		 </c:when>
 		 <c:otherwise>
-			<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }"><</a></li>
 		 </c:otherwise>
 	   </c:choose> 
 		
@@ -268,19 +288,23 @@
 		
 		<c:choose>
 		  <c:when test="${ pi.currentPage eq pi.maxPage }">
-			<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+			<li class="page-item disabled"><a class="page-link" href="#">></a></li>
 		  </c:when>
 		  <c:otherwise>
-			 <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">Next</a></li>
+			 <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">></a></li>
 		  </c:otherwise>
 		</c:choose>
-		
-		
-		
+	
 		
 	</ul>
 
-						
+</div>
+
+
+	
+
+
+			
 				</div> <!-- /widget -->
 	      		
 		    </div> <!-- /span8 -->
