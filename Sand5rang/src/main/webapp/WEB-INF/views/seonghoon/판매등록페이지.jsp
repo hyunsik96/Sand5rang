@@ -178,7 +178,7 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>판매 기입</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -190,22 +190,133 @@
 -->
 	
 	<!-- 제품판매현황에서 클릭하면 상세 페이지로 이동할 수 있도록 함. -->
+<div class="bread" style="margin-top : 10px;">
+	<h4>파마산</h4>
+	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="bread">
+	<h4>화이트</h4>
+	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="bread">
+	<h4>플랫</h4>
+	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>		
+<div class="bread" style="margin-top : 10px;">
+	<h4>파마산</h4>
+	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="bread">
+	<h4>화이트</h4>
+	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
 
-	<div class="sales image">
-		<h3>샌드위치 이미지</h3>
-		<img src="resources/images/menu/k-바비큐.png" width="300px" height="300px">
-	</div>
-	
-	<div class="sales name" >
-		<h3>샌드위치 이름</h3>
-		<input type="text" readonly style="background-color:white; width:100px;" value="K-바비큐">
-		<h3>샌드위치 개수</h3>
-		<input type="number" readonly style="background-color:white; width:100px;" value="100">
-		<h3>샌드위치 가격</h3>
-		<input type="number" readonly style="background-color:white; width:100px;" value="10000">
-	</div>
-	
+<div class="vegetable" style="margin-top : 10px;">
+	<h4>파마산</h4>
+	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="vegetable">
+	<h4>화이트</h4>
+	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="vegetable">
+	<h4>플랫</h4>
+	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>		
+<div class="vegetable" style="margin-top : 10px;">
+	<h4>파마산</h4>
+	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="vegetable">
+	<h4>화이트</h4>
+	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
 
+<div class="sauce" style="margin-top : 10px;">
+	<h4>파마산</h4>
+	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="sauce">
+	<h4>화이트</h4>
+	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="sauce">
+	<h4>플랫</h4>
+	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>		
+<div class="sauce" style="margin-top : 10px;">
+	<h4>파마산</h4>
+	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+<div class="sauce">
+	<h4>화이트</h4>
+	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+	<p>
+	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
+	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	</p>
+</div>
+
+
+		
+		
+		
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->

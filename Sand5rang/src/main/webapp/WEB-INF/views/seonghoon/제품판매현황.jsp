@@ -113,7 +113,7 @@
 					<ul class="dropdown-menu">
                         <li class="active"><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
-						<li><a href="ingredientAllStock.csh">재고현황</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
 						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
@@ -190,59 +190,47 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr class="st_head">
-				<th>제품이름</th>
-				<th>재료</th>
-				<th>제품가격</th>
-				<th>판매개수</th>
-				<th>총액</th>
+				<th>번호</th>
 				<th>판매날짜</th>
+				<th>총판매개수</th>
+				<th>총매출액</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="st_body">
-				<td>에그마요</td>
-				<td>양상추, 토마토, 에그</td>
-				<td>3000</td>
-				<td>10</td>
-				<td>30000</td>
-				<td>2022-07-06</td>
-			</tr>
-						<tr class="st_body">
-				<td>에그마요</td>
-				<td>양상추, 토마토, 에그</td>
-				<td>3000</td>
-				<td>10</td>
-				<td>30000</td>
-				<td>2022-07-06</td>
+				<td>1</td>
+				<td>2022-07-07</td>
+				<td><a data-toggle="modal" href="#Modal">10000</a></td>
+				<td>3600000</td>
 			</tr>
 			<tr class="st_body">
-				<td>에그마요</td>
-				<td>양상추, 토마토, 에그</td>
-				<td>3000</td>
-				<td>10</td>
-				<td>30000</td>
-				<td>2022-07-06</td>
+				<td>2</td>
+				<td>2022-07-07</td>
+				<td>1000</td>
+				<td>3600000</td>
 			</tr>
 			<tr class="st_body">
-				<td>에그마요</td>
-				<td>양상추, 토마토, 에그</td>
-				<td>3000</td>
-				<td>10</td>
-				<td>30000</td>
-				<td>2022-07-06</td>
+				<td>3</td>
+				<td>2022-07-07</td>
+				<td>1000</td>
+				<td>3600000</td>
 			</tr>
 			<tr class="st_body">
-				<td>에그마요</td>
-				<td>양상추, 토마토, 에그</td>
-				<td>3000</td>
-				<td>10</td>
-				<td>30000</td>
-				<td>2022-07-06</td>
-			</tr>									
+				<td>4</td>
+				<td>2022-07-07</td>
+				<td>1000</td>
+				<td>3600000</td>
+			</tr>
+			<tr class="st_body">
+				<td>5</td>
+				<td>2022-07-07</td>
+				<td>1000</td>
+				<td>3600000</td>
+			</tr>
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
-						
+	<button class="btn btn-success" style="display:inline-block; margin-left:90%; width:100px;">판매기입</button>					
 				</div> <!-- /widget -->
 	      		
 		    </div> <!-- /span8 -->
@@ -345,7 +333,73 @@
 
 
 <jsp:include page="include/6.jsp" />
+	<c:forEach var="i" begin="1" end="10" step="1">
+	<!-- The Modal -->
+	<div class="modal" id="Modal" style="display: none;">
+		<div class="modal-dialog">
+		  <div class="modal-content">	 
+	  
+		  <!-- Modal Header -->
+		  <div class="modal-header">
+			  <h4 class="modal-title">날짜별 판매 기입</h4>
+		  </div> 
+		  
+		  <!-- 해당 날짜에 어떤 메뉴가 판매되었는지 목록을 보여줌. -->
+		  <!-- Modal body -->
+		  <div class="modal-body">
+				<table>
+					<tr class="menuModal">
+						<th>에그마요</th>
+						<td>10000</td>
+						<th>로스트치킨</th>
+						<td>10000</td>
+						<th>쉬림프</th>
+						<td>10000</td>
+					</tr>
+					<tr class="menuModal">
+						<th>스테이크치즈</th>
+						<td>10000</td>
+						<th>베지</th>
+						<td>10000</td>
+						<th>베지아보카도</th>
+						<td>10000</td>
+					</tr>
+					<tr class="menuModal">
+						<th>로스트치킨아보카도</th>
+						<td>10000</td>
+						<th>비엘티</th>
+						<td>10000</td>
+						<th>풀드포크바비큐</th>
+						<td>10000</td>
+					</tr>																														
+					<tr class="menuModal">
+						<th>치킨데리야끼</th>
+						<td>10000</td>
+						<th>터키베이컨아보카도</th>
+						<td>10000</td>
+						<th>로티세리바비큐치킨</th>
+						<td>10000</td>
+					</tr>
+					<tr class="menuModal">
+						<th>이탈리안비엠티</th>
+						<td>10000</td>
+						<th>K-바비큐</th>
+						<td>10000</td>
+						<th>스파이스이탈리안</th>
+						<td>10000</td>
+					</tr>															
+				</table>	
+		  	
+		  </div>
 
+		  <!-- Modal footer -->
+		  <div class="modal-footer">
+			  <button type="button" class="btn btn-success" data-dismiss="modal" onclick="closeModal();">닫기</button>
+		  </div>  
+	  </div>
+	</div>
+  </div>
+</c:forEach>
 
   </body>
 

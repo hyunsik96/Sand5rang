@@ -404,29 +404,19 @@ input[type=text]{
 	text-align:center;
 }
 
-
-
-/* 제품판매페이지 CSS */
-.sales{
-	float:left;
-	
+/* 제품 판매 현황페이지 CSS*/
+.menuModal th{
+	text-align:left;
+	width:250px;
+	height:30px;
 }
-.sales.image{
-	margin-left : 300px;
-	margin-top : 100px;
+.menuModal td{
+	text-align:center;
+	width:100px;
+	height:30px;
+	color:gray;
+	font-weight:900;
 }
-.sales.image>h3{
-	margin-left:80px;
-}
-.sales.name{
-	margin-left : 50px;
-	margin-top : 100px;
-}
-.sales.name>input{
-	border-ladius:none;
-	font-size : 18px;
-}
-
 
 
 </style>

@@ -44,7 +44,7 @@ public class SeonghoonController {
 	
 	@RequestMapping(value="salesPage.csh")
 	public String salesPage(Model model) {
-		return "seonghoon/제품판매페이지";
+		return "seonghoon/판매등록페이지";
 	}
 	
 }

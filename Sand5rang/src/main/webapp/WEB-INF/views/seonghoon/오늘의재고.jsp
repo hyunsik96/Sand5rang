@@ -113,7 +113,7 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li class="active"><a href="todayStock.csh">오늘의 재고</a></li>
-						<li><a href="ingredientAllStock.csh">재고현황</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
 						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
@@ -285,7 +285,7 @@
 	</p>
 </div>
 <div class="meat">
-	<h4>에그</h4>
+	<h4>에그마요</h4>
 	<img src="resources/images/ingredient/에그.jpg" width="150" height="150">
 	<p>
 	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 

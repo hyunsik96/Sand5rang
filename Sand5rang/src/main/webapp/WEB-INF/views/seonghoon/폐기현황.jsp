@@ -113,7 +113,7 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
-						<li><a href="ingredientAllStock.csh">재고현황</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
 						<li class="active"><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
@@ -312,8 +312,8 @@
 
 
 <jsp:include page="include/6.jsp" />
-		<c:forEach var="i" begin="1" end="10" step="1">
-<!-- 모달의 id의 끝에 재료번호를 부여해주어서 재료마다 뽑아올 수 있도록 -->
+	<c:forEach var="i" begin="1" end="10" step="1">
+	<!-- 모달의 id의 끝에 재료번호를 부여해주어서 재료마다 뽑아올 수 있도록 -->
 	<!-- The Modal -->
 	<div class="modal" id="Modal${i}" style="display: none;">
 		<div class="modal-dialog">
