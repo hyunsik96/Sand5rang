@@ -162,12 +162,12 @@
     
 
 
-	<div class="main">
+<div class="main">
 		<div class="main-inner">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<div class="widget-content widget-table action-table">
+						<!-- <div class="widget-content widget-table action-table"> -->
 							<div class="widget-header">
 								<i class="icon-user"></i>
 								<h3>XXX 가맹점 발주 신청</h3>
@@ -176,7 +176,12 @@
 
 							
 <!-- /widget-header -->
-<div class="widget-content">
+<div class="widget-content"> 
+    <div>
+        <p style="color: rgb(214, 58, 58);">
+            &nbsp;&nbsp;&nbsp;&nbsp;* 당일 발주는 14시까지 가능하며, 14시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
+        </p>
+    </div>
 <h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
 <div class="bread" style="display: block; float: left;">
 	<h4>*파마산</h4>
@@ -481,7 +486,7 @@
 </div>
 <div class="cheese">
 	<h4>*모짜렐라</h4>
-	<img src="resources/images/ingredient/모차렐라.jpg" width="150" height="150">
+	<img src="resources/images/ingredient/모짜렐라.jpg" width="150" height="150">
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
@@ -511,7 +516,7 @@
     <div class="widget widget-table action-table">
        
         <!-- 상단 재료별 테이블-->
-        <div class="widget-content">
+        <!-- <div class="widget-content"> -->
             <table class="table table-striped table-bordered" style="width: 1100px; margin: auto; margin-bottom: 50px; border: 1px solid silver;">
               <thead>
                 <tr>
@@ -588,11 +593,11 @@
                   </tr>
               </tbody>
             </table>
-          </div>
+          <!-- </div> -->
 
          <h2 style="margin-left: 510px; margin-bottom: 20px; margin-top: 40px;">[ 발주 금액 ]</h2>
         <!-- 발주 가격 테이블 -->
-        <div class="widget-content">
+        <!-- <div class="widget-content"> -->
           <table class="table table-striped table-bordered" style="width: 1100px; margin: auto; border: 1px solid silver;">
             <thead>
               <tr>
@@ -617,16 +622,13 @@
             <button type="button" class="btn btn-success btn-lg" data-bs-dismiss="modal" onclick="closeModal();">발주신청</button>
             <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal" onclick="closeModal();">취소</button>
         </div>
-</div>
-
-</div>
+	</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-
 
 
 	<br><br><br>
