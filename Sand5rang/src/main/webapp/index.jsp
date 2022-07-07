@@ -99,7 +99,7 @@
                       Quick Service Restaurant(QSR) 부분 믿을 수있는 프랜차이즈입니다.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="faq.sm" class="btn1">
                         	가맹문의
                       </a>
                     </div>
