@@ -232,7 +232,7 @@
 
 
         <div id="paging" align="center">
-            <a href="" class="btn btn-secondary btn-sm">목록가기</a>       
+            <a class="btn btn-secondary" href="inqueryList.sm">목록가기</a>       
         </div>
 
 

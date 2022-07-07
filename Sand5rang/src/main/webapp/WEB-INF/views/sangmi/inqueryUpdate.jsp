@@ -216,9 +216,9 @@
     
             <div align="center">
                 <button type="submit" class="btn btn-primary">수정하기</button>
+                <a class="btn btn-secondary" href="inqueryList.sm">뒤로가기</a>
             </div>  
-         </form>
-  </div>
+
 
 
 

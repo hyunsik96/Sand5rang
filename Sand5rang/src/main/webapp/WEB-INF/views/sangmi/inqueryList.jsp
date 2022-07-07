@@ -193,35 +193,35 @@
         <tbody>
         
             <tr>
-               <td class="ino">10</td>
+               <td class="eno">10</td>
                 <td>제목1</td>
                 <td>user01</td>
                 <td>2022/07/05</td>
                 <td>미답변</td>
             </tr>
 			<tr>
-				<td class="ino">10</td>
+				<td class="eno">10</td>
 				 <td>제목1</td>
 				 <td>user01</td>
 				 <td>2022/07/05</td>
 				 <td>문의답변완료</td>
 			 </tr>
 			 <tr>
-				<td class="ino">10</td>
+				<td class="eno">10</td>
 				 <td>제목1</td>
 				 <td>user01</td>
 				 <td>2022/07/05</td>
 				 <td>문의답변완료</td>
 			 </tr>
 			 <tr>
-				<td class="ino">10</td>
+				<td class="eno">10</td>
 				 <td>제목1</td>
 				 <td>user01</td>
 				 <td>2022/07/05</td>
 				 <td>문의답변완료</td>
 			 </tr>
 			 <tr>
-				<td class="ino">10</td>
+				<td class="eno">10</td>
 				 <td>제목1</td>
 				 <td>user01</td>
 				 <td>2022/07/05</td>
@@ -249,10 +249,6 @@
       </form>
       <br><br>
   </div>
-
-
-
-
 
 
 <script>
