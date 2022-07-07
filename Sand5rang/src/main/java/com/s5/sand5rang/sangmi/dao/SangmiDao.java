@@ -28,8 +28,16 @@ public class SangmiDao {
 	   
 	   RowBounds rowBounds = new RowBounds(offset, limit);
 	 
-	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeList");
+	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeList",null,rowBounds);
    }
+   //폐업
+    public int storeclose(SqlSessionTemplate sqlSession, int enoNo) {
+    	
+    	return sqlSession.selectOne("sangmiMapper.storeclose", enoNo);
+    }
+   
+   
+   
  //가맹 가입신청 리스트 조회
    public ArrayList<Enroll> storeEnrollList(SqlSessionTemplate sqlSession,PageInfo pi) {
 	   

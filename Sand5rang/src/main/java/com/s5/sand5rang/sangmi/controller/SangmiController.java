@@ -2,6 +2,8 @@ package com.s5.sand5rang.sangmi.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,12 +42,38 @@ public class SangmiController {
 		//System.out.println(list+"조회중");
 		model.addAttribute("pi",pi);
 		model.addAttribute("list",list);
-		
-		// 폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것  
-		
-		
+
 		return "sangmi/storeList";
 	}
+	// 폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것
+
+	@RequestMapping("storeclose.sm")
+	public String storeclose(int enoNo,HttpSession session, Model model) {
+		
+		
+		int result = SangmiService.storeclose(enoNo);
+		
+		 if(result > 0) { 
+		
+		
+				
+				session.removeAttribute("status");
+				
+				session.setAttribute("alertMsg", "성공적으로 폐업처리가 되었습니다.");
+				
+				return "redirect:/";
+				
+			}
+			else {
+				
+				model.addAttribute("errorMsg", "폐업 처리 실패.");
+				
+				return "errorPage";
+			}
+		}
+		
+	
+	
 	//가맹가입신청 list 조회
 	
 	@RequestMapping(value="storeEnrollList.sm")

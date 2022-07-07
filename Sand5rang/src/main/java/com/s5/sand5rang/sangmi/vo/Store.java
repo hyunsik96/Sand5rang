@@ -16,7 +16,7 @@ public class Store {
 	private String storeName;
 	private String address;
     private String status;
-    private int enrollNo;
+    private int enrNo;
     
     private String phone;
     private String email;

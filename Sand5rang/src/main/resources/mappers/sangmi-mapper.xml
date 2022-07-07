@@ -35,11 +35,11 @@
 	 JOIN ENROLL E USING(ENR_NO)
   </select>
   
-  <!-- 폐업 버튼 -> 변경 -->
+  <!-- 폐업 버튼 -> 삭제 -->
    <select id="close1" parameterType="_int">
     UPDATE STORE
        SET STATUS = 'N'
-      WHERE  
+      WHERE ENR_NO = #{enrNo} 
    </select>
    
 <!--가맹가입신청 list 조회  -->

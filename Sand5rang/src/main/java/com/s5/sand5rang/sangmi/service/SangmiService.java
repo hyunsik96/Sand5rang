@@ -30,7 +30,11 @@ public class SangmiService {
 		
 		return SangmiDao.storeList(sqlSession,pi);
 	}
-	
+	//폐업
+	public int storeclose(int enoNo) {
+		
+		return SangmiDao.storeclose(sqlSession, enoNo);
+	}
 	
 	
     //가맹 가입신청 리스트 조회
