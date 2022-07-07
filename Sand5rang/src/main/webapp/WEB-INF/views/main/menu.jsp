@@ -327,7 +327,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="/sand5rang/resources/images/menu/터키베이컨아보카도.png" alt="">
+                  <img src="/sand5rang/resources/images/menu/스테이크치즈.png" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -356,7 +356,7 @@
                     [풀드포크바비큐] Pulled Pork
                   </h5>
                   <p>
-                   	 미국 스타일의 풀드 포크 바비큐가 가득 들어간 샌드위치
+                   	 미국 스타일의 풀드 포크 바비큐가 가득 들어간 샌드위치&nbsp;&nbsp;
                   </p>
                   <div class="options">
                     <h6>
@@ -375,13 +375,58 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-					        [로스트치킨아보카도] 
+					[로스트치킨아보카도] 
+				  </h5>
                   <p>
-                   	담백한 닭가슴살 위 아보카도 한스쿱!입안 가득 부드러운 신선함!
+                   	닭가슴살 위 아보카도 한스쿱!입안 가득 부드러운 신선함!
                   </p>
                   <div class="options">
                     <h6>
                       357 Kcal / 267(g)
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all classic">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="/sand5rang/resources/images/menu/비엘티.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+					[비엘티] 
+				  </h5>
+                  <p>
+                   	아메리칸 스타일 베이컨의 풍미와 바삭함 그대로 음미
+                  </p>
+                  <div class="options">
+                    <h6>
+                      300 Kcal / 182(g)
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="col-sm-6 col-lg-4 all premium">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="/sand5rang/resources/images/menu/터키베이컨아보카도.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+					[터키베이컨아보카도] 
+				  </h5>
+                  <p>
+                  	터키와 바삭한 베이컨에 부드러운 아보카도는 신의 한수
+                  </p>
+                  <div class="options">
+                    <h6>
+                      349 Kcal / 245(g)
                     </h6>
                   </div>
                 </div>
