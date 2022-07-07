@@ -41,6 +41,9 @@ public class SangmiController {
 		model.addAttribute("pi",pi);
 		model.addAttribute("list",list);
 		
+		// 폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것  
+		
+		
 		return "sangmi/storeList";
 	}
 	//가맹가입신청 list 조회

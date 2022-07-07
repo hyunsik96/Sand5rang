@@ -3,7 +3,7 @@
 <mapper namespace="sangmiMapper">
 
  <resultMap id="enrollResultSet" type="com.s5.sand5rang.sangmi.vo.Enroll">
-   <result column="ENROLL_NO" property="enrollNo" />
+   <result column="ENR_NO" property="enrollNo" />
    <result column="STORE_NAME" property="storeName" />
    <result column="ENROLL_ADD" property="enrollAdd" />
    <result column="EMAIL" property="email" />
@@ -30,15 +30,22 @@
  </select>
  <!--가맹점 전체리스트 조회-->
   <select id="storeList" resultMap="storeResultSet">
-	 SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL 
+	 SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL
 	 FROM STORE S 
-	 JOIN ENROLL E USING(ENROLL_NO)
+	 JOIN ENROLL E USING(ENR_NO)
   </select>
-
+  
+  <!-- 폐업 버튼 -> 변경 -->
+   <select id="close1" parameterType="_int">
+    UPDATE STORE
+       SET STATUS = 'N'
+      WHERE  
+   </select>
+   
 <!--가맹가입신청 list 조회  -->
 
 <select id="storeEnrollList" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
- SELECT ENROLL_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
+ SELECT ENR_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
 </select>
 

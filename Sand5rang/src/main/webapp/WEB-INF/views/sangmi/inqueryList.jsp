@@ -230,10 +230,16 @@
 
         </tbody>
     </table>
-<a class="btn btn-secondary" style="float:right;" >글등록</a>
- <a class="btn btn-secondary" style="float:right;">글수정</a>
+ <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
+ <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
 
-
+<script>
+  $(function(){
+	  $("#boardList>tbody>tr").click(function(){
+		 location.href="inqueryDetail.sm?eno="+$(this).children(".eno").text();" 
+	  });
+  });
+</script>
 <!-- 로그인 후 상태일 경우만 보여지는 글쓰기 버튼 
 <c:if test="${ not empty loginUser }">
     <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm">글등록</a>

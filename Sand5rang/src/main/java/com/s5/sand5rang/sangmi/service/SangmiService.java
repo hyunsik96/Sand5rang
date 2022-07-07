@@ -30,6 +30,9 @@ public class SangmiService {
 		
 		return SangmiDao.storeList(sqlSession,pi);
 	}
+	
+	
+	
     //가맹 가입신청 리스트 조회
 	public ArrayList<Enroll> storeEnrollList(PageInfo pi){
 		

@@ -185,13 +185,16 @@
 			                <td>${s.address}</td> 
 			                <td>${s.phone}</td>
 			                <td>${s.email}</td>
-			                <td><button type="submit">폐업</button></td>
+			                <td>${s.status}
+			                <a id="close1" class="btn btn-danger btn-small"></a>
+			                </td>
 			              </tr>
 			             </c:forEach>   
 			          </tbody>  
 			     </table>
 		
-		
+		<!--폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것   -->
+
             
                 <ul class="pagination">
                     
