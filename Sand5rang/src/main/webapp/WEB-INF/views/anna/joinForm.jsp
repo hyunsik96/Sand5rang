@@ -32,21 +32,69 @@
   <!-- responsive style -->
   <link href="/sand5rang/resources/css/responsive.css" rel="stylesheet" />
 
+  <!-- google font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
+
+    
 </head>
+<style>
+.sub_page { background-color: rgb(234 234 234);}
+.inquiry_wrapper{background-color:#f8f9fa; margin:0 auto;  padding:70px 49px;}
+.subTitle{padding:72px 0 76px !important; margin-bottom:30px;}
+.subTitle> h1 {font-family: 'Noto Sans KR', sans-serif;}
+.h_title {font-family: 'Noto Sans KR', sans-serif; text-align: center;}
 
 
+.inquiry_wrapper .summary_txt{padding-top:21px;color:#f8f9fa;font-size:16px;line-height:26px;text-align:center;letter-spacing:-0.4px;font-weight:normal;}
+.inquiry_wrapper .board_write_wrapper .agree_info{overflow:hidden; border-bottom:1px solid #e8e8e8; padding:25px 0 13px 0}
+.inquiry_wrapper .board_write_wrapper .agree_info >p{float:left; color:#666666; font-size:16px; font-weight:300; letter-spacing:-0.03em; text-indent:10px;}
+.inquiry_wrapper .board_write_wrapper .agree_info >p:after{content:''; background:url(../images/common/icon_ess.png) no-repeat; width:7px; height:6px; display:inline-block; vertical-align:middle; position:relative; margin-left:4px; top:-2px;}
+.inquiry_wrapper .board_write_wrapper .agree_info >.form_checkbox{float:right; top:-5px;}
+.inquiry_wrapper .inquiry_notice{margin:30px 0 100px;}
+.inquiry_wrapper .btns_wrapper{border-top:1px solid #e8e8e8; position:relative; left:-70px; margin-right:-140px; padding-top:40px;}
+
+.inquiry_wrapper .pd_agree_wrapper{overflow:hidden; margin-bottom:96px; align:center;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree{float:left; width:490px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree:first-child{margin-right:48px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree h3{color:#666666; font-size:18px; font-weight:300; letter-spacing:-0.05em; padding-bottom:19px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper{border:2px solid #e5e5e5; height:150px; padding:13px 0 13px 17px; overflow:hidden; color:#bbbbbb; font-size:13px; line-height:21px; margin-bottom:14px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_inside>.mCSB_container{margin-right:17px;}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_scrollTools .mCSB_draggerRail{opacity:0 !important}
+.inquiry_wrapper .pd_agree_wrapper .pd_agree .scroll_wrapper .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width:5px !important; background-color:#dddddd !important}
+.inquiry_wrapper .form_select{margin-right:7px;}
+.inquiry_wrapper .em{display:inline-block; vertical-align:middle; width:63px; text-align:center; color:#292929; font-size:15px;}
+.inquiry_wrapper .board_write_wrapper .agree_info.type01{border-bottom:0;}
+.inquiry_wrapper .board_write_wrapper .agree_info.type01 >p{float:none;text-indent:0;}
+
+.inquiry_wrapper .btn_post_num{position:relative;}
+.inquiry_wrapper .btn_post_num a{padding:0 20px;color:#009223;letter-spacing:-.4px;font-weight:300;}
+.inquiry_wrapper .btn_post_num:before{content:'';position:absolute;top:calc(50% - 8px);left:0;width:2px;height:16px;background-color:#e8e8e8;}
+.inquiry_wrapper .post_wrap {margin-bottom:10px;border:2px solid #ddd;width:470px;box-sizing: border-box;}
+.inquiry_wrapper .post_wrap .form_text{background-color:#fff;width:340px}
+
+.board_write_wrapper .rt_note {
+    color: #999999;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+    position: absolute;
+    right: 0;
+    top: -29px;
+    background: url(../images/common/icon_ess.png) 0 7px no-repeat;
+    padding-left: 10px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+</style>
 <body class="sub_page">
-<jsp:include page="include/1.jsp" />
-<jsp:include page="include/2.jsp" />
-<jsp:include page="include/3.jsp" />
-<jsp:include page="include/4.jsp" />
-<jsp:include page="include/5.jsp" />
-
-  <div class="hero_area">
-    <div class="bg-box active">
-      <img src="resources/images/burger.png" alt="">
-    </div>
-
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
@@ -74,11 +122,11 @@
                 <a class="nav-link" href="menu.html">지사안내</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="hyunsikTest.hs">가맹문의</a>
+                <a class="nav-link" href="joinForm.an">가맹문의</a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="order_online">
+              <a href="login.an" class="order_online">
                 Login
               </a>
             </div>
@@ -94,40 +142,40 @@
 
     <div class="inquiry_wrapper">
         <div class="subTitle" align="center">
-            <h1>가맹 신청ㆍ문의 </h1><br>
+            <h1>가맹 신청ㆍ문의 </h1>
         </div>
 
         <div class="pd_agree_wrapper">
             <!-- 개인정보수집 및 이용동의 -->
             <div class="pd_agree">
                 <h3>개인정보수집 및 이용동의</h3>
-                <div class="scroll_wrapper m">
-                    <div id="mCSB_1" class="scrollbox" 
-                        style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" 
-                        style="position:relative; top:0; left:0;">
-                    ■ 개인정보의 수집 및 이용목적<br>
-                    서비스 이용에 따른 가입 의사 확인, 연령확인, 불만처리 등 민원처리, 고지사항 전달
-                    (민원처리를 위해 해당 매장 및 매장 담당 지사에 성함 및 연락처가 전달될 수 있음을
-                    알려드립니다.)<br><br>
+                    <div class="scroll_wrapper">
+                        <div id="mCSB_1" class="scrollbox" 
+                            style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" 
+                            style="position:relative; top:0; left:0;">
+                        ■ 개인정보의 수집 및 이용목적<br>
+                        서비스 이용에 따른 가입 의사 확인, 연령확인, 불만처리 등 민원처리, 고지사항 전달
+                        (민원처리를 위해 해당 매장 및 매장 담당 지사에 성함 및 연락처가 전달될 수 있음을
+                        알려드립니다.)<br><br>
 
-                    ■ 개인정보의 수집 항목<br>
-                    이름,이메일,연락처 및 개인정보처리방침에서 명시한 자동으로 수집되는 정보<br><br>
+                        ■ 개인정보의 수집 항목<br>
+                        이름,이메일,연락처 및 개인정보처리방침에서 명시한 자동으로 수집되는 정보<br><br>
 
-                    ■ 개인정보의 보유 및 이용기간<br>
-                    원칙적으로, 개인정보 수집 및 이용목적이 달성된 후(회원 탈퇴 등)에는 귀하의 개인정보를 지체 없이 파기합니다. 단,관계법령의 규정에 의하여 보존할
-                    필요가 있는 경우 회사는 아래와 같이 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.<br>
-                    - 서비스이용기록, 접속로그, 접속IP정보 : 3개월 (통신비밀보호법)<br>
-                    - 표시/광고에 관한 기록 : 6개월 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
-                    - 계약 또는 청약철회 등에 관한 기록 : 5년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
-                    - 대금결제 및 재화 등의 공급에 관한 기록: 5년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
-                    - 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
-                </div>
+                        ■ 개인정보의 보유 및 이용기간<br>
+                        원칙적으로, 개인정보 수집 및 이용목적이 달성된 후(회원 탈퇴 등)에는 귀하의 개인정보를 지체 없이 파기합니다. 단,관계법령의 규정에 의하여 보존할
+                        필요가 있는 경우 회사는 아래와 같이 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.<br>
+                        - 서비스이용기록, 접속로그, 접속IP정보 : 3개월 (통신비밀보호법)<br>
+                        - 표시/광고에 관한 기록 : 6개월 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
+                        - 계약 또는 청약철회 등에 관한 기록 : 5년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
+                        - 대금결제 및 재화 등의 공급에 관한 기록: 5년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
+                        - 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년 (전자상거래법등에서의 소비자보호에 관한 법률)<br>
+                    </div>
                 
-                <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" 
-                		style="display: block;"><div class="mCSB_draggerContainer">
-                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 72px; max-height: 140px; top: 0px;">
-                <div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail">
-                </div></div></div></div></div>
+                    <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" 
+                        style="display: block;"><div class="mCSB_draggerContainer">
+                    <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 72px; max-height: 140px; top: 0px;">
+                    <div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail">
+                    </div></div></div></div></div>
               
                 <!-- checkbox -->
                 <label class="form_checkbox">
@@ -159,14 +207,14 @@
                 <!-- checkbox -->
                 <label class="form_checkbox">
                     <input name="agree2" type="checkbox">
-                    <span class="icon"></span>개인정보 위탁에 동의합니다. <em>(필수)</em>
+                    <span class="icon"></span>개인정보 위탁에 동의합니다.(필수)
                 </label>
                 <!--// checkbox -->
             </div>
             <!--// 개인정보 위탁동의 -->
         </div><hr>
 
-        <h2 class="h_title">문의 작성하기</h2>
+        <h1 class="h_title">문의 작성하기</h1>
         <div class="board_write_wrapper"></div>
         <p class="rt_note">필수입력사항<span class="ess"></span></p>
             <table>

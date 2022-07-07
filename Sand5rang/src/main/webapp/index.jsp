@@ -69,7 +69,7 @@
                 <a class="nav-link" href="branch.ma">지사안내</a> 
               </li>
               <li class="nav-item"> 
-                <a class="nav-link" href="">가맹문의</a>
+                <a class="nav-link" href="joinForm.an">가맹문의</a>
               </li>
             </ul>
             <div class="user_option">

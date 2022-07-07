@@ -58,10 +58,10 @@
 	.login-box { margin:auto; width:500px; height: 550px; border-radius: 5px; background: rgba(255, 255, 255, 0.5); }
 	
 	.sub_page { background-color: rgb(234 234 234);}
-  .input-box> p { color:grey; font-size:10px; text-align: left; margin-bottom: 20px; }
+  .input-box> p { color:grey; font-size:10px; text-align: left; margin-bottom: 30px; margin-top: 20px;}
 
   .content { padding-top: 30px; }
-  .changePw{ margin-bottom: 10px; align:left;}
+  .changePw{ margin-bottom: 20px; align:left;}
   .login-actions { text-align:left; font-size: 14px; margin-bottom: 20px;}
   .button {background-color: #0b571f; padding:10px 150px; border-radius: 4px;}
   
@@ -108,8 +108,8 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="login.an" class="login">
-                Login
+              <a href="login.an" class="order_online">
+                 Login
               </a>
             </div>
           </div>
