@@ -8,6 +8,6 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
  
 
 <task:annotation-driven />    
-    <context:component-scan base-package="com.s5.sand5rang.hyunsik.controller.scheduler">
+    <context:component-scan base-package="com.s5.sand5rang.hyunsik.controller.scheduler,com.s5.sand5rang.sein.controller.scheduler">
     </context:component-scan>
 </beans>
