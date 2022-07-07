@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+  <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -29,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -42,8 +41,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Sand5rang Admin				
+			<a class="brand" href="frmain.hs">
+				Sand5rang 가맹점				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -97,61 +96,59 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
                 
                 
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 업무처리</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
-                    </ul>    				
-				</li>
-				
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 관리</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
-                    </ul>    				
-				</li>
-				
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+				<li class="dropdown active">					
+					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">오늘의 재고</a></li>
-						<li><a href="faq.html">전체 재고 현황</a></li>
-						<li><a href="faq.html">재료별 재고 현황</a></li>
-						<li><a href="faq.html">폐기 현황 </a></li>
+                        <li class="active"><a href="menuSales.csh">매출기입</a></li>
+						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
+						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
-				</li>				
-                
+				</li>
 				
+				<li class="dropdown">					
+					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-long-arrow-down"></i>
+						<span>발주</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="orderEnroll.se">발주신청</a></li>
+						<li><a href="orderList.se">발주조회</a></li>
+                    </ul>    				
+				</li>
+                
 				<li>
-					<a href="reports.html">
+					<a href="inqueryList.sm">
 						<i class="icon-list-alt"></i>
-						<span>결제대금</span>
+						<span>본사문의</span>
 					</a>    				
+				</li>
+				
+				<li class="dropdown">					
+					<a href="depositList.se" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-money"></i>
+						<span>결제대금</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="depositList.se">대금내역</a></li>
+						<li><a href="deposit.se">입금</a></li>
+                    </ul>    				
 				</li>
 			
 			</ul>
@@ -161,6 +158,7 @@
 	</div> <!-- /subnavbar-inner -->
 
 </div> <!-- /subnavbar -->
+    
     
     
 
@@ -188,128 +186,140 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-	
 	<!-- 제품판매현황에서 클릭하면 상세 페이지로 이동할 수 있도록 함. -->
-<div class="bread" style="margin-top : 10px;">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<div class="menu" style="margin-top:20px;">
+	<h4>에그마요</h4>
+	<img src="resources/images/menu/에그마요.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="bread">
-	<h4>화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+<div class="menu">
+	<h4>로스트치킨</h4>
+	<img src="resources/images/menu/로스트치킨.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="bread">
-	<h4>플랫</h4>
-	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+<div class="menu">
+	<h4>쉬림프</h4>
+	<img src="resources/images/menu/쉬림프.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>		
-<div class="bread" style="margin-top : 10px;">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<div class="menu">
+	<h4>스테이크치즈</h4>
+	<img src="resources/images/menu/스테이크치즈.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="bread">
-	<h4>화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+<div class="menu">
+	<h4>베지</h4>
+	<img src="resources/images/menu/베지.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-
-<div class="vegetable" style="margin-top : 10px;">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<div class="menu">
+	<h4>베지아보카도</h4>
+	<img src="resources/images/menu/베지아보카도.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="vegetable">
-	<h4>화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+<div class="menu" style="margin-top : 20px;">
+	<h4>로스트치킨아보카도</h4>
+	<img src="resources/images/menu/로스트치킨아보카도.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="vegetable">
-	<h4>플랫</h4>
-	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+<div class="menu">
+	<h4>비엘티</h4>
+	<img src="resources/images/menu/비엘티.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>		
-<div class="vegetable" style="margin-top : 10px;">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<div class="menu">
+	<h4>풀드포크바비큐</h4>
+	<img src="resources/images/menu/풀드포크바비큐.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="vegetable">
-	<h4>화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+<div class="menu">
+	<h4>치킨데리야끼</h4>
+	<img src="resources/images/menu/치킨데리야끼.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-
-<div class="sauce" style="margin-top : 10px;">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<div class="menu">
+	<h4>터키베이컨아보카도</h4>
+	<img src="resources/images/menu/터키베이컨아보카도.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="sauce">
-	<h4>화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+<div class="menu">
+	<h4>로티세리바비큐치킨</h4>
+	<img src="resources/images/menu/로티세리바비큐치킨.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="sauce">
-	<h4>플랫</h4>
-	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+<div class="menu" style="margin-top:20px;">
+	<h4>이탈리안비엠티</h4>
+	<img src="resources/images/menu/이탈리안비엠티.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>		
-<div class="sauce" style="margin-top : 10px;">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<div class="menu">
+	<h4>K-바비큐</h4>
+	<img src="resources/images/menu/k-바비큐.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
-<div class="sauce">
-	<h4>화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+<div class="menu">
+	<h4>스파이시이탈리안</h4>
+	<img src="resources/images/menu/스파이시이탈리안.png" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" ><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" >
+	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
 	</p>
 </div>
 

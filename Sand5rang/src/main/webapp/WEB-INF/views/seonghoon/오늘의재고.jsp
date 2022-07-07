@@ -186,212 +186,210 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-
+<hr>
 <h3 style="margin-left:20px">빵(Bread)</h3>
-<div class="bread" style="margin-top : 10px;">
+<div class="bread">
 	<h4>파마산</h4>
 	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <a href="ingredientStock.csh">1000</a><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="bread">
 	<h4>화이트</h4>
 	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="bread">
 	<h4>플랫</h4>
 	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <br>
 <br>
 <hr>
 <h3 style="margin-left:20px">야채(Vegetable)</h3>
-<div class="vegetable" style="margin-top:10px">
+<div class="vegetable">
 	<h4>양상추</h4>
 	<img src="resources/images/ingredient/양상추.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="vegetable">
 	<h4>토마토</h4>
 	<img src="resources/images/ingredient/토마토.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="vegetable">
 	<h4>오이</h4>
 	<img src="resources/images/ingredient/오이.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="vegetable">
 	<h4>양파</h4>
 	<img src="resources/images/ingredient/양파.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="vegetable">
 	<h4>피망</h4>
 	<img src="resources/images/ingredient/피망.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="vegetable">
 	<h4>할라피뇨</h4>
 	<img src="resources/images/ingredient/할라피뇨.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="vegetable">
 	<h4>아보카도</h4>
 	<img src="resources/images/ingredient/아보카도.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
-<br>
-<br>
 <hr>
 <h3 style="margin-left:20px">고기(Meat)</h3>
-<div class="meat" style="margin-top:10px">
+<div class="meat">
 	<h4>페퍼로니</h4>
 	<img src="resources/images/ingredient/페퍼로니.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="meat">
 	<h4>에그마요</h4>
 	<img src="resources/images/ingredient/에그.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text"class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="meat">
 	<h4>치킨</h4>
 	<img src="resources/images/ingredient/치킨.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="meat">
 	<h4>쉬림프</h4>
 	<img src="resources/images/ingredient/쉬림프.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="meat">
 	<h4>비프</h4>
 	<img src="resources/images/ingredient/비프.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="meat">
 	<h4>베이컨</h4>
 	<img src="resources/images/ingredient/베이컨.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <br><br>
 <hr>
 <h3 style="margin-left:20px">소스(sauce)</h3>
-<div class="sauce" style="margin-top:10px">
+<div class="sauce">
 	<h4>랜치</h4>
 	<img src="resources/images/ingredient/랜치.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="sauce">
 	<h4>스위트칠리</h4>
 	<img src="resources/images/ingredient/스위트칠리.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="sauce">
 	<h4>올리브오일</h4>
 	<img src="resources/images/ingredient/올리브오일.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="sauce">
 	<h4>머스타드</h4>
 	<img src="resources/images/ingredient/머스타드.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="sauce">
 	<h4>후추</h4>
 	<img src="resources/images/ingredient/후추.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <br><br>
 <hr>
 <h3 style="margin-left:20px">치즈(cheese)</h3>
-<div class="cheese" style="margin-top:10px">
+<div class="cheese">
 	<h4>아메리칸</h4>
 	<img src="resources/images/ingredient/아메리칸.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="cheese">
 	<h4>모짜렐라</h4>
 	<img src="resources/images/ingredient/모짜렐라.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text"class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 <div class="cheese">
 	<h4>슈레드</h4>
 	<img src="resources/images/ingredient/슈레드.jpg" width="150" height="150">
 	<p>
-	현재재고 : <input type="number" class="stock_style" value="10000" readonly><br> 
-	유통기한 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+	현재재고 : <span>1000</span><br>
+	유통기한 : <span>2022-07-07</span>
 	</p>
 </div>
 

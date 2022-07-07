@@ -220,7 +220,7 @@
 				<th>치즈</th>
 				<th>소스</th>
 				<th>입고일</th>
-				<th>폐기여부</th>
+				<th>출고일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -231,7 +231,16 @@
 				<td>10</td>
 				<td>10</td>
 				<td>2022-07-06</td>
-				<td>O</td>
+				<td></td>
+			</tr>
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td></td>
+				<td>2022-07-06</td>
 			</tr>
 			<tr class="st_body">
 				<td>10</td>
@@ -240,16 +249,7 @@
 				<td>10</td>
 				<td>10</td>
 				<td>2022-07-06</td>
-				<td>O</td>
-			</tr>
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td>O</td>
+				<td></td>
 			</tr>		
 			<tr class="st_body">
 				<td>10</td>
@@ -257,8 +257,9 @@
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
+				<td></td>
 				<td>2022-07-06</td>
-				<td>O</td>
+			</tr>	
 			<tr class="st_body">
 				<td>10</td>
 				<td>10</td>
@@ -266,7 +267,7 @@
 				<td>10</td>
 				<td>10</td>
 				<td>2022-07-06</td>
-				<td>O</td>
+				<td></td>
 			</tr>		
 			<tr class="st_body">
 				<td>10</td>
@@ -274,40 +275,44 @@
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
+				<td></td>
 				<td>2022-07-06</td>
-				<td>O</td>
-			</tr>				<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td>O</td>
-			</tr>				<tr class="st_body">
+			</tr>				
+			<tr class="st_body">
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>2022-07-06</td>
-				<td>O</td>
-			</tr>				<tr class="st_body">
+				<td></td>
+			</tr>				
+			<tr class="st_body">
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td>10</td>
+				<td></td>
+				<td>2022-07-06</td>
+			</tr>				
+			<tr class="st_body">
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>2022-07-06</td>
-				<td>O</td>
-			</tr>				<tr class="st_body">
+				<td></td>
+			</tr>				
+			<tr class="st_body">
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
 				<td>10</td>
+				<td></td>
 				<td>2022-07-06</td>
-				<td>O</td>
 			</tr>								
 		</tbody>
 	</table>				

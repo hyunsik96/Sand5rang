@@ -190,7 +190,7 @@
 -->
 <div class="widget widget-table action-table">
             <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>A Table Example</h3>
+              <h3>재료별 재고 현황</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">

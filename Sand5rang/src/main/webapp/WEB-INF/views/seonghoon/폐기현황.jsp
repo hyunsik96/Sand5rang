@@ -211,7 +211,14 @@
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
-	      		
+	<!-- /widget-content -->
+		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
+			<li class="page-item"><a class="page-link" href="#"><</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">></a></li>
+		</ul>	      		
 		    </div> <!-- /span8 -->
 	      	
 	      	
@@ -328,12 +335,12 @@
 		  <div class="modal-body">
 		  	<h4>다음과 같은 폐기의 항목이 존재합니다.</h4>
 		  	<br>
-			<div class="bread" style="margin-top : 10px;">
+			<div style="margin-top : 10px;">
 				<h4>파마산</h4>
 				<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
-				<p>
+				<p class="disposal">
 				재료개수 : <input type="number" class="stock_style" value="10000" readonly><br> 
-				입고날짜 : <input type="text" class="expiration_style" value="2022-07-05" readonly>
+				입고날짜 : <input type="text" class="stock_style" value="2022-07-05" readonly>
 				</p>
 			</div>	
 		  	

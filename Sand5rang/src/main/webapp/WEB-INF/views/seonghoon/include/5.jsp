@@ -338,44 +338,27 @@ margin-bottom: 26px;}
 .bread{
 	display:inline-block;
 	margin-left : 20px;
+	margin-top:20px;
 }
 .vegetable{
 	display:inline-block;
 	margin-left : 20px;
+	margin-top:20px;
 }
 .meat{
 	display:inline-block;
 	margin-left : 20px;
+	margin-top:20px;
 }
 .sauce{
 	display:inline-block;
 	margin-left : 20px;
+	margin-top:20px;
 }
 .cheese{
 	display:inline-block;
 	margin-left : 20px;
-}
-
-.stock_style{
-	width:80px;
-	height:10px;
-	margin-top:5px;
-	font-weight:900;
-}
-.expiration_style{
-	width:80px;
-	height:10px;
-	margin-top:5px;
-	background-color: white;	
-	font-weight:900;
-}
-input[type=number]{
-	background-color: white;
-	border:none;
-}
-input[type=text]{
-	background-color: white;
-	border:none;
+	margin-top:20px;
 }
 
 
@@ -396,26 +379,72 @@ input[type=text]{
 	margin-left:20px;
 }
 
+.stockTable2>tbody tr:nth-child(even)  { color: blue; }
+.stockTable2>tbody tr:nth-child(odd)  { color: red; }
+
 
 .st_head th{
 	text-align:center;
 }
 .st_body td{
 	text-align:center;
+	width:200px;
 }
 
+.
+
 /* 제품 판매 현황페이지 CSS*/
-.menuModal th{
+.menuModal{
 	text-align:left;
-	width:250px;
-	height:30px;
+}
+.menuModal span{
+	display:inline-block;
+	width:120px;
 }
 .menuModal td{
 	text-align:center;
-	width:100px;
-	height:30px;
-	color:gray;
+	width:150px;
+	height:80px;
 	font-weight:900;
+}
+
+/* 판매 기입 페이지 CSS*/
+.menu{
+	display:inline-block;
+	margin-left : 20px;
+}
+.menu input{
+	width:100px;
+}
+
+.stock_style{
+	width:80px;
+	height:10px;
+	margin-top:5px;
+	font-weight:900;
+}
+
+.menu input[type=number]{
+	background-color: white;
+	border:1px solid black;
+}
+.menu input[type=text]{
+	background-color: white;
+	border:1px solid black;
+}
+.menu input[type=date]{
+	background-color: white;
+	border:1px solid black;
+}
+
+/* 폐기현황 페이지 CSS */ 
+.disposal input[type=number]{
+	background-color: white;
+	border:none;
+}
+.disposal input[type=text]{
+	background-color: white;
+	border:none;
 }
 
 

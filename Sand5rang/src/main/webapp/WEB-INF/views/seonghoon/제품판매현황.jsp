@@ -230,9 +230,16 @@
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
-	<button class="btn btn-success" style="display:inline-block; margin-left:90%; width:100px;">판매기입</button>					
+	<a href="salesPage.csh" class="btn btn-success" style="display:inline-block; margin-left:90%; width:80px;">판매기입</a>				
 				</div> <!-- /widget -->
-	      		
+		<!-- /widget-content -->
+		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
+			<li class="page-item"><a class="page-link" href="#"><</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">></a></li>
+		</ul>      		
 		    </div> <!-- /span8 -->
 	      	
 	      	
@@ -349,45 +356,71 @@
 		  <div class="modal-body">
 				<table>
 					<tr class="menuModal">
-						<th>에그마요</th>
-						<td>10000</td>
-						<th>로스트치킨</th>
-						<td>10000</td>
-						<th>쉬림프</th>
-						<td>10000</td>
+						<td>
+							<span>에그마요</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>로스트치킨</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>쉬림프</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>베지</span><br>
+							<span>1000</span>
+						</td>																								
+						<td>
+							<span>베지아보카도</span><br>
+							<span>1000</span>
+						</td>
 					</tr>
 					<tr class="menuModal">
-						<th>스테이크치즈</th>
-						<td>10000</td>
-						<th>베지</th>
-						<td>10000</td>
-						<th>베지아보카도</th>
-						<td>10000</td>
+						<td>
+							<span>스테이크치즈</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>로스트치킨아보카도</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>비엘티</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>풀드포크바비큐</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>치킨데리야끼</span><br>
+							<span>1000</span>
+						</td>	
 					</tr>
 					<tr class="menuModal">
-						<th>로스트치킨아보카도</th>
-						<td>10000</td>
-						<th>비엘티</th>
-						<td>10000</td>
-						<th>풀드포크바비큐</th>
-						<td>10000</td>
+						<td>
+							<span>터키베이컨아보카도</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>로티세리바비큐치킨</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>이탈리안비엠티</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>K-바비큐</span><br>
+							<span>1000</span>
+						</td>
+						<td>
+							<span>스파이시이탈리안</span><br>
+							<span>1000</span>
+						</td>	
 					</tr>																														
-					<tr class="menuModal">
-						<th>치킨데리야끼</th>
-						<td>10000</td>
-						<th>터키베이컨아보카도</th>
-						<td>10000</td>
-						<th>로티세리바비큐치킨</th>
-						<td>10000</td>
-					</tr>
-					<tr class="menuModal">
-						<th>이탈리안비엠티</th>
-						<td>10000</td>
-						<th>K-바비큐</th>
-						<td>10000</td>
-						<th>스파이스이탈리안</th>
-						<td>10000</td>
-					</tr>															
 				</table>	
 		  	
 		  </div>
