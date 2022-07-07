@@ -73,3 +73,5 @@ VALUES(SEQ_MENUNO.NEXTVAL
      , '스파이시이탈리안'
      , 6000
      , DEFAULT);
+
+COMMIT;
