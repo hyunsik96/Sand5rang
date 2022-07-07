@@ -115,7 +115,7 @@ public class SangmiController {
 	//FAQ 
 	@RequestMapping(value="faq.sm")
 	public String faq(Model model) {
-		return "sangmi/faq1";
+		return "sangmi/faq";
 	}
 	
 }
