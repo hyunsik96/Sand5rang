@@ -356,17 +356,76 @@ margin-bottom: 26px;}
 		display:inline-block;
 		margin-left : 20px;
 	}
+
+	.vegetable p>input{ 
+		display: block;
+		float: left;
+		width: 20px;
+		margin: 0px;
+	}
+
+	.vegetable input[type=button]{ 
+		display: block;
+		float: left;
+		width: 25px;
+		margin: 0px;
+	}
+
 	.meat{
 		display:inline-block;
 		margin-left : 20px;
 	}
+
+	.meat p>input{ 
+		display: block;
+		float: left;
+		width: 20px;
+		margin: 0px;
+	}
+
+	.meat input[type=button]{ 
+		display: block;
+		float: left;
+		width: 25px;
+		margin: 0px;
+	}
+
 	.sauce{
 		display:inline-block;
 		margin-left : 20px;
 	}
+
+	.sauce p>input{ 
+		display: block;
+		float: left;
+		width: 20px;
+		margin: 0px;
+	}
+
+	.sauce input[type=button]{ 
+		display: block;
+		float: left;
+		width: 25px;
+		margin: 0px;
+	}
+
 	.cheese{
 		display:inline-block;
 		margin-left : 20px;
+	}
+
+	.cheese p>input{ 
+		display: block;
+		float: left;
+		width: 20px;
+		margin: 0px;
+	}
+
+	.cheese input[type=button]{ 
+		display: block;
+		float: left;
+		width: 25px;
+		margin: 0px;
 	}
 
 	.deposit_form{

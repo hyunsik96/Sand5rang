@@ -14,7 +14,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -178,7 +178,7 @@
 <!-- /widget-header -->
 <div class="widget-content"> 
     <div>
-        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
+        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
             &nbsp;&nbsp;&nbsp;&nbsp;* 당일 발주는 14:00시까지 가능하며, 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
         </p>
     </div>
@@ -189,11 +189,11 @@
     <br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 0)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 0)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="bread">
@@ -202,11 +202,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 1)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 1)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="bread">
@@ -215,11 +215,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 2)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 2)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <br>
@@ -232,11 +232,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 3)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 3)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="vegetable">
@@ -245,11 +245,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 4)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 4)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="vegetable">
@@ -258,11 +258,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',5)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',5)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="vegetable">
@@ -271,11 +271,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',6)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',6)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="vegetable">
@@ -284,11 +284,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',7)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',7)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="vegetable">
@@ -297,11 +297,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',8)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',8)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 
@@ -311,11 +311,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',9)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',9)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <br>
@@ -328,11 +328,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',10)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',10)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="meat">
@@ -341,11 +341,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',11)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',11)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="meat">
@@ -354,11 +354,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',12)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',12)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="meat">
@@ -367,11 +367,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',13)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',13)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="meat">
@@ -380,11 +380,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',14)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',14)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="meat">
@@ -393,11 +393,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',15)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',15)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <br><br>
@@ -409,11 +409,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',16)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',16)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="sauce">
@@ -422,11 +422,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 17)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 17)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="sauce">
@@ -435,11 +435,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',18)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',18)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="sauce">
@@ -448,11 +448,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',19)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',19)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="sauce">
@@ -461,11 +461,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',20)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',20)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <br><br>
@@ -477,11 +477,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',21)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',21)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="cheese">
@@ -490,11 +490,11 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',22)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',22)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
 <div class="cheese">
@@ -503,36 +503,144 @@
 	<br>
     <b>발주 수량 : </b>
     <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
+        <input id="count" value="10" style="width:30px; margin: 0px;">
     </div>
     <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',23)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',23)">
+        <input type="button" value="▲">
+        <input type="button" value="▼">
     </div>
 </div>
- 
-<br><br><br>
-<div style="margin-top: 50px; width: 100%; text-align: center;">
-    
-    <input type="checkbox">
-    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
 
+
+<div style="margin-top: 50px; width: 100%; text-align: right;">
+    <input type="checkbox">
+    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>&nbsp;&nbsp;
     <button type="button" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
     <button type="button" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
-
-    <br>
-    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
+    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
         ※ 자동발주 신청 시 매일(14:00시)에 자동으로 발주가 완료됩니다.<br> 
         관리자 승인 14:00시 이전까지 발주 수정이 가능하며, 체크박스 해제시 자동발주 취소가 됩니다.
     </p>
 </div>
+<hr>
+<br><br>
 
+
+
+
+<div class="order_result">
+    <h2 style="margin-left: 480px; margin-bottom: 20px; margin-top: 40px;">[ 발주 신청 내역 ]</h2>
+    <div class="widget widget-table action-table">
+       
+        <!-- 상단 재료별 테이블-->
+        <!-- <div class="widget-content"> -->
+            <table class="table table-striped table-bordered" style="width: 1100px; margin: auto; margin-bottom: 50px; border: 1px solid silver;">
+              <thead>
+                <tr>
+                  <th style="text-align: center;">No</th>
+                  <th style="text-align: center;">재료종류</th>
+                  <th style="text-align: center;">원재료명</th>
+                  <th style="text-align: center;">수량</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center;">10</td>
+                  <td style="text-align: center;">Bread</td>
+                  <td style="text-align: center;">파마산오레가노</td>
+                  <td style="text-align: center;">10</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">9</td>
+                    <td style="text-align: center;">Bread</td>
+                    <td style="text-align: center;">화이트</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">8</td>
+                    <td style="text-align: center;">Bread</td>
+                    <td style="text-align: center;">플렛</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">7</td>
+                    <td style="text-align: center;">Vegetable</td>
+                    <td style="text-align: center;">피망</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">6</td>
+                    <td style="text-align: center;">Vegetable</td>
+                    <td style="text-align: center;">토마토</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">5</td>
+                    <td style="text-align: center;">Vegetable</td>
+                    <td style="text-align: center;">할라피뇨</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: center;">Meat</td>
+                    <td style="text-align: center;">페퍼로니</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">3</td>
+                    <td style="text-align: center;">Meat</td>
+                    <td style="text-align: center;">베이컨</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: center;">Meat</td>
+                    <td style="text-align: center;">비프</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: center;">Sauce</td>
+                    <td style="text-align: center;">후추</td>
+                    <td style="text-align: center;">10</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="3">총 발주 갯수</td>
+                    <td style="text-align: center;">100</td>
+                  </tr>
+              </tbody>
+            </table>
+          <!-- </div> -->
+
+         <h2 style="margin-left: 510px; margin-bottom: 20px; margin-top: 40px;">[ 발주 금액 ]</h2>
+        <!-- 발주 가격 테이블 -->
+        <!-- <div class="widget-content"> -->
+          <table class="table table-striped table-bordered" style="width: 1100px; margin: auto; border: 1px solid silver;">
+            <thead>
+              <tr>
+                <th style="text-align: center;">총 발주 수량(단위/개)</th>
+                <th style="text-align: center;">총 발주 가격(단위/원)</th>
+                <th class="td-actions" style="text-align: center;">현재 잔액(단위/원)</th>
+                <th class="td-actions" style="text-align: center;">총 결제 금액(단위/원)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;">900,000</td>
+                <td style="text-align: center;">1,000,000</td>
+                <td style="text-align: center;">900,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+	</div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div> 
+</div>
 
 
 	<br><br><br>
@@ -626,31 +734,5 @@
 	<jsp:include page="include/6.jsp" />
 
 </body>
-
-<script>
-  function count(type, num)  {
-
-  // 결과를 표시할 element
-  const resultElement = $('input[name=count_result]');
-
- for(var i=0; i<resultElement.length; i++){
-    
-    if(i == num){
-        // 현재 화면에 표시된 값
-        let number = resultElement[i].value;
-
-         // 더하기/빼기
-        if(type === 'plus') {
-            number = parseInt(number) + 1;
-
-        }else if(type === 'minus')  {
-            number = parseInt(number) - 1;
-        }
-        // 결과 출력
-        resultElement[i].value = number;
-    }
- }
-}
-</script>
 
 </html>
