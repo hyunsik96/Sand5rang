@@ -38,6 +38,9 @@ public class AnnaController {
 	@RequestMapping(value="joinForm.an")
 	public String annatest6() {return "anna/joinForm";}
 	
+	@RequestMapping(value="changePwd.an")
+	public String annatest7() {return "anna/changePwd";}
+	
 	
 	// 문의게시판 전체리스트 조회
 		@RequestMapping(value="inqueryList.an")

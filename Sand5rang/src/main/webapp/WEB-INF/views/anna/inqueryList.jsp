@@ -161,7 +161,7 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				
-	      				<div>문의 게시판
+	      				<div>문의 게시판 <!-- 인라인블럭줘서 마진레프트주고 퍼센트로 조절하기-->
 
 							<form action="test.do" style="display: inline-block;">
 								<select name="category" style="width: 75px; margin-top: 6px">
