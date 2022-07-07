@@ -112,5 +112,10 @@ public class SangmiController {
 		
 		return "sangmi/inqueryUpdate";
 	}
+	//FAQ 
+	@RequestMapping(value="faq.sm")
+	public String faq(Model model) {
+		return "sangmi/faq1";
+	}
 	
 }
