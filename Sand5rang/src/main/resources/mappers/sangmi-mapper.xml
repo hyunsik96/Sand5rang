@@ -47,6 +47,7 @@
 	 SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL, ENR_NO
 	 FROM STORE S 
 	 JOIN ENROLL E USING(ENR_NO)
+	 WHERE S.STATUS = 'Y'
   </select>
   
   <!-- 폐업 버튼 -> 삭제 -->
