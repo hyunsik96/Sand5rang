@@ -26,15 +26,22 @@ public class HyunsikController {
 			Model model) {
 	
 		int listCount = hyunsikService.ad1ListCount();
-		
+
 		int pageLimit = 10;
 		int boardLimit = 5;
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
 		
-		ArrayList<Indent> list = hyunsikService.selectAd1List(pi);
 		
 		
+		ArrayList<String> idList = hyunsikService.selectAd1List(pi);
+		ArrayList<Indent> indList = null;
+		ArrayList<ArrayList<Indent>> list = new ArrayList<>();
+		for(String id : idList) {
+			indList = hyunsikService.selectIndLIst(id);
+			list.add(indList);
+		}
+
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		

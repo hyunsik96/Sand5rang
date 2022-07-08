@@ -23,8 +23,12 @@ public class HyunsikService {
 		return hyunsikDao.ad1ListCount(sqlSession);
 	}
 	
-	public ArrayList<Indent> selectAd1List(PageInfo pi){
+	public ArrayList<String> selectAd1List(PageInfo pi){
 		return hyunsikDao.selectAd1List(sqlSession, pi);
+	}
+	
+	public ArrayList<Indent> selectIndLIst(String id){
+		return hyunsikDao.selectIndLIst(sqlSession, id);
 	}
 	
 	

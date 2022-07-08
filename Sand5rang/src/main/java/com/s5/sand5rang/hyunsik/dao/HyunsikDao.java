@@ -16,7 +16,7 @@ public class HyunsikDao {
 		return sqlSession.selectOne("hyunsikMapper.ad1ListCount");
 	}
 	
-	public ArrayList<Indent> selectAd1List(SqlSessionTemplate sqlSession, PageInfo pi){
+	public ArrayList<String> selectAd1List(SqlSessionTemplate sqlSession, PageInfo pi){
 		
 		int limit = pi.getBoardLimit();
 		int offset = (pi.getCurrentPage() - 1) * limit;
@@ -24,6 +24,10 @@ public class HyunsikDao {
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
 		return (ArrayList)sqlSession.selectList("hyunsikMapper.selectAd1List", null, rowBounds);
+	}
+	
+	public ArrayList<Indent> selectIndLIst(SqlSessionTemplate sqlSession, String id){
+		return (ArrayList)sqlSession.selectList("hyunsikMapper.selectIndLIst", id);
 	}
 
 
