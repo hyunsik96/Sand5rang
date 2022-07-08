@@ -39,8 +39,8 @@ public class AnnaController {
 	public String annatest7() {return "anna/changePwd";}
 	
 	// 로그인
-	@RequestMapping(value="login.an")
-	public String
+	@RequestMapping(value="login.an1")
+	public String a() {return "";}
 	
 	
 	
