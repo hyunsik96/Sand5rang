@@ -14,14 +14,14 @@ import lombok.ToString;
 
 public class Inquery {
 
-	private int inqId; //INQ_NO
-	private String inqTitle; //INQ_TITLE
-	private Date idate; //IDATE
-	private String inqQuery; //INQ_QUERY
-	private String inqAnswer; //INQ_ANSWER
-	private String status; //STATUS
-	private Date ansDate; // ANS_DATE
-	private String category; //CATEGORY
-	private String storeId; //STORE_ID
+	private int inqId; 
+	private String inqTitle; 
+	private Date idate; 
+	private String inqQuery; 
+	private String inqAnswer; 
+	private String status;
+	private Date ansDate; 
+	private String category;
+	private String storeId;
 
 }

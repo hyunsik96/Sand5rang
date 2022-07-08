@@ -1101,7 +1101,7 @@ table {
 	max-width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
-	background-color: transparent;
+	background-color: #f9f9f9;
 }
 .table {
 	width: 100%;

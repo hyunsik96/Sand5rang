@@ -159,15 +159,15 @@
 	      		<div class="widget ">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
+	      				<i class="icon-comment-alt"></i>
 	      				
-	      				<div>문의 게시판 <!-- 인라인블럭줘서 마진레프트주고 퍼센트로 조절하기-->
+	      				<div>문의 조회 <!-- 인라인블럭줘서 마진레프트주고 퍼센트로 조절하기-->
 
-							<form action="test.do" style="display: inline-block;">
-								<select name="category" style="width: 75px; margin-top: 6px">
-									<option value="date">작성일</option>
-									<option value="writer">작성자</option> 
-								</select>      
+							<form action="test.do" style="display:inline-block; margin-left: 10px;">
+									<select name="category" style="width: 75px; margin-top: 6px">
+										<option value="date">작성일</option>
+										<option value="writer">작성자</option> 
+									</select>     
 							</form>
 
 	      				

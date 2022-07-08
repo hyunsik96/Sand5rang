@@ -20,17 +20,14 @@ public class AnnaController {
 	@Autowired
 	private AnnaService annaService;
 	
-	@RequestMapping(value="annatest.an")
+	@RequestMapping(value="inqAnswer.an")
 	public String annatest1() {return "anna/inqueryAnswer";}
 	
-	@RequestMapping(value="annatest2.an")
+	@RequestMapping(value="inqDetail.an")
 	public String annatest2() {return "anna/inqueryDetail";}
 	
-	@RequestMapping(value="annatest3.an")
+	@RequestMapping(value="inqList.an")
 	public String annatest3() {return "anna/inqueryList";}
-	
-	@RequestMapping(value="annatest4.an")
-	public String annatest4() {return "anna/signUpInq";}
 	
 	@RequestMapping(value="login.an")
 	public String annatest5() {return "anna/login";}
@@ -40,6 +37,17 @@ public class AnnaController {
 	
 	@RequestMapping(value="changePwd.an")
 	public String annatest7() {return "anna/changePwd";}
+	
+	// 로그인
+	@RequestMapping(value="login.an")
+	public String
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// 문의게시판 전체리스트 조회
