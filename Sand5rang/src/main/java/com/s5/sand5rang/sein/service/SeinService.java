@@ -15,6 +15,5 @@ public class SeinService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	
 }
 

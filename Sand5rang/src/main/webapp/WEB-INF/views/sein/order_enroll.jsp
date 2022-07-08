@@ -162,7 +162,7 @@
     
 
 
-<div class="main">
+	<div class="main">
 		<div class="main-inner">
 			<div class="container">
 				<div class="row">
@@ -173,366 +173,467 @@
 								<h3>XXX 가맹점 발주 신청</h3>
 							</div>
 
+							<div class="widget-content"> 
+							    <div>
+							        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
+							            &nbsp;&nbsp;&nbsp;&nbsp;* 당일 발주는 14:00시까지 가능하며, 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
+							        </p>
+							    </div>
+							    
+							    <form class="order_list" method="post" action="orderEnroll.se">
+								<h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
+								<div class="bread" style="display: block; float: left;">
+									<h4>*파마산</h4>
+									<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+								    <br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="b_p" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 0)" >&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 0)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">220</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="bread">
+									<h4>*화이트</h4>
+									<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="b_w" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 1)" >&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 1)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="bread">
+									<h4>*플랫</h4>
+									<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="b_f" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 2)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 2)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">250</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<br><br>
+								
+								<hr>
+								<h3 style="margin-left:20px; margin-bottom: 10px">야채(Vegetable)</h3><br>
+								<div class="vegetable" style="margin-top:10px">
+									<h4>*양상추</h4>
+									<img src="resources/images/ingredient/양상추.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_l" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 3)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 3)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="vegetable">
+									<h4>*토마토</h4>
+									<img src="resources/images/ingredient/토마토.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_t" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 4)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 4)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="vegetable">
+									<h4>*오이</h4>
+									<img src="resources/images/ingredient/오이.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_c" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',5)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',5)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">30</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="vegetable">
+									<h4>*양파</h4>
+									<img src="resources/images/ingredient/양파.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_o" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',6)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',6)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">50</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="vegetable">
+									<h4>*피망</h4>
+									<img src="resources/images/ingredient/피망.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_p" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',7)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',7)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">20</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="vegetable">
+									<h4>*할라피뇨</h4>
+									<img src="resources/images/ingredient/할라피뇨.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_h" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',8)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',8)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">70</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								
+								<div class="vegetable" style="margin-top: 20px;">
+									<h4>*아보카도</h4>
+									<img src="resources/images/ingredient/아보카도.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="v_a" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',9)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',9)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">150</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<br>
+								<br>
+								<hr>
+								<h3 style="margin-left:20px; margin-bottom: 10px">고기(Meat)</h3><br>
+								<div class="meat" style="margin-top:10px">
+									<h4>*페퍼로니</h4>
+									<img src="resources/images/ingredient/페퍼로니.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="m_p" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',10)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',10)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">150</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="meat">
+									<h4>*에그</h4>
+									<img src="resources/images/ingredient/에그.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="m_e" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',11)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',11)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="meat">
+									<h4>*치킨</h4>
+									<img src="resources/images/ingredient/치킨.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="m_c" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',12)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',12)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">170</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="meat">
+									<h4>*쉬림프</h4>
+									<img src="resources/images/ingredient/쉬림프.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="m_s" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',13)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',13)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="meat">
+									<h4>*비프</h4>
+									<img src="resources/images/ingredient/비프.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="m_b" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',14)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',14)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="meat">
+									<h4>*베이컨</h4>
+									<img src="resources/images/ingredient/베이컨.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="m_v" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',15)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',15)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">120</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<br><br>
+								<hr>
+								<h3 style="margin-left:20px; margin-bottom: 10px">소스(sauce)</h3><br>
+								<div class="sauce" style="margin-top:10px">
+									<h4>*렌치</h4>
+									<img src="resources/images/ingredient/랜치.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="s_l" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',16)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',16)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">50</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="sauce">
+									<h4>*스위트칠리</h4>
+									<img src="resources/images/ingredient/스위트칠리.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="s_c" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 17)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 17)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">60</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="sauce">
+									<h4>*올리브오일</h4>
+									<img src="resources/images/ingredient/올리브오일.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="s_o" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',18)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',18)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">70</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="sauce">
+									<h4>*머스타드</h4>
+									<img src="resources/images/ingredient/머스타드.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="s_m" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',19)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',19)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">40</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="sauce">
+									<h4>*후추</h4>
+									<img src="resources/images/ingredient/후추.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="s_p" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',20)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',20)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">20</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<br><br>
+								<hr>
+								<h3 style="margin-left:20px; margin-bottom: 10px">치즈(cheese)</h3><br>
+								<div class="cheese" style="margin-top:10px">
+									<h4>*아메리칸</h4>
+									<img src="resources/images/ingredient/아메리칸.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="c_a" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',21)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',21)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="cheese">
+									<h4>*모짜렐라</h4>
+									<img src="resources/images/ingredient/모짜렐라.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="c_m" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',22)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',22)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								<div class="cheese">
+									<h4>*슈레드</h4>
+									<img src="resources/images/ingredient/슈레드.jpg" width="150" height="150">
+									<br>
+								    <b>발주 수량 : </b>
+								    <div style="display: inline-block;">
+								        <input type="text" class="count_result" name="c_s" value="0" style="width:30px; margin: 0px;">
+								    </div>
+								    <div style="float: right;">    
+								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',23)">&nbsp;&nbsp;
+								        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',23)">
+								    </div>
+                                    <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
+                                        [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
+                                        <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                    </div>
+								</div>
+								
+                                <hr>
+								<br><br>
+                                <div id="total" style="float : right; margin-right: 30px; font-size: 30px;">
+                                    총 발주액 : <span id="result_price">0</span>&nbsp;원
+                                </div>
 
-							
-<!-- /widget-header -->
-<div class="widget-content"> 
-    <div>
-        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
-            &nbsp;&nbsp;&nbsp;&nbsp;* 당일 발주는 14:00시까지 가능하며, 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
-        </p>
-    </div>
-<h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
-<div class="bread" style="display: block; float: left;">
-	<h4>*파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
-    <br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 0)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 0)">
-    </div>
-</div>
-<div class="bread">
-	<h4>*화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 1)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 1)">
-    </div>
-</div>
-<div class="bread">
-	<h4>*플랫</h4>
-	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 2)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 2)">
-    </div>
-</div>
-<br>
-<br>
-<hr>
-<h3 style="margin-left:20px; margin-bottom: 10px">야채(Vegetable)</h3><br>
-<div class="vegetable" style="margin-top:10px">
-	<h4>*양상추</h4>
-	<img src="resources/images/ingredient/양상추.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 3)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 3)">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*토마토</h4>
-	<img src="resources/images/ingredient/토마토.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 4)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 4)">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*오이</h4>
-	<img src="resources/images/ingredient/오이.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',5)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',5)">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*양파</h4>
-	<img src="resources/images/ingredient/양파.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',6)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',6)">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*피망</h4>
-	<img src="resources/images/ingredient/피망.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',7)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',7)">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*할라피뇨</h4>
-	<img src="resources/images/ingredient/할라피뇨.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',8)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',8)">
-    </div>
-</div>
-
-<div class="vegetable" style="margin-top: 20px;">
-	<h4>*아보카도</h4>
-	<img src="resources/images/ingredient/아보카도.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',9)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',9)">
-    </div>
-</div>
-<br>
-<br>
-<hr>
-<h3 style="margin-left:20px; margin-bottom: 10px">고기(Meat)</h3><br>
-<div class="meat" style="margin-top:10px">
-	<h4>*페퍼로니</h4>
-	<img src="resources/images/ingredient/페퍼로니.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',10)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',10)">
-    </div>
-</div>
-<div class="meat">
-	<h4>*에그</h4>
-	<img src="resources/images/ingredient/에그.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',11)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',11)">
-    </div>
-</div>
-<div class="meat">
-	<h4>*치킨</h4>
-	<img src="resources/images/ingredient/치킨.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',12)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',12)">
-    </div>
-</div>
-<div class="meat">
-	<h4>*쉬림프</h4>
-	<img src="resources/images/ingredient/쉬림프.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',13)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',13)">
-    </div>
-</div>
-<div class="meat">
-	<h4>*비프</h4>
-	<img src="resources/images/ingredient/비프.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',14)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',14)">
-    </div>
-</div>
-<div class="meat">
-	<h4>*베이컨</h4>
-	<img src="resources/images/ingredient/베이컨.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',15)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',15)">
-    </div>
-</div>
-<br><br>
-<hr>
-<h3 style="margin-left:20px; margin-bottom: 10px">소스(sauce)</h3><br>
-<div class="sauce" style="margin-top:10px">
-	<h4>*렌치</h4>
-	<img src="resources/images/ingredient/랜치.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',16)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',16)">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*스위트칠리</h4>
-	<img src="resources/images/ingredient/스위트칠리.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 17)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus', 17)">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*올리브오일</h4>
-	<img src="resources/images/ingredient/올리브오일.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',18)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',18)">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*머스타드</h4>
-	<img src="resources/images/ingredient/머스타드.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',19)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',19)">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*후추</h4>
-	<img src="resources/images/ingredient/후추.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',20)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',20)">
-    </div>
-</div>
-<br><br>
-<hr>
-<h3 style="margin-left:20px; margin-bottom: 10px">치즈(cheese)</h3><br>
-<div class="cheese" style="margin-top:10px">
-	<h4>*아메리칸</h4>
-	<img src="resources/images/ingredient/아메리칸.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',21)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',21)">
-    </div>
-</div>
-<div class="cheese">
-	<h4>*모짜렐라</h4>
-	<img src="resources/images/ingredient/모짜렐라.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',22)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',22)">
-    </div>
-</div>
-<div class="cheese">
-	<h4>*슈레드</h4>
-	<img src="resources/images/ingredient/슈레드.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input type="text" name="count_result" value="0" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',23)">&nbsp;&nbsp;
-        <input type="button" value="-" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',23)">
-    </div>
-</div>
- 
-<br><br><br>
-<div style="margin-top: 50px; width: 100%; text-align: center;">
-    
-    <input type="checkbox">
-    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
-
-    <button type="button" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
-    <button type="button" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
-
-    <br>
-    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
-        ※ 자동발주 신청 시 매일(14:00시)에 자동으로 발주가 완료됩니다.<br> 
-        관리자 승인 14:00시 이전까지 발주 수정이 가능하며, 체크박스 해제시 자동발주 취소가 됩니다.
-    </p>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div> 
+                                <br><br>
+								<div style="margin-top: 50px; width: 100%; text-align: center;">
+								    
+								    <input type="checkbox">
+								    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
+								
+								    <button type="submit" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
+								    <button type="button" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
+								
+								    <br>
+								    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
+								        ※ 자동발주 신청 시 매일(14:00시)에 자동으로 발주가 완료됩니다.<br> 
+								        관리자 승인 14:00시 이전까지 발주 수정이 가능하며, 체크박스 해제시 자동발주 취소가 됩니다.
+								    </p>
+								</div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
 
 
 	<br><br><br>
@@ -631,26 +732,126 @@
   function count(type, num)  {
 
   // 결과를 표시할 element
-  const resultElement = $('input[name=count_result]');
+  const resultElement = $('input[class=count_result]');
+
+  //div에 작성된 정해진 원재료 가격 element
+  const price = $('div[id=price]');
+
+  // 재료 수량에 맞춰 가격을 표시할 element
+  const tot = $('div[id=total_price]');
+
+  //화면에 표시될 원재료당 가격
+  var num2 = 0;
+
+  //input 입력값에 대한 유효성체크
+  var regExp = /^[0-9]+$/;
 
  for(var i=0; i<resultElement.length; i++){
     
+
     if(i == num){
+
         // 현재 화면에 표시된 값
         let number = resultElement[i].value;
 
-         // 더하기/빼기
+        //사용자 입력값 숫자 유효성 체크 
+        if(!regExp.test(number)){
+            
+            alert("수량(숫자)만 입력해주세요.");
+
+            number = 0;
+
+        }else{
+
+        // 더하기/빼기
         if(type === 'plus') {
+
             number = parseInt(number) + 1;
 
+            num2 = price[i].innerText * number;            
+
         }else if(type === 'minus')  {
-            number = parseInt(number) - 1;
+
+                if(number==0){
+
+                    number = 0;
+
+                }else{
+
+                    number = parseInt(number) - 1;
+                }
+
+                num2 = price[i].innerText * number;
+            }
         }
-        // 결과 출력
+
+        
+        // 가격 출력
+        tot[i].innerText = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        
+
+        // 수량 결과 출력
         resultElement[i].value = number;
+        
     }
  }
 }
+
+
+//발주 수량 직접 입력시 자동으로 가격 계산하여 보여주기
+$("input[class=count_result").on("keyup",function(key){ 
+    
+    //input 입력값에 대한 유효성체크
+    var regExp = /^[0-9]+$/;
+ 
+    //수량
+    var num = $(this).val();
+
+    //사용자 입력값 숫자 유효성 체크 
+    if(!regExp.test(num)){
+            
+            alert("수량(숫자)만 입력해주세요.");
+
+            num = 0;
+
+            $(this).val(num);
+    }
+
+    if(num>1000){
+
+        alert("하루 발주가능 수량 1000개 이하입니다.\n수량을 다시입력해주세요");
+
+        num = 0;
+
+        $(this).val(num);
+
+    }
+
+    //가격
+    var price = $(this).parent("div").nextAll("div[class=result_price]").children("div[id=price]").text();
+
+    //총 가격 보여줄 element
+    var totElement = $(this).parent("div").nextAll("div[class=result_price]").children("div[id=total_price]");
+
+    var result = num*price;
+
+    totElement.text(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    
+});
+
+//발주 총 금액 계산하여 보여주기
+$(document).ready(function(){
+    
+    var tot = $("div[id=total]").children("span");
+
+    // 모든 input태그 안에있는 가격 결과를 표시할 element
+    var price_el = $('div[id=total_price]');
+
+    for(var i=0; i<price_el.length; i++){
+        console.log(price_el[i]);
+    }
+    
+});
 </script>
 
 </html>
