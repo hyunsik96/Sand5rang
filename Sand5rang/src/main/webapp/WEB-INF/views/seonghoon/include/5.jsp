@@ -340,26 +340,45 @@ margin-bottom: 26px;}
 	margin-left : 20px;
 	margin-top:20px;
 }
+.bread a{
+	text-decoration:underline;
+}
 .vegetable{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
 }
+.vegetable a{
+	text-decoration:underline;
+}
+
 .meat{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
+}
+.meat a{
+	text-decoration:underline;
 }
 .sauce{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
 }
+.sauce a{
+	text-decoration:underline;
+}
+
 .cheese{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
 }
+.cheese a{
+	text-decoration:underline;
+}
+
+
 
 
 /* 전체 재고현황 페이지 CSS */
@@ -390,6 +409,11 @@ margin-bottom: 26px;}
 	text-align:center;
 	width:200px;
 }
+
+.st_body a{
+	text-decoration:underline;
+}
+
 
 .
 
@@ -434,7 +458,6 @@ margin-bottom: 26px;}
 }
 .menu input[type=date]{
 	background-color: white;
-	border:1px solid black;
 }
 
 /* 폐기현황 페이지 CSS */ 
@@ -445,6 +468,10 @@ margin-bottom: 26px;}
 .disposal input[type=text]{
 	background-color: white;
 	border:none;
+}
+.st_body2 td{
+	text-align:center;
+	width:200px;
 }
 
 

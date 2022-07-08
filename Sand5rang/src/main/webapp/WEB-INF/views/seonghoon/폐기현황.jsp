@@ -198,7 +198,7 @@
 		</thead>
 		<tbody>
 		<c:forEach var="i" begin="1" end="10" step="1">
-			<tr class="st_body">
+			<tr class="st_body2">
 				<td>파마산</td>
 				<td>30</td>
 				<td>2022-07-06</td>

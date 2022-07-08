@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+  <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -29,7 +29,6 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
-
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -42,8 +41,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Sand5rang Admin				
+			<a class="brand" href="frmain.hs">
+				Sand5rang 가맹점				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -97,61 +96,59 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
                 
                 
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 업무처리</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
-                    </ul>    				
-				</li>
-				
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
-						<span>가맹점 관리</span>
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
-                    </ul>    				
-				</li>
-				
-				<li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+				<li class="dropdown active">					
+					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
 						<b class="caret"></b>
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">오늘의 재고</a></li>
-						<li><a href="faq.html">전체 재고 현황</a></li>
-						<li><a href="faq.html">재료별 재고 현황</a></li>
-						<li><a href="faq.html">폐기 현황 </a></li>
+                        <li><a href="menuSales.csh">매출기입</a></li>
+						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
+						<li class="active"><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
-				</li>				
-                
+				</li>
 				
+				<li class="dropdown">					
+					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-long-arrow-down"></i>
+						<span>발주</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="orderEnroll.se">발주신청</a></li>
+						<li><a href="orderList.se">발주조회</a></li>
+                    </ul>    				
+				</li>
+                
 				<li>
-					<a href="reports.html">
+					<a href="inqueryList.sm">
 						<i class="icon-list-alt"></i>
-						<span>결제대금</span>
+						<span>본사문의</span>
 					</a>    				
+				</li>
+				
+				<li class="dropdown">					
+					<a href="depositList.se" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-money"></i>
+						<span>결제대금</span>
+						<b class="caret"></b>
+					</a>	
+				
+					<ul class="dropdown-menu">
+                        <li><a href="depositList.se">대금내역</a></li>
+						<li><a href="deposit.se">입금</a></li>
+                    </ul>    				
 				</li>
 			
 			</ul>
@@ -161,6 +158,7 @@
 	</div> <!-- /subnavbar-inner -->
 
 </div> <!-- /subnavbar -->
+    
     
     
 
@@ -178,7 +176,7 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>페이지 제목 적는곳</h3>
+	      				<h3>재료별 재고 현황</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -188,54 +186,37 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-<div class="widget widget-table action-table">
-            <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>재료별 재고 현황</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <table class="table table-striped table-bordered">
-                <thead>
-                  <tr>
-                    <th> Free Resource </th>
-                    <th> Download</th>
-                    <th class="td-actions"> </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                
-                </tbody>
-              </table>
-            </div>
-            <!-- /widget-content --> 
+	<table class="table table-bordered">
+		<thead>
+			<tr class="st_head">
+				<th>가맹점명</th>
+				<th>재료명</th>
+				<th>재고개수</th>
+				<th>입고일</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach var="i" begin="1" end="10" step="1">
+			<tr class="st_body2">
+				<td>가맹점1</td>
+				<td>파마산</td>
+				<td>30</td>
+				<td>2022-07-06</td>
+			</tr>	
+		</c:forEach>															
+		</tbody>
+	</table>
+					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
-	      		
+	<!-- /widget-content -->
+		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
+			<li class="page-item"><a class="page-link" href="#"><</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">></a></li>
+		</ul>	      		
 		    </div> <!-- /span8 -->
 	      	
 	      	
@@ -336,8 +317,7 @@
 
 
 <jsp:include page="include/6.jsp" />
-
-
-  </body>
+ 
+ </body>
 
 </html>

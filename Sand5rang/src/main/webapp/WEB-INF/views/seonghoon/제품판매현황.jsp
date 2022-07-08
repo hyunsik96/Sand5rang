@@ -206,31 +206,31 @@
 			<tr class="st_body">
 				<td>2</td>
 				<td>2022-07-07</td>
-				<td>1000</td>
+				<td><a data-toggle="modal" href="#Modal">10000</a></td>
 				<td>3600000</td>
 			</tr>
 			<tr class="st_body">
 				<td>3</td>
 				<td>2022-07-07</td>
-				<td>1000</td>
+				<td><a data-toggle="modal" href="#Modal">10000</a></td>
 				<td>3600000</td>
 			</tr>
 			<tr class="st_body">
 				<td>4</td>
 				<td>2022-07-07</td>
-				<td>1000</td>
+				<td><a data-toggle="modal" href="#Modal">10000</a></td>
 				<td>3600000</td>
 			</tr>
 			<tr class="st_body">
 				<td>5</td>
 				<td>2022-07-07</td>
-				<td>1000</td>
+				<td><a data-toggle="modal" href="#Modal">10000</a></td>
 				<td>3600000</td>
 			</tr>
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
-	<a href="salesPage.csh" class="btn btn-success" style="display:inline-block; margin-left:90%; width:80px;">판매기입</a>				
+	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:82%; width:160px;">판매기입 페이지로 이동</a>				
 				</div> <!-- /widget -->
 		<!-- /widget-content -->
 		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
@@ -348,7 +348,7 @@
 	  
 		  <!-- Modal Header -->
 		  <div class="modal-header">
-			  <h4 class="modal-title">날짜별 판매 기입</h4>
+			  <h4 class="modal-title">날짜별 메뉴 판매 현황</h4>
 		  </div> 
 		  
 		  <!-- 해당 날짜에 어떤 메뉴가 판매되었는지 목록을 보여줌. -->
@@ -356,7 +356,7 @@
 		  <div class="modal-body">
 				<table>
 					<tr class="menuModal">
-						<td>
+						<td>	
 							<span>에그마요</span><br>
 							<span>1000</span>
 						</td>

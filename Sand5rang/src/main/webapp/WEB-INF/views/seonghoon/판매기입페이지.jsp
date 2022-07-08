@@ -23,6 +23,12 @@
   </head>
 
 <body>
+	<c:if test="${not empty alertMsg}">
+		<script>
+			alertify.alert("알람","${alertMsg}");
+		</script>
+		<c:remove var="alertMsg" scope="session"/>
+	</c:if>	
 
 <jsp:include page="include/1.jsp" />
 <jsp:include page="include/2.jsp" />
@@ -187,147 +193,150 @@
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 	<!-- 제품판매현황에서 클릭하면 상세 페이지로 이동할 수 있도록 함. -->
-<div class="menu" style="margin-top:20px;">
-	<h4>에그마요</h4>
-	<img src="resources/images/menu/에그마요.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>로스트치킨</h4>
-	<img src="resources/images/menu/로스트치킨.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>쉬림프</h4>
-	<img src="resources/images/menu/쉬림프.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>		
-<div class="menu">
-	<h4>스테이크치즈</h4>
-	<img src="resources/images/menu/스테이크치즈.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>베지</h4>
-	<img src="resources/images/menu/베지.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>베지아보카도</h4>
-	<img src="resources/images/menu/베지아보카도.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu" style="margin-top : 20px;">
-	<h4>로스트치킨아보카도</h4>
-	<img src="resources/images/menu/로스트치킨아보카도.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>비엘티</h4>
-	<img src="resources/images/menu/비엘티.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>		
-<div class="menu">
-	<h4>풀드포크바비큐</h4>
-	<img src="resources/images/menu/풀드포크바비큐.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>치킨데리야끼</h4>
-	<img src="resources/images/menu/치킨데리야끼.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>터키베이컨아보카도</h4>
-	<img src="resources/images/menu/터키베이컨아보카도.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>로티세리바비큐치킨</h4>
-	<img src="resources/images/menu/로티세리바비큐치킨.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu" style="margin-top:20px;">
-	<h4>이탈리안비엠티</h4>
-	<img src="resources/images/menu/이탈리안비엠티.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>		
-<div class="menu">
-	<h4>K-바비큐</h4>
-	<img src="resources/images/menu/k-바비큐.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-<div class="menu">
-	<h4>스파이시이탈리안</h4>
-	<img src="resources/images/menu/스파이시이탈리안.png" width="150" height="150">
-	<p>
-	판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
-	판매금액 : <input type="number" class="stock_style" value="1000000"><br>
-	판매날짜 : <input type="date" class="stock_style" value="2022-07-05"><br>
-	</p>
-</div>
-
-
-		
-		
-		
+<form method="post" action="salesPage1.csh">
+<c:forEach var="m" items="${list}" varStatus="status">	
+				<div class="menu" style="margin-top:20px;">
+					<h4>${m.menName}</h4>
+					<img src="resources/images/menu/${m.menName}.png" width="150" height="150">
+					<p>
+					<input type="hidden" name="menNo" value="${m.menNo.status.count}">		
+					판매개수 : <input type="number" name="count${status.count}" class="stock_style" ><br> 
+					판매금액 : <input type="number" class="stock_style"><br>
+					판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+					</p>
+				</div>
+</c:forEach>
+<button type="submit">판매기입</button>
+</form>			
+<!-- 	<div class="menu">
+				<h4>로스트치킨</h4>
+				<img src="resources/images/menu/로스트치킨.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>쉬림프</h4>
+				<img src="resources/images/menu/쉬림프.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>		
+			<div class="menu">
+				<h4>스테이크치즈</h4>
+				<img src="resources/images/menu/스테이크치즈.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>베지</h4>
+				<img src="resources/images/menu/베지.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>베지아보카도</h4>
+				<img src="resources/images/menu/베지아보카도.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu" style="margin-top : 20px;">
+				<h4>로스트치킨아보카도</h4>
+				<img src="resources/images/menu/로스트치킨아보카도.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>비엘티</h4>
+				<img src="resources/images/menu/비엘티.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>		
+			<div class="menu">
+				<h4>풀드포크바비큐</h4>
+				<img src="resources/images/menu/풀드포크바비큐.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>치킨데리야끼</h4>
+				<img src="resources/images/menu/치킨데리야끼.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>터키베이컨아보카도</h4>
+				<img src="resources/images/menu/터키베이컨아보카도.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>로티세리바비큐치킨</h4>
+				<img src="resources/images/menu/로티세리바비큐치킨.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu" style="margin-top:20px;">
+				<h4>이탈리안비엠티</h4>
+				<img src="resources/images/menu/이탈리안비엠티.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>		
+			<div class="menu">
+				<h4>K-바비큐</h4>
+				<img src="resources/images/menu/k-바비큐.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
+				</p>
+			</div>
+			<div class="menu">
+				<h4>스파이시이탈리안</h4>
+				<img src="resources/images/menu/스파이시이탈리안.png" width="150" height="150">
+				<p>
+				판매개수 : <input type="number" class="stock_style" value="1000" ><br> 
+				판매금액 : <input type="number" class="stock_style" value="1000000"><br>
+				판매날짜 : <input type="date" class="stock_style" value="2022-07-05" ><br>
+				</p>
+			</div>
+-->							
 					</div> <!-- /widget-content -->
+			
 						
 				</div> <!-- /widget -->
 	      		

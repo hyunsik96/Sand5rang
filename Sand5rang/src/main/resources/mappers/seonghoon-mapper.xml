@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="seonghoonMapper">
+	<resultMap id="MenuResultMap" type="com.s5.sand5rang.seonghoon.vo.Menu">
+		<result column="MEN_NAME" property="menName"/>
+		<result column="MEN_NO" property="menNo"/>
+	</resultMap>
 
+	<insert id="insertSales" parameterType="com.s5.sand5rang.seonghoon.vo.Sales">
+		INSERT INTO SALES(SAL_NO, SAL_DATE, COUNT, TOTAL, STORE_ID, MEN_NO)
+		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count},
+		(SELECT PRICE 
+		FROM MENU 
+		WHERE MEN_NO=1)*#{count}
+		,'STORE1',#{menNo})
+	</insert>
+	
+	<select id="selectMenu" resultMap="MenuResultMap">
+		SELECT MEN_NAME, MEN_NO
+		FROM MENU
+	</select>
 </mapper>
