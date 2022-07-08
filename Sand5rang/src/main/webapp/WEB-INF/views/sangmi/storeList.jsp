@@ -178,7 +178,7 @@
 			          </tr>
 			         </thead>
 			          <tbody align="center">
-			            <!--  
+			            
 			             <c:forEach var="s" items="${ list }">
 			              <tr>
 			                <td>${s.storeName}</td>
@@ -191,72 +191,10 @@
 			                </td>
 			              </tr>
 			             </c:forEach>  
-			             -->
-			              <tr>
-			                <td>강남점</td>
-			                <td>user01</td>
-			                <td>서울시 강남구 강남대로119 19</td> 
-			                <td>010-1111-2222</td>
-			                <td>user01@naver.com</td>
-			                <td>
-			                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm" >폐업</button>
-			                </td>
-			              </tr>
-			                 <tr>
-			                <td>강남점</td>
-			                <td>user01</td>
-			                <td>서울시 강남구 강남대로119 19</td> 
-			                <td>010-1111-2222</td>
-			                <td>user01@naver.com</td>
-			                <td>
-			                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm">폐업</button>
-			                </td>
-			              </tr>
-			                 <tr>
-			                <td>강동점</td>
-			                <td>user02</td>
-			                <td>서울시 강동구 강동대로119 19</td> 
-			                <td>010-1111-3333</td>
-			                <td>user02@naver.com</td>
-			                <td>
-			                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm">폐업</button>
-			                </td>
-			              </tr>
-			                 <tr>
-			                <td>강서점</td>
-			                <td>user03</td>
-			                <td>서울시 강서구 강서대로119 19</td> 
-			                <td>010-1111-3333</td>
-			                <td>user03@naver.com</td>
-			                <td>
-			                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm">폐업</button>
-			                </td>
-			              </tr>
-			                 <tr>
-			                <td>강북점</td>
-			                <td>user04</td>
-			                <td>서울시 강남구 강북대로119 19</td> 
-			                <td>010-1111-4444</td>
-			                <td>user04@naver.com</td>
-			                <td>
-			                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm">폐업</button>
-			                </td>
-			              </tr>
-			                   <tr>
-			                <td>강북점</td>
-			                <td>user04</td>
-			                <td>서울시 강남구 강북대로119 19</td> 
-			                <td>010-1111-4444</td>
-			                <td>user04@naver.com</td>
-			                <td>
-			                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm">폐업</button>
-			                </td>
-			              </tr>
+			             
+			              
 			     </table>
-		         
-		         <form id="postForm" action="" method="post">
-		           <input type="hidden" name="status" value="${ s.status }">
-		         </form>
+		        
 		
 		    <!-- 폐업 버튼 클릭 시 보여질 Modal  -->
 		    <div class="modal fade" id="deleteForm">
@@ -276,7 +214,8 @@
 		                            폐업 후 복구가 불가능합니다. <br>
 		                            정말로 탈퇴 하시겠습니까? <br>
 		                        </div>
-		                        
+                         <br>
+                         <input type="hidden" name="enrNo" value="${ s.enrNo }">		              
 		                    </div>
 		                    <!-- Modal footer -->
 		                    <div class="modal-footer" align="center">
@@ -286,7 +225,7 @@
 		            </div>
 		        </div>
 		    </div>
-            
+            <br><br>
                 <ul class="pagination pagination-sm">
                     
                    <c:choose>
@@ -294,13 +233,13 @@
                         <li class="page-item disabled"><a class="page-link" href="#"><</a></li>
                      </c:when>
                      <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }"><</a></li>
+                        <li class="page-item"><a class="page-link" href="storeList.sm?cpage=${ pi.currentPage - 1 }"><</a></li>
                      </c:otherwise>
                    </c:choose> 
                     
                     
                     <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-	                    <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+	                    <li class="page-item"><a class="page-link" href="storeList.sm?cpage=${ p }">${ p }</a></li>
                     </c:forEach>
                     
                     <c:choose>
@@ -308,7 +247,7 @@
                         <li class="page-item disabled"><a class="page-link" href="#">></a></li>
                       </c:when>
                       <c:otherwise>
-                         <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">></a></li>
+                         <li class="page-item"><a class="page-link" href="storeList.sm?cpage=${ pi.currentPage + 1 }">></a></li>
                       </c:otherwise>
                     </c:choose>
                     

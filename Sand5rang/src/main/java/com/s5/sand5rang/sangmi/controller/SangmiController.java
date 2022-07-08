@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,6 +15,7 @@ import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.sangmi.service.SangmiService;
 import com.s5.sand5rang.sangmi.vo.Enroll;
+import com.s5.sand5rang.sangmi.vo.Inquery;
 import com.s5.sand5rang.sangmi.vo.Store;
 
 @Controller
@@ -47,28 +49,24 @@ public class SangmiController {
 	}
 	// 폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것
 
-	@RequestMapping("storeclose.sm")
-	public String storeclose(int enoNo,HttpSession session, Model model) {
+	@PostMapping("storeclose.sm")
+	public String storeclose(int enrNo, Model model, HttpSession session) {
 		
 		
-		int result = SangmiService.storeclose(enoNo);
+		int result = SangmiService.storeclose(enrNo);
 		
 		 if(result > 0) { 
-		
-		
-				
-				session.removeAttribute("status");
 				
 				session.setAttribute("alertMsg", "성공적으로 폐업처리가 되었습니다.");
 				
-				return "redirect:/";
+				return "redirect:storeList.sm";
 				
 			}
 			else {
 				
-				model.addAttribute("errorMsg", "폐업 처리 실패.");
+				model.addAttribute("errorMsg", "폐업 처리 실패");
 				
-				return "errorPage";
+				return "sangmi/errorPage";
 			}
 		}
 		
@@ -80,6 +78,7 @@ public class SangmiController {
 	public String storeEnrollList(
 			@RequestParam(value="cpage", defaultValue="1") int currentPage,
 			Model model) {
+
 		//1.게시글 총 갯수 조회
 		int listCount = SangmiService.selectListCount();
 		
@@ -91,9 +90,10 @@ public class SangmiController {
 		//2.전체리스트 조회
 		ArrayList<Enroll> list = SangmiService.storeEnrollList(pi);
 		
+		//System.out.println(list+"조회중");
 		model.addAttribute("pi",pi);
 		model.addAttribute("list",list);
-		
+
 		return "sangmi/storeEnrollList";
 	}
 	
@@ -120,7 +120,24 @@ public class SangmiController {
 	
 	// 1:1 문의 전체조회
 	@RequestMapping(value="inqueryList.sm")
-	public String inqueryList(Model model) {
+	public String inqueryList(
+			@RequestParam(value="cpage", defaultValue="1") int currentPage
+			,Model model) {
+		
+		//1.게시글 총 갯수 조회
+		int listCount = SangmiService.selectListCount();
+		
+		int pageLimit=10;
+		int boardLimit=5;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
+		//2.전체리스트 조회
+		ArrayList<Inquery> list = SangmiService.inqueryList(pi);
+		
+		model.addAttribute("pi",pi);
+		model.addAttribute("list",list);
+		
 		
 		return "sangmi/inqueryList";
 	}

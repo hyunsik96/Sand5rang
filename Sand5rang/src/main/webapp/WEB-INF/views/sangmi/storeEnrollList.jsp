@@ -178,7 +178,7 @@
            <tbody>
               <c:forEach var="e" items="${ list }">
                <tr>
-                 <td>${e.storeName}</td>
+                 <td class="eno">${e.storeName}</td>
                  <td>${e.phone}</td>
                  <td>${e.email}</td> 
                  <td>${e.enrollAdd}</td>
@@ -195,43 +195,43 @@
     	  $("#storeEnrollList>tbody>tr").click(function(){
     		
     		  
-    		  location.href="storeEnrollDetail.sm?eno="+$(this).children(".eno").text();
+    		  location.href="storeEnrollDetail.sm?eno="+ $(this).children(".eno").text();
     	  });
     	  
       });  
     
     </script>
     
-    
-    
+    <br><br>
+   
 
-                <ul class="pagination">
-                    
-                   <c:choose>
-                     <c:when test="${ pi.currentPage eq 1 }">
-                        <li class="page-item disabled"><a class="page-link" href="#"><</a></li>
-                     </c:when>
-                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }"><</a></li>
-                     </c:otherwise>
-                   </c:choose> 
-                    
-                    
-                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-	                    <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
-                    </c:forEach>
-                    
-                    <c:choose>
-                      <c:when test="${ pi.currentPage eq pi.maxPage }">
-                        <li class="page-item disabled"><a class="page-link" href="#">></a></li>
-                      </c:when>
-                      <c:otherwise>
-                         <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">></a></li>
-                      </c:otherwise>
-                    </c:choose>
-                                  
-                </ul>
-      
+          <ul class="pagination pagination-sm">
+              
+             <c:choose>
+               <c:when test="${ pi.currentPage eq 1 }">
+                  <li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+               </c:when>
+               <c:otherwise>
+                  <li class="page-item"><a class="page-link" href="storeEnrollList.sm?cpage=${ pi.currentPage - 1 }"><</a></li>
+               </c:otherwise>
+             </c:choose> 
+              
+              
+              <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
+               <li class="page-item"><a class="page-link" href="storeEnrollList.sm?cpage=${ p }">${ p }</a></li>
+              </c:forEach>
+              
+              <c:choose>
+                <c:when test="${ pi.currentPage eq pi.maxPage }">
+                  <li class="page-item disabled"><a class="page-link" href="#">></a></li>
+                </c:when>
+                <c:otherwise>
+                   <li class="page-item"><a class="page-link" href="storeEnrollList.sm?cpage=${ pi.currentPage + 1 }">></a></li>
+                </c:otherwise>
+              </c:choose>
+                            
+          </ul>
+  
 
 
 

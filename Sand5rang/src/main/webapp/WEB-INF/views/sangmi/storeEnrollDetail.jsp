@@ -239,7 +239,10 @@
         </div>
     </form>
 
-     
+      <form id="postForm" action="" method="post">
+         <input type="hidden" name="eno" value="${ e.enrNo }">
+
+       </form>
 
 <br><br>
 	

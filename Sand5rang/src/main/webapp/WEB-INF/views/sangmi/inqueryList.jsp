@@ -191,43 +191,15 @@
             </tr>
         </thead>
         <tbody>
-        
+          <c:forEach var="i" items="${list }">
             <tr>
-               <td class="eno">10</td>
-                <td>제목1</td>
-                <td>user01</td>
-                <td>2022/07/05</td>
-                <td>미답변</td>
+               <td class="ino">${i.inqNo}</td>
+                <td>${i.inqTitle }</td>
+                <td>${i.storeId }</td>
+                <td>${i.inqDate }</td>
+                <td>${i.status }</td>
             </tr>
-			<tr>
-				<td class="eno">10</td>
-				 <td>제목1</td>
-				 <td>user01</td>
-				 <td>2022/07/05</td>
-				 <td>문의답변완료</td>
-			 </tr>
-			 <tr>
-				<td class="eno">10</td>
-				 <td>제목1</td>
-				 <td>user01</td>
-				 <td>2022/07/05</td>
-				 <td>문의답변완료</td>
-			 </tr>
-			 <tr>
-				<td class="eno">10</td>
-				 <td>제목1</td>
-				 <td>user01</td>
-				 <td>2022/07/05</td>
-				 <td>문의답변완료</td>
-			 </tr>
-			 <tr>
-				<td class="eno">10</td>
-				 <td>제목1</td>
-				 <td>user01</td>
-				 <td>2022/07/05</td>
-				 <td>문의답변완료</td>
-			 </tr>
-
+           </c:forEach> 		
         </tbody>
     </table>
  <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
@@ -241,20 +213,16 @@
                   <option value="writer">작성자</option>
                   <option value="title">제목</option>
               </select>
-
-   
               <input type="text" class="form-control" name="keyword">
 
           <button type="submit" class="searchBtn btn btn-secondary">검색</button>
       </form>
       <br><br>
   </div>
-
-
 <script>
   $(function(){
 	  $("#boardList>tbody>tr").click(function(){
-		 location.href="inqueryDetail.sm?eno="+$(this).children(".eno").text();
+		 location.href="inqueryDetail.sm?ino="+$(this).children(".ino").text();
 	  });
   });
 </script>
@@ -265,21 +233,21 @@
     <br>
 </c:if>
 -->
-<div id="pagingArea">
-	<ul class="pagination">
+
+	<ul class="pagination pagination-sm">
 		
 	   <c:choose>
 		 <c:when test="${ pi.currentPage eq 1 }">
 			<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
 		 </c:when>
 		 <c:otherwise>
-			<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage - 1 }"><</a></li>
+			<li class="page-item"><a class="page-link" href="inqueryList.sm?cpage=${ pi.currentPage - 1 }"><</a></li>
 		 </c:otherwise>
 	   </c:choose> 
 		
 		
 		<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-			<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+			<li class="page-item"><a class="page-link" href="inqueryList.sm?cpage=${ p }">${ p }</a></li>
 		</c:forEach>
 		
 		<c:choose>
@@ -287,14 +255,14 @@
 			<li class="page-item disabled"><a class="page-link" href="#">></a></li>
 		  </c:when>
 		  <c:otherwise>
-			 <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage + 1 }">></a></li>
+			 <li class="page-item"><a class="page-link" href="inqueryList.sm?cpage=${ pi.currentPage + 1 }">></a></li>
 		  </c:otherwise>
 		</c:choose>
 	
 		
 	</ul>
 
-</div>
+
 
 
 	

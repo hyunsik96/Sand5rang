@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.sangmi.vo.Enroll;
+import com.s5.sand5rang.sangmi.vo.Inquery;
 import com.s5.sand5rang.sangmi.vo.Store;
 
 @Repository
@@ -31,9 +32,9 @@ public class SangmiDao {
 	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeList",null,rowBounds);
    }
    //폐업
-    public int storeclose(SqlSessionTemplate sqlSession, int enoNo) {
+    public int storeclose(SqlSessionTemplate sqlSession, int enrNo) {
     	
-    	return sqlSession.selectOne("sangmiMapper.storeclose", enoNo);
+    	return sqlSession.update("sangmiMapper.storeclose",enrNo);
     }
    
    
@@ -46,16 +47,25 @@ public class SangmiDao {
 	   
 	   RowBounds rowBounds = new RowBounds(offset, limit);
 	   
-	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeEnrollList");   
+	   return (ArrayList)sqlSession.selectList("sangmiMapper.storeEnrollList",null,rowBounds);   
 	   
    }
  //가맹가입신청 상세페이지
-   public Enroll storeEnrollDetail(SqlSessionTemplate sqlSession, int enrollNo){
+   public Enroll storeEnrollDetail(SqlSessionTemplate sqlSession, int enrNo){
 	   
 	   return sqlSession.selectOne("sangmiMapper.storeEnrollDetail");
    }
    
-   
+   //문의 전체 리스트 조회
+public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi) {
+	   
+	   int limit = pi.getBoardLimit();
+	   int offset = (pi.getCurrentPage() -1)*limit;
+	   
+	   RowBounds rowBounds = new RowBounds(offset, limit);
+	 
+	   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",null,rowBounds);
+   }
    
 
 }

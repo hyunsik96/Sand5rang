@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.sangmi.dao.SangmiDao;
 import com.s5.sand5rang.sangmi.vo.Enroll;
+import com.s5.sand5rang.sangmi.vo.Inquery;
 import com.s5.sand5rang.sangmi.vo.Store;
 
 @Service
@@ -31,9 +32,9 @@ public class SangmiService {
 		return SangmiDao.storeList(sqlSession,pi);
 	}
 	//폐업
-	public int storeclose(int enoNo) {
+	public int storeclose(int enrNo) {
 		
-		return SangmiDao.storeclose(sqlSession, enoNo);
+		return SangmiDao.storeclose(sqlSession, enrNo);
 	}
 	
 	
@@ -49,7 +50,12 @@ public class SangmiService {
 		return SangmiDao.storeEnrollDetail(sqlSession, enrollNo);
 	}
 	
-	
+	//문의리스트 조회
+	//가맹점 전체리스트 조회
+	public ArrayList<Inquery> inqueryList(PageInfo pi) {
+		
+		return SangmiDao.inqueryList(sqlSession,pi);
+	}
 	
 }
 

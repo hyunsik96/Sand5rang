@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 public class Enroll {
 
-	private int enrollNo;
+	private int enrNo;
 	private String storeName;
 	private String enrollAdd;
 	private String email;

@@ -3,7 +3,7 @@
 <mapper namespace="sangmiMapper">
 
  <resultMap id="enrollResultSet" type="com.s5.sand5rang.sangmi.vo.Enroll">
-   <result column="ENR_NO" property="enrollNo" />
+   <result column="ENR_NO" property="enrNo" />
    <result column="STORE_NAME" property="storeName" />
    <result column="ENROLL_ADD" property="enrollAdd" />
    <result column="EMAIL" property="email" />
@@ -23,6 +23,19 @@
    <result column="PHONE" property="phone" />
  </resultMap>
  
+ <resultMap id="inqueryResultSet" type="com.s5.sand5rang.sangmi.vo.Inquery">
+   <result column="INQ_NO" property="inqNo" />
+   <result column="INQ_TITLE" property="inqTitle" />
+   <result column="INQ_DATE" property="inqDate" />
+   <result column="INQ_QUERY" property="inqQuery" />
+   <result column="INQ_ANSWER" property="inqAnswer" />
+   <result column="STATUS" property="status" />
+   <result column="ANS_DATE" property="ansDate" />
+   <result column="CATEGORY" property="category" />
+   <result column="STORE_ID" property="storeId" />
+ </resultMap>
+ 
+ 
  <!-- 게시글 총 갯수 조회 -->
  <select id="selectListCount" resultType="_int">
   SELECT COUNT(*)
@@ -36,11 +49,11 @@
   </select>
   
   <!-- 폐업 버튼 -> 삭제 -->
-   <select id="close1" parameterType="_int">
+   <update id="storeclose" parameterType="_int">
     UPDATE STORE
        SET STATUS = 'N'
       WHERE ENR_NO = #{enrNo} 
-   </select>
+   </update>
    
 <!--가맹가입신청 list 조회  -->
 
@@ -55,5 +68,12 @@ SELECT STORE_NAME,PHONE, EMAIL, ENROLL_ADD, TITLE, CONTENT
 FROM ENROLL
 WHERE STATUS = 'B'
 </select>
+
+<!-- 문의 전체 리스트 조회 -->
+<select id="inqueryList" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultMap="inqueryResultSet">
+SELECT INQ_NO,INQ_TITLE, INQ_DATE, INQ_QUERY, INQ_ANSWER, STATUS, ANS_DATE, CATEGORY, STORE_ID
+FROM INQUERY
+</select>
+
 
 </mapper>
