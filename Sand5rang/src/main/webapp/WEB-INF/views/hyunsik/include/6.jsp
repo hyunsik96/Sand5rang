@@ -44,6 +44,9 @@ padding-right:20px;
 .gustlr{
 padding-bottom:10px;
 }
+#micheuri{
+width:250px; margin:auto; margin-top:30px; font-size:15px; color:red;
+}
 </style>
 </head>
 <body>

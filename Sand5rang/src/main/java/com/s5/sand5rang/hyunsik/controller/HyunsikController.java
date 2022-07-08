@@ -20,7 +20,7 @@ public class HyunsikController {
 	private HyunsikService hyunsikService;
 	
 	
-	@RequestMapping(value="hyunsikTest2.hs")
+	@RequestMapping(value="ad1.hs")
 	public String adCusIndentList(
 			@RequestParam(value="p", defaultValue="1") int currentPage, 
 			Model model) {
@@ -44,14 +44,14 @@ public class HyunsikController {
 
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
-		
+
 		return "hyunsik/admin1";
 	}
 	
-	@RequestMapping(value="hyunsikTest3.hs")
+	@RequestMapping(value="ad2.hs")
 	public String gg3() {return "hyunsik/admin2";}
 
-	@RequestMapping(value="hyunsikTest4.hs")
+	@RequestMapping(value="ad3.hs")
 	public String gg4() {return "hyunsik/admin3";}
 	
 	

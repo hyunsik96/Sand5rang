@@ -22,6 +22,7 @@ public class Indent {
 	private String status; // 발주상태(B > Y or N, AB > AY or N)
 	private String storeId;
 	private int ingNo;
+	private String storeName;
 
 
 }

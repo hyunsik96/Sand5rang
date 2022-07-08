@@ -337,7 +337,7 @@
 
 		<c:forEach var="s" items="${ list }" varStatus="status">
 		    <!-- 폐업 버튼 클릭 시 보여질 Modal  -->
-		    <div class="modal fade" id="#${status.index}">
+		    <div class="modal fade" id="${status.index}">
 		        <div class="modal-dialog modal-sm">
 		            <div class="modal-content">
 		
