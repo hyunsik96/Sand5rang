@@ -21,6 +21,7 @@
   <result column="STATUS" property="status" /> 
    <result column="EMAIL" property="email" />
    <result column="PHONE" property="phone" />
+   <result column="ENR_NO" property="enrNo"/>
  </resultMap>
  
  <resultMap id="inqueryResultSet" type="com.s5.sand5rang.sangmi.vo.Inquery">
@@ -43,7 +44,7 @@
  </select>
  <!--가맹점 전체리스트 조회-->
   <select id="storeList" resultMap="storeResultSet">
-	 SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL
+	 SELECT S.STORE_NAME, S.STORE_ID, S.ADDRESS, E.PHONE, E.EMAIL, ENR_NO
 	 FROM STORE S 
 	 JOIN ENROLL E USING(ENR_NO)
   </select>

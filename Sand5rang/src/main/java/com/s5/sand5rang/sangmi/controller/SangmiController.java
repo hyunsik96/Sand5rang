@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -49,11 +48,13 @@ public class SangmiController {
 	}
 	// 폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것
 
-	@PostMapping("storeclose.sm")
+	@RequestMapping("storeclose.sm")
 	public String storeclose(int enrNo, Model model, HttpSession session) {
 		
 		
 		int result = SangmiService.storeclose(enrNo);
+		
+		System.out.println(enrNo);
 		
 		 if(result > 0) { 
 				
@@ -68,6 +69,7 @@ public class SangmiController {
 				
 				return "sangmi/errorPage";
 			}
+		 
 		}
 		
 	

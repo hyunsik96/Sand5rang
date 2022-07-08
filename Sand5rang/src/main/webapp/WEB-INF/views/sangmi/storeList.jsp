@@ -179,7 +179,7 @@
 			         </thead>
 			          <tbody align="center">
 			            
-			             <c:forEach var="s" items="${ list }">
+			             <c:forEach var="s" items="${ list }" varStatus="status">
 			              <tr>
 			                <td>${s.storeName}</td>
 			                <td>${s.storeId}</td>
@@ -187,7 +187,8 @@
 			                <td>${s.phone}</td>
 			                <td>${s.email}</td>
 			                <td>
-			                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteForm" >폐업</button>
+			                
+			                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#${status.index}">폐업</button>
 			                </td>
 			              </tr>
 			             </c:forEach>  
@@ -195,37 +196,8 @@
 			              
 			     </table>
 		        
-		
-		    <!-- 폐업 버튼 클릭 시 보여질 Modal  -->
-		    <div class="modal fade" id="deleteForm">
-		        <div class="modal-dialog modal-sm">
-		            <div class="modal-content">
-		
-		                <!-- Modal Header -->
-		                <div class="modal-header">
-		                    <h4 class="modal-title">폐업</h4>
-		                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-		                </div>
-		
-		                <form action="storeclose.sm" method="post">
-		                    <!-- Modal body -->
-		                    <div class="modal-body">
-		                        <div align="center">
-		                            폐업 후 복구가 불가능합니다. <br>
-		                            정말로 탈퇴 하시겠습니까? <br>
-		                        </div>
-                         <br>
-                         <input type="hidden" name="enrNo" value="${ s.enrNo }">		              
-		                    </div>
-		                    <!-- Modal footer -->
-		                    <div class="modal-footer" align="center">
-		                        <button type="submit" class="btn btn-danger">폐업하기</button>
-		                    </div>
-		                </form>
-		            </div>
-		        </div>
-		    </div>
             <br><br>
+            
                 <ul class="pagination pagination-sm">
                     
                    <c:choose>
@@ -363,7 +335,39 @@
 
 <jsp:include page="include/6.jsp" />
 
-
+		<c:forEach var="s" items="${ list }" varStatus="status">
+		    <!-- 폐업 버튼 클릭 시 보여질 Modal  -->
+		    <div class="modal fade" id="#${status.index}">
+		        <div class="modal-dialog modal-sm">
+		            <div class="modal-content">
+		
+		                <!-- Modal Header -->
+		                <div class="modal-header">
+		                    <h4 class="modal-title">폐업</h4>
+		                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+		                </div>
+		
+		                <form action="storeclose.sm" method="get">
+		                    <!-- Modal body -->
+		                    <div class="modal-body">
+		                        <div align="center">
+		                            폐업 후 복구가 불가능합니다. <br>
+		                            정말로 탈퇴 하시겠습니까? <br>
+		                        </div>
+                         <br>
+                         
+                         <input type="hidden" name="enrNo" value="${ s.enrNo }">	
+                          	         
+		                    </div>
+		                    <!-- Modal footer -->
+		                    <div class="modal-footer" align="center">
+		                        <button type="submit" class="btn btn-danger">폐업하기</button>
+		                    </div>
+		                </form>
+		            </div>
+		        </div>
+		    </div>
+		</c:forEach>
   </body>
 
 </html>

@@ -34,7 +34,7 @@ public class SangmiDao {
    //폐업
     public int storeclose(SqlSessionTemplate sqlSession, int enrNo) {
     	
-    	return sqlSession.update("sangmiMapper.storeclose",enrNo);
+    	return sqlSession.update("sangmiMapper.storeclose", enrNo);
     }
    
    
