@@ -1,6 +1,7 @@
 package com.s5.sand5rang.seonghoon.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -15,9 +16,9 @@ public class SeonghoonDao {
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenu");
 	}
 	
-	public int insertSales(SqlSessionTemplate sqlSession, ArrayList<Sales>list_count) {
+	public int insertSales(SqlSessionTemplate sqlSession, HashMap<String,Integer> hashmap) {
 		
-		return sqlSession.insert("seonghoonMapper.insertSales");
+		return sqlSession.insert("seonghoonMapper.insertSales", hashmap);
 		
 	}
 	

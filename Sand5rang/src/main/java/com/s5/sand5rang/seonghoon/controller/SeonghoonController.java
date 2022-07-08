@@ -1,6 +1,9 @@
 package com.s5.sand5rang.seonghoon.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Menu;
-import com.s5.sand5rang.seonghoon.vo.Sales;
 
 @Controller
 public class SeonghoonController {
@@ -60,50 +62,28 @@ public class SeonghoonController {
 	
 	
 	@RequestMapping(value="salesPage1.csh")
-	public String salesPage_menu(	int count1, int count2, int count3, int count4, int count5, 
-									int count6, int count7, int count8, int count9, int count10, 
-									int count11, int count12, int count13, int count14, int count15,
-									int menNo1, int menNo2, int menNo3, int menNo4, int menNo5,
-									int menNo6, int menNo7, int menNo8, int menNo9, int menNo10,
-									int menNo11, int menNo12, int menNo13, int menNo14, int menNo15,
-									
+	public String salesPage_menu(	int[] count, int[] menNo,
 			 Model model, HttpSession session){
 		
-		ArrayList<Sales> list_count = new ArrayList<>();
-		list_count.get(1).setCount(count1);
-		list_count.get(2).setCount(count2);
-		list_count.get(3).setCount(count3);
-		list_count.get(4).setCount(count4);
-		list_count.get(5).setCount(count5);
-		list_count.get(6).setCount(count6);
-		list_count.get(7).setCount(count7);
-		list_count.get(8).setCount(count8);
-		list_count.get(9).setCount(count9);
-		list_count.get(10).setCount(count10);
-		list_count.get(11).setCount(count11);
-		list_count.get(12).setCount(count12);
-		list_count.get(13).setCount(count13);
-		list_count.get(14).setCount(count14);
-		list_count.get(15).setCount(count15);
+		// count0, count1, count2,...
+		// menNo0, menNo1, menNo2,...
+		HashMap<String,Integer> hashmap = new HashMap<String,Integer>();
+		for(int i=0; i<count.length; i++) {
+			hashmap.put("count"+i, count[i]);
+		}
+		for(int i=0; i<menNo.length; i++) {
+			hashmap.put("menNo"+i, menNo[i]);
+		}
 		
-		ArrayList<Sales> list_menNo = new ArrayList<>();
-		list_menNo.get(1).setMenNo(menNo1);
-		list_menNo.get(2).setMenNo(menNo2);
-		list_menNo.get(3).setMenNo(menNo3);
-		list_menNo.get(4).setMenNo(menNo4);
-		list_menNo.get(5).setMenNo(menNo5);
-		list_menNo.get(6).setMenNo(menNo6);
-		list_menNo.get(7).setMenNo(menNo7);
-		list_menNo.get(8).setMenNo(menNo8);
-		list_menNo.get(9).setMenNo(menNo9);
-		list_menNo.get(10).setMenNo(menNo10);
-		list_menNo.get(11).setMenNo(menNo11);
-		list_menNo.get(12).setMenNo(menNo12);
-		list_menNo.get(13).setMenNo(menNo13);
-		list_menNo.get(14).setMenNo(menNo14);
-		list_menNo.get(15).setMenNo(menNo15);
+        // Iterator        
+		Iterator<Entry<String,Integer>> it = hashmap.entrySet().iterator();        
+		while(it.hasNext()) {            
+			Entry<String,Integer> entrySet = (Entry<String,Integer>) it.next();            
+			// key, value 출력            
+			System.out.println(entrySet.getKey() + " : " + entrySet.getValue());        
+		}
 		
-		int result = seonghoonService.insertSales(list_count, list_menNo);
+		int result = seonghoonService.insertSales(hashmap);
 		if(result>0) {
 			return "redirect:/salesPage0.csh";
 		}else {

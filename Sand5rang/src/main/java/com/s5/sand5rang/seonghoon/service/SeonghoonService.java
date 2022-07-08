@@ -1,6 +1,7 @@
 package com.s5.sand5rang.seonghoon.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class SeonghoonService {
 		return seonghoonDao.selectMenu(sqlSession);
 	}
 	
-	public int insertSales(ArrayList<Sales>list_count) {
-		int result = seonghoonDao.insertSales(sqlSession,list_count);
+	public int insertSales(HashMap<String,Integer> hashmap) {
+		int result = seonghoonDao.insertSales(sqlSession,hashmap);
 		return result;
 	}
 	

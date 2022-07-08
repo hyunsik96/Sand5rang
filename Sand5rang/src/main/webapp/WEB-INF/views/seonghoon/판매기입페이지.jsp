@@ -193,14 +193,14 @@
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 	<!-- 제품판매현황에서 클릭하면 상세 페이지로 이동할 수 있도록 함. -->
-<form method="post" action="salesPage1.csh">
+<form method="post" action="salesPage0.csh">
 <c:forEach var="m" items="${list}" varStatus="status">	
 				<div class="menu" style="margin-top:20px;">
 					<h4>${m.menName}</h4>
 					<img src="resources/images/menu/${m.menName}.png" width="150" height="150">
 					<p>
-					<input type="hidden" name="menNo" value="${m.menNo.status.count}">		
-					판매개수 : <input type="number" name="count${status.count}" class="stock_style" ><br> 
+					<input type="hidden" name="menNo" value="${status.count}">		
+					판매개수 : <input type="number" name="count" class="stock_style"><br> 
 					판매금액 : <input type="number" class="stock_style"><br>
 					판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
 					</p>
