@@ -65,7 +65,13 @@ public class HyunsikController {
 		
 		int result = hyunsikService.adCusApp(map);
 		
-		return "redirect:ad1.hs";
+		if(result>0) {
+			return "redirect:ad1.hs";
+		}else {
+			return "common/errorAd";
+		}
+		
+
 	}
 	
 	// 관리자 주문리스트에서 반려
@@ -74,7 +80,12 @@ public class HyunsikController {
 		
 		int result = hyunsikService.adCusDis(storeId);
 		
-		return "redirect:ad1.hs";
+		if(result>0) {
+			return "redirect:ad1.hs";
+		}else {
+			return "common/errorAd";
+		}
+		
 	}
 	
 	
