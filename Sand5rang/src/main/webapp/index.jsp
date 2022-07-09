@@ -120,7 +120,7 @@
                       건강한 식재료 공급을 통한 균형잡힌 메뉴 제공과 아이들에게도 안심하고 먹을 수 있는 <br>
                       영양 샌드위치, 신뢰할 수 있는 영양정보를 제공합니다.
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="faq.sm" class="btn1">
                         가맹문의
                       </a>
                     </div>
@@ -142,7 +142,7 @@
                       효율적이고 본사에서 매일 준비되는 신선한 야채(재고)관리 운영을 지향합니다. 
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="faq.sm" class="btn1">
                         가맹문의
                       </a>
                     </div>

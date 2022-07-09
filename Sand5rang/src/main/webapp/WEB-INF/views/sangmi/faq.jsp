@@ -34,7 +34,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 /* faq */
-.faq_wrapper{padding-bottom:130px; min-height:277px;}
+.faq_wrapper{padding-bottom:130px; min-height:277px; width:1000px; hight:1000px;}
 /*.faq_wrapper .faq_contet{border-top:4px solid #009223; }*/
 .faq_wrapper .faq_contet li{border-bottom:1px solid #dddddd; background-color:#fff;}
 .faq_wrapper .fre{cursor:pointer; position:relative; padding:20px 100px 25px;}
@@ -53,8 +53,9 @@
 .faq_wrapper .faq_contet li.open .fre strong{color:#009223; font-weight:300;}
 .faq_wrapper .faq_contet li.open .fre:after{transform: rotate(135deg);}
 .faq_wrapper .faq_contet li.open .ask_text{opacity:1;}
-.subTitle{ font-family: font_ns, sans-serif; font-weight:bolder; }
+.subTitle{ font-family: font_ns, sans-serif; font-weight:bolder; color:green;}
 
+ #fre1{border-top:4px solid #009223;  }
 
 .open{
     list-style-type : none;
@@ -68,8 +69,12 @@
 .btns_wrapper .btn {
   margin:0 4px;
 }
+.btns_wrapper {
+ width:1000px;
+ text-align:center;
 
 
+}
 .btn {
  font-size: 18px;
  font-weight: bold;
@@ -135,18 +140,19 @@
   </div>
 
  <div id="content" style="margin:auto;">
-    
-     <div class="content" >
-     <h2 class="subTitle" align="center" style="margin:100px 100px">가맹관련 자주하는 질문&답변</h2>
-        <div class="faq_wrapper" style="margin:100px 200px">
+         
+     <div class="content">
+
+     <h2 class="subTitle" style="margin:100px 300px; align:center;">가맹관련 자주하는 질문&답변</h2>
+        <div class="faq_wrapper" style="margin:100px 200px; align:center;">
           <ul class="faq_contet" id="ui_faq_items" >
             <li class="open">
               <div class="fre" id="fre1">
                  <div class="q">Q</div>
                  <strong>샌드오랑 가맹점 오픈에 필요한 투자금액은 어느 정도인가요?</strong>
-                
+          
                 </div>
-                <div class="ask" style="height:144px;">
+                <div class="ask" style="height:144px;" id="ask1">
                   <div class="a">A</div>
                   <div class="ask_text">
                     최소 전용 면적 25평 기준, 약 2억원~ 2억 1천만원이 예상됩니다.
@@ -165,14 +171,15 @@
                    <strong>샌드오랑 가맹점주가 되기 위한 조건이 있나요?</strong>
                    
                   </div>
-                  <div class="ask" style="height:144px;">
+                  <div class="ask" style="height:144px;" id="ask2">
                     <div class="a">A</div>
                     <div class="ask_text">
                       샌드오랑은 한국 전통 프랜차이즈이며, 매장수 분포지역 기준, 한국 QSR 브랜드입니다.
                       <br>
                       따라서 제품의 퀄리티, 매장 운영, 고객 서비스에 있어 브랜드의 가치를 실현하기 위해 운영 매누얼 및 본사의 규정과 지침을 이행하고 준수 할 수 있는 분, 고객 서비스 마인드를 갖춘 분과 가맹계약을 체결합니다. 
-                      <br>
+                    
                       각 지사의 가맹 개발자는 계약 체결 전, 심도 깊은 상담, 성향 테스트를 통해 이부분은 검증합니다.
+                   
                     </div>
                   </div>
               </li>
@@ -180,9 +187,9 @@
                 <div class="fre" id="fre3">
                    <div class="q">Q</div>
                    <strong>가맹이 불가능한 지역은 언제쯤 상담 및 가맹점 오픈이 가능한가요?</strong>
-             
+                    
                   </div>
-                  <div class="ask" style="height:144px;">
+                  <div class="ask" style="height:144px;" id="ask3">
                     <div class="a">A</div>
                     <div class="ask_text">
                       지사 설립 후 가맹이 가능한 지역이 되기까지 최소 1년 이상 소요될 것으로 예산되나, 준비 상황에 따라 가맹시점이 달라질 수 있습니다.
@@ -195,9 +202,9 @@
                    <strong>가맹점 개설 절차로는 어떻게 되나요?</strong>
             
                   </div>
-                  <div class="ask" style="height:800px;">
+                  <div class="ask" style="height:400px;"id="ask4">
                     <div class="a">A</div>
-                    <div class="ask_text" style="height:500px;" >
+                    <div class="ask_text" style="height:400px;" >
                       <img src="resources/images/가맹점과정절차.png" style="position:absolute; top:0; left:0;width:100%; height:100%;">
                     </div>
                   </div>
@@ -205,13 +212,29 @@
 
           </ul>
     <div class="btns_wrapper" >
-    <a class="btn bgc_point i_arr" href="" style="margin:100px 500px;">
-      <span>가맹신청/문의</span>
+    <a class="btn bgc_point i_arr" href="joinForm.an" >
+      <span >가맹신청/문의</span>
     </a>
     </div>
          
         </div>
+        
     </div>
+
+  
+    <script>
+      $("#ask1").hide();
+    </script>
+        <script>
+      $("#ask2").hide();
+    </script>
+        <script>
+      $("#ask3").hide();
+    </script>
+        <script>
+      $("#ask4").hide();
+    </script>
+
 
     <script>
     $(function(){
