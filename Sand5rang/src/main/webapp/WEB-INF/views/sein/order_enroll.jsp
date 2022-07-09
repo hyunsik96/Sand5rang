@@ -197,6 +197,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">220</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="bread">
@@ -214,6 +215,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="bread">
@@ -231,6 +233,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">250</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<br><br>
@@ -252,6 +255,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="vegetable">
@@ -269,6 +273,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="vegetable">
@@ -286,6 +291,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">30</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="vegetable">
@@ -303,6 +309,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">50</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="vegetable">
@@ -320,6 +327,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">20</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="vegetable">
@@ -337,6 +345,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">70</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								
@@ -355,6 +364,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">150</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<br>
@@ -376,6 +386,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">150</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="meat">
@@ -393,6 +404,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="meat">
@@ -410,6 +422,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">170</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="meat">
@@ -427,6 +440,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="meat">
@@ -444,6 +458,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="meat">
@@ -461,6 +476,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">120</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<br><br>
@@ -481,6 +497,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">50</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="sauce">
@@ -498,6 +515,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">60</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="sauce">
@@ -515,6 +533,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">70</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="sauce">
@@ -532,6 +551,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">40</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="sauce">
@@ -549,6 +569,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">20</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<br><br>
@@ -569,6 +590,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="cheese">
@@ -586,6 +608,7 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								<div class="cheese">
@@ -603,13 +626,14 @@
                                     <div class="result_price" style="margin-top : 10px; margin-left: 3px;font-weight: bolder;">
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
+                                        <div id="total_price_hidden" hidden>0</div>
                                     </div>
 								</div>
 								
-                                <hr>
+                                <hr> 
 								<br><br>
                                 <div id="total" style="float : right; margin-right: 30px; font-size: 30px;">
-                                    총 발주액 : <span id="result_price">0</span>&nbsp;원
+                                    총 발주액 : <b id="tot_order_price">0</b>&nbsp;원
                                 </div>
 
                                 <br><br>
@@ -729,6 +753,7 @@
 </body>
 
 <script>
+
   function count(type, num)  {
 
   // 결과를 표시할 element
@@ -739,6 +764,11 @@
 
   // 재료 수량에 맞춰 가격을 표시할 element
   const tot = $('div[id=total_price]');
+
+  // 콤마 안찍혀있는 elemet
+  const hidden_value = $('div[id=total_price_hidden]');
+
+  console.log(hidden_value);
 
   //화면에 표시될 원재료당 가격
   var num2 = 0;
@@ -768,7 +798,8 @@
 
             number = parseInt(number) + 1;
 
-            num2 = price[i].innerText * number;            
+            num2 = price[i].innerText * number;        
+            
 
         }else if(type === 'minus')  {
 
@@ -785,14 +816,17 @@
             }
         }
 
-        
-        // 가격 출력
+        // 가격 출력 
+        // 콤마 찍어내기 .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         tot[i].innerText = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        
 
-        // 수량 결과 출력
-        resultElement[i].value = number;
+        //콤마없는 가격 찍어주기
+        hidden_value[i].innerText = num2;
         
+        // 수량 결과 출력
+        resultElement[i].value = number;    
+        
+        orderPrice();
     }
  }
 }
@@ -800,58 +834,76 @@
 
 //발주 수량 직접 입력시 자동으로 가격 계산하여 보여주기
 $("input[class=count_result").on("keyup",function(key){ 
-    
+
     //input 입력값에 대한 유효성체크
     var regExp = /^[0-9]+$/;
  
     //수량
-    var num = $(this).val();
+    var amount = $(this).val(); 
 
     //사용자 입력값 숫자 유효성 체크 
-    if(!regExp.test(num)){
+    if(!regExp.test(amount)){
             
             alert("수량(숫자)만 입력해주세요.");
 
-            num = 0;
+            amount = 0;
 
-            $(this).val(num);
+            $(this).val(amount);
     }
 
-    if(num>1000){
+    if(amount>1000){
 
         alert("하루 발주가능 수량 1000개 이하입니다.\n수량을 다시입력해주세요");
 
-        num = 0;
+        amount = 0;
 
-        $(this).val(num);
+        $(this).val(amount);
 
     }
 
     //가격
     var price = $(this).parent("div").nextAll("div[class=result_price]").children("div[id=price]").text();
 
-    //총 가격 보여줄 element
+    //총 가격 보여줄 element(,콤마 포함)
     var totElement = $(this).parent("div").nextAll("div[class=result_price]").children("div[id=total_price]");
 
-    var result = num*price;
+    //총 가격 보여줄 element(콤마 제거)
+    var totElement2 = $(this).parent("div").nextAll("div[class=result_price]").children("div[id=total_price_hidden]");
 
+    //총가격
+    var result = amount*price;
+
+    //toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     totElement.text(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-    
+    totElement2.text(result);
+
+    orderPrice();
 });
 
-//발주 총 금액 계산하여 보여주기
-$(document).ready(function(){
-    
-    var tot = $("div[id=total]").children("span");
+function orderPrice()  {
 
-    // 모든 input태그 안에있는 가격 결과를 표시할 element
-    var price_el = $('div[id=total_price]');
+    // 모든 input태그 안에있는 가격 결과 element
+    //var price_el = $('div[id=total_price]');
 
-    for(var i=0; i<price_el.length; i++){
-        console.log(price_el[i]);
+    //결과 값을 담아줄 element
+    var tot = $("div[id=total]").children("b[id=tot_order_price]");
+
+    //,가 붙여져있지 않으 값이 담겨있는 element
+    var tot2 = $("div[id=total_price_hidden]");
+
+    //최종 총 가격을 담아줄 변수 선언
+    var num_tot = 0;
+
+// 모든 input태그(가격)을 불러와서 변수에 담아주기 
+for(var i=0; i<tot2.length; i++){
+
+    num_tot += parseInt(tot2[i].innerText);
+
+    tot.text(num_tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
     }
-    
-});
+}
+
 </script>
 
 </html>
