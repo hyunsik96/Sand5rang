@@ -104,7 +104,7 @@
                 
                 
 				<li class="dropdown active">					
-					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
 						<b class="caret"></b>

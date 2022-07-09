@@ -104,7 +104,7 @@
                 
                 
 				<li class="dropdown active">					
-					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>재고관리</span>
 						<b class="caret"></b>
@@ -188,7 +188,8 @@
 -->
 <hr>
 <h3 style="margin-left:20px">빵(Bread)</h3>
-<div class="bread">
+<c:forEach var="i" items="${list}">
+<div class="${}">
 	<h4>파마산</h4>
 	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
 	<p>
@@ -196,6 +197,8 @@
 	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
 	</p>
 </div>
+</c:forEach>
+<!-- 
 <div class="bread">
 	<h4>화이트</h4>
 	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
@@ -392,7 +395,7 @@
 	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
 	</p>
 </div>
-
+ -->
 
 
 	

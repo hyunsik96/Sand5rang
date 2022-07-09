@@ -5,15 +5,14 @@
 		<result column="MEN_NAME" property="menName"/>
 		<result column="MEN_NO" property="menNo"/>
 	</resultMap>
-
+	
 	<insert id="insertSales" parameterType="hashmap">
 		INSERT INTO SALES(SAL_NO, SAL_DATE, COUNT, TOTAL, STORE_ID, MEN_NO)
-		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count1},
+		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count},
 		(SELECT PRICE 
 		FROM MENU 
-		WHERE MEN_NO=1)
-		*#{count1}
-		,'STORE1',#{memNo1})
+		WHERE MEN_NO=#{menNo})*#{count}
+		,'STORE1',#{menNo})
 	</insert>
 	
 	<select id="selectMenu" resultMap="MenuResultMap">
