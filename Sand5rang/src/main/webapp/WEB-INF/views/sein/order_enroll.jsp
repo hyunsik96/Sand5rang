@@ -126,7 +126,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu active">
-                        <li class="active"><a href="orderEnroll.se">발주신청</a></li>
+                        <li class="active"><a href="orderEnrollForm.se">발주신청</a></li>
 						<li><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
