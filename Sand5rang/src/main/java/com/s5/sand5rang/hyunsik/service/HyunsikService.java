@@ -1,6 +1,7 @@
 package com.s5.sand5rang.hyunsik.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,8 @@ public class HyunsikService {
 		return hyunsikDao.selectIndLIst(sqlSession, id);
 	}
 	
-	public int adCusApp(String id) {
-		return hyunsikDao.adCusApp(sqlSession, id);
+	public int adCusApp(HashMap<String, String> map) {
+		return hyunsikDao.adCusApp(sqlSession, map);
 	}
 	
 	public int adCusDis(String id) {

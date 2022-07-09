@@ -1,6 +1,7 @@
 package com.s5.sand5rang.hyunsik.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,9 +57,13 @@ public class HyunsikController {
 	
 	// 관리자 주문리스트에서 승인
 	@RequestMapping(value="ad1app.hs")
-	public String adCusApp(String storeId) {
+	public String adCusApp(String storeId, String status) {
 		
-		int result = hyunsikService.adCusApp(storeId);
+		HashMap<String, String> map = new HashMap<>();
+		map.put("storeId", storeId);
+		map.put("status", status);
+		
+		int result = hyunsikService.adCusApp(map);
 		
 		return "redirect:ad1.hs";
 	}
@@ -71,7 +76,6 @@ public class HyunsikController {
 		
 		return "redirect:ad1.hs";
 	}
-	
 	
 	
 }

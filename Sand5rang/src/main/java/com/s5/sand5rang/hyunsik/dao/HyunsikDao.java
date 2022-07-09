@@ -1,6 +1,7 @@
 package com.s5.sand5rang.hyunsik.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -30,8 +31,8 @@ public class HyunsikDao {
 		return (ArrayList)sqlSession.selectList("hyunsikMapper.selectIndLIst", id);
 	}
 	
-	public int adCusApp(SqlSessionTemplate sqlSession, String id) {
-		return sqlSession.update("hyunsikMapper.adCusApp", id);
+	public int adCusApp(SqlSessionTemplate sqlSession, HashMap<String, String> map) {
+		return sqlSession.update("hyunsikMapper.adCusApp", map);
 	}
 	
 	public int adCusDis(SqlSessionTemplate sqlSession, String id) {
