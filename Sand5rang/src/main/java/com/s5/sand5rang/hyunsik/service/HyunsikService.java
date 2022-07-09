@@ -31,6 +31,13 @@ public class HyunsikService {
 		return hyunsikDao.selectIndLIst(sqlSession, id);
 	}
 	
+	public int adCusApp(String id) {
+		return hyunsikDao.adCusApp(sqlSession, id);
+	}
+	
+	public int adCusDis(String id) {
+		return hyunsikDao.adCusDis(sqlSession, id);
+	}
 	
 }
 

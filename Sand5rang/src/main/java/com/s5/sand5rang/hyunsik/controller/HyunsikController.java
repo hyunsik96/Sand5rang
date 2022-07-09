@@ -19,7 +19,7 @@ public class HyunsikController {
 	@Autowired
 	private HyunsikService hyunsikService;
 	
-	
+	// 관리자 주문리스트
 	@RequestMapping(value="ad1.hs")
 	public String adCusIndentList(
 			@RequestParam(value="p", defaultValue="1") int currentPage, 
@@ -53,6 +53,24 @@ public class HyunsikController {
 
 	@RequestMapping(value="ad3.hs")
 	public String gg4() {return "hyunsik/admin3";}
+	
+	// 관리자 주문리스트에서 승인
+	@RequestMapping(value="ad1app.hs")
+	public String adCusApp(String storeId) {
+		
+		int result = hyunsikService.adCusApp(storeId);
+		
+		return "redirect:ad1.hs";
+	}
+	
+	// 관리자 주문리스트에서 반려
+	@RequestMapping(value="ad1dis.hs")
+	public String adCusDis(String storeId) {
+		
+		int result = hyunsikService.adCusDis(storeId);
+		
+		return "redirect:ad1.hs";
+	}
 	
 	
 	

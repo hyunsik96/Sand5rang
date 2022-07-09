@@ -182,6 +182,7 @@
                 </thead>
               </table>
 <c:forEach var="aaa" items="${list}" varStatus="status">
+    
     <c:forEach var="indent" items="${list[status.index]}" varStatus="status2">
 	    <c:if test="${indent.ingNo eq 1}">
 			<c:set var="a" value="${indent.count}"/>
@@ -265,7 +266,7 @@
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}4">${n+o+p+q+r+s}</span></td>
                     <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}5">${t+u+v+w+x}</span></td>
                     <td class="td-actions">${aaa[0].date}</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">승인</a><a href="javascript:;" class="btn btn-small btn-danger">반려</a></td>
+                    <td class="td-actions"><a href="ad1app.hs?storeId=${aaa[0].storeId}" onclick= "return adCusApp()" class="btn btn-small btn-success">승인</a><a href="ad1dis.hs?storeId=${aaa[0].storeId}" onclick= "return adCusDis()" class="btn btn-small btn-danger">반려</a></td>
                   </tr>
               </table>
 	

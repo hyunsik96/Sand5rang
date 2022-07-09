@@ -29,6 +29,14 @@ public class HyunsikDao {
 	public ArrayList<Indent> selectIndLIst(SqlSessionTemplate sqlSession, String id){
 		return (ArrayList)sqlSession.selectList("hyunsikMapper.selectIndLIst", id);
 	}
+	
+	public int adCusApp(SqlSessionTemplate sqlSession, String id) {
+		return sqlSession.update("hyunsikMapper.adCusApp", id);
+	}
+	
+	public int adCusDis(SqlSessionTemplate sqlSession, String id) {
+		return sqlSession.update("hyunsikMapper.adCusDis", id);
+	}
 
 
 }

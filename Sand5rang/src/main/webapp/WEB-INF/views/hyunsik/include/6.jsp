@@ -57,5 +57,26 @@ width:250px; margin:auto; margin-top:30px; font-size:15px; color:red;
 <script language="javascript" type="text/javascript" src="/sand5rang/resources/member/hyunsik/js/full-calendar/fullcalendar.min.js"></script>
  
 <script src="/sand5rang/resources/member/hyunsik/js/base.js"></script> 
+
+<script>
+
+function adCusApp(){
+	if(!confirm("승인하시겠습니까?")){
+		return false;
+	}else{
+		return true;
+	}
+}
+
+function adCusDis(){
+	if(!confirm("반려하시겠습니까?")){
+		return false;
+	}else{
+		return true;
+	}
+}
+
+
+</script>
 </body>
 </html>

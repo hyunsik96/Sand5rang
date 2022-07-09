@@ -193,7 +193,7 @@ CREATE TABLE INDENT(
     COUNT NUMBER  NOT NULL,                                 --발주갯수
     IND_DATE DATE DEFAULT SYSDATE NOT NULL,                 --발주날짜
     TOTAL NUMBER NOT NULL,                                  --발주총가격
-    STATUS VARCHAR2(1) DEFAULT 'B' NOT NULL,                --발주상태(B > Y or N, AB > AY or N)
+    STATUS VARCHAR2(5) DEFAULT 'B' NOT NULL,                --발주상태(B > Y or N, AB > AY or N)
     STORE_ID VARCHAR2(15),                                  --가맹점아이디
     FOREIGN KEY (STORE_ID) REFERENCES STORE(STORE_ID) ON DELETE CASCADE,
     ING_NO NUMBER,                                          --원재료번호

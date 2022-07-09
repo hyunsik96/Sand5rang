@@ -62,5 +62,9 @@
 		ELSE TO_NUMBER((TO_CHAR(SYSDATE+1, 'YYMMDD') || 149999)) END)
 		ORDER BY IND_NO DESC
   	</select>
+  	
+  	<update id="adCusApp">
+  	
+  	</update>
 
 </mapper>
