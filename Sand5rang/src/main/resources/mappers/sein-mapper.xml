@@ -2,4 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="seinMapper">
 
+	<resultMap type="com.s5.sand5rang.sein.vo.Ingredient" id="IngredientResultSet">
+		<result column="ING_NO" property="ingNo"/>
+		<result column="ING_NAME" property="ingName"/>
+		<result column="PRICE" property="price"/>
+		<result column="EXPIRATION" property="expiration"/>
+		<result column="ING_TYPE" property="ingType"/>
+	</resultMap>
+
+	<!-- 원재료 전체 조회 select -->
+	<select id="selectIngredient" resultMap="IngredientResultSet">
+		SELECT ING_NO, ING_NAME, PRICE, EXPIRATION, ING_TYPE 
+		FROM INGREDIENT
+	</select>
+	
+	
+	
 </mapper>
