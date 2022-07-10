@@ -36,14 +36,14 @@
 /* faq */
 .faq_wrapper{padding-bottom:130px; min-height:277px; width:1000px; hight:1000px;}
 /*.faq_wrapper .faq_contet{border-top:4px solid #009223; }*/
-.faq_wrapper .faq_contet li{border-bottom:1px solid #dddddd; background-color:#fff;}
+.faq_wrapper .faq_contet li{border-bottom:1px solid #dddddd; background-color:#0B571F;}
 .faq_wrapper .fre{cursor:pointer; position:relative; padding:20px 100px 25px;}
 .faq_wrapper .fre:after{content:''; background: 0 0 no-repeat; width:20px; height:20px; position:absolute; right:40px; top:50%; margin-top:-10px;}
-.faq_wrapper .fre .q{position:absolute; left:35px; top:50%; margin-top:-15px; color:#fff; font-weight:bold; font-family:font_sw; font-size:18px; width:30px; height:30px; padding-top:1px; box-sizing:border-box; background-color:#073614; text-align:center; border-radius:15px;}
-.faq_wrapper .fre strong{display:block; color:#292929; line-height:26px; font-size:19px; font-weight:blod;}
+.faq_wrapper .fre .q{position:absolute; left:35px; top:50%; margin-top:-15px; color:#fff; font-weight:bold; font-family:font_sw; font-size:18px; width:30px; height:30px; padding-top:1px; box-sizing:border-box; background-color:#0B571F; text-align:center; border-radius:15px;}
+.faq_wrapper .fre strong{display:block; color:#0B571F; line-height:26px; font-size:19px; font-weight:blod;}
 .faq_wrapper .ask{position:relative; padding:0 100px; overflow:hidden; height:0px;}
 .faq_wrapper .ask .ask_text{position:relative; padding:18px 0 22px; border-top:1px solid #dddddd; color:#666666; line-height:26px; font-size:16px; opacity:0;}
-.faq_wrapper .ask .a{position:absolute; left:35px; top:21px; color:#fff; font-weight:bold; font-family:font_sw; font-size:18px; width:30px; height:30px; padding-top:1px; box-sizing:border-box; background-color:#073614; text-align:center; border-radius:15px;}
+.faq_wrapper .ask .a{position:absolute; left:35px; top:21px; color:#fff; font-weight:bold; font-family:font_sw; font-size:18px; width:30px; height:30px; padding-top:1px; box-sizing:border-box; background-color:#0B571F; text-align:center; border-radius:15px;}
 
 .faq_wrapper .faq_contet li,
 .faq_wrapper .fre:after,
@@ -53,16 +53,16 @@
 .faq_wrapper .faq_contet li.open .fre strong{color:#009223; font-weight:300;}
 .faq_wrapper .faq_contet li.open .fre:after{transform: rotate(135deg);}
 .faq_wrapper .faq_contet li.open .ask_text{opacity:1;}
-.subTitle{ font-family: font_ns, sans-serif; font-weight:bolder; color:green;}
+.subTitle{ font-family: font_ns, sans-serif; font-weight:bolder; color:#0B571F;}
 
- #fre1{border-top:4px solid #009223;  }
+ #fre1{border-top:4px solid #0B571F;  }
 
 .open{
     list-style-type : none;
 }
 /*버튼*/
 .btn.bgc_point {
- background-color: #009223;
+ background-color: #0B571F;
  color: #fff;
 }
 
@@ -192,17 +192,32 @@
                   <div class="ask" style="height:144px;" id="ask3">
                     <div class="a">A</div>
                     <div class="ask_text">
-                      지사 설립 후 가맹이 가능한 지역이 되기까지 최소 1년 이상 소요될 것으로 예산되나, 준비 상황에 따라 가맹시점이 달라질 수 있습니다.
+                      지사 설립 후 가맹이 가능한 지역이 되기까지 최소 1년 이상 소요될 것으로 예산되나, <br> 준비 상황에 따라 가맹시점이 달라질 수 있습니다.
+                    </div>
+                  </div>
+              </li>
+               <li class="open">
+                <div class="fre" id="fre4">
+                   <div class="q">Q</div>
+                   <strong>현재 가맹이 불가능한 지역은 어디인가요?</strong>
+                    
+                  </div>
+                  <div class="ask" style="height:144px;" id="ask4">
+                    <div class="a">A</div>
+                    <div class="ask_text">
+                     샌드오랑은 각 서울지역권에 대해 본사로부터 승인을 받은 지사가 직접 가맹사업을 진행하고있습니다.
+                     <br>
+                     지사가 아직 설립되지 않은 지역은 서울지역 제외한 경기지역,강원도,충청도,제주도등입니다.
                     </div>
                   </div>
               </li>
               <li class="open">
-                <div class="fre" id="fre4">
+                <div class="fre" id="fre5">
                    <div class="q">Q</div>
                    <strong>가맹점 개설 절차로는 어떻게 되나요?</strong>
             
                   </div>
-                  <div class="ask" style="height:400px;"id="ask4">
+                  <div class="ask" style="height:400px;"id="ask5">
                     <div class="a">A</div>
                     <div class="ask_text" style="height:400px;" >
                       <img src="resources/images/가맹점과정절차.png" style="position:absolute; top:0; left:0;width:100%; height:100%;">
@@ -231,8 +246,11 @@
         <script>
       $("#ask3").hide();
     </script>
-        <script>
+     <script>
       $("#ask4").hide();
+    </script>
+        <script>
+      $("#ask5").hide();
     </script>
 
 
@@ -315,6 +333,31 @@
     $(function(){
        
          $("#fre4").click(function(){
+
+
+            var $p = $(this).next();  
+            
+            
+            if($p.css("display") =="none"){ 
+ 
+              $(this).siblings("p").slideUp(500);
+
+               $p.slideDown(500);             
+            }
+            else{ 
+
+        
+                $p.slideUp(500);
+            }
+
+         });
+
+    });
+</script>
+  <script>
+    $(function(){
+       
+         $("#fre5").click(function(){
 
 
             var $p = $(this).next();  
