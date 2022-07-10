@@ -18,6 +18,7 @@
 	<resultMap id="StockResultMap" type="com.s5.sand5rang.seonghoon.vo.Stock">
 		<result column="COUNT" property="count"/>
 		<result column="ING_NO" property="ingNo"/>
+		<result column="STO_DATE" property="stoDate"/>
 	</resultMap>
 	
 	
@@ -85,6 +86,75 @@
 		WHERE ING_TYPE='C'
 		GROUP BY ING_NO
 	</select>
+	
+	<!-- 원재료 유통기한 -->
+	<select id="selectExpDate1" resultMap="StockResultMap">
+		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+		FROM 
+		    (
+		    SELECT ROWNUM, ING_NO, STO_DATE
+		    FROM STOCK S
+		    JOIN INGREDIENT USING(ING_NO)
+		    WHERE S.STATUS='N'
+		    AND ING_TYPE='B'
+		    ORDER BY STO_DATE ASC
+		    )"A"
+		GROUP BY ING_NO
+	</select>		
+	<select id="selectExpDate2" resultMap="StockResultMap">
+		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+		FROM 
+		    (
+		    SELECT ROWNUM, ING_NO, STO_DATE
+		    FROM STOCK S
+		    JOIN INGREDIENT USING(ING_NO)
+		    WHERE S.STATUS='N'
+		    AND ING_TYPE='V'
+		    ORDER BY STO_DATE ASC
+		    )"A"
+		GROUP BY ING_NO
+	</select>		
+	<select id="selectExpDate3" resultMap="StockResultMap">
+		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+		FROM 
+		    (
+		    SELECT ROWNUM, ING_NO, STO_DATE
+		    FROM STOCK S
+		    JOIN INGREDIENT USING(ING_NO)
+		    WHERE S.STATUS='N'
+		    AND ING_TYPE='M'
+		    ORDER BY STO_DATE ASC
+		    )"A"
+		GROUP BY ING_NO
+	</select>		
+	<select id="selectExpDate4" resultMap="StockResultMap">
+		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+		FROM 
+		    (
+		    SELECT ROWNUM, ING_NO, STO_DATE
+		    FROM STOCK S
+		    JOIN INGREDIENT USING(ING_NO)
+		    WHERE S.STATUS='N'
+		    AND ING_TYPE='S'
+		    ORDER BY STO_DATE ASC
+		    )"A"
+		GROUP BY ING_NO
+	</select>		
+	<select id="selectExpDate5" resultMap="StockResultMap">
+		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+		FROM 
+		    (
+		    SELECT ROWNUM, ING_NO, STO_DATE
+		    FROM STOCK S
+		    JOIN INGREDIENT USING(ING_NO)
+		    WHERE S.STATUS='N'
+		    AND ING_TYPE='C'
+		    ORDER BY STO_DATE ASC
+		    )"A"
+		GROUP BY ING_NO
+	</select>		
+						
+						
 						
 	<!-- *********************판매 기입 페이지******************** -->
 	<insert id="insertSales" parameterType="hashmap">

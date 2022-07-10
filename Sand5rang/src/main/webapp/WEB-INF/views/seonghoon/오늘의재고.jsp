@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -186,6 +187,7 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
+
 <hr>
 <h3 style="margin-left:20px">빵(Bread)</h3>
 <c:forEach var="i" items="${i_list1}">
@@ -198,7 +200,11 @@
 			현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
 			</c:if>
 		</c:forEach>
-	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+		<c:forEach var="d" items="${d_list1 }">
+			<c:if test="${i.ingNo eq d.ingNo }">
+			유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+			</c:if>
+		</c:forEach>
 	</p>
 </div>
 </c:forEach>
@@ -214,7 +220,11 @@
 		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
-	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	<c:forEach var="d" items="${d_list2 }">
+		<c:if test="${i.ingNo eq d.ingNo }">
+		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+		</c:if>
+	</c:forEach>
 	</p>
 </div>
 </c:forEach>
@@ -230,7 +240,11 @@
 		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
-	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	<c:forEach var="d" items="${d_list3 }">
+		<c:if test="${i.ingNo eq d.ingNo }">
+		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+		</c:if>
+	</c:forEach>
 	</p>
 </div>
 </c:forEach>
@@ -246,7 +260,11 @@
 		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
-	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	<c:forEach var="d" items="${d_list4 }">
+		<c:if test="${i.ingNo eq d.ingNo }">
+		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+		</c:if>
+	</c:forEach>
 	</p>
 </div>
 </c:forEach>
@@ -262,7 +280,11 @@
 		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
-	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	<c:forEach var="d" items="${d_list5 }">
+		<c:if test="${i.ingNo eq d.ingNo }">
+		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+		</c:if>
+	</c:forEach>
 	</p>
 </div>
 </c:forEach>

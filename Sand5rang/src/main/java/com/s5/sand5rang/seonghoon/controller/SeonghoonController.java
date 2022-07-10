@@ -29,6 +29,7 @@ public class SeonghoonController {
 	@RequestMapping(value="todayStock.csh")
 	public String todayStockList(Model model) {
 		
+		// 원재료명, 원재료 이미지
 		ArrayList<Ingredient> i_list1 = seonghoonService.selectTodayStock1();
 		ArrayList<Ingredient> i_list2 = seonghoonService.selectTodayStock2();
 		ArrayList<Ingredient> i_list3 = seonghoonService.selectTodayStock3();
@@ -40,6 +41,7 @@ public class SeonghoonController {
 		model.addAttribute("i_list4", i_list4);
 		model.addAttribute("i_list5", i_list5);
 		
+		// 현재재고
 		// 파마산 현재재고 : 1
 		// 화이트 현재재고 : 2
 		// 플렛 현재재고 : 3
@@ -54,6 +56,18 @@ public class SeonghoonController {
 		model.addAttribute("s_list3",s_list3);
 		model.addAttribute("s_list4",s_list4);
 		model.addAttribute("s_list5",s_list5);
+		
+		// 유통기한
+		ArrayList<Stock> d_list1 = seonghoonService.selectExpDate1();
+		ArrayList<Stock> d_list2 = seonghoonService.selectExpDate2();
+		ArrayList<Stock> d_list3 = seonghoonService.selectExpDate3();
+		ArrayList<Stock> d_list4 = seonghoonService.selectExpDate4();
+		ArrayList<Stock> d_list5 = seonghoonService.selectExpDate5();
+		model.addAttribute("d_list1",d_list1);
+		model.addAttribute("d_list2",d_list2);
+		model.addAttribute("d_list3",d_list3);
+		model.addAttribute("d_list4",d_list4);
+		model.addAttribute("d_list5",d_list5);
 		
 		
 		return "seonghoon/오늘의재고";

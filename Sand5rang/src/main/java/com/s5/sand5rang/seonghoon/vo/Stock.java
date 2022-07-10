@@ -18,7 +18,7 @@ public class Stock {
 	 * 
 	 * */
 	private int stockNo;//    STOCK_NO NUMBER PRIMARY KEY NOT NULL,
-	private Date sDate;//    SDATE DATE DEFAULT SYSDATE NOT NULL,
+	private Date stoDate;//    SDATE DATE DEFAULT SYSDATE NOT NULL,
 	private int count;//    COUNT NUMBER NOT NULL,
 	private String status;//    STATUS VARCHAR2(1) DEFAULT 'O' NOT NULL ,	
 	private String storeId;//    STORE_ID VARCHAR2(15) NOT NULL,

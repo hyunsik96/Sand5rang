@@ -46,6 +46,24 @@ public class SeonghoonDao {
 	public ArrayList<Stock> selectStock5(SqlSessionTemplate sqlSession){
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock5");
 	}
+	
+	// 유통기한
+	public ArrayList<Stock> selectExpDate1(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate1");
+	}
+	public ArrayList<Stock> selectExpDate2(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate2");
+	}
+	public ArrayList<Stock> selectExpDate3(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate3");
+	}
+	public ArrayList<Stock> selectExpDate4(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate4");
+	}
+	public ArrayList<Stock> selectExpDate5(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate5");
+	}
+	
  	
 	// *******************************판매기입 페이지***********************************
 	public ArrayList<Menu> selectMenu(SqlSessionTemplate sqlSession){

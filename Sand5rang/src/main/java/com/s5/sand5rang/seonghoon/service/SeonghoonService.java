@@ -56,6 +56,23 @@ public class SeonghoonService {
 		return seonghoonDao.selectStock5(sqlSession);
 	}
 	
+	// 유통기한
+	public ArrayList<Stock> selectExpDate1(){
+		return seonghoonDao.selectExpDate1(sqlSession);
+	}
+	public ArrayList<Stock> selectExpDate2(){
+		return seonghoonDao.selectExpDate2(sqlSession);
+	}
+	public ArrayList<Stock> selectExpDate3(){
+		return seonghoonDao.selectExpDate3(sqlSession);
+	}
+	public ArrayList<Stock> selectExpDate4(){
+		return seonghoonDao.selectExpDate4(sqlSession);
+	}
+	public ArrayList<Stock> selectExpDate5(){
+		return seonghoonDao.selectExpDate5(sqlSession);
+	}
+	
 	// *****************판매기입페이지************************* 
 	public ArrayList<Menu> selectMenu(){
 		return seonghoonDao.selectMenu(sqlSession);
