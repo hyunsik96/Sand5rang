@@ -22,5 +22,5 @@ public class Stock {
 	private int count;//    COUNT NUMBER NOT NULL,
 	private String status;//    STATUS VARCHAR2(1) DEFAULT 'O' NOT NULL ,	
 	private String storeId;//    STORE_ID VARCHAR2(15) NOT NULL,
-	private int gNo;//    G_NO NUMBER NOT NULL,
+	private int ingNo;//    G_NO NUMBER NOT NULL,
 }

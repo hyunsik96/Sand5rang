@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.s5.sand5rang.seonghoon.dao.SeonghoonDao;
+import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
 import com.s5.sand5rang.seonghoon.vo.Stock;
 
@@ -20,31 +21,48 @@ public class SeonghoonService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	// 오늘의 재고 페이지
-	public ArrayList<Stock> selectIng1(){
-		return seonghoonDao.selectIng(sqlSession);
+	// *****************오늘의 재고 페이지*********************
+	// 원재료명, 원재료 이미지
+	public ArrayList<Ingredient> selectTodayStock1(){
+		return seonghoonDao.selectTodayStock1(sqlSession);
 	}
-	public ArrayList<Stock> selectIng2(){
-		return seonghoonDao.selectIng(sqlSession);
+	public ArrayList<Ingredient> selectTodayStock2(){
+		return seonghoonDao.selectTodayStock2(sqlSession);
 	}
-	public ArrayList<Stock> selectIng3(){
-		return seonghoonDao.selectIng(sqlSession);
+	public ArrayList<Ingredient> selectTodayStock3(){
+		return seonghoonDao.selectTodayStock3(sqlSession);
 	}
-	public ArrayList<Stock> selectIng4(){
-		return seonghoonDao.selectIng(sqlSession);
+	public ArrayList<Ingredient> selectTodayStock4(){
+		return seonghoonDao.selectTodayStock4(sqlSession);
 	}
-	public ArrayList<Stock> selectIng5(){
-		return seonghoonDao.selectIng(sqlSession);
+	public ArrayList<Ingredient> selectTodayStock5(){
+		return seonghoonDao.selectTodayStock5(sqlSession);
 	}
 	
-	// 판매기입페이지 
+	// 현재재고
+	public ArrayList<Stock> selectStock1(){
+		return seonghoonDao.selectStock1(sqlSession);
+	}
+	public ArrayList<Stock> selectStock2(){
+		return seonghoonDao.selectStock2(sqlSession);
+	}
+	public ArrayList<Stock> selectStock3(){
+		return seonghoonDao.selectStock3(sqlSession);
+	}
+	public ArrayList<Stock> selectStock4(){
+		return seonghoonDao.selectStock4(sqlSession);
+	}
+	public ArrayList<Stock> selectStock5(){
+		return seonghoonDao.selectStock5(sqlSession);
+	}
+	
+	// *****************판매기입페이지************************* 
 	public ArrayList<Menu> selectMenu(){
 		return seonghoonDao.selectMenu(sqlSession);
 	}
 	
 	public int insertSales(HashMap<String,Integer> hashmap) {
-		int result = seonghoonDao.insertSales(sqlSession,hashmap);
-		return result;
+		return seonghoonDao.insertSales(sqlSession,hashmap);
 	}
 	
 	

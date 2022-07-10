@@ -335,46 +335,46 @@ margin-bottom: 26px;}
 }
 
 /* 오늘의 재고 CSS */
-.bread{
+.B{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
 }
-.bread a{
+.B a{
 	text-decoration:underline;
 }
-.vegetable{
+.V{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
 }
-.vegetable a{
-	text-decoration:underline;
-}
-
-.meat{
-	display:inline-block;
-	margin-left : 20px;
-	margin-top:20px;
-}
-.meat a{
-	text-decoration:underline;
-}
-.sauce{
-	display:inline-block;
-	margin-left : 20px;
-	margin-top:20px;
-}
-.sauce a{
+.V a{
 	text-decoration:underline;
 }
 
-.cheese{
+.M{
 	display:inline-block;
 	margin-left : 20px;
 	margin-top:20px;
 }
-.cheese a{
+.M a{
+	text-decoration:underline;
+}
+.S{
+	display:inline-block;
+	margin-left : 20px;
+	margin-top:20px;
+}
+.S a{
+	text-decoration:underline;
+}
+
+.C{
+	display:inline-block;
+	margin-left : 20px;
+	margin-top:20px;
+}
+.C a{
 	text-decoration:underline;
 }
 

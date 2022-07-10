@@ -188,16 +188,86 @@
 -->
 <hr>
 <h3 style="margin-left:20px">빵(Bread)</h3>
-<c:forEach var="i" items="${list}">
-<div class="${}">
-	<h4>파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+<c:forEach var="i" items="${i_list1}">
+<div class="${i.ingType}">
+	<h4>${i.ingName}</h4>
+	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
 	<p>
-	현재재고 : <a href="ingredientStock.csh">1000</a><br>
+		<c:forEach var="s" items="${s_list1}">
+			<c:if test="${i.ingNo eq s.ingNo}">
+			현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+			</c:if>
+		</c:forEach>
 	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
 	</p>
 </div>
 </c:forEach>
+<hr>
+<h3 style="margin-left:20px">야채(Vegetable)</h3>
+<c:forEach var="i" items="${i_list2}">
+<div class="${i.ingType}">
+	<h4>${i.ingName}</h4>
+	<img src="resources/images/ingredient/${i.ingName }.jpg" width="150" height="150">
+	<p>
+	<c:forEach var="s" items="${s_list2}">
+		<c:if test="${i.ingNo eq s.ingNo}">
+		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		</c:if>
+	</c:forEach>
+	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	</p>
+</div>
+</c:forEach>
+<hr>
+<h3 style="margin-left:20px">고기(Meat)</h3>
+<c:forEach var="i" items="${i_list3}">
+<div class="${i.ingType}">
+	<h4>${i.ingName}</h4>
+	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
+	<p>
+	<c:forEach var="s" items="${s_list3}">
+		<c:if test="${i.ingNo eq s.ingNo}">
+		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		</c:if>
+	</c:forEach>
+	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	</p>
+</div>
+</c:forEach>
+<hr>
+<h3 style="margin-left:20px">소스(Sauce)</h3>
+<c:forEach var="i" items="${i_list4}">
+<div class="${i.ingType}">
+	<h4>${i.ingName }</h4>
+	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
+	<p>
+	<c:forEach var="s" items="${s_list4}">
+		<c:if test="${i.ingNo eq s.ingNo}">
+		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		</c:if>
+	</c:forEach>
+	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	</p>
+</div>
+</c:forEach>
+<hr>
+<h3 style="margin-left:20px">치즈(Cheese)</h3>
+<c:forEach var="i" items="${i_list5}">
+<div class="${i.ingType}">
+	<h4>${i.ingName}</h4>
+	<img src="resources/images/ingredient/${i.ingName }.jpg" width="150" height="150">
+	<p>
+	<c:forEach var="s" items="${s_list5}">
+		<c:if test="${i.ingNo eq s.ingNo}">
+		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		</c:if>
+	</c:forEach>
+	유통기한 : <a href="ingredientDisposal.csh">2022-07-08</a>
+	</p>
+</div>
+</c:forEach>
+
+
 <!-- 
 <div class="bread">
 	<h4>화이트</h4>

@@ -1,11 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="seonghoonMapper">
+	<!-- Menu -->
 	<resultMap id="MenuResultMap" type="com.s5.sand5rang.seonghoon.vo.Menu">
 		<result column="MEN_NAME" property="menName"/>
 		<result column="MEN_NO" property="menNo"/>
 	</resultMap>
 	
+	<!-- Ingredient -->
+	<resultMap id="IngredientResultMap" type="com.s5.sand5rang.seonghoon.vo.Ingredient">
+		<result column="ING_NO" property="ingNo"/>
+		<result column="ING_NAME" property="ingName"/>
+		<result column="ING_TYPE" property="ingType"/>		
+	</resultMap>
+	
+	<!-- Stock -->
+	<resultMap id="StockResultMap" type="com.s5.sand5rang.seonghoon.vo.Stock">
+		<result column="COUNT" property="count"/>
+		<result column="ING_NO" property="ingNo"/>
+	</resultMap>
+	
+	
+	<!-- *********************오늘의 재고 페이지******************** -->
+	<!-- 원재료명, 원재료이미지 -->
+	<select id="selectTodayStock1" resultMap="IngredientResultMap">
+		SELECT ING_NO, ING_NAME, ING_TYPE
+		FROM INGREDIENT
+		WHERE ING_TYPE='B'
+	</select>
+	<select id="selectTodayStock2" resultMap="IngredientResultMap">
+		SELECT ING_NO, ING_NAME, ING_TYPE
+		FROM INGREDIENT
+		WHERE ING_TYPE='V'
+	</select>	
+	<select id="selectTodayStock3" resultMap="IngredientResultMap">
+		SELECT ING_NO, ING_NAME, ING_TYPE
+		FROM INGREDIENT
+		WHERE ING_TYPE='M'
+	</select>
+	<select id="selectTodayStock4" resultMap="IngredientResultMap">
+		SELECT ING_NO, ING_NAME, ING_TYPE
+		FROM INGREDIENT
+		WHERE ING_TYPE='S'
+	</select>
+	<select id="selectTodayStock5" resultMap="IngredientResultMap">
+		SELECT ING_NO, ING_NAME, ING_TYPE
+		FROM INGREDIENT
+		WHERE ING_TYPE='C'
+	</select>
+	
+	<!-- 원재료 현재재고 -->
+	<select id="selectStock1" resultMap="StockResultMap">
+		SELECT ING_NO, SUM(COUNT)"COUNT"
+		FROM INGREDIENT
+		JOIN STOCK USING(ING_NO)
+		WHERE ING_TYPE='B'
+		GROUP BY ING_NO
+	</select>
+	<select id="selectStock2" resultMap="StockResultMap">
+		SELECT ING_NO, SUM(COUNT)"COUNT"
+		FROM INGREDIENT
+		JOIN STOCK USING(ING_NO)
+		WHERE ING_TYPE='V'
+		GROUP BY ING_NO
+	</select>
+	<select id="selectStock3" resultMap="StockResultMap">
+		SELECT ING_NO, SUM(COUNT)"COUNT"
+		FROM INGREDIENT
+		JOIN STOCK USING(ING_NO)
+		WHERE ING_TYPE='M'
+		GROUP BY ING_NO
+	</select>
+	<select id="selectStock4" resultMap="StockResultMap">
+		SELECT ING_NO, SUM(COUNT)"COUNT"
+		FROM INGREDIENT
+		JOIN STOCK USING(ING_NO)
+		WHERE ING_TYPE='S'
+		GROUP BY ING_NO
+	</select>
+	<select id="selectStock5" resultMap="StockResultMap">
+		SELECT ING_NO, SUM(COUNT)"COUNT"
+		FROM INGREDIENT
+		JOIN STOCK USING(ING_NO)
+		WHERE ING_TYPE='C'
+		GROUP BY ING_NO
+	</select>
+						
+	<!-- *********************판매 기입 페이지******************** -->
 	<insert id="insertSales" parameterType="hashmap">
 		INSERT INTO SALES(SAL_NO, SAL_DATE, COUNT, TOTAL, STORE_ID, MEN_NO)
 		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count},

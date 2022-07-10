@@ -193,7 +193,7 @@
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 	<!-- 제품판매현황에서 클릭하면 상세 페이지로 이동할 수 있도록 함. -->
-<c:forEach var="m" items="${list}" varStatus="status">	
+<c:forEach var="m" items="${sa_list}" varStatus="status">	
 <form class="resultForm" method="post" action="salesPage${status.count}.csh">
 				<div class="menu" style="margin-top:20px;">
 					<h4>${m.menName}</h4>
@@ -205,16 +205,16 @@
 					판매날짜 : <input type="date" class="stock_style" value="2022-07-05" readonly><br>
 					</p>
 				</div>
-<button class="resultbtn" type="submit" hidden>판매기입</button>
+<button class="resultbtn" type="submit" hidden></button>
 </form>			
 </c:forEach>
 <button id="btnEvent">판매기입</button>
 <script>
-	$(function(){
-		$("#btnEvent").click(function(){
-			$(".resultbtn").()trigger("click");
-		});			
-	});
+		$(function(){
+			$("#btnEvent").on("click",function(){
+			});
+		});
+		
 </script>
 <!-- 	<div class="menu">
 				<h4>로스트치킨</h4>

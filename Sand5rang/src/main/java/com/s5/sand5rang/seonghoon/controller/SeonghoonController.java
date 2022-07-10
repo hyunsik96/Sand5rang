@@ -2,8 +2,6 @@ package com.s5.sand5rang.seonghoon.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
+import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
 import com.s5.sand5rang.seonghoon.vo.Stock;
 
@@ -29,11 +28,33 @@ public class SeonghoonController {
 	/*********** 오늘의 재고 페이지 ***********/
 	@RequestMapping(value="todayStock.csh")
 	public String todayStockList(Model model) {
-		ArrayList<Stock> list1 = seonghoonService.selectIng1();
-		ArrayList<Stock> list2 = seonghoonService.selectIng2();
-		ArrayList<Stock> list3 = seonghoonService.selectIng3();
-		ArrayList<Stock> list4 = seonghoonService.selectIng4();
-		ArrayList<Stock> list5 = seonghoonService.selectIng5();
+		
+		ArrayList<Ingredient> i_list1 = seonghoonService.selectTodayStock1();
+		ArrayList<Ingredient> i_list2 = seonghoonService.selectTodayStock2();
+		ArrayList<Ingredient> i_list3 = seonghoonService.selectTodayStock3();
+		ArrayList<Ingredient> i_list4 = seonghoonService.selectTodayStock4();
+		ArrayList<Ingredient> i_list5 = seonghoonService.selectTodayStock5();
+		model.addAttribute("i_list1", i_list1);
+		model.addAttribute("i_list2", i_list2);
+		model.addAttribute("i_list3", i_list3);
+		model.addAttribute("i_list4", i_list4);
+		model.addAttribute("i_list5", i_list5);
+		
+		// 파마산 현재재고 : 1
+		// 화이트 현재재고 : 2
+		// 플렛 현재재고 : 3
+		// ...
+		ArrayList<Stock> s_list1 = seonghoonService.selectStock1();
+		ArrayList<Stock> s_list2 = seonghoonService.selectStock2();
+		ArrayList<Stock> s_list3 = seonghoonService.selectStock3();
+		ArrayList<Stock> s_list4 = seonghoonService.selectStock4();
+		ArrayList<Stock> s_list5 = seonghoonService.selectStock5();
+		model.addAttribute("s_list1",s_list1);
+		model.addAttribute("s_list2",s_list2);
+		model.addAttribute("s_list3",s_list3);
+		model.addAttribute("s_list4",s_list4);
+		model.addAttribute("s_list5",s_list5);
+		
 		
 		return "seonghoon/오늘의재고";
 	}
@@ -63,7 +84,7 @@ public class SeonghoonController {
 	@RequestMapping(value="salesPage0.csh")
 	public String salesPage0(Model model) {
 		ArrayList<Menu> list = seonghoonService.selectMenu();
-		model.addAttribute("list", list);
+		model.addAttribute("sa_list", list);
 		return "seonghoon/판매기입페이지";
 	}
 	
