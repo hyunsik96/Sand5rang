@@ -34,5 +34,11 @@ public class SeinService {
 	public ArrayList<Order> selectTodayOrder(){
 		return (ArrayList)seinDao.selectTodayOrder(sqlSession);
 	}
+	
+	//가맹점 발주내역 리스트조회 select Service
+	public ArrayList<Order> selectAllOrderList(){
+		return (ArrayList)seinDao.selectAllOrderList(sqlSession);
+	}
+	
 }
 

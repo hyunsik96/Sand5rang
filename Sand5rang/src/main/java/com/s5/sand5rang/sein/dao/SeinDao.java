@@ -27,4 +27,9 @@ public class SeinDao {
 	public ArrayList<Order> selectTodayOrder(SqlSessionTemplate sqlSession){
 		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder");
 	}
+	
+	//가맹점 발주리스트 조회
+	public ArrayList<Order> selectAllOrderList(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectAllOrderList");
+	}
 }

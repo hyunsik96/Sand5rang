@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -195,21 +196,21 @@
 <!-- /widget-header -->
 <div class="widget-content"> 
     <div>
-        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
+        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
             &nbsp;&nbsp;&nbsp;&nbsp;* 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
         </p>
     </div>
 
 <h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
 <c:forEach var="olist" items="${olist}" varStatus="status" begin="0" end="2">
-<div class="bread" style="display: block; float: left;">
+<div class="bread" style="margin-top:10px">
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
     <br>
-	    <b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
+	    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
 	    <br>     
-	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
+	    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
 </div>
 </c:forEach>
 <br>
@@ -219,17 +220,16 @@
 
 <h3 style="margin-left:20px; margin-bottom: 10px">야채(Vegetable)</h3><br>
 <c:forEach var="olist" items="${olist}" varStatus="satus" begin="3" end="9">
-<div class="vegetable" style="margin-top:10px">
+<div class="vegetable" style="margin-top:10px; margin-bottom: 20px">
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
     <br>
-	    <b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
-	    <br>     
-	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
+    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
+    <br>     
+    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
 </div>
 </c:forEach>
-<br>
 <br>
 <hr>
 
@@ -239,9 +239,9 @@
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-      	<b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
-	    <br>     
-	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
+    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
+    <br>     
+    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
 </div>
 </c:forEach>
 <br><br>
@@ -253,9 +253,9 @@
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-   		<b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
-	    <br>     
-	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
+    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
+    <br>     
+    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
 </div>
 </c:forEach>
 <br><br>
@@ -267,9 +267,9 @@
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-    	<b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
-	    <br>     
-	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
+    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
+    <br>     
+    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
 </div>
 </c:forEach>
 <br><br>
@@ -295,69 +295,37 @@
                 </tr>
               </thead>
               <tbody>
+            <c:set var="sum" value="0"/>
+            <c:set var="tot_price" value="0"/>
+              <c:forEach var="olist" items="${olist}">
                 <tr>
-                  <td style="text-align: center;">10</td>
-                  <td style="text-align: center;">Bread</td>
-                  <td style="text-align: center;">파마산오레가노</td>
-                  <td style="text-align: center;">10</td>
+                  <td style="text-align: center;">${olist.ingNo}</td>
+                  <c:choose>
+                    <c:when test="${olist.ingType eq 'B'}">
+                        <td style="text-align: center;">빵</td>
+                    </c:when>
+                    <c:when test="${olist.ingType eq 'V'}">
+                        <td style="text-align: center;">야채</td>
+                    </c:when>
+                    <c:when test="${olist.ingType eq 'C'}">
+                        <td style="text-align: center;">치즈</td>
+                    </c:when>
+                    <c:when test="${olist.ingType eq 'M'}">
+                        <td style="text-align: center;">고기</td>
+                    </c:when>
+                    <c:when test="${olist.ingType eq 'S'}">
+                        <td style="text-align: center;">소스</td>
+                    </c:when>
+                  </c:choose>
+                  <td style="text-align: center;">${olist.ingName}</td>
+                  <td style="text-align: center;">${olist.count}</td>
                 </tr>
-                <tr>
-                    <td style="text-align: center;">9</td>
-                    <td style="text-align: center;">Bread</td>
-                    <td style="text-align: center;">화이트</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
+                <c:set var="tot_price" value="${tot_price + olist.total}"/>
+                <c:set var="sum" value="${sum + olist.count}"/>
+              </c:forEach>
                   <tr>
-                    <td style="text-align: center;">8</td>
-                    <td style="text-align: center;">Bread</td>
-                    <td style="text-align: center;">플렛</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">7</td>
-                    <td style="text-align: center;">Vegetable</td>
-                    <td style="text-align: center;">피망</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">6</td>
-                    <td style="text-align: center;">Vegetable</td>
-                    <td style="text-align: center;">토마토</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">5</td>
-                    <td style="text-align: center;">Vegetable</td>
-                    <td style="text-align: center;">할라피뇨</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">4</td>
-                    <td style="text-align: center;">Meat</td>
-                    <td style="text-align: center;">페퍼로니</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">3</td>
-                    <td style="text-align: center;">Meat</td>
-                    <td style="text-align: center;">베이컨</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">2</td>
-                    <td style="text-align: center;">Meat</td>
-                    <td style="text-align: center;">비프</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;">1</td>
-                    <td style="text-align: center;">Sauce</td>
-                    <td style="text-align: center;">후추</td>
-                    <td style="text-align: center;">10</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center;" colspan="3">총 발주 갯수</td>
-                    <td style="text-align: center;">100</td>
+                    <td style="text-align: center;" colspan="3">총 발주 수량</td>
+                    <td style="text-align: center;"><c:out value="${sum}"/>(단위/개)</td>
                   </tr>
               </tbody>
             </table>
@@ -377,8 +345,8 @@
             </thead>
             <tbody>
               <tr>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;">900,000</td>
+                <td style="text-align: center;">${sum}</td>
+                <td style="text-align: center;"><fmt:formatNumber value="${tot_price}" pattern="###,###,###,###"/></td>
                 <td style="text-align: center;">1,000,000</td>
                 <td style="text-align: center;">900,000</td>
               </tr>

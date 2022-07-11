@@ -39,9 +39,13 @@ public class SeinController {
         return "main/branch";
     }
 	
-	@RequestMapping(value="orderList.se")
-    public String orderListController()
+	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
+    public String orderListController(Model m)
     {
+		ArrayList<Order> allOlist= seinService.selectAllOrderList();
+		
+		m.addAttribute("all_Olist", allOlist);
+		
         return "sein/orderlist";
     }
 	
@@ -69,8 +73,6 @@ public class SeinController {
 		order.setStatus(stat);
 		
 		//1. 잔액조회시 현재 가지고있는 금액보다 큰 금액 발주안됨 
-		//2. 모든 수량이 0이면 안됨 
-		
 		int result = seinService.insertOrder(order);
 		
 	

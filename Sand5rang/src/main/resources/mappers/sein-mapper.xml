@@ -19,7 +19,7 @@
 		<result column="STORE_ID" property="storeId"></result>
 		<result column="ING_NO" property="ingNo"></result>
 		<result column="ING_NAME" property="ingName"></result>
-		<result column="ING_NAME" property="ingName"></result>
+		<result column="ING_TYPE" property="ingType"></result>
 	</resultMap>
 
 	<!-- 원재료 전체 조회 select -->
@@ -28,6 +28,7 @@
 		FROM INGREDIENT
 	</select> -->
 	
+	<!-- 발주insert -->
 	<insert id="insertOrder" parameterType="order">
 		INSERT INTO INDENT(IND_NO, 
                     		COUNT, 
@@ -45,6 +46,7 @@
 						 #{ingNo})
 	</insert>
 	
+	<!-- 발주상세조회 select -->
 	<select id="selectTodayOrder" resultMap="TodyOrderResultSet">
 		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, ING_TYPE
 		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
@@ -53,4 +55,9 @@
 		ORDER BY ING_NO ASC
 	</select>
 
+	<!-- 발주전체조회 select -->
+	<select id="selectAllOrderList" resultMap="TodyOrderResultSet">
+		
+	
+	</select>
 </mapper>

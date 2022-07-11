@@ -1074,7 +1074,6 @@ $("input[class=count_result").on("keyup",function(key){
 
     var totElement3 = $(this).parent("div").nextAll("div[class=result_price]").children("input[name=tot_price]");
 
-
     //총가격
     var result = amount*price;
 
