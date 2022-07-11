@@ -46,6 +46,14 @@ public class HyunsikDao {
 	public int facInd(SqlSessionTemplate sqlSession, int i) {
 		return sqlSession.insert("hyunsikMapper.facInd", i);
 	}
+	
+	public ArrayList<Indent> storeInList(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("hyunsikMapper.storeInList");
+	}
+	
+	public int addStock(SqlSessionTemplate sqlSession, Indent i) {
+		return sqlSession.insert("hyunsikMapper.addStock", i);
+	}
 
 
 }

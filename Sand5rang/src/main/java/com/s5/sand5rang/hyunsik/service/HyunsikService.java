@@ -49,5 +49,14 @@ public class HyunsikService {
 	public int facInd(int i) {
 		return hyunsikDao.facInd(sqlSession, i);
 	}
+	
+	public ArrayList<Indent> storeInList(){
+		return hyunsikDao.storeInList(sqlSession);
+	}
+	
+	public int addStock(Indent i) {
+		return hyunsikDao.addStock(sqlSession, i);
+	}
+	
 }
 

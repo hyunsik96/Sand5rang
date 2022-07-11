@@ -1,7 +1,5 @@
 package com.s5.sand5rang.hyunsik.vo;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

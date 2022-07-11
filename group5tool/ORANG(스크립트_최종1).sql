@@ -323,9 +323,9 @@ CREATE TABLE INQUERY(
     INQ_TITLE VARCHAR2(150) NOT NULL,           --문의제목
     INQ_DATE DATE DEFAULT SYSDATE NOT NULL,     --문의날짜
     INQ_QUERY VARCHAR2(3000) NOT NULL,          --문의내용
-    INQ_ANSWER VARCHAR2(3000) NOT NULL,         --문의답변
+    INQ_ANSWER VARCHAR2(3000),                  --문의답변
     STATUS VARCHAR2(1) DEFAULT 'N'  NOT NULL,                --문의상태
-    ANS_DATE DATE NOT NULL,                     --답변날짜
+    ANS_DATE DATE,                               --답변날짜
     CATEGORY VARCHAR2(30) NOT NULL,             --문의카테고리
     -- 외래키
     STORE_ID VARCHAR2(15) NOT NULL,             --가맹점아이디

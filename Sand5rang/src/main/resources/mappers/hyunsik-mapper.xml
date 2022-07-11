@@ -118,7 +118,7 @@
 		INSERT INTO FACTORY 
 		VALUES( 
 		SEQ_FACNO.NEXTVAL, 
-		(SELECT SUM(COUNT) 
+		(SELECT NVL(SUM(COUNT), 0)  
 		FROM INDENT 
 		WHERE 
 		ING_NO = #{i} AND 
@@ -131,6 +131,31 @@
 		SYSDATE, 
 		#{i} 
 		)
+  	</insert>
+  	
+  	<select id="storeInList" resultMap="indentResultSet">
+		SELECT IND_NO, COUNT, TO_CHAR(IND_DATE, 'YY.MM.DD') IND_DATE, TOTAL, I.STATUS, STORE_ID, ING_NO, STORE_NAME 
+		FROM INDENT I
+		JOIN STORE USING(STORE_ID)
+		WHERE 
+		(I.STATUS = 'Y' OR I.STATUS = 'AY') AND
+		TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) 
+		BETWEEN 
+		TO_NUMBER((TO_CHAR(SYSDATE-2, 'YYMMDD') || 150000))
+		AND 
+		TO_NUMBER((TO_CHAR(SYSDATE-1, 'YYMMDD') || 149999))
+		ORDER BY IND_NO DESC
+  	</select>
+  	
+  	<insert id="addStock" parameterType="com.s5.sand5rang.hyunsik.vo.Indent">
+		INSERT INTO STOCK 
+		VALUES( 
+		SEQ_STOCKNO.NEXTVAL, 
+		SYSDATE, 
+		#{count}, 
+		DEFAULT, 
+		#{storeId}, 
+		#{ingNo}) 
   	</insert>
 
 </mapper>

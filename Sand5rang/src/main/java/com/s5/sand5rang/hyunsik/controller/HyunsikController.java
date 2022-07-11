@@ -89,6 +89,8 @@ public class HyunsikController {
 		
 	}
 	
+	
+	// 매일 15시 00분 00초 실행
     @Scheduled(cron="00 00 15 * * ?")
     public void facIndent() {
     	
@@ -98,6 +100,21 @@ public class HyunsikController {
     	// 24가지 재료별 공장발주 FACTORY 테이블 INSERT
     	for(int i = 1; i<25; i++) {
     	hyunsikService.facInd(i);
+    	}
+    	
+    }
+    
+    
+    // 매일 07시 00분 00초 실행
+    @Scheduled(cron="00 00 07 * * ?")
+    public void storeIn() {
+    	
+    	// 전날 15시 발주승인된 리스트 불러오기
+    	ArrayList<Indent> list = hyunsikService.storeInList();
+    	
+    	// 전날 승인받은 발주 각 가맹점으로 입고
+    	for(Indent i : list) {
+    		hyunsikService.addStock(i);
     	}
     	
     }
