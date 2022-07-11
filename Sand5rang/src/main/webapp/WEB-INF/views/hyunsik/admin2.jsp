@@ -436,7 +436,7 @@
 
 <c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
 	<c:if test="${pi.currentPage eq p}">
-		<li class="page-item active"><a class="page-link" href="ad1.hs?p=${p}">${p}</a></li>
+		<li class="page-item active"><a class="page-link" href="ad2.hs?p=${p}">${p}</a></li>
 	</c:if>
 	<c:if test="${pi.currentPage ne p}">
 		<li class="page-item"><a class="page-link" href="ad2.hs?p=${p}">${p}</a></li>

@@ -12,6 +12,16 @@
 		<result column="ING_NO" property="ingNo" />
 		<result column="STORE_NAME" property="storeName" />
 	</resultMap>
+	
+	<resultMap id="paymentResultSet" type="com.s5.sand5rang.hyunsik.vo.Payment">
+		<result column="PAY_NO" property="payNo" />
+		<result column="DEPOSIT" property="deposit" />
+		<result column="WITHDRAW" property="withdraw" />
+		<result column="TOTAL" property="total" />
+		<result column="PAY_DATE" property="date" />
+		<result column="STORE_ID" property="storeId" />
+		<result column="STORE_NAME" property="storeName" />
+	</resultMap>
 
 	<select id="ad1ListCount" resultType="_int">
 		SELECT COUNT(*)
@@ -87,6 +97,28 @@
 		</if>
   	</update>
   	
+  	<insert id="storePay" parameterType="string">
+		INSERT INTO PAYMENT 
+		VALUES( 
+		SEQ_PAYNO.NEXTVAL, 
+		0, 
+		(SELECT -SUM(TOTAL)
+		FROM INDENT I
+		JOIN STORE USING(STORE_ID)
+		WHERE STORE_ID = #{storeId} AND
+		(I.STATUS = 'Y' OR I.STATUS = 'AY') AND
+		TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) 
+		BETWEEN 
+		(CASE WHEN TO_NUMBER(TO_CHAR(SYSDATE, 'HH24MMSS')) <![CDATA[<]]> 150000 THEN TO_NUMBER((TO_CHAR(SYSDATE-1, 'YYMMDD') || 150000))
+		ELSE TO_NUMBER((TO_CHAR(SYSDATE, 'YYMMDD') || 150000)) END)
+		AND 
+		(CASE WHEN TO_NUMBER(TO_CHAR(SYSDATE, 'HH24MMSS')) <![CDATA[<]]> 150000 THEN TO_NUMBER((TO_CHAR(SYSDATE, 'YYMMDD') || 149999))
+		ELSE TO_NUMBER((TO_CHAR(SYSDATE+1, 'YYMMDD') || 149999)) END)), 
+		SYSDATE, 
+		#{storeId} 
+		)
+  	</insert>
+  	
   	<update id="adCusDis" parameterType="string">
 		UPDATE (
 			SELECT I.STATUS
@@ -158,6 +190,17 @@
 		#{ingNo}) 
   	</insert>
   	
+  	<insert id="addFlow" parameterType="com.s5.sand5rang.hyunsik.vo.Indent">
+		INSERT INTO FLOW 
+		VALUES( 
+		SEQ_FLOWNO.NEXTVAL, 
+		#{count}, 
+		SYSDATE, 
+		'I', 
+		#{storeId}, 
+		#{ingNo}) 
+  	</insert>
+  	
   	<select id="facListCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM (SELECT ROW_NUMBER() OVER(PARTITION BY TO_CHAR(FAC_DATE, 'YYMMDD') ORDER BY FAC_NO DESC) AS rn, FAC_DATE, FAC_NO
@@ -179,6 +222,26 @@
 		FROM FACTORY 
 		WHERE TO_CHAR(FAC_DATE, 'YY.MM.DD') = #{date} 
 		ORDER BY ING_NO 
+  	</select>
+  	
+  	<select id="payListCount" resultType="_int">
+  		SELECT COUNT(*) 
+  		FROM PAYMENT 
+  	</select>
+  	
+  	<select id="paymentList" resultMap="paymentResultSet">
+		SELECT PAY_NO, DEPOSIT, -WITHDRAW WITHDRAW, TO_CHAR(PAY_DATE, 'YY.MM.DD') PAY_DATE, STORE_ID, STORE_NAME 
+		FROM PAYMENT 
+		JOIN STORE USING(STORE_ID) 
+		ORDER BY PAY_NO DESC 
+  	</select>
+  	
+  	<select id="realPayList" resultType="_int" parameterType="com.s5.sand5rang.hyunsik.vo.Payment">
+		SELECT SUM(DEPOSIT)+SUM(WITHDRAW) 
+		FROM PAYMENT 
+		JOIN STORE USING(STORE_ID) 
+		WHERE PAY_NO <![CDATA[<]]>= #{payNo} AND STORE_ID = #{storeId} 
+		ORDER BY PAY_NO DESC 
   	</select>
 
 </mapper>

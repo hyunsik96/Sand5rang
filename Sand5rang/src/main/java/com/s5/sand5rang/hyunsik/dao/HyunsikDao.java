@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.vo.Indent;
+import com.s5.sand5rang.hyunsik.vo.Payment;
 
 @Repository
 public class HyunsikDao {
@@ -35,6 +36,10 @@ public class HyunsikDao {
 		return sqlSession.update("hyunsikMapper.adCusApp", map);
 	}
 	
+	public int storePay(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.insert("hyunsikMapper.storePay", storeId);
+	}
+	
 	public int adCusDis(SqlSessionTemplate sqlSession, String id) {
 		return sqlSession.update("hyunsikMapper.adCusDis", id);
 	}
@@ -55,6 +60,10 @@ public class HyunsikDao {
 		return sqlSession.insert("hyunsikMapper.addStock", i);
 	}
 	
+	public int addFlow(SqlSessionTemplate sqlSession, Indent i) {
+		return sqlSession.insert("hyunsikMapper.addFlow", i);
+	}
+	
 	public int facListCount(SqlSessionTemplate sqlSession) {
 		return sqlSession.selectOne("hyunsikMapper.facListCount");
 	}
@@ -71,6 +80,24 @@ public class HyunsikDao {
 	
 	public ArrayList<Indent> facIndList(SqlSessionTemplate sqlSession, String date) {
 		return (ArrayList)sqlSession.selectList("hyunsikMapper.facIndList", date);
+	}
+	
+	public int payListCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("hyunsikMapper.payListCount");
+	}
+	
+	public ArrayList<Payment> paymentList(SqlSessionTemplate sqlSession, PageInfo pi){
+		
+		int limit = pi.getBoardLimit();
+		int offset = (pi.getCurrentPage() - 1) * limit;
+		
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		return (ArrayList)sqlSession.selectList("hyunsikMapper.paymentList", null, rowBounds);
+	}
+	
+	public int realPayList(SqlSessionTemplate sqlSession, Payment p) {
+		return sqlSession.selectOne("hyunsikMapper.realPayList", p);
 	}
 
 

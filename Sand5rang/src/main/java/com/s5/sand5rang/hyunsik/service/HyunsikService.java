@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.dao.HyunsikDao;
 import com.s5.sand5rang.hyunsik.vo.Indent;
+import com.s5.sand5rang.hyunsik.vo.Payment;
 
 @Component
 @Service
@@ -38,6 +39,10 @@ public class HyunsikService {
 		return hyunsikDao.adCusApp(sqlSession, map);
 	}
 	
+	public int storePay(String storeId) {
+		return hyunsikDao.storePay(sqlSession, storeId);
+	}
+	
 	public int adCusDis(String id) {
 		return hyunsikDao.adCusDis(sqlSession, id);
 	}
@@ -58,6 +63,10 @@ public class HyunsikService {
 		return hyunsikDao.addStock(sqlSession, i);
 	}
 	
+	public int addFlow(Indent i) {
+		return hyunsikDao.addFlow(sqlSession, i);
+	}
+	
 	public int facListCount() {
 		return hyunsikDao.facListCount(sqlSession);
 	}
@@ -68,6 +77,18 @@ public class HyunsikService {
 	
 	public ArrayList<Indent> facIndList(String date) {
 		return hyunsikDao.facIndList(sqlSession, date);
+	}
+	
+	public int payListCount() {
+		return hyunsikDao.payListCount(sqlSession);
+	}
+	
+	public ArrayList<Payment> paymentList(PageInfo pi){
+		return hyunsikDao.paymentList(sqlSession, pi);
+	}
+	
+	public int realPayList(Payment p) {
+		return hyunsikDao.realPayList(sqlSession, p);
 	}
 	
 }

@@ -14,6 +14,7 @@ import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Indent;
+import com.s5.sand5rang.hyunsik.vo.Payment;
 
 @Controller
 public class HyunsikController {
@@ -76,7 +77,29 @@ public class HyunsikController {
 	}
 
 	@RequestMapping(value="ad3.hs")
-	public String gg4() {return "hyunsik/admin3";}
+	public String paymentList(
+			@RequestParam(value="p", defaultValue="1") int currentPage, 
+			Model model) {
+	
+		int listCount = hyunsikService.payListCount();
+		int pageLimit = 10;
+		int boardLimit = 5;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
+		ArrayList<Payment> list = hyunsikService.paymentList(pi);
+		int index = 0;
+		
+		for(Payment p : list) {
+			list.get(index).setTotal(hyunsikService.realPayList(p));
+			index++;
+		}
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+
+		return "hyunsik/admin3";
+	}
 	
 	// 관리자 주문리스트에서 승인
 	@RequestMapping(value="ad1app.hs")
@@ -86,14 +109,13 @@ public class HyunsikController {
 		map.put("storeId", storeId);
 		map.put("status", status);
 		
-		int result = hyunsikService.adCusApp(map);
+		// 승인처리 (발주 상태값 B or AB => Y or AY)
+		hyunsikService.adCusApp(map);
 		
-		if(result>0) {
-			return "redirect:ad1.hs";
-		}else {
-			return "common/errorAd";
-		}
-		
+		// 승인내역 결제대금 테이블에 합쳐서 저장
+		hyunsikService.storePay(storeId);
+
+		return "redirect:ad1.hs";	
 
 	}
 	
@@ -136,7 +158,12 @@ public class HyunsikController {
     	
     	// 전날 승인받은 발주 각 가맹점으로 입고
     	for(Indent i : list) {
+    		
+    		// 재고테이블 추가처리
     		hyunsikService.addStock(i);
+    		
+    		// 기록테이블 추가처리
+    		hyunsikService.addFlow(i);
     	}
     	
     }
