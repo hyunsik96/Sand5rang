@@ -171,31 +171,34 @@
     <br>
   
   
-    <table class="table table-striped table-bordered"> 
-                
+    <table id="storeEnroll" class="table table-striped table-bordered"> 
            <tr>
-               <th width="20%">이름</th>
-               <td width="50%">김강남</td>
+	            <th width="20%">신청번호</th>
+	            <td width="50%">${e.enrNo}</td>
+           </tr>  
+           <tr>
+               <th>이름</th>
+               <td>${e.storeName}</td>
            </tr>  
            <tr>
              <th>연락처</th>
-             <td>010-1111-2222</td>
+             <td>${e.phone}</td>
            </tr>  
            <tr>
              <th>이메일</th>
-             <td>user01@naver.com</td> 
+             <td>${e.email}</td> 
            </tr>
            <tr>
              <th>지역</th>
-             <td>서울시 강남구</td>
+             <td>${e.enrollAdd}</td>
            </tr>
            <tr>
              <th>제목</th>
-             <td>가맹문의입니다.</td>
+             <td>${e.title}</td>
            </tr>
            <tr>
              <th>내용</th>
-             <td>새로 강남구에 가맹을 희망합니다. 부탁!</td>
+             <td>${e.content}</td>
            </tr>   
       </table>
     

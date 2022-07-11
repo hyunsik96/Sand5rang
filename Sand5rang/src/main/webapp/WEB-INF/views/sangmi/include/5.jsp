@@ -383,6 +383,10 @@ margin-bottom: 26px;}
             font-weight: 700;
             height:40px;
         }
+/*리스트 클릭했을 때 */        
+ #storeEnrollList>tbody>tr:hover {cursor:pointer;}       
+        
+        
 </style>
 </head>
 <body>

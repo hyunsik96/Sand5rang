@@ -168,6 +168,7 @@
     <table id="storeEnrollList" class="table table-striped table-bordered">
         <thead> 
            <tr>
+               <th>신청번호</th>
                <th>이름</th>
                <th>연락처</th>
                <th>이메일</th>
@@ -178,7 +179,8 @@
            <tbody>
               <c:forEach var="e" items="${ list }">
                <tr>
-                 <td class="eno">${e.storeName}</td>
+                 <td class="enr">${e.enrNo}</td>
+                 <td>${e.storeName}</td>
                  <td>${e.phone}</td>
                  <td>${e.email}</td> 
                  <td>${e.enrollAdd}</td>
@@ -186,16 +188,14 @@
                </tr>
               </c:forEach>   
            </tbody>
-      </table>
- 
-    
+      </table>   
     <script>
       $(function(){
     	 
     	  $("#storeEnrollList>tbody>tr").click(function(){
     		
     		  
-    		  location.href="storeEnrollDetail.sm?eno="+ $(this).children(".eno").text();
+    		  location.href="storeEnrollDetail.sm?enr="+ $(this).children(".enr").text();
     	  });
     	  
       });  

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
@@ -49,25 +50,24 @@ public class SangmiController {
 	// 폐업 버튼을 누르면 store에 status의 값이 n으로 변경해주는것
 
 	@RequestMapping("storeclose.sm")
-	public String storeclose(int enrNo, Model model, HttpSession session) {
+	public String storeclose(int enrNo,Model model, HttpSession session) {
 		
 		
 		int result = SangmiService.storeclose(enrNo);
 		
-		System.out.println(enrNo);
-		
-		 if(result > 0) { 
+	
+		 if(result > 0) {
 				
-				session.setAttribute("alertMsg", "성공적으로 폐업처리가 되었습니다.");
+				session.setAttribute("alertMsg", "성공적으로 폐업처리가 되었습니다."); //알람 안뜸=> 확인하기 
 				
 				return "redirect:storeList.sm";
 				
 			}
 			else {
 				
-				model.addAttribute("errorMsg", "폐업 처리 실패");
+				model.addAttribute("alertMsg", "폐업 처리 실패");
 				
-				return "sangmi/errorPage";
+				return "common/errorAd";
 			}
 		 
 		}
@@ -101,24 +101,26 @@ public class SangmiController {
 	
 	
 	//가맹가입신청 상세페이지
+	/*
 	@RequestMapping(value="storeEnrollDetail.sm")
 	public String storeEnrollDetail(Model model) {
 		
 		return "sangmi/storeEnrollDetail";
 	}
-	/*
-	public ModelAndView storeEnrollDetail(int eno, ModelAndView mv) {
+	*/
+	@RequestMapping(value="storeEnrollDetail.sm")
+	public ModelAndView storeEnrollDetail(int enr, ModelAndView mv) {
 		
 		//번호뽑아야 한다. 
 		//상세 조회 
-		Enroll e = SangmiService.storeEnrollDetail(eno);
+		Enroll e = SangmiService.storeEnrollDetail(enr);
 		
 		mv.addObject("e", e).setViewName("sangmi/storeEnrollDetail");
 		
 		
 		return mv;
 	}
-	*/
+
 	
 	// 1:1 문의 전체조회
 	@RequestMapping(value="inqueryList.sm")
