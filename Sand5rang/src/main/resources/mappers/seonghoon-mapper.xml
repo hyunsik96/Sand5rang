@@ -170,4 +170,7 @@
 		SELECT MEN_NAME, MEN_NO
 		FROM MENU
 	</select>
+	
+	
+	<!-- *****************전체 재고현황 ***************** -->
 </mapper>

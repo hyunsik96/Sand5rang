@@ -47,7 +47,8 @@ public class SeonghoonService {
 	public ArrayList<Menu> selectMenu(){ return seonghoonDao.selectMenu(sqlSession); }
 	public int insertSales(HashMap<String,Integer> hashmap) { return seonghoonDao.insertSales(sqlSession,hashmap); }
 	
-	
+	// ***************** 전체 재고현황 ************************
+	public ArrayList<Stock> selectSumStock(){re}
 	
 }
 

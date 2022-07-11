@@ -210,11 +210,12 @@
 </c:forEach>
 <button id="btnEvent">판매기입</button>
 <script>
-		$(function(){
-			$("#btnEvent").on("click",function(){
-			});
-		});
+
+	$(function(){
+		$.ajax({
 		
+		});
+	});
 </script>
 <!-- 	<div class="menu">
 				<h4>로스트치킨</h4>

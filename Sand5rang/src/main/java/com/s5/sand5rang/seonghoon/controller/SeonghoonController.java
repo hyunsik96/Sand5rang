@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
@@ -78,8 +79,22 @@ public class SeonghoonController {
 		return "seonghoon/재료별재고현황";
 	}
 	
+	/***************** 전체 재고현황 *********************/
 	@RequestMapping(value="ingredientAllStock.csh")
-	public String ingredientAllStockList(Model model) {
+	public String ingredientAllStockList(
+			Model model,
+			@RequestParam(value="spage",defaultValue="1") int currentPage
+			){
+		
+		ArrayList<Stock> list1 = seonghoonService.selectSumStock();
+		
+		// System.out.println("spage : "+currentPage);
+		// http://localhost:8006/sand5rang/ingredientAllStock.csh이지만 ?spage=1이 생략된 상황'
+		int listCount = seonghoonService.selectAllStockCount();
+		int pageLimit = 10;
+		int boardLimit = 6;
+		
+		
 		return "seonghoon/전체재고현황";
 	}
 	
