@@ -5,12 +5,14 @@ import java.util.HashMap;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.dao.HyunsikDao;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 
+@Component
 @Service
 public class HyunsikService {
 
@@ -40,5 +42,12 @@ public class HyunsikService {
 		return hyunsikDao.adCusDis(sqlSession, id);
 	}
 	
+	public int disAll() {
+		return hyunsikDao.disAll(sqlSession);
+	}
+	
+	public int facInd(int i) {
+		return hyunsikDao.facInd(sqlSession, i);
+	}
 }
 

@@ -105,5 +105,32 @@
 		)
 		SET STATUS = 'N'
   	</update>
+  	
+  	<update id="disAll">
+		UPDATE
+		(SELECT STATUS
+		FROM INDENT
+		WHERE STATUS = 'B' OR STATUS = 'AB')
+		SET STATUS = 'N'
+  	</update>
+  	
+  	<insert id="facInd" parameterType="_int">
+		INSERT INTO FACTORY 
+		VALUES( 
+		SEQ_FACNO.NEXTVAL, 
+		(SELECT SUM(COUNT) 
+		FROM INDENT 
+		WHERE 
+		ING_NO = #{i} AND 
+		(STATUS = 'Y' OR STATUS = 'AY') AND 
+		TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) 
+		BETWEEN 
+		TO_NUMBER((TO_CHAR(SYSDATE-1, 'YYMMDD') || 150000)) 
+		AND 
+		TO_NUMBER((TO_CHAR(SYSDATE, 'YYMMDD') || 149999))), 
+		SYSDATE, 
+		#{i} 
+		)
+  	</insert>
 
 </mapper>

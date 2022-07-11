@@ -38,6 +38,14 @@ public class HyunsikDao {
 	public int adCusDis(SqlSessionTemplate sqlSession, String id) {
 		return sqlSession.update("hyunsikMapper.adCusDis", id);
 	}
+	
+	public int disAll(SqlSessionTemplate sqlSession) {
+		return sqlSession.update("hyunsikMapper.disAll");
+	}
+	
+	public int facInd(SqlSessionTemplate sqlSession, int i) {
+		return sqlSession.insert("hyunsikMapper.facInd", i);
+	}
 
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.hyunsik.controller.scheduler.Scheduler;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 
@@ -87,6 +89,19 @@ public class HyunsikController {
 		}
 		
 	}
+	
+    @Scheduled(cron="00 00 15 * * ?")
+    public void facIndent() {
+    	
+    	// 미처리 발주 일괄 반려처리
+    	hyunsikService.disAll();
+    	
+    	// 24가지 재료별 공장발주 FACTORY 테이블 INSERT
+    	for(int i = 1; i<25; i++) {
+    	hyunsikService.facInd(i);
+    	}
+    	
+    }
 	
 	
 }
