@@ -182,7 +182,7 @@
 							    
 							   
 								<h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="1" style="width : 200px; display: inline-block;">
 								<div class="bread" >
 									<h4>*파마산</h4>
 									<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
@@ -202,11 +202,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="bp" value="1">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se" style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="2" style="width : 200px; display: inline-block;">
 								<div class="bread">
 									<h4>*화이트</h4>
 									<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
@@ -226,11 +225,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="bw" value="2">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se" style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="3" style="width : 200px; display: inline-block;">
 								<div class="bread">
 									<h4>*플랫</h4>
 									<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
@@ -250,14 +248,13 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="bf" value="3">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 								<br><br>
 								
 								<hr>
 								<h3 style="margin-left:20px; margin-bottom: 10px">야채(Vegetable)</h3><br>
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="4" style="width : 200px; display: inline-block;">
 								<div class="vegetable" style="margin-top:10px">
 									<h4>*양상추</h4>
 									<img src="resources/images/ingredient/양상추.jpg" width="150" height="150">
@@ -277,11 +274,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="vl" value="4">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 								
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="5" style="width : 200px; display: inline-block;">
                                 <div class="vegetable">
 									<h4>*토마토</h4>
 									<img src="resources/images/ingredient/토마토.jpg" width="150" height="150">
@@ -301,11 +297,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="vt" value="5">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="6" style="width : 200px; display: inline-block;">
 								<div class="vegetable">
 									<h4>*오이</h4>
 									<img src="resources/images/ingredient/오이.jpg" width="150" height="150">
@@ -325,11 +320,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="vc" value="6">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="7" style="width : 200px; display: inline-block;">
 								<div class="vegetable">
 									<h4>*양파</h4>
 									<img src="resources/images/ingredient/양파.jpg" width="150" height="150">
@@ -349,11 +343,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="vo" value="7">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 								
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="8" style="width : 200px; display: inline-block;">
                                 <div class="vegetable">
 									<h4>*피망</h4>
 									<img src="resources/images/ingredient/피망.jpg" width="150" height="150">
@@ -373,11 +366,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="vp" value="8">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="9" style="width : 200px; display: inline-block;">
 								<div class="vegetable">
 									<h4>*할라피뇨</h4>
 									<img src="resources/images/ingredient/할라피뇨.jpg" width="150" height="150">
@@ -397,11 +389,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="vh" value="9">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
 								</form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="10" style="width : 200px; display: inline-block;">
 								<div class="vegetable" style="margin-top: 20px;">
 									<h4>*아보카도</h4>
 									<img src="resources/images/ingredient/아보카도.jpg" width="150" height="150">
@@ -421,14 +412,13 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="va" value="10">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 								<br>
 								<br>
 								<hr>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="11" style="width : 200px; display: inline-block;">
 								<h3 style="margin-left:20px; margin-bottom: 10px">고기(Meat)</h3><br>
 								<div class="meat" style="margin-top:10px">
 									<h4>*페퍼로니</h4>
@@ -449,14 +439,13 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="mp" value="11">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="12" style="width : 200px; display: inline-block;">
 								<div class="meat">
 									<h4>*에그</h4>
-									<img src="resources/images/ingredient/에그.jpg" width="150" height="150">
+									<img src="resources/images/ingredient/에그마요.jpg" width="150" height="150">
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
@@ -473,11 +462,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="me" value="12">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="13" style="width : 200px; display: inline-block;">
 								<div class="meat">
 									<h4>*치킨</h4>
 									<img src="resources/images/ingredient/치킨.jpg" width="150" height="150">
@@ -497,11 +485,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="mc" value="13">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="14" style="width : 200px; display: inline-block;">
 								<div class="meat">
 									<h4>*쉬림프</h4>
 									<img src="resources/images/ingredient/쉬림프.jpg" width="150" height="150">
@@ -521,11 +508,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="ms" value="14">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="15" style="width : 200px; display: inline-block;">
 								<div class="meat">
 									<h4>*비프</h4>
 									<img src="resources/images/ingredient/비프.jpg" width="150" height="150">
@@ -545,11 +531,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="mb" value="15">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="16" style="width : 200px; display: inline-block;">
 								<div class="meat">
 									<h4>*베이컨</h4>
 									<img src="resources/images/ingredient/베이컨.jpg" width="150" height="150">
@@ -569,13 +554,12 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="mv" value="16">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 								<br><br>
 								<hr>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="17" style="width : 200px; display: inline-block;">
 								<h3 style="margin-left:20px; margin-bottom: 10px">소스(sauce)</h3><br>
 								<div class="sauce" style="margin-top:10px">
 									<h4>*렌치</h4>
@@ -596,11 +580,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="sl" value="17">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="18" style="width : 200px; display: inline-block;">
 								<div class="sauce">
 									<h4>*스위트칠리</h4>
 									<img src="resources/images/ingredient/스위트칠리.jpg" width="150" height="150">
@@ -620,11 +603,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="sc" value="18">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="19" style="width : 200px; display: inline-block;">
 								<div class="sauce">
 									<h4>*올리브오일</h4>
 									<img src="resources/images/ingredient/올리브오일.jpg" width="150" height="150">
@@ -644,11 +626,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="so" value="19">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="20" style="width : 200px; display: inline-block;">
 								<div class="sauce">
 									<h4>*머스타드</h4>
 									<img src="resources/images/ingredient/머스타드.jpg" width="150" height="150">
@@ -668,11 +649,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="sm" value="20">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="21" style="width : 200px; display: inline-block;">
 								<div class="sauce">
 									<h4>*후추</h4>
 									<img src="resources/images/ingredient/후추.jpg" width="150" height="150">
@@ -691,14 +671,13 @@
                                         <div id="total_price_hidden" hidden>0</div>
                                     </div>
                                     <input type="hidden" class="ingNo" name="sp" value="21">
-                                    <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
+                                    <input type="hidden" name="stat" value="N">\
 								</div>
                                 </form>
 								<br><br>
 								<hr>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="22" style="width : 200px; display: inline-block;">
 								<h3 style="margin-left:20px; margin-bottom: 10px">치즈(cheese)</h3><br>
 								<div class="cheese" style="margin-top:10px">
 									<h4>*아메리칸</h4>
@@ -719,11 +698,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="ca" value="22">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="23" style="width : 200px; display: inline-block;">
 								<div class="cheese">
 									<h4>*모짜렐라</h4>
 									<img src="resources/images/ingredient/모짜렐라.jpg" width="150" height="150">
@@ -743,11 +721,10 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="cm" value="23">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 
-                                <form class="order_list" method="post" action="orderEnroll.se"  style="width : 200px; display: inline-block;">
+                                <form class="order_list" id="24" style="width : 200px; display: inline-block;">
 								<div class="cheese">
 									<h4>*슈레드</h4>
 									<img src="resources/images/ingredient/슈레드.jpg" width="150" height="150">
@@ -767,7 +744,6 @@
                                     </div>
                                     <input type="hidden" class="ingNo" name="cs" value="24">
                                     <input type="hidden" name="stat" value="N">
-                                    <button type="submit" id="btn" hidden></button>
 								</div>
                                 </form>
 								
@@ -781,7 +757,7 @@
                                 <br><br>
 								<div style="margin-top: 50px; width: 100%; text-align: center;">
 								    
-								    <input type="checkbox" name="order_check" value="y">
+								    <input type="checkbox" name="order_check" value="n">
 								    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
 								
 								    <button type="button" onclick="exe();" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
@@ -1059,22 +1035,6 @@ for(var i=0; i<tot2.length; i++){
     }
 }
 
-// <div style="margin-top: 50px; width: 100%; text-align: center;">
-								    
-// 								    <input type="checkbox" name="order_check" value="y">
-// 								    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
-								
-// 								    <button type="button" onclick="exe()" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
-// 								    <button type="reset" onclick="re()" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
-								
-// 								    <br>
-// 								    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
-// 								        ※ 자동발주 신청 시 매일(14:00시)에 자동으로 발주가 완료됩니다.<br> 
-// 								        관리자 승인 14:00시 이전까지 발주 수정이 가능하며, 체크박스 해제시 자동발주 취소가 됩니다.
-// 								    </p>
-// 								</div>
-//<input type="hidden" class="ingNo" name="stat" value="N">
-//<input type="hidden" name="sl" value="17">
 
 //발주신청 버튼 클릭시 실행되는 함수
 function exe(){
@@ -1091,17 +1051,45 @@ function exe(){
     //원재료 번호 input hidden값 element 선택
     var ingNo = $("input[class=ingNo]");
 
-    var btn = $("button[id=btn]");
-
-    if(check_value =='y'){
+    if(check_value.is(':checked') == true){
         
         for(var i=0; i<ingNo.length; i++){
             
+            // //자동발주 신청 stat값 AB로 변경해주기 
+            status[i].setAttribute("value", "AB");
+            }
+    }else{
+        for(var i=0; i<ingNo.length; i++){
             
-        }
+            // //자동발주 신청 stat값 AB로 변경해주기 
+            status[i].setAttribute("value", "N");
+            }
     }
+    
 
+    for(var j=0; j<ingNo.length; j++){
+
+        var form1 = $("form[id="+j+"]").serialize();
+
+        console.log(form1);
+
+        (function(j){
+                    $.ajax({
+                            type: "post",
+                            url: "orderEnroll.se",
+                            data: form1,
+                            dataType: 'json',
+                            success: function (data) {
+                                alert("success");
+                                console.log(data);
+                    },
+                            error: function (request, status, error) {
+                                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
+                    }
+            });
+       })(j);
+    }
 }
 </script>
-
 </html>

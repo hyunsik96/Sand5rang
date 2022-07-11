@@ -74,8 +74,6 @@ public class SeinController {
 		HashMap<String, Integer> map = new HashMap<>();
 		
 		
-		
-		
 		//1. 원재료 테이블에서 모든 값들을 조회해온다 
 		//2. 조회된 값들을 ArrayList담에서 순차적으로 비교해준다. 
 		//3. 일치된 값들은 수량, 발주총 가격만 뽑아온다 
