@@ -165,7 +165,7 @@
 	  				</div> <!-- /widget-header -->
 					
 					
-    <table id="storeEnrollList" class="table table-striped table-bordered">
+    <table id="boardList" class="table table-striped table-bordered">
         <thead> 
            <tr>
                <th>신청번호</th>
@@ -192,7 +192,7 @@
     <script>
       $(function(){
     	 
-    	  $("#storeEnrollList>tbody>tr").click(function(){
+    	  $("#boardList>tbody>tr").click(function(){
     		
     		  
     		  location.href="storeEnrollDetail.sm?enr="+ $(this).children(".enr").text();

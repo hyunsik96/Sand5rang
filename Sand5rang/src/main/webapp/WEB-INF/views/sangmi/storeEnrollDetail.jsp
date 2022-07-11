@@ -171,14 +171,10 @@
     <br>
   
   
-    <table id="storeEnroll" class="table table-striped table-bordered"> 
+    <table id="storeEnrollDetail" class="table table-striped table-bordered"> 
            <tr>
-	            <th width="20%">신청번호</th>
-	            <td width="50%">${e.enrNo}</td>
-           </tr>  
-           <tr>
-               <th>이름</th>
-               <td>${e.storeName}</td>
+               <th width="20%">이름</th>
+               <td width="50%">${e.storeName}</td>
            </tr>  
            <tr>
              <th>연락처</th>
@@ -204,7 +200,7 @@
     
     <hr>
 
-
+    
 
 
      <form id="" class="" method="post" action="" style=" padding:5%; border:1px solid lightgrey">
@@ -243,7 +239,7 @@
     </form>
 
       <form id="postForm" action="" method="post">
-         <input type="hidden" name="eno" value="${ e.enrNo }">
+         <input type="hidden" name="enr" value="${ e.enrNo }">
 
        </form>
 

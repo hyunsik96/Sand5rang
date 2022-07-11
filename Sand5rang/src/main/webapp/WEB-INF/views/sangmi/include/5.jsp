@@ -384,11 +384,15 @@ margin-bottom: 26px;}
             height:40px;
         }
 /*리스트 클릭했을 때 */        
- #storeEnrollList>tbody>tr:hover {cursor:pointer;}       
+ #boardList>tbody>tr:hover {cursor:pointer;}       
         
+#enrollForm>table {width:90%;}
+#enrollForm>table * {margin:10px;}        
         
 </style>
 </head>
 <body>
+
+
 </body>
 </html>

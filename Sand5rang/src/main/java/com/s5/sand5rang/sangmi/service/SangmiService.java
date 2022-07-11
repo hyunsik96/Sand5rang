@@ -45,9 +45,9 @@ public class SangmiService {
 	}
 	
 	//가맹가입신청 상세페이지
-	public Enroll storeEnrollDetail(int enrollNo) {
+	public Enroll storeEnrollDetail(int enrNo) {
 		
-		return SangmiDao.storeEnrollDetail(sqlSession, enrollNo);
+		return SangmiDao.storeEnrollDetail(sqlSession, enrNo);
 	}
 	
 	//문의리스트 조회
@@ -56,6 +56,16 @@ public class SangmiService {
 		
 		return SangmiDao.inqueryList(sqlSession,pi);
 	}
+	
+	//가맹점 작성하기
+	public int inquertInsert(Inquery i) {
+		
+		return SangmiDao.inquertInsert(sqlSession,i);
+	}
+	
+	
+	
+	
 	
 }
 

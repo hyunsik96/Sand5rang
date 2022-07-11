@@ -65,17 +65,32 @@
 </select>
 
 <!-- 가맹가입신청 상세페이지 -->
-<select id="storeEnrollDetail" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
-SELECT STORE_NAME,PHONE, EMAIL, ENROLL_ADD, TITLE, CONTENT
+<select id="storeEnrollDetail" parameterType="_int" resultMap="enrollResultSet">
+SELECT ENR_NO, STORE_NAME, PHONE, EMAIL, ENROLL_ADD, TITLE, CONTENT
 FROM ENROLL
-WHERE STATUS = 'B'
+WHERE ENR_NO = #{enrNo}
 </select>
 
 <!-- 문의 전체 리스트 조회 -->
 <select id="inqueryList" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultMap="inqueryResultSet">
-SELECT INQ_NO,INQ_TITLE, INQ_DATE, INQ_QUERY, INQ_ANSWER, STATUS, ANS_DATE, CATEGORY, STORE_ID
+SELECT INQ_NO,INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" , INQ_QUERY, INQ_ANSWER, STATUS, ANS_DATE, CATEGORY, STORE_ID
 FROM INQUERY
+ORDER BY INQ_NO DESC
 </select>
+
+<!-- 문의글 작성하기 -->
+<insert id="inquertInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery">
+INSERT INTO INQUERY(INQ_NO
+                  , STORE_ID
+                  , INQ_TITLE
+                  , INQ_QUERY
+                  , CATEGORY)
+ VALUES ( SEQ_INQNO.NEXTVAL
+          , #{storeId}
+          , #{inqTitle}
+          , #{inqQuery}
+          , #{category})
+</insert>
 
 
 </mapper>

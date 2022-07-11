@@ -66,6 +66,15 @@ public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi)
 	 
 	   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",null,rowBounds);
    }
-   
+   //글 작성하기
+public int inquertInsert(SqlSessionTemplate sqlSession, Inquery i) {
+	
+	return sqlSession.insert("sangmiMapper.inquertInsert",i);
+}
+
+
+
+
+
 
 }

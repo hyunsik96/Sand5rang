@@ -178,7 +178,13 @@
 	      				<i class="icon-user"></i>
 	      				<h3>문의글 전체 리스트</h3>
 	  				</div> <!-- /widget-header -->
-					
+	<form id="searchForm" action="" method="get" align="left">
+
+           <select class="custom-select" name="condition">
+               <option value="writer"></option>
+               <option value="title">제목</option>
+           </select>
+   </form>
     
     <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
@@ -202,21 +208,15 @@
            </c:forEach> 		
         </tbody>
     </table>
- <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
- <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
+    <!-- 로그인 후 상태일 경우만 보여지는 글등록, 수정 버튼 -->
+   <!-- <c:if test="${ not empty loginUser }">  --> 
+       <!--</c:if>-->
+		 <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
+		 <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
 
 <br><br>
      
-      <form id="searchForm" action="" method="get" align="center">
-   
-              <select class="custom-select" name="condition">
-                  <option value="writer">작성자</option>
-                  <option value="title">제목</option>
-              </select>
-              <input type="text" class="form-control" name="keyword">
-
-          <button type="submit" class="searchBtn btn btn-secondary">검색</button>
-      </form>
+      
       <br><br>
   </div>
 <script>
@@ -226,13 +226,7 @@
 	  });
   });
 </script>
-<!-- 로그인 후 상태일 경우만 보여지는 글쓰기 버튼 
-<c:if test="${ not empty loginUser }">
-    <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm">글등록</a>
-    <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
-    <br>
-</c:if>
--->
+
 
 	<ul class="pagination pagination-sm">
 		

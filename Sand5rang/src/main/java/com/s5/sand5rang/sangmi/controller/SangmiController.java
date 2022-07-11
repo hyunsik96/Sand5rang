@@ -100,7 +100,7 @@ public class SangmiController {
 	}
 	
 	
-	//가맹가입신청 상세페이지
+	
 	/*
 	@RequestMapping(value="storeEnrollDetail.sm")
 	public String storeEnrollDetail(Model model) {
@@ -108,6 +108,7 @@ public class SangmiController {
 		return "sangmi/storeEnrollDetail";
 	}
 	*/
+	//가맹가입신청 상세페이지
 	@RequestMapping(value="storeEnrollDetail.sm")
 	public ModelAndView storeEnrollDetail(int enr, ModelAndView mv) {
 		
@@ -117,7 +118,7 @@ public class SangmiController {
 		
 		mv.addObject("e", e).setViewName("sangmi/storeEnrollDetail");
 		
-		
+		//=> 가입신청 enr 못찾는 오류 가 난다.. (잠시 )
 		return mv;
 	}
 
@@ -146,24 +147,46 @@ public class SangmiController {
 		return "sangmi/inqueryList";
 	}
 	
-	//1:1문의 상세조회
-	@RequestMapping(value="inqueryDetail.sm")
-	public String inqueryDetail(Model model) {
-		
-		return "sangmi/inqueryDetail";
-	}
-	//1:1문의 등록
+	
+	//1:1문의 작성폼
 	@RequestMapping(value="inqueryEnroll.sm")
 	public String inqueryEnroll(Model model) {
 		
 		return "sangmi/inqueryEnroll";
 	}
+	//1:1문의 글 작성
+	@RequestMapping(value="insert.sm")
+	public String inquertInsert(Inquery i, HttpSession session, Model model) {
+		
+		int result = SangmiService.inquertInsert(i);
+		
+		if(result >0 ) {
+			
+			session.setAttribute("alertMsg", "성공적으로 등록됨");
+			
+			return "redirect:inqueryList.sm";
+		}
+		else {
+		
+			model.addAttribute("errorMsg", "게시글 등록 실패");
+			
+			return "common/errorFr";
+		}
+		
+	}
+	
 	//1:1문의 수정
 	@RequestMapping(value="inquerUpdate.sm")
 	public String inqueryUpdate(Model model) {
 		
 		return "sangmi/inqueryUpdate";
 	}
+	//1:1문의 상세조회
+		@RequestMapping(value="inqueryDetail.sm")
+		public String inqueryDetail(Model model) {
+			
+			return "sangmi/inqueryDetail";
+		}
 	//FAQ 
 	@RequestMapping(value="faq.sm")
 	public String faq(Model model) {
