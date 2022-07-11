@@ -195,14 +195,16 @@
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
 	<p>
+	현재재고 : 
 		<c:forEach var="s" items="${s_list1}">
 			<c:if test="${i.ingNo eq s.ingNo}">
-			현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+			<a href="ingredientStock.csh">${s.count}</a><br>
 			</c:if>
 		</c:forEach>
+	유통기한 : 		
 		<c:forEach var="d" items="${d_list1 }">
 			<c:if test="${i.ingNo eq d.ingNo }">
-			유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+			<a href="ingredientDisposal.csh">${d.stoDate }</a>
 			</c:if>
 		</c:forEach>
 	</p>
@@ -215,14 +217,16 @@
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName }.jpg" width="150" height="150">
 	<p>
+	현재재고 : 	
 	<c:forEach var="s" items="${s_list2}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		<a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
+	유통기한 : 	
 	<c:forEach var="d" items="${d_list2 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
-		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+		<a href="ingredientDisposal.csh">${d.stoDate }</a>
 		</c:if>
 	</c:forEach>
 	</p>
@@ -235,9 +239,10 @@
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
 	<p>
+	현재재고 : 	
 	<c:forEach var="s" items="${s_list3}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		<a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
 	<c:forEach var="d" items="${d_list3 }">
@@ -260,9 +265,10 @@
 		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
+	유통기한 : 	
 	<c:forEach var="d" items="${d_list4 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
-		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+		<a href="ingredientDisposal.csh">${d.stoDate }</a>
 		</c:if>
 	</c:forEach>
 	</p>
@@ -275,14 +281,16 @@
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName }.jpg" width="150" height="150">
 	<p>
+	현재재고 : 	
 	<c:forEach var="s" items="${s_list5}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		현재재고 : <a href="ingredientStock.csh">${s.count}</a><br>
+		<a href="ingredientStock.csh">${s.count}</a><br>
 		</c:if>
 	</c:forEach>
+	유통기한 :	
 	<c:forEach var="d" items="${d_list5 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
-		유통기한 : <a href="ingredientDisposal.csh">${d.stoDate }</a>
+ 		<a href="ingredientDisposal.csh">${d.stoDate }</a>
 		</c:if>
 	</c:forEach>
 	</p>
