@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-  <link rel="shortcut icon" href="resources/images/logo.png" type="">
+    <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
 
@@ -19,6 +19,20 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+	
+	<!-- Alertify라이브러리 CSS -->
+	<link rel="stylesheet"
+		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+	<!-- Default theme -->
+	<link rel="stylesheet"
+		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+	<!-- Semantic UI theme -->
+	<link rel="stylesheet"
+		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+	<!-- Bootstrap theme -->
+	<link rel="stylesheet"
+		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 
   </head>
 
@@ -159,7 +173,14 @@
 
 </div> <!-- /subnavbar -->
     
-    
+    <!-- 알람메세지 내용이 있다면  -->
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alertify.alert("알람","${alertMsg}");
+		</script>
+		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+		<c:remove var="alertMsg" scope="session"/>
+	</c:if>
 
 
 	<div class="main">
@@ -189,7 +210,7 @@
 								    <br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="b_p" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 0)" >&nbsp;&nbsp;
@@ -199,8 +220,9 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">220</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="bp" value="1">
+                                    <input type="hidden" class="ingNo" name="ingNo" value="1">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -212,7 +234,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="b_w" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 1)" >&nbsp;&nbsp;
@@ -222,8 +244,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="bw" value="2">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="2">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -235,7 +259,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="b_f" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 2)">&nbsp;&nbsp;
@@ -245,8 +269,9 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">250</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="bf" value="3">
+                                    <input type="hidden" class="ingNo" name="ingNo" value="3">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -261,7 +286,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_l" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 3)">&nbsp;&nbsp;
@@ -271,8 +296,9 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="vl" value="4">
+                                    <input type="hidden" class="ingNo" name="ingNo" value="4">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -284,7 +310,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_t" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 4)">&nbsp;&nbsp;
@@ -294,8 +320,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="vt" value="5">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="5">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -307,7 +335,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_c" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',5)">&nbsp;&nbsp;
@@ -317,8 +345,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">30</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="vc" value="6">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="6">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -330,7 +360,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_o" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',6)">&nbsp;&nbsp;
@@ -340,8 +370,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">50</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
+                                        
                                     </div>
-                                    <input type="hidden" class="ingNo" name="vo" value="7">
+                                    <input type="hidden" class="ingNo" name="ingNo" value="7">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -353,7 +385,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_p" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',7)">&nbsp;&nbsp;
@@ -363,8 +395,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">20</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="vp" value="8">
+
+                                    <input type="hidden" class="ingNo" name="ingNo" value="8">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -376,7 +410,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_h" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',8)">&nbsp;&nbsp;
@@ -386,8 +420,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">70</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="vh" value="9">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="9">
                                     <input type="hidden" name="stat" value="N">
 								</div>
 								</form>
@@ -399,7 +435,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="v_a" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',9)">&nbsp;&nbsp;
@@ -409,8 +445,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">150</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="va" value="10">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="10">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -426,7 +464,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="m_p" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',10)">&nbsp;&nbsp;
@@ -436,8 +474,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">150</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="mp" value="11">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="11">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -449,7 +489,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="m_e" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',11)">&nbsp;&nbsp;
@@ -459,8 +499,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="me" value="12">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="12">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -472,7 +514,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="m_c" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',12)">&nbsp;&nbsp;
@@ -482,8 +524,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">170</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="mc" value="13">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="13">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -495,7 +539,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="m_s" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',13)">&nbsp;&nbsp;
@@ -505,8 +549,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="ms" value="14">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="14">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -518,7 +564,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="m_b" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',14)">&nbsp;&nbsp;
@@ -528,8 +574,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">200</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="mb" value="15">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="15">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -541,7 +589,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="m_v" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',15)">&nbsp;&nbsp;
@@ -551,8 +599,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">120</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="mv" value="16">
+                                   
+                                    <input type="hidden" class="ingNo" name="ingNo" value="16">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -567,7 +617,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="s_l" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',16)">&nbsp;&nbsp;
@@ -577,8 +627,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">50</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="sl" value="17">
+                                   
+                                    <input type="hidden" class="ingNo" name="ingNo" value="17">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -590,7 +642,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="s_c" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', 17)">&nbsp;&nbsp;
@@ -600,8 +652,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">60</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="sc" value="18">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="18">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -613,7 +667,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="s_o" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',18)">&nbsp;&nbsp;
@@ -623,8 +677,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">70</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="so" value="19">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="19">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -636,7 +692,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="s_m" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',19)">&nbsp;&nbsp;
@@ -646,8 +702,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">40</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="sm" value="20">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="20">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -659,7 +717,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="s_p" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',20)">&nbsp;&nbsp;
@@ -669,9 +727,11 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">20</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="sp" value="21">
-                                    <input type="hidden" name="stat" value="N">\
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="21">
+                                    <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
 								<br><br>
@@ -685,7 +745,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="c_a" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',21)">&nbsp;&nbsp;
@@ -695,8 +755,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="ca" value="22">
+                                   
+                                    <input type="hidden" class="ingNo" name="ingNo" value="22">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -708,7 +770,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="c_m" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',22)">&nbsp;&nbsp;
@@ -718,8 +780,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="cm" value="23">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="23">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -731,7 +795,7 @@
 									<br>
 								    <b>발주 수량 : </b>
 								    <div style="display: inline-block;">
-								        <input type="text" class="count_result" name="c_s" value="0" style="width:30px; margin: 0px;">
+								        <input type="text" class="count_result" name="order_count" value="0" style="width:30px; margin: 0px;">
 								    </div>
 								    <div style="float: right;">    
 								        <input type="button" value="+" style="font-weight: bolder; font-size: 15px;" onclick="count('plus',23)">&nbsp;&nbsp;
@@ -741,8 +805,10 @@
                                         [ 단가 : <div id="price" style="display: inline-block; color :rgb(243, 128, 5)">100</div>원&nbsp;/&nbsp;
                                         <div id="total_price" style="display : inline-block; color:blue">0</div>원]
                                         <div id="total_price_hidden" hidden>0</div>
+                                        <input type="hidden" name="tot_price" value="0">
                                     </div>
-                                    <input type="hidden" class="ingNo" name="cs" value="24">
+                                    
+                                    <input type="hidden" class="ingNo" name="ingNo" value="24">
                                     <input type="hidden" name="stat" value="N">
 								</div>
                                 </form>
@@ -901,6 +967,9 @@ function re(){
   // 콤마 안찍혀있는 elemet
   const hidden_value = $('div[id=total_price_hidden]');
 
+  // 재료 수량에 따른 재료 발주 총 가격 input element 선택
+  const tot_price = $('input[name=tot_price]');
+
   //화면에 표시될 원재료당 가격
   var num2 = 0;
 
@@ -953,6 +1022,8 @@ function re(){
 
         //콤마없는 가격 찍어주기
         hidden_value[i].innerText = num2;
+
+        tot_price[i].value = num2;
         
         // 수량 결과 출력
         resultElement[i].value = number;    
@@ -1001,12 +1072,16 @@ $("input[class=count_result").on("keyup",function(key){
     //총 가격 보여줄 element(콤마 제거)
     var totElement2 = $(this).parent("div").nextAll("div[class=result_price]").children("div[id=total_price_hidden]");
 
+    var totElement3 = $(this).parent("div").nextAll("div[class=result_price]").children("input[name=tot_price]");
+
+
     //총가격
     var result = amount*price;
 
     //toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     totElement.text(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     totElement2.text(result);
+    totElement3.val(result);
 
     orderPrice();
 });
@@ -1019,20 +1094,20 @@ function orderPrice()  {
     //결과 값을 담아줄 element
     var tot = $("div[id=total]").children("b[id=tot_order_price]");
 
-    //,가 붙여져있지 않으 값이 담겨있는 element
+    //,가 붙여져있지 않은 값이 담겨있는 element
     var tot2 = $("div[id=total_price_hidden]");
 
     //최종 총 가격을 담아줄 변수 선언
     var num_tot = 0;
 
-// 모든 input태그(가격)을 불러와서 변수에 담아주기 
-for(var i=0; i<tot2.length; i++){
+    // 모든 input태그(가격)을 불러와서 변수에 담아주기 
+    for(var i=0; i<tot2.length; i++){
 
-    num_tot += parseInt(tot2[i].innerText);
+        num_tot += parseInt(tot2[i].innerText);
 
-    tot.text(num_tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        tot.text(num_tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
-    }
+        }
 }
 
 
@@ -1055,39 +1130,60 @@ function exe(){
         
         for(var i=0; i<ingNo.length; i++){
             
-            // //자동발주 신청 stat값 AB로 변경해주기 
             status[i].setAttribute("value", "AB");
-            }
+
+            var form1 = $("form[id="+(i+1)+"]").serialize();
+            // //자동발주 신청 stat값 AB로 변경해주기 
+            
+            //controller로 보내기
+            (function(i){
+
+                console.log(form1);
+                    $.ajax({
+                        type: "post",
+                        url: "orderEnroll.se",
+                        data: form1,
+                        dataType: 'json',
+                        async: false,
+                        success: function (data) {
+                            alert("success");
+                            console.log(data);
+                        },
+                        error: function () {
+                            console.log("잘될꺼야");
+
+                        }
+                    });
+            })(i);
+        }
     }else{
         for(var i=0; i<ingNo.length; i++){
             
+            status[i].setAttribute("value", "B");
+
+            var form1 = $("form[id="+(i+1)+"]").serialize();
             // //자동발주 신청 stat값 AB로 변경해주기 
-            status[i].setAttribute("value", "N");
-            }
-    }
-    
-
-    for(var j=0; j<ingNo.length; j++){
-
-        (function(j){
-
-            var form1 = $("form[id="+j+"]").serialize();
             
+            //controller로 보내기
+            (function(i){
+                console.log(form1);
                     $.ajax({
-                            type: "post",
-                            url: "orderEnroll.se",
-                            data: form1,
-                            dataType: 'json',
-                            success: function (data) {
-                                alert("success");
-                                console.log(data);
-                    },
-                            error: function (request, status, error) {
-                                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-
-                    }
-            });
-       })(j);
+                        type: "post",
+                        url: "orderEnroll.se",
+                        data: form1,
+                        dataType: 'json',
+                        async: false,
+                        success: function (data) {
+                            alert("success");
+                            console.log(data);
+                        },
+                        error: function () {
+                            console.log("잘될꺼야");
+                        }
+                    });
+            })(i);
+        }
+                
     }
 }
 </script>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.s5.sand5rang.sein.dao.SeinDao;
 import com.s5.sand5rang.sein.vo.Ingredient;
+import com.s5.sand5rang.sein.vo.Order;
 
 @Service
 public class SeinService {
@@ -22,6 +23,11 @@ public class SeinService {
 	public ArrayList<Ingredient> selectIngredient(){
 	
 		return (ArrayList)seinDao.selectIngredient(sqlSession);
+	}
+	
+	//가맹점 발주 insert Service
+	public int insertOrder(Order order) {
+		return seinDao.insertOrder(sqlSession, order);
 	}
 }
 

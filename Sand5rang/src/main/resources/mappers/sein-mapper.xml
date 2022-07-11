@@ -16,5 +16,21 @@
 		FROM INGREDIENT
 	</select> -->
 	
+	<insert id="insertOrder" parameterType="order">
+		INSERT INTO INDENT(IND_NO, 
+                    		COUNT, 
+                    		IND_DATE, 
+                    		TOTAL, 
+                    		STATUS,
+                    		STORE_ID,
+                    		ING_NO)  
+					VALUES(SEQ_INDENTNO.NEXTVAL, 
+						 #{count}, 
+						 SYSDATE, 
+						 #{total}, 
+						 #{status}, 
+						 'GUM01', 
+						 #{ingNo})
+	</insert>
 
 </mapper>
