@@ -193,6 +193,7 @@
                 <th width="30%">제목</th>
                 <th width="10%">작성자</th>
                 <th width="10%">작성일</th>
+                <th width="10%">카테고리</th>
                 <th width="10%">답변유무</th>
             </tr>
         </thead>
@@ -203,6 +204,7 @@
                 <td>${i.inqTitle }</td>
                 <td>${i.storeId }</td>
                 <td>${i.inqDate }</td>
+                <td>${i.category }</td>
                 <td>${i.status }</td>
             </tr>
            </c:forEach> 		
@@ -211,8 +213,9 @@
     <!-- 로그인 후 상태일 경우만 보여지는 글등록, 수정 버튼 -->
    <!-- <c:if test="${ not empty loginUser }">  --> 
        <!--</c:if>-->
+	
+	
 		 <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
-		 <a class="btn btn-secondary" style="float:right;" href="inquerUpdate.sm">글수정</a>
 
 <br><br>
      

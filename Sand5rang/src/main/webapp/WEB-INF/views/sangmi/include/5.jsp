@@ -386,8 +386,8 @@ margin-bottom: 26px;}
 /*리스트 클릭했을 때 */        
  #boardList>tbody>tr:hover {cursor:pointer;}       
         
-#enrollForm>table {width:90%;}
-#enrollForm>table * {margin:10px;}        
+#enrollForm>table {width:80%;}
+#enrollForm>table * {margin:5px;}        
         
 </style>
 </head>

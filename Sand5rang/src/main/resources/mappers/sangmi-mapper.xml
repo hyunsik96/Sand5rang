@@ -92,5 +92,12 @@ INSERT INTO INQUERY(INQ_NO
           , #{category})
 </insert>
 
+<!--문의글 상세 조회 -->
+<select id="selectInquery" parameterType="_int" resultMap="inqueryResultSet">
+SELECT INQ_NO,INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" , INQ_QUERY, INQ_ANSWER, STATUS, ANS_DATE, CATEGORY, STORE_ID
+FROM INQUERY
+WHERE INQ_NO = #{inqNo}
+</select>
+
 
 </mapper>

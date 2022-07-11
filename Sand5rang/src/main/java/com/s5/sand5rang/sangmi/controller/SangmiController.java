@@ -154,6 +154,7 @@ public class SangmiController {
 		
 		return "sangmi/inqueryEnroll";
 	}
+	
 	//1:1문의 글 작성
 	@RequestMapping(value="insert.sm")
 	public String inquertInsert(Inquery i, HttpSession session, Model model) {
@@ -175,18 +176,47 @@ public class SangmiController {
 		
 	}
 	
+	//1:1문의 상세조회
+	@RequestMapping(value="indetail.sm")
+	public ModelAndView selectInquery(int ino,ModelAndView mv) {
+		
+		Inquery i = SangmiService.selectInquery(ino);
+		
+		mv.addObject("i",i).setViewName("sangmi/inqueryDetail");
+		
+		return mv;
+	}
+	//ino 못찾음.. 음..
+	
+	
+	
+	
+	
 	//1:1문의 수정
-	@RequestMapping(value="inquerUpdate.sm")
-	public String inqueryUpdate(Model model) {
+	@RequestMapping(value="inUpdate.sm")
+	public String inUpdate(Model model) {
+		
+		
 		
 		return "sangmi/inqueryUpdate";
+		
+		
+		
 	}
-	//1:1문의 상세조회
-		@RequestMapping(value="inqueryDetail.sm")
-		public String inqueryDetail(Model model) {
+	//1:1문의 삭제
+		@RequestMapping(value="inDelete.sm")
+		public String inDelete(Model model) {
 			
-			return "sangmi/inqueryDetail";
+			
+			
+			return "sangmi/inqueryUpdate";
+			
+			
+			
 		}
+		
+	
+	
 	//FAQ 
 	@RequestMapping(value="faq.sm")
 	public String faq(Model model) {

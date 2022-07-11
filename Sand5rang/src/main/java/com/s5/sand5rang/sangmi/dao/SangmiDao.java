@@ -57,22 +57,26 @@ public class SangmiDao {
    }
    
    //문의 전체 리스트 조회
-public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi) {
+	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi) {
+		   
+		   int limit = pi.getBoardLimit();
+		   int offset = (pi.getCurrentPage() -1)*limit;
+		   
+		   RowBounds rowBounds = new RowBounds(offset, limit);
+		 
+		   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",null,rowBounds);
+	   }
+   //문의 글 작성하기
+	public int inquertInsert(SqlSessionTemplate sqlSession, Inquery i) {
+		
+		return sqlSession.insert("sangmiMapper.inquertInsert",i);
+	}
+
+  //문의 글 상세조회
+   public Inquery selectInquery(SqlSessionTemplate sqlSession, int inqNo) {
 	   
-	   int limit = pi.getBoardLimit();
-	   int offset = (pi.getCurrentPage() -1)*limit;
-	   
-	   RowBounds rowBounds = new RowBounds(offset, limit);
-	 
-	   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",null,rowBounds);
+	   return sqlSession.selectOne("sangmiMapper.selectInquery", inqNo);
    }
-   //글 작성하기
-public int inquertInsert(SqlSessionTemplate sqlSession, Inquery i) {
-	
-	return sqlSession.insert("sangmiMapper.inquertInsert",i);
-}
-
-
 
 
 

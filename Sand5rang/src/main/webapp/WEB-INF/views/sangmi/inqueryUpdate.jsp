@@ -181,45 +181,45 @@
 
 
 
-                 <table class="cd_table"  align="center">
-                    <tr class="cd_table_title">
-                        <td width="70px;">
-                                                         제목 : 
-                         </td>
-                        <td width="400px" height="150px">
-                          <input type="text"  value="문의합니다!!!">
-                         </td>
-                    </tr>
-                    <tr class="cd_table_content1">
-                        <td colspan="2">
-                            <div class="cd_table_content_title">문의내용</div>
-                            <textarea name=""  style="resize:none; width:100%; height:200px">
-                                  안녕하세요 샌드오랑 청계천점입니다.
-                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
+                <form id="enrollForm" method="post" action="insert.sm">
+                <table  align="center">
+                <tr>
+                   <th><label for="title" style="font-size:18px">카테고리</label></th> 
+                   <td>
+                     <select name="category">
+                     <option>운영</option>
+                     <option>재고</option>
+                     <option>배송</option>
+                     </select>
+                   </td> 
+                 </tr>
+                <tr>
+                   <th><label for="title" style="font-size:18px">제목</label></th> 
+                   <td><input type="text" id="title" class="form-control" name="inqTitle" required></td> 
+                 </tr>                               
+                 <tr>
+                   <th><label for="writer" style="font-size:18px">작성자</label></th> 
+                   <td><input type="text" id="writer" class="form-control" value="" name="storeId"></td> 
+                </tr>        
+                <tr>
+                  <th><label for="content" style="font-size:18px">문의내용</label> </th>
+                  <td>
+                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px">
+                   </textarea>
+                  </td>
+                </tr>
+                   
+                      
+                    
+			     </table>
+			     <br>
 
-                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-
-                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?  
-                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. 
-
-                    현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-                    공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-
-                            </textarea>
-        </td>
-        </table>
-        <br>
-
-    
-            <div align="center">
-                <button type="submit" class="btn btn-primary">수정하기</button>
-                <a class="btn btn-secondary" href="inqueryList.sm">뒤로가기</a>
-            </div>  
-
-
+        <div align="center">
+            <button type="submit" class="btn btn-primary">수정하기</button>
+            <a class="btn btn-secondary" href="inqueryList.sm">뒤로가기</a>
+        </div>  
+    </form>
+ 
 
 
 

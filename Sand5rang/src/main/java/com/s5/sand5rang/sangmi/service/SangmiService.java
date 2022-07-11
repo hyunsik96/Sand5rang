@@ -62,7 +62,11 @@ public class SangmiService {
 		
 		return SangmiDao.inquertInsert(sqlSession,i);
 	}
-	
+	//게시글 상세 조회
+	public Inquery selectInquery(int inqNo) {
+		
+		return SangmiDao.selectInquery(sqlSession,inqNo);
+	}
 	
 	
 	
