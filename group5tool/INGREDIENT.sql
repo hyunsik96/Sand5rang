@@ -12,7 +12,7 @@ VALUES(SEQ_INGNO.NEXTVAL
      , 'B');
 INSERT INTO INGREDIENT
 VALUES(SEQ_INGNO.NEXTVAL
-     , '플랫'
+     , '플렛'
      , 250
      , 2
      , 'B');
