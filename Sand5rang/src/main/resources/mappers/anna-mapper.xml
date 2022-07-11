@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="annaMapper">
+ 
+ 
+ 	<!--loginStore-->
+ 	<resultMap id="storeResultSet" type="com.s5.sand5rang.anna.vo.Store">
+	  <result column="STORE_ID" property="storeId" />
+	  <result column="STORE_PWD" property="storePwd" />
+	  <result column="STORE_NAME" property="storeName"/>
+	  <result column="ADDRESS" property="address" />
+	  <result column="STATUS" property="status" /> 
+	  <result column="ENR_NO" property="enrNo"/>
+	 </resultMap>
 
+
+	<!-- 로그인 -->
+	<select id="loginStore" parameterType="com.s5.sand5rang.anna.vo.Store" resultMap="storeResultSet">
+		SELECT *
+		  FROM STORE
+		 WHERE STORE_ID = #{storeId}
+		   AND STORE_PWD = #{storePwd}
+		   AND STATUS = 'Y'
+	</select>
 	
 	<select id="selectListCount" resultType="_int">
 	SELECT COUNT(*)

@@ -2,6 +2,8 @@ package com.s5.sand5rang.anna.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.s5.sand5rang.anna.service.AnnaService;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
-import com.s5.sand5rang.sangmi.vo.Store;
+import com.s5.sand5rang.anna.vo.Inquery;
+import com.s5.sand5rang.anna.vo.Store;
 
 
 @Controller
@@ -19,6 +22,18 @@ public class AnnaController {
 
 	@Autowired
 	private AnnaService annaService;
+	
+	// 로그인 
+	@RequestMapping(value="login.an") //ReqestMapping 어노테이션을 붙여줌으로써 컨트롤러로 등록
+	public String loginStore(Store s) {
+		//System.out.println("storeId : " + s.getStoreId());
+		//System.out.println("storePwd : " + s.getStorePwd());	
+		
+		//Service 쪽으로 호출하여 s 넘기기
+		Store loginUser = annaService.loginStore(s);
+		
+		return "anna/login";
+	}
 	
 	@RequestMapping(value="inqAnswer.an")
 	public String annatest1() {return "anna/inqueryAnswer";}
@@ -29,8 +44,7 @@ public class AnnaController {
 	@RequestMapping(value="inqList.an")
 	public String annatest3() {return "anna/inqueryList";}
 	
-	@RequestMapping(value="login.an")
-	public String annatest5() {return "anna/login";}
+	
 	
 	@RequestMapping(value="joinForm.an")
 	public String annatest6() {return "anna/joinForm";}
@@ -38,9 +52,7 @@ public class AnnaController {
 	@RequestMapping(value="changePwd.an")
 	public String annatest7() {return "anna/changePwd";}
 	
-	// 로그인
-	@RequestMapping(value="login.an1")
-	public String a() {return "";}
+	
 	
 	
 	
@@ -57,7 +69,7 @@ public class AnnaController {
 				Model model) { 
 			
 			//1.게시글 총 갯수 조회
-					int listCount = AnnaService.selectListCount();
+					int listCount = annaService.selectListCount();
 					
 					int pageLimit=10;
 					int boardLimit=5;
@@ -65,7 +77,7 @@ public class AnnaController {
 					PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
 					
 					//2.전체리스트 조회
-					ArrayList<Store> list = AnnaService.inqueryList(pi);
+					ArrayList<Inquery> list = annaService.inqueryList(pi);
 					
 					//System.out.println(list+"조회중");
 					model.addAttribute("pi",pi);

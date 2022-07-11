@@ -136,12 +136,12 @@
 							<p>신선한 샌드위치, Sand5rang 입니다</p>
 							
 							<div class="input-box">
-				                <input id="username" type="text" name="username" placeholder="아이디">
+				                <input id="username" type="text" name="storeId" placeholder="아이디">
 				                <label for="username">아이디</label>
 				            </div>
 				
 				            <div class="input-box">
-				                <input id="password" type="password" name="password" placeholder="비밀번호">
+				                <input id="password" type="password" name="storePwd" placeholder="비밀번호">
 				                <label for="password">비밀번호</label>
 				            </div>				
 						</div> <!-- /login-fields -->

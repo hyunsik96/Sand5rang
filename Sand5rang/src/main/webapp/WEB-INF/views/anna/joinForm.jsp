@@ -65,19 +65,19 @@
            
 
 /*inquiry_weapper*/
-.inquiry_wrapper{background-color:#f8f9fa; margin:auto; background-clip: content-box; padding:70px 49px; border:1px solid #e8e8e8; font-family: 'Noto Sans KR', sans-serif;}
-.inquiry_wrapper .board_write_wrapper .agree_info{overflow:hidden; padding:25px 100px 30px 100px}
+.inquiry_wrapper{background-color:#f8f9fa; background-clip: content-box; padding:70px 49px; border:1px solid #e8e8e8; font-family: 'Noto Sans KR', sans-serif;}
+.inquiry_wrapper .board_write_wrapper .agree_info{overflow:hidden; padding:25px 0 30px 0; margin:auto; width: 1000px;}
 .inquiry_wrapper .board_write_wrapper .agree_info >p{float:left; color:#666666; font-size:16px; font-weight:300; letter-spacing:-0.03em; text-indent:10px;}
 .inquiry_wrapper .board_write_wrapper .agree_info >p:after{content:''; background:url(../../../resouces/images/icon_ess.png) no-repeat; width:7px; height:6px; display:inline-block; vertical-align:middle; position:relative; margin-left:4px; top:-2px;}
 .inquiry_wrapper .board_write_wrapper .agree_info >.form_checkbox{float:right; top:-5px;}
 
-.inquiry_notice { background: #f6f6f6 url(https://www.subway.co.kr/images/common/icon_exc.png) 25px 50% no-repeat; display: flex;color: #999999; 
-                  flex-direction: column; justify-content: center; font-size: 13px; margin-top: 20px; padding: 15px 15px 19px 81px;min-height: 52px;}
+.inquiry_notice { width:1000px; background: rgb(234 234 234) url(https://www.subway.co.kr/images/common/icon_exc.png) 25px 50% no-repeat; display: flex;color: #999999; 
+                  flex-direction: column; justify-content: center; font-size: 13px; margin: auto; margin-top: 20px; padding: 15px 15px 10px 81px;min-height: 52px;}
 .inquiry_wrapper .btns_wrapper{position:relative; left:-70px; margin-right:-140px; padding-top:40px;}
 
  /* board-write*/         
 .board_write_wrapper{position:relative; padding: 50px 50px; position: relative; display: flex; flex-direction: column; justify-content: center;}
-.board_write_wrapper .rt_note { color: #999999; font-size: 16px; letter-spacing: -0.05em; position: absolute; right: 0; top: -29px;
+.board_write_wrapper .rt_note { color: #999999; font-size: 16px; letter-spacing: -0.05em; position: absolute; right: 100px; top: -29px;
     background: url(../../..resorces/images/icon_ess.png) 0 7px no-repeat; padding-right: 40px; }
 .board_write_wrapper th{font-weight:300; color:#666666; font-size:16px; height:21px; padding-top:24px; border-bottom:1px solid #e8e8e8; text-align:left; vertical-align:top;}
 .board_write_wrapper td{height:45px; padding:12px 0; border-bottom:1px solid #e8e8e8;}
@@ -128,7 +128,7 @@ input {vertical-align: middle; font-family: 'Noto Sans KR', sans-serif;  outline
 .btn span{display:inline-block; vertical-align:middle;}
 
 a.btn{background-color: #0b571f; padding:10px 10px; border-radius: 4px; width: 100px; }
-a.btn:hover{background-color: #346842; padding:10px 10px; border-radius: 4px; width: 100px; }
+a.btn:hover{background-color: #0f812e; padding:10px 10px; border-radius: 5px; width: 100px; }
 
 p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; }
 
@@ -353,7 +353,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                       <tr>
                           <th scope="col">내용 *<span class="ess"></span></th>
                           <td>
-                              <span class="form_textarea" style="width:100%" placeholder="none";>
+                              <span class="form_textarea" style="width:100%";>
                                   <textarea cols="5" maxlength="1000" name="content" placeholder="가맹점 신청과 관련된 문의사항을 작성해 주세요.
 문의하실 내용을 구체적으로 작성해 주시면 더욱 빠르고 정확한 답변을 드릴 수 있습니다." rows="10" style="width:900px; height:300px;">
                                   </textarea>
