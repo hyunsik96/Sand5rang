@@ -23,5 +23,7 @@ public class Order {
 	private String status;		//발주상태
 	private String storeId;		//가맹점아이디
 	private int ingNo;			//원재료번호
+	private String ingName;		//원재료이름
+	private String ingType;		//원재료종류
 	
 }

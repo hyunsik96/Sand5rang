@@ -9,6 +9,18 @@
 		<result column="EXPIRATION" property="expiration"/>
 		<result column="ING_TYPE" property="ingType"/>
 	</resultMap>
+	
+	<resultMap type="com.s5.sand5rang.sein.vo.Order" id="TodyOrderResultSet">
+		<result column="IND_NO" property="indNo"></result>
+		<result column="COUNT" property="count"></result>
+		<result column="IND_DATE" property="indDate"></result>
+		<result column="TOTAL" property="total"></result>
+		<result column="STATUS" property="status"></result>
+		<result column="STORE_ID" property="storeId"></result>
+		<result column="ING_NO" property="ingNo"></result>
+		<result column="ING_NAME" property="ingName"></result>
+		<result column="ING_NAME" property="ingName"></result>
+	</resultMap>
 
 	<!-- 원재료 전체 조회 select -->
 	<!-- <select id="selectIngredient" resultMap="IngredientResultSet">
@@ -32,5 +44,13 @@
 						 'GUM01', 
 						 #{ingNo})
 	</insert>
+	
+	<select id="selectTodayOrder" resultMap="TodyOrderResultSet">
+		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, ING_TYPE
+		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
+		WHERE STORE_ID = 'GUM01' 
+		      AND TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
+		ORDER BY ING_NO ASC
+	</select>
 
 </mapper>

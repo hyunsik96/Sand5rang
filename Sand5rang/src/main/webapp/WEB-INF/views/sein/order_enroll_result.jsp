@@ -178,8 +178,6 @@
 		<c:remove var="alertMsg" scope="session"/>
 	</c:if>
     
-    
-
 
 <div class="main">
 		<div class="main-inner">
@@ -189,7 +187,7 @@
 						<!-- <div class="widget-content widget-table action-table"> -->
 							<div class="widget-header">
 								<i class="icon-user"></i>
-								<h3>XXX 가맹점 발주 신청</h3>
+								<h3>XXX가맹점 발주 명세서</h3>
 							</div>
 
 
@@ -198,349 +196,83 @@
 <div class="widget-content"> 
     <div>
         <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
-            &nbsp;&nbsp;&nbsp;&nbsp;* 당일 발주는 14:00시까지 가능하며, 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;* 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
         </p>
     </div>
+
 <h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
+<c:forEach var="olist" items="${olist}" varStatus="status" begin="0" end="2">
 <div class="bread" style="display: block; float: left;">
-	<h4>*파마산</h4>
-	<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
+	<h4>*${olist.ingName}</h4>
+	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
+	<br>
     <br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
+	    <b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
+	    <br>     
+	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
 </div>
-<div class="bread">
-	<h4>*화이트</h4>
-	<img src="resources/images/ingredient/화이트.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="bread">
-	<h4>*플랫</h4>
-	<img src="resources/images/ingredient/플렛.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
+</c:forEach>
 <br>
 <br>
 <hr>
+
+
 <h3 style="margin-left:20px; margin-bottom: 10px">야채(Vegetable)</h3><br>
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="3" end="9">
 <div class="vegetable" style="margin-top:10px">
-	<h4>*양상추</h4>
-	<img src="resources/images/ingredient/양상추.jpg" width="150" height="150">
+	<h4>*${olist.ingName}</h4>
+	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
+    <br>
+	    <b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
+	    <br>     
+	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
 </div>
-<div class="vegetable">
-	<h4>*토마토</h4>
-	<img src="resources/images/ingredient/토마토.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*오이</h4>
-	<img src="resources/images/ingredient/오이.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*양파</h4>
-	<img src="resources/images/ingredient/양파.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*피망</h4>
-	<img src="resources/images/ingredient/피망.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="vegetable">
-	<h4>*할라피뇨</h4>
-	<img src="resources/images/ingredient/할라피뇨.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-
-<div class="vegetable" style="margin-top: 20px;">
-	<h4>*아보카도</h4>
-	<img src="resources/images/ingredient/아보카도.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
+</c:forEach>
 <br>
 <br>
 <hr>
+
 <h3 style="margin-left:20px; margin-bottom: 10px">고기(Meat)</h3><br>
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="10" end="15">
 <div class="meat" style="margin-top:10px">
-	<h4>*페퍼로니</h4>
-	<img src="resources/images/ingredient/페퍼로니.jpg" width="150" height="150">
+	<h4>*${olist.ingName}</h4>
+	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
+      	<b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
+	    <br>     
+	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
 </div>
-<div class="meat">
-	<h4>*에그</h4>
-	<img src="resources/images/ingredient/에그.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="meat">
-	<h4>*치킨</h4>
-	<img src="resources/images/ingredient/치킨.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="meat">
-	<h4>*쉬림프</h4>
-	<img src="resources/images/ingredient/쉬림프.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="meat">
-	<h4>*비프</h4>
-	<img src="resources/images/ingredient/비프.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="meat">
-	<h4>*베이컨</h4>
-	<img src="resources/images/ingredient/베이컨.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
+</c:forEach>
 <br><br>
 <hr>
+
 <h3 style="margin-left:20px; margin-bottom: 10px">소스(sauce)</h3><br>
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="16" end="20">
 <div class="sauce" style="margin-top:10px">
-	<h4>*렌치</h4>
-	<img src="resources/images/ingredient/랜치.jpg" width="150" height="150">
+	<h4>*${olist.ingName}</h4>
+	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
+   		<b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
+	    <br>     
+	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
 </div>
-<div class="sauce">
-	<h4>*스위트칠리</h4>
-	<img src="resources/images/ingredient/스위트칠리.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*올리브오일</h4>
-	<img src="resources/images/ingredient/올리브오일.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*머스타드</h4>
-	<img src="resources/images/ingredient/머스타드.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="sauce">
-	<h4>*후추</h4>
-	<img src="resources/images/ingredient/후추.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
+</c:forEach>
 <br><br>
 <hr>
+
 <h3 style="margin-left:20px; margin-bottom: 10px">치즈(cheese)</h3><br>
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="21" end="23">
 <div class="cheese" style="margin-top:10px">
-	<h4>*아메리칸</h4>
-	<img src="resources/images/ingredient/아메리칸.jpg" width="150" height="150">
+	<h4>*${olist.ingName}</h4>
+	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
 	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
+    	<b style="width:30px; margin-left: 40px;">발주 수량 : ${olist.count}</b>개 
+	    <br>     
+	    <b style="width:30px; margin-left: 40px;">발주 금액 : ${olist.total}</b>원
 </div>
-<div class="cheese">
-	<h4>*모짜렐라</h4>
-	<img src="resources/images/ingredient/모짜렐라.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-<div class="cheese">
-	<h4>*슈레드</h4>
-	<img src="resources/images/ingredient/슈레드.jpg" width="150" height="150">
-	<br>
-    <b>발주 수량 : </b>
-    <div style="display: inline-block;">
-        <input id="count" value="10" style="width:30px; margin: 0px;">
-    </div>
-    <div style="float: right;">    
-        <input type="button" value="▲">
-        <input type="button" value="▼">
-    </div>
-</div>
-
-
-<div style="margin-top: 50px; width: 100%; text-align: right;">
-    <input type="checkbox">
-    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>&nbsp;&nbsp;
-    <button type="button" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
-    <button type="button" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
-    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
-        ※ 자동발주 신청 시 매일(14:00시)에 자동으로 발주가 완료됩니다.<br> 
-        관리자 승인 14:00시 이전까지 발주 수정이 가능하며, 체크박스 해제시 자동발주 취소가 됩니다.
-    </p>
-</div>
+</c:forEach>
+<br><br>
 <hr>
 <br><br>
 
@@ -654,6 +386,7 @@
           </table>
         </div>
 	</div>
+	
 </div>
 </div>
 </div>

@@ -29,5 +29,10 @@ public class SeinService {
 	public int insertOrder(Order order) {
 		return seinDao.insertOrder(sqlSession, order);
 	}
+	
+	//가맹점 발주내역 상세조회 select Service
+	public ArrayList<Order> selectTodayOrder(){
+		return (ArrayList)seinDao.selectTodayOrder(sqlSession);
+	}
 }
 

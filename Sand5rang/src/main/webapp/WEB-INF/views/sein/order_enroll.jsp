@@ -1126,65 +1126,67 @@ function exe(){
     //원재료 번호 input hidden값 element 선택
     var ingNo = $("input[class=ingNo]");
 
-    if(check_value.is(':checked') == true){
-        
-        for(var i=0; i<ingNo.length; i++){
-            
-            status[i].setAttribute("value", "AB");
+    //수량이 담겨있는 input element선택
+    var count_result = $('input[class=count_result]');    
 
-            var form1 = $("form[id="+(i+1)+"]").serialize();
-            // //자동발주 신청 stat값 AB로 변경해주기 
-            
-            //controller로 보내기
-            (function(i){
+    var reCnt = 0;
 
-                console.log(form1);
-                    $.ajax({
-                        type: "post",
-                        url: "orderEnroll.se",
-                        data: form1,
-                        dataType: 'json',
-                        async: false,
-                        success: function (data) {
-                            alert("success");
-                            console.log(data);
-                        },
-                        error: function () {
-                            console.log("잘될꺼야");
+    for(var j=0; j<count_result.length; j++){
 
-                        }
-                    });
-            })(i);
-        }
-    }else{
-        for(var i=0; i<ingNo.length; i++){
-            
-            status[i].setAttribute("value", "B");
-
-            var form1 = $("form[id="+(i+1)+"]").serialize();
-            // //자동발주 신청 stat값 AB로 변경해주기 
-            
-            //controller로 보내기
-            (function(i){
-                console.log(form1);
-                    $.ajax({
-                        type: "post",
-                        url: "orderEnroll.se",
-                        data: form1,
-                        dataType: 'json',
-                        async: false,
-                        success: function (data) {
-                            alert("success");
-                            console.log(data);
-                        },
-                        error: function () {
-                            console.log("잘될꺼야");
-                        }
-                    });
-            })(i);
-        }
-                
+        reCnt += count_result[j].value;
     }
-}
+    
+        if(reCnt>0){
+            
+            if(check_value.is(':checked') == true){
+        
+                for(var i=0; i<ingNo.length; i++){
+                    
+                    status[i].setAttribute("value", "AB");
+
+                    var form1 = $("form[id="+(i+1)+"]").serialize();
+                    // //자동발주 신청 stat값 AB로 변경해주기 
+                    
+                    //controller로 보내기
+                    (function(i){
+
+                        console.log(form1);
+                            $.ajax({
+                                type: "post",
+                                url: "orderEnroll.se",
+                                data: form1,
+                                dataType: 'json',
+                                async: false
+                            });
+                    })(i);
+                }
+            }else{
+                for(var i=0; i<ingNo.length; i++){
+
+                    status[i].setAttribute("value", "B");
+
+                    var form1 = $("form[id="+(i+1)+"]").serialize();
+                    // //자동발주 신청 stat값 AB로 변경해주기 
+                    
+                    //controller로 보내기
+                    (function(i){
+                        console.log(form1);
+                            $.ajax({
+                                type: "post",
+                                url: "orderEnroll.se",
+                                data: form1,
+                                dataType: 'json',
+                                async: false
+                            });
+                    })(i);
+                
+                }
+            }
+            location.href = "orderEnrollResult.se";
+        }
+        else{
+            alert("1개 이상 발주수량을 선택해주세요.");
+        }
+    }
 </script>
 </html>

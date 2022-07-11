@@ -22,4 +22,9 @@ public class SeinDao {
 		
 		return sqlSession.insert("seinMapper.insertOrder", order);
 	}
+	
+	//발주상세내역 조회 select문
+	public ArrayList<Order> selectTodayOrder(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder");
+	}
 }
