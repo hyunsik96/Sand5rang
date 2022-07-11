@@ -113,8 +113,9 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li class="active"><a href="ingredientStock.csh">재료별 재고현황</a></li>
 						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
-						<li class="active"><a href="ingredientDisposal.csh">폐기현황</a></li>
+						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
 				
@@ -177,6 +178,10 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>재료별 재고 현황</h3>
+						<input type="text" id="search"
+						style="display:inline-block; width:150px; height:15px; margin-top:10px; margin-left:65%; ">
+						<button id="btn" class="btn btn-success">검색</button>
+
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -186,7 +191,7 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-	<table class="table table-bordered">
+	<table id="st_table" class="table table-bordered">
 		<thead>
 			<tr class="st_head">
 				<th>가맹점명</th>
@@ -196,14 +201,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="i" begin="1" end="10" step="1">
-			<tr class="st_body2">
-				<td>가맹점1</td>
-				<td>파마산</td>
-				<td>30</td>
-				<td>2022-07-06</td>
-			</tr>	
-		</c:forEach>															
+
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
@@ -317,7 +315,31 @@
 
 
 <jsp:include page="include/6.jsp" />
- 
+ <script>
+ 	$(function(){
+ 		$("#btn").click(function(){
+ 			$.ajax({
+ 				url : "ingredientStock.csh",
+ 				data : {search : $("#search").val},
+ 				success : function(result){
+ 					var resultStr = ""
+ 					for(var i=0; i<result.length; i++){
+ 						resultStr += "<tr>"
+ 									+		"<td>"+ result[i].storeId +"</td>"
+ 									+		"<td>"+ result[i].ingName +"</td>"
+ 									+		"<td>"+ result[i].count +"</td>"
+ 									+		"<td>"+ result[i].stoDate +"</td>"
+ 									+ "</tr>"
+ 					}
+ 					$("#st_table>tbody").html(resultStr)
+ 				},
+ 				error : function(){
+ 					console.log("ajax통신 실패!");
+ 				}
+ 			})
+ 		});
+ 	})
+ </script>
  </body>
 
 </html>

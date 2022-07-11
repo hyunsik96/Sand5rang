@@ -138,10 +138,11 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">오늘의 재고</a></li>
-						<li><a href="faq.html">전체 재고 현황</a></li>
-						<li><a href="faq.html">재료별 재고 현황</a></li>
-						<li><a href="faq.html">폐기 현황 </a></li>
+                        <li><a href="menuSales.csh">매출기입</a></li>
+						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li><a href="ingredientStock.csh">재료별 재고현황</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
+						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
                     </ul>    				
 				</li>	                
 				

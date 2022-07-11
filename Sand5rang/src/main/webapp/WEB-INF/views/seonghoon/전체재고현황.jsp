@@ -113,9 +113,10 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
+						<li><a href="ingredientStock.csh">재료별 재고현황</a></li>
 						<li class="active"><a href="ingredientAllStock.csh">전체 재고현황</a></li>
 						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
-                    </ul>    				
+                    </ul>   				
 				</li>
 				
 				<li class="dropdown">					
@@ -196,20 +197,38 @@
 				<th>고기</th>
 				<th>치즈</th>
 				<th>소스</th>
-				
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
+			<c:forEach var="ss" items="${ss_list }">
+				<c:if test="${ss.ingType eq 'B'}">
+				<td>${ss.count}</td>
+				</c:if>			
+			</c:forEach>
+			<c:forEach var="ss" items="${ss_list }">
+				<c:if test="${ss.ingType eq 'V'}">
+				<td>${ss.count}</td>
+				</c:if>
+			</c:forEach>
+			<c:forEach var="ss" items="${ss_list }">
+				<c:if test="${ss.ingType eq 'M'}">
+				<td>${ss.count}</td>
+				</c:if>
+			</c:forEach>
+			<c:forEach var="ss" items="${ss_list }">
+				<c:if test="${ss.ingType eq 'C'}">
+				<td>${ss.count}</td>
+				</c:if>
+			</c:forEach>
+			<c:forEach var="ss" items="${ss_list }">
+				<c:if test="${ss.ingType eq 'S'}">
+				<td>${ss.count}</td>
+				</c:if>
+			</c:forEach>												
 			</tr>
 		</tbody>
 	</table>
-									
 <h4 class="stockSum">재고현황</h4>
 	<table class="table table-bordered stockTable2">
 		<thead>
@@ -219,20 +238,14 @@
 				<th>고기</th>
 				<th>치즈</th>
 				<th>소스</th>
-				<th>입고일</th>
-				<th>출고일</th>
+				<th>입고출고일</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td></td>
-			</tr>
+
+				<tr class="st_body">
+				</tr>
+			<!-- 
 			<tr class="st_body">
 				<td>10</td>
 				<td>10</td>
@@ -313,7 +326,8 @@
 				<td>10</td>
 				<td></td>
 				<td>2022-07-06</td>
-			</tr>								
+			</tr>
+			-->								
 		</tbody>
 	</table>				
 	
@@ -325,11 +339,26 @@
 	      		
 	<!-- /widget-content -->
 		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-			<li class="page-item"><a class="page-link" href="#"><</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">></a></li>
+               		<!-- 버튼이 보이지 않게 하는 것이 아닌, 단순히 클릭만 안되게끔 설정해줌. -->
+					<c:choose>
+						<c:when test="${pi.currentPage eq 1 }">
+	 	                  	<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+						</c:when>
+						<c:otherwise>
+	 	                  	<li class="page-item"><a class="page-link" href="list.bo?spage=${pi.currentPage-1 }">Previous</a></li>
+						</c:otherwise>
+					</c:choose> 
+                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}" step="1">
+	                    <li class="page-item"><a class="page-link" href="list.bo?spage=${p}">${p}</a></li>
+                    </c:forEach>
+	              	<c:choose>
+	              		<c:when test="${pi.currentPage eq pi.maxPage }">
+	                    	<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+	              		</c:when>
+	              		<c:otherwise>
+	                    	<li class="page-item"><a class="page-link" href="list.bo?spage=${pi.currentPage + 1 }">Next</a></li>
+	              		</c:otherwise>
+	              	</c:choose>     
 		</ul>
 	</div>		      	
 		    </div> <!-- /span8 -->

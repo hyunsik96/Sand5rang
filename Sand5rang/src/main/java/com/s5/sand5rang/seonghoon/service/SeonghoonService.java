@@ -7,7 +7,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.seonghoon.dao.SeonghoonDao;
+import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
 import com.s5.sand5rang.seonghoon.vo.Stock;
@@ -48,7 +50,21 @@ public class SeonghoonService {
 	public int insertSales(HashMap<String,Integer> hashmap) { return seonghoonDao.insertSales(sqlSession,hashmap); }
 	
 	// ***************** 전체 재고현황 ************************
-	public ArrayList<Stock> selectSumStock(){re}
+	// 재고 합계
+	public ArrayList<Stock> selectSumStock(){return seonghoonDao.selectSumStock(sqlSession); }
+	
+	// 재고 현황
+	public ArrayList<Flow> selectInFlow(){
+		return seonghoonDao.selectInFlow(sqlSession);
+	}
+	public ArrayList<Flow> selectOutFlow(){
+		return seonghoonDao.selectOutFlow(sqlSession);
+	}
+	
+	// *************** 재료별 재고현황 **************************
+	public ArrayList<Stock> selectSearchIng(HashMap<String,String> hashmap){
+		return seonghoonDao.selectSearchIng(hashmap,sqlSession);
+	}
 	
 }
 

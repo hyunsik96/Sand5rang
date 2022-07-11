@@ -3,9 +3,12 @@ package com.s5.sand5rang.seonghoon.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.s5.sand5rang.common.model.vo.PageInfo;
+import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
 import com.s5.sand5rang.seonghoon.vo.Stock;
@@ -73,6 +76,22 @@ public class SeonghoonDao {
 		return sqlSession.insert("seonghoonMapper.insertSales", hashmap);
 	}
 	
+	// ****************************** 전체 재고현황 ***********************************
+	// 재고합계
+	public ArrayList<Stock> selectSumStock(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectSumStock");
+	}
 	
-
+	// 재고현황
+	public ArrayList<Flow> selectInFlow(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectInFlow");
+	}
+	public ArrayList<Flow> selectOutFlow(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectOutFlow");
+	}
+	
+	// ****************************** 재료별 재고현황 ********************************
+	public ArrayList<Stock> selectSearchIng(HashMap<String,String> hashmap, SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectSearchIng",hashmap);
+	}
 }

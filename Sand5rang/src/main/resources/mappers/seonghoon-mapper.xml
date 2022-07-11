@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="seonghoonMapper">
+
 	<!-- Menu -->
 	<resultMap id="MenuResultMap" type="com.s5.sand5rang.seonghoon.vo.Menu">
 		<result column="MEN_NAME" property="menName"/>
@@ -18,7 +19,20 @@
 	<resultMap id="StockResultMap" type="com.s5.sand5rang.seonghoon.vo.Stock">
 		<result column="COUNT" property="count"/>
 		<result column="ING_NO" property="ingNo"/>
+		<result column="ING_NAME" property="ingName"/>
 		<result column="STO_DATE" property="stoDate"/>
+		<result column="ING_TYPE" property="ingType"/>
+	</resultMap>
+	
+	<!-- Flow -->
+	<resultMap id="FlowResultMap" type="com.s5.sand5rang.seonghoon.vo.Flow">
+		<result column="FLO_NO" property="floNo"/>
+		<result column="COUNT" property="count"/>
+		<result column="FLO_DATE" property="floDate"/>
+		<result column="STATUS" property="status"/>
+		<result column="STORE_ID" property="storeId"/>
+		<result column="ING_NO" property="ingNo"/>
+		<result column="ING_TYPE" property="ingType"/>
 	</resultMap>
 	
 	
@@ -173,4 +187,36 @@
 	
 	
 	<!-- *****************전체 재고현황 ***************** -->
+	<!-- 재고합계 -->
+	<select id="selectSumStock" resultMap="StockResultMap">
+		SELECT ING_TYPE,SUM(COUNT)"COUNT"
+		FROM STOCK
+		JOIN INGREDIENT USING(ING_NO)
+		GROUP BY ING_TYPE
+	</select>
+	
+	<!-- 재고현황 -->
+	<select id="selectInFlow" resultMap="FlowResultMap">
+		SELECT ING_TYPE, FLO_DATE,SUM(COUNT)"COUNT"
+		FROM FLOW
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE STATUS='I'
+		GROUP BY ING_TYPE, FLO_DATE	
+	</select>
+	<select id="selectOutFlow" resultMap="FlowResultMap">
+		SELECT ING_TYPE, FLO_DATE,SUM(COUNT)"COUNT"
+		FROM FLOW
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE STATUS='O'
+		GROUP BY ING_TYPE, FLO_DATE	
+	</select>
+	
+	<!-- ****************** 재료별 재고현황 ********************** -->
+	<select id="selectSearchIng" parameterType="hashmap" resultMap="StockResultMap">
+		SELECT STORE_ID, ING_NAME, COUNT, STO_DATE
+		FROM STOCK
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE ING_NAME = #{search}
+	</select>
+	
 </mapper>

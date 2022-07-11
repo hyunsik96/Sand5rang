@@ -406,7 +406,6 @@ margin-bottom: 26px;}
 	text-align:center;
 }
 .st_body td{
-	text-align:center;
 	width:200px;
 }
 

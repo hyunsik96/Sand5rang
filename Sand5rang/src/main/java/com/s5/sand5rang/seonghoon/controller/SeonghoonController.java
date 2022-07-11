@@ -10,11 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
+import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
 import com.s5.sand5rang.seonghoon.vo.Stock;
+
 
 @Controller
 public class SeonghoonController {
@@ -74,9 +77,16 @@ public class SeonghoonController {
 		return "seonghoon/오늘의재고";
 	}
 	
-	@RequestMapping(value="ingredientStock.csh")
-	public String ingredientStockList(Model model) {
-		return "seonghoon/재료별재고현황";
+	/********************* 재료별 재고 현황 ************************/
+	@ResponseBody
+	@RequestMapping(value="ingredientStock.csh", produces="application/json; charset=UTF-8")
+	public String ingredientStockList(String search, Model model) {
+		
+		HashMap<String,String> hashmap = new HashMap<>();
+		hashmap.put("search", search);
+		ArrayList<Stock> ing_list = seonghoonService.selectSearchIng(hashmap);
+		model.addAttribute("ing_list", ing_list);
+		
 	}
 	
 	/***************** 전체 재고현황 *********************/
@@ -85,17 +95,17 @@ public class SeonghoonController {
 			Model model,
 			@RequestParam(value="spage",defaultValue="1") int currentPage
 			){
+		// 재고 합계
+		ArrayList<Stock> ss_list = seonghoonService.selectSumStock();
+		model.addAttribute("ss_list",ss_list);
 		
-		ArrayList<Stock> list1 = seonghoonService.selectSumStock();
-		
-		// System.out.println("spage : "+currentPage);
-		// http://localhost:8006/sand5rang/ingredientAllStock.csh이지만 ?spage=1이 생략된 상황'
-		int listCount = seonghoonService.selectAllStockCount();
-		int pageLimit = 10;
-		int boardLimit = 6;
-		
-		
-		return "seonghoon/전체재고현황";
+		// 재고 현황
+		ArrayList<Flow> in_list = seonghoonService.selectInFlow();
+		ArrayList<Flow> out_list = seonghoonService.selectOutFlow();
+		model.addAttribute("in_list", in_list);
+		model.addAttribute("out_list", out_list);
+			
+	return "seonghoon/전체재고현황";
 	}
 	
 	@RequestMapping(value="ingredientDisposal.csh")
