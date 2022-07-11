@@ -167,7 +167,7 @@
 					
 					<div class="widget-content whyunsik">
 
-
+<c:if test="${!empty list}">
 
               <table class="table table-striped table-bordered">
                 <thead>
@@ -182,19 +182,94 @@
                 </thead>
               </table>
               
+<c:forEach var="aaa" items="${list}" varStatus="status">
+    
+    <c:forEach var="indent" items="${list[status.index]}" varStatus="status2">
+	    <c:if test="${indent.ingNo eq 1}">
+			<c:set var="a" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 2}">
+			<c:set var="b" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 3}">
+			<c:set var="c" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 4}">
+			<c:set var="d" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 5}">
+			<c:set var="e" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 6}">
+			<c:set var="f" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 7}">
+			<c:set var="g" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 8}">
+			<c:set var="h" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 9}">
+			<c:set var="i" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 10}">
+			<c:set var="j" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 11}">
+			<c:set var="k" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 12}">
+			<c:set var="l" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 13}">
+			<c:set var="m" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 14}">
+			<c:set var="n" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 15}">
+			<c:set var="o" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 16}">
+			<c:set var="p" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 17}">
+			<c:set var="q" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 18}">
+			<c:set var="r" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 19}">
+			<c:set var="s" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 20}">
+			<c:set var="t" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 21}">
+			<c:set var="u" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 22}">
+			<c:set var="v" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 23}">
+			<c:set var="w" value="${indent.count}"/>
+		</c:if>
+	    <c:if test="${indent.ingNo eq 24}">
+			<c:set var="x" value="${indent.count}"/>
+		</c:if>
+	</c:forEach>
              <table class="table table-striped table-bordered">
                   <tr>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9001, #9002, #9003, #9004, #9005">22/07/13</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9001">999</span></td>          
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9002">999</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9003">999</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9004">999</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9005">999</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#${status.index}1, #${status.index}2, #${status.index}3, #${status.index}4, #${status.index}5">${aaa[0].date}</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}1">${a+b+c}</span></td>          
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}2">${d+e+f+g+h+i+j}</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}3">${k+l+m}</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}4">${n+o+p+q+r+s}</span></td>
+                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${status.index}5">${t+u+v+w+x}</span></td>
                   </tr>
               </table>
-			
-
-              <div id="9001" class="accordion-body collapse">
+	
+              <div id="${status.index}1" class="accordion-body collapse">
 	          	<div class="accordion-inner">
 					<table class="table table-striped table-bordered">
 						<thead>
@@ -202,20 +277,28 @@
 			                    <th class="td-actions">파마산</th>
 			                    <th class="td-actions">화이트</th>
 			                    <th class="td-actions">플랫</th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
+								<td class="td-actions">${a}</td>
+								<td class="td-actions">${b}</td>
+								<td class="td-actions">${c}</td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
               	</div>
               </div>
 
-              <div id="9002" class="accordion-body collapse">
+              <div id="${status.index}2" class="accordion-body collapse">
 	          	<div class="accordion-inner">
 					<table class="table table-striped table-bordered">
 						<thead>
@@ -231,20 +314,20 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
+								<td class="td-actions">${d}</td>
+								<td class="td-actions">${e}</td>
+								<td class="td-actions">${f}</td>
+								<td class="td-actions">${g}</td>
+								<td class="td-actions">${h}</td>
+								<td class="td-actions">${i}</td>
+								<td class="td-actions">${j}</td>
 							</tr>
 						</tbody>
 	            	</table>
               	</div>
               </div>
               
-              <div id="9003" class="accordion-body collapse">
+              <div id="${status.index}3" class="accordion-body collapse">
 	          	<div class="accordion-inner">
 					<table class="table table-striped table-bordered">
 						<thead>
@@ -252,47 +335,57 @@
 			                    <th class="td-actions">아메리칸</th>
 			                    <th class="td-actions">모짜렐라</th>
 			                    <th class="td-actions">슈레드</th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
+								<td class="td-actions">${k}</td>
+								<td class="td-actions">${l}</td>
+								<td class="td-actions">${m}</td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
               	</div>
               </div>
               
-              <div id="9004" class="accordion-body collapse">
+              <div id="${status.index}4" class="accordion-body collapse">
 	          	<div class="accordion-inner">
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
 			                    <th class="td-actions">페퍼로니</th>
-			                    <th class="td-actions">에그</th>
+			                    <th class="td-actions">에그마요</th>
 			                    <th class="td-actions">치킨</th>
 			                    <th class="td-actions">쉬림프</th>
 			                    <th class="td-actions">비프</th>
 			                    <th class="td-actions">베이컨</th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
+								<td class="td-actions">${n}</td>
+								<td class="td-actions">${o}</td>
+								<td class="td-actions">${p}</td>
+								<td class="td-actions">${q}</td>
+								<td class="td-actions">${r}</td>
+								<td class="td-actions">${s}</td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
               	</div>
               </div>
 
-              <div id="9005" class="accordion-body collapse">
+              <div id="${status.index}5" class="accordion-body collapse">
 	          	<div class="accordion-inner">
 					<table class="table table-striped table-bordered">
 						<thead>
@@ -302,170 +395,65 @@
 			                    <th class="td-actions">올리브오일</th>
 			                    <th class="td-actions">머스타드</th>
 			                    <th class="td-actions">후추</th>
+			                    <th class="td-actions"></th>
+			                    <th class="td-actions"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
+								<td class="td-actions">${t}</td>
+								<td class="td-actions">${u}</td>
+								<td class="td-actions">${v}</td>
+								<td class="td-actions">${w}</td>
+								<td class="td-actions">${x}</td>
+								<td class="td-actions"></td>
+								<td class="td-actions"></td>
 							</tr>
 						</tbody>
 	            	</table>
               	</div>
               </div>
-              
+</c:forEach>
 
-             <table class="table table-striped table-bordered">
-                  <tr>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target="#9006, #9007, #9008, #9009, #9010">22/07/12</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9006">999</span></td>          
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9007">999</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9008">999</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9009">999</span></td>
-                    <td class="td-actions"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#9010">999</span></td>
-                  </tr>
-              </table>
-			
-
-              <div id="9006" class="accordion-body collapse">
-	          	<div class="accordion-inner">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-			                    <th class="td-actions">파마산</th>
-			                    <th class="td-actions">화이트</th>
-			                    <th class="td-actions">플랫</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-							</tr>
-						</tbody>
-	            	</table>
-              	</div>
-              </div>
-
-              <div id="9007" class="accordion-body collapse">
-	          	<div class="accordion-inner">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-			                    <th class="td-actions">양상추</th>
-			                    <th class="td-actions">토마토</th>
-			                    <th class="td-actions">오이</th>
-			                    <th class="td-actions">양파</th>
-			                    <th class="td-actions">피망</th>
-			                    <th class="td-actions">할라피뇨</th>
-			                    <th class="td-actions">아보카도</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-							</tr>
-						</tbody>
-	            	</table>
-              	</div>
-              </div>
-              
-              <div id="9008" class="accordion-body collapse">
-	          	<div class="accordion-inner">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-			                    <th class="td-actions">아메리칸</th>
-			                    <th class="td-actions">모짜렐라</th>
-			                    <th class="td-actions">슈레드</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-							</tr>
-						</tbody>
-	            	</table>
-              	</div>
-              </div>
-              
-              <div id="9009" class="accordion-body collapse">
-	          	<div class="accordion-inner">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-			                    <th class="td-actions">페퍼로니</th>
-			                    <th class="td-actions">에그</th>
-			                    <th class="td-actions">치킨</th>
-			                    <th class="td-actions">쉬림프</th>
-			                    <th class="td-actions">비프</th>
-			                    <th class="td-actions">베이컨</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-							</tr>
-						</tbody>
-	            	</table>
-              	</div>
-              </div>
-
-              <div id="9010" class="accordion-body collapse">
-	          	<div class="accordion-inner">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-			                    <th class="td-actions">랜치</th>
-			                    <th class="td-actions">스위트칠리</th>
-			                    <th class="td-actions">올리브오일</th>
-			                    <th class="td-actions">머스타드</th>
-			                    <th class="td-actions">후추</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-								<td class="td-actions">9</td>
-							</tr>
-						</tbody>
-	            	</table>
-              	</div>
-              </div>
+</c:if>
 
 
 
 					</div> <!-- /widget-content -->
-						
+<c:if test="${empty list}"><div id="micheuri">공장 발주내역이 없습니다.</div></c:if>
 				</div> <!-- /widget -->
 				
-								<ul class="pagination pagination-sm">
-									<li class="page-item"><a class="page-link" href="#"><</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">></a></li>
-								</ul>
+<c:if test="${!empty list}">     		
+<ul class="pagination pagination-sm">
+<c:choose>
+	<c:when test="${pi.currentPage eq 1}">
+	<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ad2.hs?p=${pi.currentPage - 1}"><</a></li>
+	</c:otherwise>
+</c:choose>
+
+<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+	<c:if test="${pi.currentPage eq p}">
+		<li class="page-item active"><a class="page-link" href="ad1.hs?p=${p}">${p}</a></li>
+	</c:if>
+	<c:if test="${pi.currentPage ne p}">
+		<li class="page-item"><a class="page-link" href="ad2.hs?p=${p}">${p}</a></li>
+	</c:if>
+</c:forEach>
+
+<c:choose>
+	<c:when test="${pi.currentPage eq pi.maxPage}">
+	<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ad2.hs?p=${pi.currentPage + 1}">></a></li>
+	</c:otherwise>
+</c:choose>
+</ul>
+
+</c:if>  	
 	      		
 		    </div> <!-- /span8 -->
 	      	

@@ -51,7 +51,29 @@ public class HyunsikController {
 	}
 	
 	@RequestMapping(value="ad2.hs")
-	public String gg3() {return "hyunsik/admin2";}
+	public String factoryIndentList(
+			@RequestParam(value="p", defaultValue="1") int currentPage, 
+			Model model) {
+		
+		int listCount = hyunsikService.facListCount();
+		int pageLimit = 10;
+		int boardLimit = 5;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
+		ArrayList<String> dateList = hyunsikService.selectAd2List(pi);
+		ArrayList<Indent> facList = null;
+		ArrayList<ArrayList<Indent>> list = new ArrayList<>();
+		for(String date : dateList) {
+			facList = hyunsikService.facIndList(date);
+			list.add(facList);
+		}
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+
+		return "hyunsik/admin2";
+	}
 
 	@RequestMapping(value="ad3.hs")
 	public String gg4() {return "hyunsik/admin3";}

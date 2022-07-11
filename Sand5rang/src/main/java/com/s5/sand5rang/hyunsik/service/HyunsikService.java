@@ -58,5 +58,17 @@ public class HyunsikService {
 		return hyunsikDao.addStock(sqlSession, i);
 	}
 	
+	public int facListCount() {
+		return hyunsikDao.facListCount(sqlSession);
+	}
+	
+	public ArrayList<String> selectAd2List(PageInfo pi){
+		return hyunsikDao.selectAd2List(sqlSession, pi);
+	}
+	
+	public ArrayList<Indent> facIndList(String date) {
+		return hyunsikDao.facIndList(sqlSession, date);
+	}
+	
 }
 
