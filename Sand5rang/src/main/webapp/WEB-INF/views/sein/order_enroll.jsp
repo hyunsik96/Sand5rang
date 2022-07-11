@@ -1069,11 +1069,10 @@ function exe(){
 
     for(var j=0; j<ingNo.length; j++){
 
-        var form1 = $("form[id="+j+"]").serialize();
-
-        console.log(form1);
-
         (function(j){
+
+            var form1 = $("form[id="+j+"]").serialize();
+            
                     $.ajax({
                             type: "post",
                             url: "orderEnroll.se",

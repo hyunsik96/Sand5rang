@@ -11,11 +11,10 @@
 	</resultMap>
 
 	<!-- 원재료 전체 조회 select -->
-	<select id="selectIngredient" resultMap="IngredientResultSet">
+	<!-- <select id="selectIngredient" resultMap="IngredientResultSet">
 		SELECT ING_NO, ING_NAME, PRICE, EXPIRATION, ING_TYPE 
 		FROM INGREDIENT
-	</select>
+	</select> -->
 	
-	
-	
+
 </mapper>
