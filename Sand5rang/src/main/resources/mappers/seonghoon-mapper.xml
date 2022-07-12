@@ -22,6 +22,7 @@
 		<result column="ING_NAME" property="ingName"/>
 		<result column="STO_DATE" property="stoDate"/>
 		<result column="ING_TYPE" property="ingType"/>
+		<result column="STORE_ID" property="storeId"/>
 	</resultMap>
 	
 	<!-- Flow -->

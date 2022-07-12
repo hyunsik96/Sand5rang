@@ -179,7 +179,7 @@
 	      				<i class="icon-user"></i>
 	      				<h3>재료별 재고 현황</h3>
 						<input type="text" id="search"
-						style="display:inline-block; width:150px; height:15px; margin-top:10px; margin-left:65%; ">
+						style="display:inline-block; width:150px; height:15px; margin-top:10px; margin-left:65%;">
 						<button id="btn" class="btn btn-success">검색</button>
 
 	  				</div> <!-- /widget-header -->
@@ -319,8 +319,8 @@
  	$(function(){
  		$("#btn").click(function(){
  			$.ajax({
- 				url : "ingredientStock.csh",
- 				data : {search : $("#search").val},
+ 				url : "ingredientStock1.csh",
+ 				data : {search : $("#search").val()},
  				success : function(result){
  					var resultStr = ""
  					for(var i=0; i<result.length; i++){
@@ -331,7 +331,7 @@
  									+		"<td>"+ result[i].stoDate +"</td>"
  									+ "</tr>"
  					}
- 					$("#st_table>tbody").html(resultStr)
+ 					$("#st_table>tbody").html(resultStr);
  				},
  				error : function(){
  					console.log("ajax통신 실패!");

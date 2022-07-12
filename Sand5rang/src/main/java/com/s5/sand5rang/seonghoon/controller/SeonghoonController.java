@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
@@ -78,14 +79,23 @@ public class SeonghoonController {
 	}
 	
 	/********************* 재료별 재고 현황 ************************/
+	@RequestMapping(value="ingredientStock.csh")
+	public String ingredientView(Model model) {
+		return "seonghoon/재료별재고현황";
+	}
+	
 	@ResponseBody
-	@RequestMapping(value="ingredientStock.csh", produces="application/json; charset=UTF-8")
+	@RequestMapping(value="ingredientStock1.csh", produces="application/json; charset=UTF-8")
 	public String ingredientStockList(String search, Model model) {
 		
+		// System.out.println("검색어 : "+search);
 		HashMap<String,String> hashmap = new HashMap<>();
 		hashmap.put("search", search);
+		
+		
 		ArrayList<Stock> ing_list = seonghoonService.selectSearchIng(hashmap);
-		model.addAttribute("ing_list", ing_list);
+		
+		return new Gson().toJson(ing_list);
 		
 	}
 	
