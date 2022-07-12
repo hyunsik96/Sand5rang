@@ -340,6 +340,31 @@
  		});
  	})
  </script>
+ <script>
+ 	$(function(){
+ 		$("#search").keydown(function(){
+ 			$.ajax({
+ 				url : "ingredientStock1.csh",
+ 				data : {search : $("#search").val()},
+ 				success : function(result){
+ 					var resultStr = ""
+ 					for(var i=0; i<result.length; i++){
+ 						resultStr += "<tr>"
+ 									+		"<td>"+ result[i].storeId +"</td>"
+ 									+		"<td>"+ result[i].ingName +"</td>"
+ 									+		"<td>"+ result[i].count +"</td>"
+ 									+		"<td>"+ result[i].stoDate +"</td>"
+ 									+ "</tr>"
+ 					}
+ 					$("#st_table>tbody").html(resultStr);
+ 				},
+ 				error : function(){
+ 					console.log("ajax통신 실패!");
+ 				}
+ 			}) 			
+ 		})
+ 	});
+ </script>
  </body>
 
 </html>
