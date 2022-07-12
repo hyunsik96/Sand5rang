@@ -7,8 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.seonghoon.dao.SeonghoonDao;
+import com.s5.sand5rang.seonghoon.vo.Expiration;
 import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
@@ -47,6 +47,20 @@ public class SeonghoonService {
 	
 	// *****************판매기입페이지************************* 
 	public int insertSales(Menu m) { return seonghoonDao.insertSales(sqlSession, m); }
+	public ArrayList<Ingredient> selectIngMen(int menNo){
+		return seonghoonDao.selectIngMen(sqlSession, menNo);
+	}
+	public int insertFlow(Ingredient i) {
+		return seonghoonDao.insertFlow(sqlSession, i);
+	}
+	
+	public int getExp(Ingredient i) {
+		return seonghoonDao.getExp(sqlSession, i);
+	}
+	
+	public int updateStock(Ingredient i) {
+		return seonghoonDao.updateStock(sqlSession, i);
+	}
 	
 	// ***************** 전체 재고현황 ************************
 	// 재고 합계

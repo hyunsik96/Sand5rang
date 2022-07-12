@@ -15,6 +15,7 @@
 		<result column="ING_NO" property="ingNo"/>
 		<result column="ING_NAME" property="ingName"/>
 		<result column="ING_TYPE" property="ingType"/>		
+		<result column="EXPIRATION" property="expiration"/>		
 	</resultMap>
 	
 	<!-- Stock -->
@@ -178,6 +179,43 @@
 		INSERT INTO SALES(SAL_NO, SAL_DATE, COUNT, TOTAL, STORE_ID, MEN_NO)
 		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count}, #{total}, 'admin', #{menNo})
 	</insert>
+	
+	<select id="selectIngMen" parameterType="_int" resultMap="IngredientResultMap">
+		SELECT ING_NO, EXPIRATION 
+		FROM COMBINATION 
+		JOIN INGREDIENT USING(ING_NO) 
+		WHERE MEN_NO = #{menNo} 
+	</select>
+	
+	<insert id="insertFlow" parameterType="com.s5.sand5rang.seonghoon.vo.Ingredient">
+		INSERT INTO FLOW
+		VALUES(
+		SEQ_FLOWNO.NEXTVAL, 
+		#{count}, 
+		SYSDATE, 
+		'O', 
+		'admin', 
+		#{ingNo}
+		)
+	</insert>
+	
+	<select id="getExp" parameterType="com.s5.sand5rang.seonghoon.vo.Ingredient" resultType="_int">
+		SELECT NVL(SUM(COUNT), 0) COUNT
+		FROM STOCK
+		WHERE
+		TO_CHAR(STO_DATE, 'YYMMDD') = TO_CHAR(SYSDATE-#{index}, 'YYMMDD') AND 
+		ING_NO = #{ingNo} AND
+		STORE_ID = '15'
+	</select>
+	
+	<update id="updateStock" parameterType="com.s5.sand5rang.seonghoon.vo.Ingredient">
+		UPDATE STOCK 
+		SET COUNT = #{use} 
+		WHERE  
+		TO_CHAR(STO_DATE, 'YYMMDD') = TO_CHAR(SYSDATE-#{index}, 'YYMMDD') AND 
+		ING_NO = #{ingNo} AND 
+		STORE_ID = '15' 
+	</update>
 	
 	<!-- *****************전체 재고현황 ***************** -->
 	<!-- 재고합계 -->

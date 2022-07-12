@@ -3,11 +3,10 @@ package com.s5.sand5rang.seonghoon.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.s5.sand5rang.common.model.vo.PageInfo;
+import com.s5.sand5rang.seonghoon.vo.Expiration;
 import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
@@ -71,6 +70,22 @@ public class SeonghoonDao {
 	// *******************************판매기입 페이지***********************************
 	public int insertSales(SqlSessionTemplate sqlSession, Menu m) {
 		return sqlSession.insert("seonghoonMapper.insertSales", m);
+	}
+	
+	public ArrayList<Ingredient> selectIngMen(SqlSessionTemplate sqlSession, int menNo){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectIngMen", menNo);
+	}
+	
+	public int insertFlow(SqlSessionTemplate sqlSession, Ingredient i) {
+		return sqlSession.insert("seonghoonMapper.insertFlow", i);
+	}
+	
+	public int getExp(SqlSessionTemplate sqlSession, Ingredient i) {
+		return sqlSession.selectOne("seonghoonMapper.getExp", i);
+	}
+	
+	public int updateStock(SqlSessionTemplate sqlSession, Ingredient i) {
+		return sqlSession.update("seonghoonMapper.updateStock", i);
 	}
 	
 	// ****************************** 전체 재고현황 ***********************************

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.s5.sand5rang.sein.vo.Order;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
+import com.s5.sand5rang.seonghoon.vo.Expiration;
 import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
@@ -140,7 +140,7 @@ public class SeonghoonController {
 	public void orderEnrollController(int order_count, int ingNo, int tot_price, Model model, HttpSession session) {
 		
 
-		// 1. SALES 테이블에 INSERT
+	// 1. SALES 테이블에 INSERT
 		
 
 		
@@ -154,9 +154,258 @@ public class SeonghoonController {
 		
 		
 		
-		// 2. FLOW 테이블에 INSERT
+	// 2. FLOW 테이블에 INSERT
 		
-		// 3. STOCK 테이블에 UPDATE
+		// 이번회차 메뉴에 담긴 ingNo을 담아둔 리스트
+		ArrayList<Ingredient> ingList = seonghoonService.selectIngMen(ingNo);
+				
+		
+
+		for(Ingredient i : ingList) {
+			
+			// 반복문을돌려 한 원재료를 i 에 담는다.
+			i.setCount(order_count);
+			
+			// i.setStoreId(세션의 아이디);
+			
+			// flow 테이블에 인서트
+			int stock = seonghoonService.insertFlow(i);
+			
+			
+			
+			
+	// 3. STOCK 테이블에 UPDATE
+			
+			Expiration exp = new Expiration();
+			
+			exp.setCount(order_count);
+			exp.setExpiration(i.getExpiration());
+	
+			i.setIndex(0); exp.setDay0(seonghoonService.getExp(i));
+			i.setIndex(1); exp.setDay1(seonghoonService.getExp(i));
+			i.setIndex(2); exp.setDay2(seonghoonService.getExp(i));
+			i.setIndex(3); exp.setDay3(seonghoonService.getExp(i));
+			i.setIndex(4); exp.setDay4(seonghoonService.getExp(i));
+			i.setIndex(5); exp.setDay5(seonghoonService.getExp(i));
+			i.setIndex(6); exp.setDay6(seonghoonService.getExp(i));
+			i.setIndex(7); exp.setDay7(seonghoonService.getExp(i));
+			i.setIndex(8); exp.setDay8(seonghoonService.getExp(i));
+			i.setIndex(9); exp.setDay9(seonghoonService.getExp(i));
+			i.setIndex(10); exp.setDay10(seonghoonService.getExp(i));
+			i.setIndex(11); exp.setDay11(seonghoonService.getExp(i));
+			i.setIndex(12); exp.setDay12(seonghoonService.getExp(i));
+			i.setIndex(13); exp.setDay13(seonghoonService.getExp(i));
+
+			
+			// Expiration exp 객체를 오롯이 가지게 되었습니다.
+			
+			int c = exp.getCount();
+			int use = 0;
+			// 유통기한 2일
+			if(exp.getExpiration()==2) {
+				
+				if(exp.getDay1() >= c) {
+					use = (exp.getDay1()-c); i.setUse(use); i.setIndex(1); seonghoonService.updateStock(i);	
+				}else {
+					i.setUse(0); i.setIndex(1); seonghoonService.updateStock(i);	                                          // 어제꺼 업데이트
+					use = (exp.getDay1()+exp.getDay0()-c); i.setUse(use); i.setIndex(0); seonghoonService.updateStock(i);	  // 오늘꺼 업데이트
+				}
+				
+			// 유통기한 7일
+			}else if(exp.getExpiration()==7) {
+				
+				if(exp.getDay6() >= c) {
+					use = (exp.getDay6()-c); i.setUse(use); i.setIndex(6); seonghoonService.updateStock(i);	
+				}else if((exp.getDay6() + exp.getDay5()) >= c) {
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay6()+exp.getDay5()-c); i.setUse(use); i.setIndex(5); seonghoonService.updateStock(i);
+				}else if((exp.getDay6() + exp.getDay5() + exp.getDay4()) >= c) {
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay6()+exp.getDay5()+exp.getDay4()-c); i.setUse(use); i.setIndex(4); seonghoonService.updateStock(i);
+				}else if((exp.getDay6() + exp.getDay5() + exp.getDay4() + exp.getDay3()) >= c) {
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()-c); i.setUse(use); i.setIndex(3); seonghoonService.updateStock(i);
+				}else if((exp.getDay6() + exp.getDay5() + exp.getDay4() + exp.getDay3() + exp.getDay2()) >= c) {
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(3); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()-c); i.setUse(use); i.setIndex(2); seonghoonService.updateStock(i);
+				}else if((exp.getDay6() + exp.getDay5() + exp.getDay4() + exp.getDay3() + exp.getDay2() + exp.getDay1()) >= c) {
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(3); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(2); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()+exp.getDay1()-c); i.setUse(use); i.setIndex(1); seonghoonService.updateStock(i);
+				}else{
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(3); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(2); seonghoonService.updateStock(i);	                                          
+					i.setUse(0); i.setIndex(1); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()+exp.getDay1()+exp.getDay0()-c); i.setUse(use); i.setIndex(0); seonghoonService.updateStock(i);
+				}
+				
+				
+				
+			// 유통기한 14일
+			}else {
+				
+				if(exp.getDay13() >= c) {
+					use = (exp.getDay13()-c); i.setUse(use); i.setIndex(13); seonghoonService.updateStock(i);	
+				}else if((exp.getDay13() + exp.getDay12()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);	                                          
+					use = (exp.getDay13()+exp.getDay12()-c); i.setUse(use); i.setIndex(12); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()-c); i.setUse(use); i.setIndex(11); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()-c); i.setUse(use); i.setIndex(10); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()-c); i.setUse(use); i.setIndex(9); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()-c); i.setUse(use); i.setIndex(8); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()-c); i.setUse(use); i.setIndex(7); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7() + exp.getDay6()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()-c); i.setUse(use); i.setIndex(6); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7() + exp.getDay6() + exp.getDay5()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()-c); i.setUse(use); i.setIndex(5); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7() + exp.getDay6() + exp.getDay5() + exp.getDay4()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()+exp.getDay4()-c); i.setUse(use); i.setIndex(4); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7() + exp.getDay6() + exp.getDay5() + exp.getDay4() + exp.getDay3()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()-c); i.setUse(use); i.setIndex(3); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7() + exp.getDay6() + exp.getDay5() + exp.getDay4() + exp.getDay3() + exp.getDay2()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(3); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()-c); i.setUse(use); i.setIndex(2); seonghoonService.updateStock(i);
+				}else if((exp.getDay13() + exp.getDay12() + exp.getDay11() + exp.getDay10() + exp.getDay9() + exp.getDay8() + exp.getDay7() + exp.getDay6() + exp.getDay5() + exp.getDay4() + exp.getDay3() + exp.getDay2() + exp.getDay1()) >= c) {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(3); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(2); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()+exp.getDay1()-c); i.setUse(use); i.setIndex(1); seonghoonService.updateStock(i);
+				}else {
+					i.setUse(0); i.setIndex(13); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(12); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(11); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(10); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(9); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(8); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(7); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(6); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(5); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(4); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(3); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(2); seonghoonService.updateStock(i);
+					i.setUse(0); i.setIndex(1); seonghoonService.updateStock(i);
+					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()+exp.getDay1()+exp.getDay0()-c); i.setUse(use); i.setIndex(0); seonghoonService.updateStock(i);
+				}
+					
+				
+				
+				
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+// for문 끝			
+		}
+		
+
+		
+		
+		
+		
 		
 			
 	}
