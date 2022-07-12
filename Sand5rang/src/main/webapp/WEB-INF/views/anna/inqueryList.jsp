@@ -164,9 +164,10 @@
 	      				<div>문의 조회 <!-- 인라인블럭줘서 마진레프트주고 퍼센트로 조절하기-->
 
 							<form action="test.do" style="display:inline-block; margin-left: 10px;">
-									<select name="category" style="width: 75px; margin-top: 6px">
-										<option value="date">작성일</option>
-										<option value="writer">작성자</option> 
+									<select name="category" style="width: 100px; margin-top: 6px">
+										<option value="category">운영문의</option>
+										<option value="category">재고문의</option> 
+										<option value="category">발주문의</option>
 									</select>     
 							</form>
 
@@ -182,6 +183,7 @@
 			<thead>
 				<tr>
 					<th width="50" style="text-align:center">글번호</th>
+					<th width="80" style="text-align:ceter">카테고리</th>
 					<th width="450" style="text-align:center">제목</th>
 					<th width="100" style="text-align:center">작성자</th>
 					<th width="100" style="text-align:center">작성일</th>
@@ -191,6 +193,7 @@
 			<tbody> 
 				<tr>
 					<td>4</td>
+					<td>운영문의</td>
 					<td>문의드립니다.</td>
 					<td>강남구청점</td>
 					<td>2022.04.07</td>
@@ -199,6 +202,7 @@
 
 			<tr>
 				<td>3</td>
+				<td>재고문의</td>
 				<td>재고관련 문의드립니다.</td>
 				<td>봉은사역점</td>
 				<td>2020.12.22</td>
@@ -206,6 +210,7 @@
 			</tr>
 			<tr>
 				<td>2</td>
+				<td>운영문의</td>
 				<td>문의합니다.</td>
 				<td>청계천점</td>
 				<td>2020.10.02</td>
@@ -214,6 +219,7 @@
 			</tr>
 			<tr>
 				<td>1</td>
+				<td>발주문의</td>
 				<td>문의합니다.</td>
 				<td>금천구청점</td>
 				<td>2020.03.30</td>

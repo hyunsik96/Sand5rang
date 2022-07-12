@@ -3,9 +3,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/sand5rang/resources/images/logo.png" type="">
+
+  <title>Sand5rang</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/sand5rang/resources/css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="/sand5rang/resources/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/sand5rang/resources/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/sand5rang/resources/css/responsive.css" rel="stylesheet" />
+  
+  <!-- google font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+	
+	.sub_page { background-color: rgb(234 234 234);}
+	.content { padding-top: 30px; }
+	.error-container { margin:auto; padding: 100px 100px 100px 100px;}
+	.error-container> h4 {font-weight: bold;}
+</style>
 <body class="sub_page">
 
   <div class="hero_area">
@@ -53,15 +93,12 @@
   </div>
 
 <!-- erorrPage section -->
-    <br>
-    <div align="center">
-        <img src="../../resources/error.png">
-        <br><br>
-        <div class="error-container">
-					
-				<h2style="font-weight:bold;">로그인에 실패하였습니다.</h2>
-	
-    </div>
+  
+
+        <div align="center" class="error-container">
+				<img src="resources/images/error.png"><br><br>
+				<h4> 로그인에 실패하였습니다. 다시 시도해주세요!</h4>
+    	</div>
     <br>
 
  <!-- footer section -->
