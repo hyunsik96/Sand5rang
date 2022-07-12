@@ -24,6 +24,10 @@ public class SeinService {
 	
 		return (ArrayList)seinDao.selectIngredient(sqlSession);
 	}
+	//가맹점 당일 발주 건 있는지 체크 select Service 
+	public int selectOrder() {
+		return seinDao.selectOrder(sqlSession);
+	}
 	
 	//가맹점 발주 insert Service
 	public int insertOrder(Order order) {

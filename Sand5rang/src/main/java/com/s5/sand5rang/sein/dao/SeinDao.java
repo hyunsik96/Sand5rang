@@ -17,6 +17,12 @@ public class SeinDao {
 		return (ArrayList)sqlSession.selectList("seinMapper.selectIngredient");
 	}
 
+	//가맹점 당일 발주건 있는지 체크 select문
+	public int selectOrder(SqlSessionTemplate sqlSession) {
+		
+		return sqlSession.selectOne("seinMapper.selectOrder");
+	}
+	
 	//발주 insert문
 	public int insertOrder(SqlSessionTemplate sqlSession, Order order) {
 		

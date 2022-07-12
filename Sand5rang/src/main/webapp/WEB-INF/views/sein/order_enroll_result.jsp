@@ -13,19 +13,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">    
   	<link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-   
-	<!-- Alertify라이브러리 CSS -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-	<!-- Default theme -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-	<!-- Semantic UI theme -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
-	<!-- Bootstrap theme -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -170,16 +157,7 @@
 	</div> <!-- /subnavbar-inner -->
 
 </div> <!-- /subnavbar -->
-     <!-- 알람메세지 내용이 있다면  -->
-	<c:if test="${ not empty alertMsg }">
-		<script>
-			alertify.alert("알람","${alertMsg}");
-		</script>
-		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
-		<c:remove var="alertMsg" scope="session"/>
-	</c:if>
     
-
 <div class="main">
 		<div class="main-inner">
 			<div class="container">

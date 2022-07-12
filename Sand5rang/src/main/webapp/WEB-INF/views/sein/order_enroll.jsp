@@ -223,7 +223,7 @@
                                         <input type="hidden" name="tot_price" value="0">
                                     </div>
                                     <input type="hidden" class="ingNo" name="ingNo" value="1">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -248,7 +248,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="2">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -272,7 +272,7 @@
                                         <input type="hidden" name="tot_price" value="0">
                                     </div>
                                     <input type="hidden" class="ingNo" name="ingNo" value="3">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								<br><br>
@@ -299,7 +299,7 @@
                                         <input type="hidden" name="tot_price" value="0">
                                     </div>
                                     <input type="hidden" class="ingNo" name="ingNo" value="4">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								
@@ -324,7 +324,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="5">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -349,7 +349,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="6">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -374,7 +374,7 @@
                                         
                                     </div>
                                     <input type="hidden" class="ingNo" name="ingNo" value="7">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								
@@ -399,7 +399,7 @@
                                     </div>
 
                                     <input type="hidden" class="ingNo" name="ingNo" value="8">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -424,7 +424,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="9">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
 								</form>
 
@@ -449,7 +449,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="10">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								<br>
@@ -478,7 +478,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="11">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -503,7 +503,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="12">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -528,7 +528,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="13">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -553,7 +553,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="14">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -578,7 +578,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="15">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -603,7 +603,7 @@
                                     </div>
                                    
                                     <input type="hidden" class="ingNo" name="ingNo" value="16">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								<br><br>
@@ -631,7 +631,7 @@
                                     </div>
                                    
                                     <input type="hidden" class="ingNo" name="ingNo" value="17">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -656,7 +656,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="18">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -681,7 +681,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="19">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -706,7 +706,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="20">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -731,7 +731,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="21">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								<br><br>
@@ -759,7 +759,7 @@
                                     </div>
                                    
                                     <input type="hidden" class="ingNo" name="ingNo" value="22">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -784,7 +784,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="23">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 
@@ -809,7 +809,7 @@
                                     </div>
                                     
                                     <input type="hidden" class="ingNo" name="ingNo" value="24">
-                                    <input type="hidden" name="stat" value="N">
+                                    <input type="hidden" name="stat" value="B">
 								</div>
                                 </form>
 								
@@ -1035,7 +1035,7 @@ function re(){
 
 
 //발주 수량 직접 입력시 자동으로 가격 계산하여 보여주기
-$("input[class=count_result").on("keyup",function(key){ 
+$("input[class=count_result]").on("keyup",function(key){ 
 
     //input 입력값에 대한 유효성체크
     var regExp = /^[0-9]+$/;

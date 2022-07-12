@@ -28,6 +28,14 @@
 		FROM INGREDIENT
 	</select> -->
 	
+	<!-- 발주 체크 select -->
+	<select id="selectOrder" resultType="_int">
+		SELECT COUNT(IND_DATE) FROM INDENT
+		WHERE STORE_ID = 'GUM01' AND
+		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD')
+		GROUP BY IND_DATE
+	</select>
+	
 	<!-- 발주insert -->
 	<insert id="insertOrder" parameterType="order">
 		INSERT INTO INDENT(IND_NO, 
@@ -57,7 +65,5 @@
 
 	<!-- 발주전체조회 select -->
 	<select id="selectAllOrderList" resultMap="TodyOrderResultSet">
-		
-	
 	</select>
 </mapper>

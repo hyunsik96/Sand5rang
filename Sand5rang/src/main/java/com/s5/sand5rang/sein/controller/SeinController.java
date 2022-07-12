@@ -42,18 +42,33 @@ public class SeinController {
 	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
     public String orderListController(Model m)
     {
-		ArrayList<Order> allOlist= seinService.selectAllOrderList();
+		//ArrayList<Order> allOlist= seinService.selectAllOrderList();
 		
-		m.addAttribute("all_Olist", allOlist);
+		//m.addAttribute("all_Olist", allOlist);
 		
         return "sein/orderlist";
     }
 	
 	/*발주 신청 페이지 띄우기용*/
 	@RequestMapping(value="orderEnrollForm.se")
-    public String orderEnrollFormController()
+    public String orderEnrollFormController(HttpSession session)
     {
-        return "sein/order_enroll";
+		//당일 발주 신청 건이 있는지 선체크 해주고 페이지 띄워주기 
+		int result = seinService.selectOrder();
+		
+		if(result==24) {
+			//당일 선 발주건 있음 
+			String messesage = "당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요.";
+			
+			session.setAttribute("alertMsg", messesage);
+			
+			 return "sein/orderlist";
+			 
+		}else {
+			//당일 선 발주건 없음 
+			return "sein/order_enroll";
+		}
+       
     }
 	
 	/*발주 신청 insert용 */

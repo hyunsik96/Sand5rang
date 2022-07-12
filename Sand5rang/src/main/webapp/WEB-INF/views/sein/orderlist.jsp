@@ -126,7 +126,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu active">
-                        <li><a href="orderEnroll.se">발주신청</a></li>
+                        <li><a href="orderEnrollForm.se">발주신청</a></li>
 						<li class="active"><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
@@ -159,7 +159,14 @@
 
 </div> <!-- /subnavbar -->
     
-    
+     <!-- 알람메세지 내용이 있다면  -->
+	<c:if var="alertMsg" test="${ not empty alertMsg }">
+		<script>
+			alert('${alertMsg}');
+		</script>
+		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+		<c:remove var="alertMsg" scope="session"/>
+	</c:if>
 
 
 	<div class="main">
