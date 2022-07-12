@@ -58,7 +58,7 @@ public class SeinController {
     public String orderEnrollFormController(HttpSession session)
     {
 		//당일 발주 신청 건이 있는지 선체크 해주고 페이지 띄워주기 
-		int result = seinService.selectOrder();
+		//int result = seinService.selectOrder();
 		
 //		if(result==24) {
 //			//당일 선 발주건 있음 
