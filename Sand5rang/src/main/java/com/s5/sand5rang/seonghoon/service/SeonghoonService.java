@@ -66,18 +66,14 @@ public class SeonghoonService {
 	// 재고 합계
 	public ArrayList<Stock> selectSumStock(){return seonghoonDao.selectSumStock(sqlSession); }
 	
-	// 재고 현황
-	public ArrayList<Flow> selectInFlow(){
-		return seonghoonDao.selectInFlow(sqlSession);
-	}
-	public ArrayList<Flow> selectOutFlow(){
-		return seonghoonDao.selectOutFlow(sqlSession);
-	}
 	
 	// *************** 재료별 재고현황 **************************
+
+	
 	public ArrayList<Stock> selectSearchIng(HashMap<String,String> hashmap){
 		return seonghoonDao.selectSearchIng(hashmap,sqlSession);
 	}
+	
 	
 }
 

@@ -243,6 +243,10 @@
 	</select>
 	
 	<!-- ****************** 재료별 재고현황 ********************** -->
+	<select id="">
+	
+	</select>
+	
 	<select id="selectSearchIng" parameterType="hashmap" resultMap="StockResultMap">
 		SELECT STORE_ID, ING_NAME, COUNT, STO_DATE
 		FROM STOCK

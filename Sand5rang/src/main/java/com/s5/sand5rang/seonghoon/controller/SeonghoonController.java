@@ -93,6 +93,8 @@ public class SeonghoonController {
 		HashMap<String,String> hashmap = new HashMap<>();
 		hashmap.put("search", search);
 		
+		int listCount = seonghoonService.select_is_ListCount(search);
+		
 		
 		ArrayList<Stock> ing_list = seonghoonService.selectSearchIng(hashmap);
 		
@@ -141,13 +143,10 @@ public class SeonghoonController {
 		
 
 	// 1. SALES 테이블에 INSERT
-		
-
-		
 		Menu m = new Menu();
-		m.setMenNo(ingNo);
-		m.setCount(order_count);
-		m.setTotal(tot_price);
+		m.setMenNo(ingNo); // 원재료 번호
+		m.setCount(order_count); // 판매 개수
+		m.setTotal(tot_price); // 
 //		m.setStoreId((Store)session.getAttribute("loginUser").getUserId());
 		
 		seonghoonService.insertSales(m);
@@ -159,8 +158,6 @@ public class SeonghoonController {
 		// 이번회차 메뉴에 담긴 ingNo을 담아둔 리스트
 		ArrayList<Ingredient> ingList = seonghoonService.selectIngMen(ingNo);
 				
-		
-
 		for(Ingredient i : ingList) {
 			
 			// 반복문을돌려 한 원재료를 i 에 담는다.
