@@ -181,29 +181,37 @@
 
 
 
-                <form id="enrollForm" method="post" action="insert.sm">
+                <form id="enrollForm" method="post" action="inupdate.sm">
                 <table  align="center">
                 <tr>
                    <th><label for="title" style="font-size:18px">카테고리</label></th> 
                    <td>
                      <select name="category">
-                     <option>${i.category}</option>
+                     	<option value="category">운영문의</option>
+						<option value="category">재고문의</option> 
+						<option value="category">발주문의</option>
                  
                      </select>
                    </td> 
                  </tr>
+                 <tr>
+                   <th><label for="title" style="font-size:18px">작성날짜</label></th> 
+                   <td><input type="date" id="title" class="form-control" name="inqDate" value="${i.inqDate} }" /></td> 
+                 </tr>                               
+                 <tr>
                 <tr>
                    <th><label for="title" style="font-size:18px">제목</label></th> 
-                   <td><input type="text" id="title" class="form-control" name="inqTitle" required></td> 
+                   <td><input type="text" id="title" class="form-control" name="inqTitle" value="${i.inqTitle}"></td> 
                  </tr>                               
                  <tr>
                    <th><label for="writer" style="font-size:18px">작성자</label></th> 
-                   <td><input type="text" id="writer" class="form-control" value="" name="storeId"></td> 
+                   <td><input type="text" id="writer" class="form-control" value="${i.storeName}"  readonly></td> 
                 </tr>        
                 <tr>
                   <th><label for="content" style="font-size:18px">문의내용</label> </th>
                   <td>
                    <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px">
+                  ${ i.inqQuery }
                    </textarea>
                   </td>
                 </tr>
@@ -213,12 +221,14 @@
 			     </table>
 			     <br>
 
+
+
         <div align="center">
+        	 <input type="hidden" name="ino" value="${ i.inqNo }">
             <button type="submit" class="btn btn-primary">수정하기</button>
             <a class="btn btn-secondary" href="inqueryList.sm">뒤로가기</a>
         </div>  
     </form>
- 
 
 
 

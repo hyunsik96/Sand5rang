@@ -118,7 +118,7 @@ public class SangmiController {
 		
 		mv.addObject("e", e).setViewName("sangmi/storeEnrollDetail");
 		
-		//=> 가입신청 enr 못찾는 오류 가 난다.. (잠시 )
+		
 		return mv;
 	}
 
@@ -188,25 +188,44 @@ public class SangmiController {
 	}
 	
 	
-	
-	
-	
-	
-	//1:1문의 수정
-	@RequestMapping(value="inUpdate.sm")
-	public String inUpdate(Model model) {
+	//1:1문의 수정 폼 
+	@RequestMapping(value="inUpdateForm.sm")
+	public String inUpdateForm(int ino, Model model) {
 		
+		//해당 상세조회 요청
+		Inquery i = SangmiService.selectInquery(ino);
 		
+		model.addAttribute("i", i);
 		
 		return "sangmi/inqueryUpdate";
-		
-		
-		
 	}
+	//1:1문의 수정
+	@RequestMapping(value="inupdate.sm")
+	public String inupdate(Inquery i, HttpSession session, Model model) {
+	
+		int result = SangmiService.inupdate(i);
+		
+		System.out.println(result + "후");
+		
+		if(result >0) {
+			session.setAttribute("alertMsg", "성공적으로 게시글이 수정되었습니다.");
+		    
+			return "redirect:indetail.sm?ino="+i.getInqNo();
+		}
+		else {
+			model.addAttribute("errorMsg", "게시글 수정 실패");
+			
+			return "common/errorFr";
+		}
+	}
+	
+	
+	
 	//1:1문의 삭제
 		@RequestMapping(value="inDelete.sm")
-		public String inDelete(Model model) {
+		public String inDelete(Model model ) {
 			
+		
 			
 			
 			return "sangmi/inqueryUpdate";

@@ -198,6 +198,10 @@
                         <td width="70px;">제목 : </td>
                         <td width="100px" height="100px"><input type="text" name="inqTitle" disabled value="${i.inqTitle}"></td>
                     </tr>
+                      <tr class="cd_table_title">
+                        <td width="70px;">작성자 : </td>
+                        <td width="100px" height="100px"><input type="text" name="storeName" disabled value="${i.storeName}"></td>
+                    </tr>
                     <tr class="cd_table_content1">
                         <td colspan="2">
                             <div class="cd_table_content_title">문의내용</div>
@@ -231,7 +235,7 @@
                  function postFormSubmit(num){
                      if(num == 1){ //수정 요청으로 action 속성값 바꾸기
 	            		  
-	            		  $("#postForm").attr("action","inUpdate.sm").submit();
+	            		  $("#postForm").attr("action","inUpdateForm.sm").submit();
 	            	  }
 	            	  else{ // 삭제 요청으로 action 속성값 바꾸기
 	            		  $("#postForm").attr("action","inDelete.sm").submit();

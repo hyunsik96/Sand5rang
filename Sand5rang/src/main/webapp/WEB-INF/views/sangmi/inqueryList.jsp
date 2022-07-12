@@ -31,6 +31,14 @@
 <jsp:include page="include/5.jsp" />
 <div class="navbar navbar-fixed-top">
 	
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+		<c:remove var="alertMsg" scope="session"/>
+	</c:if>
+	
 	<div class="navbar-inner">
 		
 		<div class="container">
@@ -198,7 +206,7 @@
                 <th width="30%">제목</th>
                 <th width="10%">작성자</th>
                 <th width="10%">작성일</th>
-                <th width="10%">답변유무</th>
+                <th width="10%">답변상태</th>
             </tr>
         </thead>
         <tbody>

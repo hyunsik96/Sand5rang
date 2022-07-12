@@ -68,7 +68,11 @@ public class SangmiService {
 		return SangmiDao.selectInquery(sqlSession,inqNo);
 	}
 	
-	
+	//게시글 수정
+	public int inupdate(Inquery i) {
+		
+		return SangmiDao.inupdate(sqlSession,i);
+	}
 	
 	
 }

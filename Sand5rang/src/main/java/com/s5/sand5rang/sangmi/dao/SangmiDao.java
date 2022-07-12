@@ -78,7 +78,11 @@ public class SangmiDao {
 	   return sqlSession.selectOne("sangmiMapper.selectInquery", inqNo);
    }
 
-
+  //문의글 수정
+  public int inupdate(SqlSessionTemplate sqlSession, Inquery i ) {
+	  
+	  return sqlSession.update("sangmiMapper.inupdate",i);
+  }
 
 
 }
