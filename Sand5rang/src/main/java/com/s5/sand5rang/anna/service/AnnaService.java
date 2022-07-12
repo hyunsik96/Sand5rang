@@ -32,7 +32,6 @@ public class AnnaService {
 		 
 	 }
 	 
-	 
 
 	// 문의게시판 총 갯수 조회
 	public int selectListCount() {
@@ -43,5 +42,12 @@ public class AnnaService {
 	public ArrayList<Inquery> inqueryList(PageInfo pi) {
 		return annaDao.inqueryList(sqlSession, pi);
 	}
+
+	// 문의글상세 조회 
+	public Inquery selectInquery(int inqNo) {
+		return annaDao.selectInquery(sqlSession,inqNo);
+	}
+	
+
 }
 

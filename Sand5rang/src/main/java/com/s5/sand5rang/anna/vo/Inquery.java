@@ -1,29 +1,26 @@
 package com.s5.sand5rang.anna.vo;
 
-import java.util.Date;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor 
-@Setter
-@Getter
-@ToString
+@Data
 
 public class Inquery {
 
-	private int inqId; 
+	private int inqNo; 
 	private String inqTitle; 
-	private Date idate; 
+	private String inqDate; 
 	private String inqQuery; 
 	private String inqAnswer; 
 	private String status;
-	private Date ansDate; 
+	private String ansDate; 
 	private String category;
 	private String storeId;
+	
+	private String storeName; 
 
 }

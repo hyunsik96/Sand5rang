@@ -4,7 +4,7 @@
  
  
  	<!--loginStore-->
- 	<resultMap id="storeResultSet" type="com.s5.sand5rang.anna.vo.Store">
+ 	<resultMap id="loginResultSet" type="com.s5.sand5rang.anna.vo.Store">
 	  <result column="STORE_ID" property="storeId" />
 	  <result column="STORE_PWD" property="storePwd" />
 	  <result column="STORE_NAME" property="storeName"/>
@@ -12,10 +12,25 @@
 	  <result column="STATUS" property="status" /> 
 	  <result column="ENR_NO" property="enrNo"/>
 	 </resultMap>
+	 
+	 <!-- inquery List -->
+	  <resultMap id="inqueryResultSet" type="com.s5.sand5rang.anna.vo.Inquery">
+	   <result column="INQ_NO" property="inqNo" />
+	   <result column="INQ_TITLE" property="inqTitle" />
+	   <result column="INQ_DATE" property="inqDate" />
+	   <result column="INQ_QUERY" property="inqQuery" />
+	   <result column="INQ_ANSWER" property="inqAnswer" />
+	   <result column="STATUS" property="status" />
+	   <result column="ANS_DATE" property="ansDate" />
+	   <result column="CATEGORY" property="category" />
+	   <result column="STORE_ID" property="storeId" />
+	   
+	   <result column="STORE_NAME" property="storeName"/>
+	 </resultMap>
 
 
 	<!-- 로그인 -->
-	<select id="loginStore" parameterType="com.s5.sand5rang.anna.vo.Store" resultMap="storeResultSet">
+	<select id="loginStore" parameterType="com.s5.sand5rang.anna.vo.Store" resultMap="loginResultSet">
 		SELECT *
 		  FROM STORE
 		 WHERE STORE_ID = #{storeId}
@@ -23,9 +38,28 @@
 		   AND STATUS = 'Y'
 	</select>
 	
+	<!-- 게시글 총 갯수 조회 -->
 	<select id="selectListCount" resultType="_int">
-	SELECT COUNT(*)
-	FROM INQUERY
+		SELECT COUNT(*)
+		FROM INQUERY
 	</select>
+	
+	<!-- 문의 리스트 전체 조회 -->
+	<select id="inqueryList" parameterType="com.s5.sand5rang.anna.vo.Inquery" resultMap="inqueryResultSet">
+		SELECT INQ_NO, CATEGORY, INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", STORE_NAME, I.STATUS
+		FROM INQUERY I
+		JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
+		ORDER BY INQ_NO DESC
+	</select>
+	
+	<!--문의글 상세 조회 -->
+	<select id="selectInquery" parameterType="_int" resultMap="inqueryResultSet">
+		SELECT INQ_NO, CATEGORY, INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, ANS_DATE
+		FROM INQUERY I
+		JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
+		WHERE INQ_NO =  #{inqNo}
+	</select>
+	
+
 </mapper>
 

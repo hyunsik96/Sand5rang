@@ -333,6 +333,8 @@ margin-bottom: 26px;}
 		width: 48%;
 	}
 }
+
+#boardList>tbody>tr:hover {cursor:pointer;}
 </style>
 </head>
 <body>

@@ -27,7 +27,6 @@ public class AnnaDao {
 	}
 	
 	// 문의게시판 전체리스트 조회
-	
 	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession, PageInfo pi) {
 		
 		int limit = pi.getBoardLimit();
@@ -38,6 +37,10 @@ public class AnnaDao {
 		return (ArrayList)sqlSession.selectList("annaMapper.inqueryList",null, rowBounds);
 		
 		
+	}
+	// 문의게시판 상세 조회 
+	public Inquery selectInquery(SqlSessionTemplate sqlSession, int inqNo) {
+		return sqlSession.selectOne("annaMapper.selectInquery", inqNo);
 	}
 
 }

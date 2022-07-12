@@ -80,16 +80,51 @@ public class AnnaController {
 				}
 		
 		return mv;
-	}
+	} // 로그인 끝
+	
+	
+	// 문의 게시판 리스트 조회
+	@RequestMapping(value="inqList.an")
+	public String inqueryList(
+			@RequestParam(value="cpage", defaultValue="1") int currentPage, Model model) {
+		
+		//1.게시글 총 갯수 조회
+		int listCount = annaService.selectListCount();
+		
+		int pageLimit=10;
+		int boardLimit=5;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
+		//2.전체리스트 조회
+		ArrayList<Inquery> list = annaService.inqueryList(pi);
+		
+		//System.out.println(list+"조회중");
+		model.addAttribute("pi",pi);
+		model.addAttribute("list",list);
+		
+		return "anna/inqueryList";
+
+	} // 문의 게시판 리스트 조회 끝
+
+
+	// 문의 게시판 상세보기
+	@RequestMapping(value="inqDetail.an")
+	public ModelAndView selectInquery(int ino,ModelAndView mv) {
+			
+			Inquery i = annaService.selectInquery(ino);
+			
+			mv.addObject("i",i).setViewName("anna/inqueryDetail");
+			
+			return mv;
+		}
+		
+	
 	
 	@RequestMapping(value="inqAnswer.an")
 	public String annatest1() {return "anna/inqueryAnswer";}
 	
-	@RequestMapping(value="inqDetail.an")
-	public String annatest2() {return "anna/inqueryDetail";}
-	
-	@RequestMapping(value="inqList.an")
-	public String annatest3() {return "anna/inqueryList";}
+
 	
 	
 	
@@ -100,30 +135,6 @@ public class AnnaController {
 	public String annatest7() {return "anna/changePwd";}
 	
 	
-
-	
-	// 문의게시판 전체리스트 조회
-		@RequestMapping(value="inqueryList.an")
-		public String inqueryList(
-				@RequestParam(value="lpage", defaultValue="1") int currentPage,
-				Model model) { 
-			
-			//1.게시글 총 갯수 조회
-					int listCount = annaService.selectListCount();
-					
-					int pageLimit=10;
-					int boardLimit=5;
-					
-					PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
-					
-					//2.전체리스트 조회
-					ArrayList<Inquery> list = annaService.inqueryList(pi);
-					
-					//System.out.println(list+"조회중");
-					model.addAttribute("pi",pi);
-					model.addAttribute("list",list);
-					
-					return "anna/inqueryList";
-			
-		}
+		
 }
+

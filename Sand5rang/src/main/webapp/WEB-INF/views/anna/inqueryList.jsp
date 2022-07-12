@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">    
   <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -161,7 +161,7 @@
 	      			<div class="widget-header">
 	      				<i class="icon-comment-alt"></i>
 	      				
-	      				<div>문의 조회 <!-- 인라인블럭줘서 마진레프트주고 퍼센트로 조절하기-->
+	      				<div>문의 조회
 
 							<form action="test.do" style="display:inline-block; margin-left: 10px;">
 									<select name="category" style="width: 100px; margin-top: 6px">
@@ -179,7 +179,7 @@
 	  				
 	  			
 
-		<table class="table table-striped table-bordered" border="1">
+		<table class="table table-striped table-bordered" id="boardList" border="1">
 			<thead>
 				<tr>
 					<th width="50" style="text-align:center">글번호</th>
@@ -190,59 +190,54 @@
 					<th width="100" style="text-align:center">답변상태</th>
 				</tr>
 			</thead>
-			<tbody> 
-				<tr>
-					<td>4</td>
-					<td>운영문의</td>
-					<td>문의드립니다.</td>
-					<td>강남구청점</td>
-					<td>2022.04.07</td>
-					<td>답변대기</td>
-				</tr>
-
-			<tr>
-				<td>3</td>
-				<td>재고문의</td>
-				<td>재고관련 문의드립니다.</td>
-				<td>봉은사역점</td>
-				<td>2020.12.22</td>
-				<td>2020.12.23</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>운영문의</td>
-				<td>문의합니다.</td>
-				<td>청계천점</td>
-				<td>2020.10.02</td>
-				<td>2020.10.02</td>
-
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>발주문의</td>
-				<td>문의합니다.</td>
-				<td>금천구청점</td>
-				<td>2020.03.30</td>
-				<td>2020.03.30</td>
-
-
-			</tr>
+			<tbody>
+				<c:forEach var="i" items="${list}">
+					<tr>
+						<td class="ino">${i.inqNo}</td>
+						<td>${i.category}</td>
+						<td>${i.inqTitle}</td>
+						<td>${i.storeName}</td>
+						<td>${i.inqDate}</td>
+						<td>${i.status}</td>
+					</tr>
+				</c:forEach>	
 			</tbody>
-
-		</table>
-
-						
-				</div> <!-- /widget -->
+		</table>	
+			
+		<script>
+		  $(function(){
+			  $("#boardList>tbody>tr").click(function(){
+				 location.href="inqDetail.an?ino="+$(this).children(".ino").text();
+			  });
+		  });
+		</script>
 				
-						<ul class="pagination pagination-sm">
-									<li class="page-item"><a class="page-link" href="#"><</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">></a></li>
-								</ul>
+			<ul class="pagination pagination-sm">
+			
+				<c:choose>
+			 		<c:when test="${ pi.currentPage eq 1 }">
+						<li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
+			 		</c:when>
+					<c:otherwise>
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ pi.currentPage - 1 }">&lt;</a></li>
+					</c:otherwise>
+				</c:choose> 
+		
+				<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ p }">${ p }</a></li>
+				</c:forEach>
+		
+				<c:choose>
+				  	<c:when test="${ pi.currentPage eq pi.maxPage }">
+						<li class="page-item disabled"><a class="page-link" href="#">&gt;</a></li>
+				  	</c:when>
+				  	<c:otherwise>
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ pi.currentPage + 1 }">&gt;</a></li>
+				  	</c:otherwise>
+				</c:choose>
+			</ul>
 	      		
-	      		
+	      	</div> <!-- /widget -->
 		    </div> <!-- /span8 -->
 
 	      	
