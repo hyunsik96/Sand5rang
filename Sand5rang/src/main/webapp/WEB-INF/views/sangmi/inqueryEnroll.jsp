@@ -187,9 +187,9 @@
                    <th><label for="title" style="font-size:18px">카테고리</label></th> 
                    <td>
                      <select name="category">
-                     <option>운영</option>
-                     <option>재고</option>
-                     <option>배송</option>
+                     <option>운영문의</option>
+                     <option>재고문의</option>
+                     <option>발주문의</option>
                      </select>
                    </td> 
                  </tr>

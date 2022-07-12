@@ -74,6 +74,14 @@ public class SangmiService {
 		return SangmiDao.inupdate(sqlSession,i);
 	}
 	
+	/*
+	//게시글 삭제
+	public int inDelete(int inqNo) {
+		
+		return SangmiDao.inDelete(sqlSession,inqNo);
+	}
+	
+	*/
 	
 }
 

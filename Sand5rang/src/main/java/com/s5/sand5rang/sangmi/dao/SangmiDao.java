@@ -84,5 +84,13 @@ public class SangmiDao {
 	  return sqlSession.update("sangmiMapper.inupdate",i);
   }
 
+  //문의글 삭제
+  /*
+  public int inDelete(SqlSessionTemplate sqlSession, int inqNo) {
+	  
+	  return sqlSession.inDelete("sangmiMapper.inDelete",inqNo);
+  }
+  */
+  
 
 }

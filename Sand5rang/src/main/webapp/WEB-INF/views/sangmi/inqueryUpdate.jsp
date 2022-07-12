@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -182,21 +182,22 @@
 
 
                 <form id="enrollForm" method="post" action="inupdate.sm">
+               <input type="hidden" name="inqNo" value="${ i.inqNo }">
                 <table  align="center">
                 <tr>
                    <th><label for="title" style="font-size:18px">카테고리</label></th> 
                    <td>
                      <select name="category">
-                     	<option value="category">운영문의</option>
-						<option value="category">재고문의</option> 
-						<option value="category">발주문의</option>
+                     	<option value="${i.category}">운영문의</option>
+						<option value="${i.category}">재고문의</option> 
+						<option value="${i.category}">발주문의</option>
                  
                      </select>
                    </td> 
                  </tr>
                  <tr>
                    <th><label for="title" style="font-size:18px">작성날짜</label></th> 
-                   <td><input type="date" id="title" class="form-control" name="inqDate" value="${i.inqDate} }" /></td> 
+                   <td><input type="date" id="title" class="form-control" name="inqDate" value="${i.inqDate} "></td> 
                  </tr>                               
                  <tr>
                 <tr>
@@ -224,9 +225,9 @@
 
 
         <div align="center">
-        	 <input type="hidden" name="ino" value="${ i.inqNo }">
+        	 
             <button type="submit" class="btn btn-primary">수정하기</button>
-            <a class="btn btn-secondary" href="inqueryList.sm">뒤로가기</a>
+            <button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">뒤로가기</button>
         </div>  
     </form>
 

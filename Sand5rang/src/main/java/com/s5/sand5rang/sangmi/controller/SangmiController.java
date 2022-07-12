@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
@@ -65,7 +66,7 @@ public class SangmiController {
 			}
 			else {
 				
-				model.addAttribute("alertMsg", "폐업 처리 실패");
+				model.addAttribute("alertMsg", "폐업 처리 실패가 되었습니다.");
 				
 				return "common/errorAd";
 			}
@@ -163,13 +164,13 @@ public class SangmiController {
 		
 		if(result >0 ) {
 			
-			session.setAttribute("alertMsg", "성공적으로 등록됨");
+			session.setAttribute("alertMsg", "문의글이 성공적으로 등록되었습니다.");
 			
 			return "redirect:inqueryList.sm";
 		}
 		else {
 		
-			model.addAttribute("errorMsg", "게시글 등록 실패");
+			model.addAttribute("errorMsg", "문의글 등록이 실패가 되었습니다.");
 			
 			return "common/errorFr";
 		}
@@ -200,20 +201,24 @@ public class SangmiController {
 		return "sangmi/inqueryUpdate";
 	}
 	//1:1문의 수정
+     // 1.jsp오류 해결
+	// => 카테고리 정렬, 카테고리수정한거 적용되야 하고, 답변상태 N과 Y되면 날짜로 변하게 하기 
 	@RequestMapping(value="inupdate.sm")
 	public String inupdate(Inquery i, HttpSession session, Model model) {
 	
 		int result = SangmiService.inupdate(i);
 		
-		System.out.println(result + "후");
+		//System.out.println(result + "후");
 		
-		if(result >0) {
-			session.setAttribute("alertMsg", "성공적으로 게시글이 수정되었습니다.");
+		if(result > 0) {
+			
+			session.setAttribute("alertMsg", "성공적으로 문의글이 수정되었습니다.");
 		    
+			
 			return "redirect:indetail.sm?ino="+i.getInqNo();
 		}
 		else {
-			model.addAttribute("errorMsg", "게시글 수정 실패");
+			model.addAttribute("errorMsg", "문의글 수정 실패가 되었습니다.");
 			
 			return "common/errorFr";
 		}
@@ -221,19 +226,30 @@ public class SangmiController {
 	
 	
 	
-	//1:1문의 삭제
-		@RequestMapping(value="inDelete.sm")
-		public String inDelete(Model model ) {
+	//1:1문의 삭제 => 원래 기능은 없었음 (없어도 될거같음)
+	//문의는 삭제를 하는것으로 할까? 상태 : 답변: Y / 답변안함: N => 상의해보기
+	/*
+		@PostMapping(value="inDelete.sm")
+		public String inDelete(int ino, Model model, HttpSession session ) {
 			
+		    int result = SangmiService.inDelete(ino);
+		    
+		    if(result>0) {
+		    	
+		    	session.setAttribute("alertMsg", "성공적으로 문의글이 삭제되었습니다.");
+		    	
+		    	return "redirect:inqueryList.sm";
+		    }
+		    else {
+		    	
+		    	model.addAttribute("errorMsg","문의글 삭제 실패가 되었습니다.");
+		    
+		    	return "common/errorFr";
+		    }
 		
-			
-			
-			return "sangmi/inqueryUpdate";
-			
-			
 			
 		}
-		
+		*/
 	
 	
 	//FAQ 
