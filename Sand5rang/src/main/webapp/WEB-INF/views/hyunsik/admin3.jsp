@@ -192,7 +192,7 @@
                     <td>${payment.total}</td>
                     <td>성현식</td>
                     <td>${payment.date}</td>
-                    <td>hyunsig96@gmail.com</td>
+                    <td>${payment.email}</td>
                   </tr>
                 </c:forEach>
                 </tbody>

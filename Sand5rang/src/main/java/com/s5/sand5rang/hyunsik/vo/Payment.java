@@ -20,5 +20,6 @@ public class Payment {
 	private String date;
 	private String storeId;
 	private String storeName;
+	private String email;
 
 }

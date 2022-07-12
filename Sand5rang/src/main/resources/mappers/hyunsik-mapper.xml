@@ -21,6 +21,7 @@
 		<result column="PAY_DATE" property="date" />
 		<result column="STORE_ID" property="storeId" />
 		<result column="STORE_NAME" property="storeName" />
+		<result column="EMAIL" property="email" />
 	</resultMap>
 
 	<select id="ad1ListCount" resultType="_int">
@@ -230,9 +231,10 @@
   	</select>
   	
   	<select id="paymentList" resultMap="paymentResultSet">
-		SELECT PAY_NO, DEPOSIT, -WITHDRAW WITHDRAW, TO_CHAR(PAY_DATE, 'YY.MM.DD') PAY_DATE, STORE_ID, STORE_NAME 
-		FROM PAYMENT 
-		JOIN STORE USING(STORE_ID) 
+		SELECT PAY_NO, DEPOSIT, -WITHDRAW WITHDRAW, TO_CHAR(PAY_DATE, 'YY.MM.DD') PAY_DATE, STORE_ID, S.STORE_NAME, EMAIL 
+		FROM PAYMENT
+		JOIN STORE S USING(STORE_ID)
+		JOIN ENROLL USING(ENR_NO)
 		ORDER BY PAY_NO DESC 
   	</select>
   	
