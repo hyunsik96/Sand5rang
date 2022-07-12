@@ -38,4 +38,13 @@ public class SeinDao {
 	public ArrayList<Order> selectAllOrderList(SqlSessionTemplate sqlSession){
 		return (ArrayList)sqlSession.selectList("seinMapper.selectAllOrderList");
 	}
+	
+	//자동발주내역조회 select문
+	public ArrayList<Order> selectAutoOrder(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectAutoOrder");
+	}
+	
+	public ArrayList<Order> selectOrder2(SqlSessionTemplate sqlSession) {
+		return (ArrayList)sqlSession.selectList("seinMapper.selectOrder2");
+	}
 }

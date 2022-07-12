@@ -1341,13 +1341,13 @@ color: #333;
 	float: left;
 	width: 115px;
 	height: 100px;
-	margin-left: 25px;
+	margin-left: 20px;
 	margin-top: 10px;
 	margin-right: 10px;
 }
 
 .modal-body>.bb{
-	margin-top: 40px;
+	margin-top: 28px;
 	display: block;
 	float: left;
 }

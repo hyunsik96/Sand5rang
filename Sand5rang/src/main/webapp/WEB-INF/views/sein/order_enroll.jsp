@@ -19,21 +19,6 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-	
-	<!-- Alertify라이브러리 CSS -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-	<!-- Default theme -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-	<!-- Semantic UI theme -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
-	<!-- Bootstrap theme -->
-	<link rel="stylesheet"
-		href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
-
   </head>
 
 <body>
@@ -172,15 +157,6 @@
 	</div> <!-- /subnavbar-inner -->
 
 </div> <!-- /subnavbar -->
-    
-    <!-- 알람메세지 내용이 있다면  -->
-	<c:if test="${ not empty alertMsg }">
-		<script>
-			alertify.alert("알람","${alertMsg}");
-		</script>
-		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
-		<c:remove var="alertMsg" scope="session"/>
-	</c:if>
 
 
 	<div class="main">
@@ -827,7 +803,7 @@
 								    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
 								
 								    <button type="button" onclick="exe();" class="btn btn-success btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">발주신청</button>&nbsp;
-								    <button type="reset" onclick="re();" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
+								    <button type="reset" onclick="history.back();" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
 								
 								    <br>
 								    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">

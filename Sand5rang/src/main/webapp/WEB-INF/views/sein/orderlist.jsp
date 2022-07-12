@@ -160,14 +160,15 @@
 </div> <!-- /subnavbar -->
     
      <!-- 알람메세지 내용이 있다면  -->
-	<c:if var="alertMsg" test="${ not empty alertMsg }">
+	 
+
+	<c:if var="messesage" test="${ not empty messesage }">
 		<script>
-			alert('${alertMsg}');
+			alert('당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요.');
 		</script>
 		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
-		<c:remove var="alertMsg" scope="session"/>
+		<c:remove var="messesage" scope="session"/>
 	</c:if>
-
 
 	<div class="main">
 		<div class="main-inner">
@@ -197,109 +198,58 @@
 												
 											</tr>
 										</thead>
+										
 										<tbody>
-											<tr>
-												<td class="th1">10</td>
-												<td class="th2">2022-07-03</td>
-												<td class="th3"><a data-toggle="modal" href="#vModal1" >90</a></td>
-												<td class="th4"><a data-toggle="modal" href="#vModal2">90</a></td>
-												<td class="th5"><a data-toggle="modal" href="#vModal3">90</a></td>
-												<td class="th6"><a data-toggle="modal" href="#vModal4">70</a></td>
-												<td class="th7"><a data-toggle="modal" href="#vModal5">10</a></td>
-												<td class="td-actions" style="color: red;">승인대기
-													
-												</td>
-											</tr>
-											<tr>
-												<td class="th1">9</td>
-												<td class="th2">2022-07-02</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">8</td>
-												<td class="th2">2022-07-01</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">7</td>
-												<td class="th2">2022-06-30</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">6</td>
-												<td class="th2">2022-06-29</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">5</td>
-												<td class="th2">2022-06-28</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">4</td>
-												<td class="th2">2022-06-27</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">3</td>
-												<td class="th2">2022-06-26</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">2</td>
-												<td class="th2">2022-06-25</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
-											<tr>
-												<td class="th1">1</td>
-												<td class="th2">2022-06-24</td>
-												<td class="th3">90</td>
-												<td class="th4">90</td>
-												<td class="th5">90</td>
-												<td class="th6">70</td>
-												<td class="th7">10</td>
-												<td class="td-actions">승인완료</td>
-											</tr>
+										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
+											<c:if test="${status.last eq true}">
+												<tr>
+													<td class="th1">${all_Olist.rowNo}</td>
+													<td class="th2">${all_Olist.indDate}</td>
+													<td class="th3"><a data-toggle="modal" href="#vModal1" >${all_Olist.b}</a></td>
+													<td class="th4"><a data-toggle="modal" href="#vModal2">${all_Olist.v}</a></td>
+													<td class="th5"><a data-toggle="modal" href="#vModal3">${all_Olist.c}</a></td>
+													<td class="th6"><a data-toggle="modal" href="#vModal4">${all_Olist.m}</a></td>
+													<td class="th7"><a data-toggle="modal" href="#vModal5">${all_Olist.s}</a></td>
+													<c:choose>
+														<c:when test="${all_Olist.status eq 'B' or 'AB'}">
+															<td class="td-actions" style="color: red;">승인대기</td>
+														</c:when>
+														<c:when test="${all_Olist.status eq 'Y' or 'AY'}">
+															<td class="td-actions" style="color: red;">승인완료</td>
+														</c:when>
+														<c:when test="${all_Olist.status eq 'N'}">
+															<td class="td-actions" style="color: red;">반려</td>
+														</c:when>
+													</c:choose>
+												</tr>
+											</c:if>
+										</c:forEach>
+											
+										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
+											<c:if test="${status.last ne true}">
+												<tr>
+													<td class="th1">${all_Olist.rowNo}</td>
+													<td class="th2">${all_Olist.indDate}</td>
+													<td class="th3">${all_Olist.b}</td>
+													<td class="th4">${all_Olist.v}</td>
+													<td class="th5">${all_Olist.c}</td> 
+													<td class="th6">${all_Olist.m}</td>
+													<td class="th7">${all_Olist.s}</td>
+													<c:choose>
+															<c:when test="${all_Olist.status eq 'B' or 'AB'}">
+																<td class="td-actions" style="color: red;">승인대기</td>
+															</c:when>
+															<c:when test="${all_Olist.status eq 'Y' or 'AY'}">
+																<td class="td-actions" style="color: red;">승인완료</td>
+															</c:when>
+															<c:when test="${all_Olist.status eq 'N'}">
+																<td class="td-actions" style="color: red;">반려</td>
+															</c:when>
+													</c:choose>
+												</tr>
+											</c:if>
+										</c:forEach>
+										
 										</tbody>
 									</table>
 								</div>
@@ -429,29 +379,20 @@
 		  
 		  <!-- Modal body -->
 		  <div class="modal-body">
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/파마산.jpg">
-			  </div>
-			  <div class="bb">
-				<b>파마산 오레가노</b><br>
-				<input id="count" value="3"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-
-			   <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/플렛.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>플렛 브레드</b><br>
-				  <input id="count" value="2"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-			 
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/화이트.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>화이트 브레드</b><br>
-				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
+			  <c:forEach var="order" items="${order}" varStatus="status" begin="0" end="2">
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
+				  </div>
+				  <div class="bb">
+					<b>${order.ingName}</b><b>[단가 : ${order.price}]</b><br>
+					<input class="count" id="count" value="${order.count}" style="width : 30px">
+					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
+					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',<c:out value='${status.index}'/>)">
+						<div style="display: block;">
+							<b>금액 : ${order.total}</b>
+					  	</div>
+				  </div>
+			  </c:forEach>
 		  </div>
 
 		  
@@ -466,73 +407,32 @@
   <!-- The Modal -->
 	<div class="modal" id="vModal2" style="display: none;">
 		<div class="modal-dialog">
-		  <div class="modal-content">	 
+		  <div class="modal-content"  style="width : 540px">	 
 	  
 		  <!-- Modal Header -->
-		  <div class="modal-header">
+		  <div class="modal-header" style="width : 540px">
 			  <h4 class="modal-title">VEGETABLE(야채) 발주내역</h4>
 		  </div> 
 		  
 		  <!-- Modal body -->
-		  <div class="modal-body">
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/양상추.jpg">
-			  </div>
-			  <div class="bb">
-				<b>양상추</b><br>
-				<input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-
-			   <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/토마토.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>토마토</b><br>
-				  <input id="count" value="20"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-			 
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/오이.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>오이</b><br>
-				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/양파.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>양파</b><br>
-				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/피망.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>피망</b><br>
-				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/할라피뇨.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>할라피뇨</b><br>
-				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
-
-			  <div class="bimg">
-				<img src="/sand5rang/resources/images/ingredient/아보카도.jpg">
-			  </div>
-			  <div class="bb">
-			  	<b>아보카도</b><br>
-				  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-			  </div>
+		  <div class="modal-body" style="width : 545px; margin: 0px; padding: 0px">
+			  <c:forEach var="order" items="${order}" varStatus="status" begin="3" end="9">
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
+				  </div>
+				  <div class="bb">
+					<b>${order.ingName}</b><b>[단가 : ${order.price}]</b><br>
+					<input class="count" id="count" value="${order.count}" style="width : 24px">
+					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
+					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',<c:out value='${status.index}'/>)">
+					<div style="display: block;">
+						<b>금액 : ${order.total}</b>
+					</div>
+				</div>
+			  </c:forEach>
 		  </div>
 		  <!-- Modal footer -->
-		  <div class="modal-footer">
+		  <div class="modal-footer" style="width : 530px; height : 20px">
 			<button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
 		</div>  
 	</div>
@@ -542,66 +442,32 @@
 
 	 <div class="modal" id="vModal3" style="display: none;">
 			<div class="modal-dialog">
-			  <div class="modal-content">	 
+			  <div class="modal-content" style="width : 550px">	 
 		  
 			  <!-- Modal Header -->
-			  <div class="modal-header">
+			  <div class="modal-header" style="width : 550px">
 				  <h4 class="modal-title">MEAT(고기) 발주내역</h4>
 			  </div> 
 			  
 			  <!-- Modal body -->
-			  <div class="modal-body">
-				  <div class="bimg">
-					<img src="/sand5rang/resources/images/ingredient/페퍼로니.jpg">
+			  <div class="modal-body" style="width : 550px; margin: 0px; padding: 0px" >
+				  <c:forEach var="order" items="${order}" varStatus="status" begin="13" end="18">
+				  <div class="bimg" style="margin-left : 10px">
+					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
 				  </div>
-				  <div class="bb">
-					<b>페퍼로니</b><br>
-					<input id="count" value="3"><input type="button" value="▲"><input type="button" value="▼">
-				  </div>
-	
-				   <div class="bimg">
-					<img src="/sand5rang/resources/images/ingredient/에그.jpg">
-				  </div>
-				  <div class="bb">
-					  <b>에그</b><br>
-					  <input id="count" value="2"><input type="button" value="▲"><input type="button" value="▼">
-				  </div>
-				 
-				  <div class="bimg">
-					<img src="/sand5rang/resources/images/ingredient/치킨.jpg">
-				  </div>
-				  <div class="bb">
-					  <b>치킨</b><br>
-					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-				  </div>
-
-				  <div class="bimg">
-					<img src="/sand5rang/resources/images/ingredient/쉬림프.jpg">
-				  </div>
-				  <div class="bb">
-					  <b>쉬림프</b><br>
-					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-				  </div>
-
-				  <div class="bimg">
-					<img src="/sand5rang/resources/images/ingredient/비프.jpg">
-				  </div>
-				  <div class="bb">
-					  <b>비프</b><br>
-					  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-				  </div>
-	
-
-				<div class="bimg">
-					<img src="/sand5rang/resources/images/ingredient/베이컨.jpg">
+				  <div class="bb" style="padding-left: 10px;">
+					<b>${order.ingName}</b><b>[단가 : ${order.price}]</b><br>
+					<input class="count" id="count" value="${order.count}" style="width : 30px">
+					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
+					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',<c:out value='${status.index}'/>)">
+					<div style="display: block;">
+						<b>금액 : ${order.total}</b>
+					</div>
 				</div>
-				<div class="bb">
-					<b>베이컨</b><br>
-					<input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-				</div>
+			  </c:forEach>
 		  </div>
 		  <!-- Modal footer -->
-		  <div class="modal-footer">
+		  <div class="modal-footer" style="width : 550px; height : 20px">
 			  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
 		  </div>  
 	  </div>
@@ -610,42 +476,33 @@
 
   <div class="modal" id="vModal4" style="display: none;">
 	<div class="modal-dialog">
-	  <div class="modal-content">	 
+	  <div class="modal-content" style="width : 530px">	 
   
 	  <!-- Modal Header -->
-	  <div class="modal-header">
+	  <div class="modal-header" style="width : 530px">
 		  <h4 class="modal-title">CHEESE(치즈) 발주내역</h4>
 	  </div> 
 	  
 	  <!-- Modal body -->
-	  <div class="modal-body">
-		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/아메리칸.jpg">
-		  </div>
-		  <div class="bb">
-			<b>아메리칸치즈</b><br>
-			<input id="count" value="3"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
-
-		   <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/모차렐라.jpg">
-		  </div>
-		  <div class="bb">
-			  <b>모차렐라치즈</b><br>
-			  <input id="count" value="2"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
-		 
-		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/슈레드.jpg">
-		  </div>
-		  <div class="bb">
-			  <b>슈레드치즈</b><br>
-			  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
+	  <div class="modal-body" style="width : 530px">
+		  <c:forEach var="order" items="${order}" varStatus="status" begin="10" end="12">
+				  <div class="bimg" style="margin-left: 0px;">
+					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
+				  </div>
+				  <div class="bb">
+					<b>${order.ingName}</b><b>[단가 : ${order.price}]</b><br>
+					<input class="count" id="count" value="${order.count}" style="width : 30px">
+					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
+					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',<c:out value='${status.index}'/>)">
+					<div style="display: block;">
+						<b>금액 : ${order.total}</b>
+					</div>
+				</div>
+			  </c:forEach>
 	  </div>
 
   <!-- Modal footer -->
-  <div class="modal-footer">
+  <div class="modal-footer" style="width : 530px; height : 20px">
 	  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
   </div>  
 </div> 
@@ -654,73 +511,122 @@
 
 <div class="modal" id="vModal5" style="display: none;">
 	<div class="modal-dialog">
-	  <div class="modal-content">	 
+	  <div class="modal-content" style="width : 530px">	 
   
 	  <!-- Modal Header -->
-	  <div class="modal-header">
+	  <div class="modal-header" style="width : 530px">
 		  <h4 class="modal-title">SAUCE(소스) 발주내역</h4>
 	  </div> 
 	  
 	  <!-- Modal body -->
-	  <div class="modal-body">
-		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/스위트칠리.jpg">
-		  </div>
-		  <div class="bb">
-			<b>스위트칠리</b><br>
-			<input id="count" value="3"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
-
-		   <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/후추.jpg">
-		  </div>
-		  <div class="bb">
-			  <b>후추</b><br>
-			  <input id="count" value="2"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
-		 
-		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/올리브오일.jpg">
-		  </div>
-		  <div class="bb">
-			  <b>올리브오일</b><br>
-			  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
-
-		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/머스타드.jpg">
-		  </div>
-		  <div class="bb">
-			  <b>머스타드</b><br>
-			  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
-
-		  <div class="bimg">
-			<img src="/sand5rang/resources/images/ingredient/랜치.jpg">
-		  </div>
-		  <div class="bb">
-			  <b>렌치</b><br>
-			  <input id="count" value="10"><input type="button" value="▲"><input type="button" value="▼">
-		  </div>
+	  <div class="modal-body" style="width : 530px; margin: 0px; padding: 0px">
+		  <c:forEach var="order" items="${order}" varStatus="status" begin="19" end="23">
+				  <div class="bimg">
+					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
+				  </div>
+				  <div class="bb">
+					<b>${order.ingName}</b><b>[단가 : ${order.price}]</b><br>
+					<input class="count" id="count" value="${order.count}" style="width : 30px">
+					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="count('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
+					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="count('minus',<c:out value='${status.index}'/>)">
+					<div style="display: block;">
+						<b>금액 : ${order.total}</b>
+					</div>
+				</div>
+			  </c:forEach>
 	  </div>
 
   <!-- Modal footer -->
-  <div class="modal-footer">
+  <div class="modal-footer" style="width : 530px; height : 20px">
 	  <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="closeModal();">수정(저장)</button>
   </div>  
 </div> 
 </div>
 </div>
  
-	  <script>
+<script>
 
-		function closeModal(){
+function count(type, num)  {
 
-			window.close();
+// 결과를 표시할 element
+const resultElement = $('input[class=count]');
 
-		}
+//div에 작성된 정해진 원재료 가격 element
+const price = $('div[id=price]');
 
-	  </script>
+// 재료 수량에 맞춰 가격을 표시할 element
+const tot = $('div[id=total_price]');
+
+// 콤마 안찍혀있는 elemet
+const hidden_value = $('div[id=total_price_hidden]');
+
+// 재료 수량에 따른 재료 발주 총 가격 input element 선택
+const tot_price = $('input[name=tot_price]');
+
+//화면에 표시될 원재료당 가격
+var num2 = 0;
+
+//input 입력값에 대한 유효성체크
+var regExp = /^[0-9]+$/;
+
+for(var i=0; i<resultElement.length; i++){
+  
+
+  if(i == num){
+
+	  // 현재 화면에 표시된 값
+	  let number = resultElement[i].value;
+
+	  //사용자 입력값 숫자 유효성 체크 
+	  if(!regExp.test(number)){
+		  
+		  alert("수량(숫자)만 입력해주세요.");
+
+		  number = 0;
+
+	  }else{
+
+	  // 더하기/빼기
+	  if(type === 'plus') {
+
+		  number = parseInt(number) + 1;
+
+		  num2 = price[i].innerText * number;        
+		  
+
+	  }else if(type === 'minus')  {
+
+			  if(number==0){
+
+				  number = 0;
+
+			  }else{
+
+				  number = parseInt(number) - 1;
+			  }
+
+			  num2 = price[i].innerText * number;
+		  }
+	  }
+
+	  // 가격 출력 
+	  // 콤마 찍어내기 .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+	  tot[i].innerText = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+	  //콤마없는 가격 찍어주기
+	  hidden_value[i].innerText = num2;
+
+	  tot_price[i].value = num2;
+	  
+	  // 수량 결과 출력
+	  resultElement[i].value = number;    
+	  
+	  orderPrice();
+  }
+}
+}
+
+</script>
 
 </body>
 

@@ -44,5 +44,14 @@ public class SeinService {
 		return (ArrayList)seinDao.selectAllOrderList(sqlSession);
 	}
 	
+	//가맹점 자동발주 신청 내역 select
+	public ArrayList<Order> selectAutoOrder(){
+		return (ArrayList)seinDao.selectAutoOrder(sqlSession);
+	}
+	
+	//가맹점 발주대기 상태의 원재료 list select
+	public ArrayList<Order> selectOrder2() {
+		return (ArrayList)seinDao.selectOrder2(sqlSession);
+	}
 }
 

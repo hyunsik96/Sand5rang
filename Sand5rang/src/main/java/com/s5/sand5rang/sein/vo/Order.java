@@ -25,5 +25,12 @@ public class Order {
 	private int ingNo;			//원재료번호
 	private String ingName;		//원재료이름
 	private String ingType;		//원재료종류
+	private String rowNo;		//발주select rowNum
+	private int price;			//원재료가격
+	private int b;
+	private int v;
+	private int c;
+	private int m;
+	private int s;
 	
 }
