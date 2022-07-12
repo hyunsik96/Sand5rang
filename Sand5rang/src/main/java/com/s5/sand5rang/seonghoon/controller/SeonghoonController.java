@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.s5.sand5rang.common.model.vo.PageInfo;
+import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Expiration;
-import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
+import com.s5.sand5rang.seonghoon.vo.Sales;
 import com.s5.sand5rang.seonghoon.vo.Stock;
 
 
@@ -93,9 +95,6 @@ public class SeonghoonController {
 		HashMap<String,String> hashmap = new HashMap<>();
 		hashmap.put("search", search);
 		
-		int listCount = seonghoonService.select_is_ListCount(search);
-		
-		
 		ArrayList<Stock> ing_list = seonghoonService.selectSearchIng(hashmap);
 		
 		return new Gson().toJson(ing_list);
@@ -103,16 +102,37 @@ public class SeonghoonController {
 	}
 	
 	/***************** 전체 재고현황 *********************/
-
-	
 	@RequestMapping(value="ingredientDisposal.csh")
 	public String ingredientDisposalList(Model model) {
 		return "seonghoon/폐기현황";
 	}
+	
+	
+	/*********** 제품판매현황 ************/
 	@RequestMapping(value="menuSales.csh")
-	public String menuSalesList(Model model) {
+	public String menuSalesList(Model model,
+			@RequestParam(value="p", defaultValue="1") int currentPage
+			) {
+		// session.getAttribute(로그인)
+		String storeId = "STORE1";
+		
+		int listCount = seonghoonService.menuSalesListCount();
+		// System.out.println("listCount : "+listCount);
+		int pageLimit = 10;
+		int boardLimit = 5; 
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		// System.out.println(pi);
+		
+		ArrayList<Sales> sales_list = seonghoonService.selectMenuSalesList(pi);
+		model.addAttribute("pi", pi);
+		model.addAttribute("sales_list", sales_list);
+		
+		
+		// System.out.println(sales_list);
+		
 		return "seonghoon/제품판매현황";
 	}
+	
 	
 	
 	

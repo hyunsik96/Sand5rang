@@ -7,11 +7,11 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.seonghoon.dao.SeonghoonDao;
-import com.s5.sand5rang.seonghoon.vo.Expiration;
-import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
+import com.s5.sand5rang.seonghoon.vo.Sales;
 import com.s5.sand5rang.seonghoon.vo.Stock;
 
 @Service
@@ -45,7 +45,16 @@ public class SeonghoonService {
 	public ArrayList<Stock> selectExpDate4(){ return seonghoonDao.selectExpDate4(sqlSession); }
 	public ArrayList<Stock> selectExpDate5(){ return seonghoonDao.selectExpDate5(sqlSession); }
 	
-	// *****************판매기입페이지************************* 
+	// ***************** 제품 판매 현황 *************************
+	public int menuSalesListCount() {
+		return seonghoonDao.menuSalesListCount(sqlSession);
+	}
+	
+	public ArrayList<Sales> selectMenuSalesList(PageInfo pi){
+		return seonghoonDao.selectMenuSalesList(pi,sqlSession);
+	}
+	
+	// ***************** 판매기입페이지 ************************* 
 	public int insertSales(Menu m) { return seonghoonDao.insertSales(sqlSession, m); }
 	public ArrayList<Ingredient> selectIngMen(int menNo){
 		return seonghoonDao.selectIngMen(sqlSession, menNo);
@@ -68,8 +77,6 @@ public class SeonghoonService {
 	
 	
 	// *************** 재료별 재고현황 **************************
-
-	
 	public ArrayList<Stock> selectSearchIng(HashMap<String,String> hashmap){
 		return seonghoonDao.selectSearchIng(hashmap,sqlSession);
 	}

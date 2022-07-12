@@ -3,13 +3,15 @@ package com.s5.sand5rang.seonghoon.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.s5.sand5rang.seonghoon.vo.Expiration;
+import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
 import com.s5.sand5rang.seonghoon.vo.Menu;
+import com.s5.sand5rang.seonghoon.vo.Sales;
 import com.s5.sand5rang.seonghoon.vo.Stock;
 
 @Repository
@@ -66,6 +68,19 @@ public class SeonghoonDao {
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate5");
 	}
 	
+	// ******************************* 제품 판매 현황 **********************************
+	public int menuSalesListCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("seonghoonMapper.menuSalesListCount");
+	}
+	
+	public ArrayList<Sales> selectMenuSalesList(PageInfo pi, SqlSessionTemplate sqlSession){
+		int limit = pi.getBoardLimit();
+		int offset = (pi.getCurrentPage() - 1) * limit;
+		
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenuSalesList",null, rowBounds);
+	}
  	
 	// *******************************판매기입 페이지***********************************
 	public int insertSales(SqlSessionTemplate sqlSession, Menu m) {

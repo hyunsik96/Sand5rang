@@ -191,56 +191,55 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr class="st_head">
-				<th>번호</th>
 				<th>판매날짜</th>
 				<th>총판매개수</th>
 				<th>총매출액</th>
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach var="sales" items="${sales_list}" varStatus="status">
 			<tr class="st_body">
-				<td>1</td>
-				<td>2022-07-07</td>
-				<td><a data-toggle="modal" href="#Modal">10000</a></td>
-				<td>3600000</td>
+				<td>${sales.salDate}</td>
+				<td><a data-toggle="modal" href="#Modal">${sales.count}</a></td>
+				<td>${sales.total }</td>
 			</tr>
-			<tr class="st_body">
-				<td>2</td>
-				<td>2022-07-07</td>
-				<td><a data-toggle="modal" href="#Modal">10000</a></td>
-				<td>3600000</td>
-			</tr>
-			<tr class="st_body">
-				<td>3</td>
-				<td>2022-07-07</td>
-				<td><a data-toggle="modal" href="#Modal">10000</a></td>
-				<td>3600000</td>
-			</tr>
-			<tr class="st_body">
-				<td>4</td>
-				<td>2022-07-07</td>
-				<td><a data-toggle="modal" href="#Modal">10000</a></td>
-				<td>3600000</td>
-			</tr>
-			<tr class="st_body">
-				<td>5</td>
-				<td>2022-07-07</td>
-				<td><a data-toggle="modal" href="#Modal">10000</a></td>
-				<td>3600000</td>
-			</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
 	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:82%; width:160px;">판매기입 페이지로 이동</a>				
 				</div> <!-- /widget -->
 		<!-- /widget-content -->
-		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-			<li class="page-item"><a class="page-link" href="#"><</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">></a></li>
-		</ul>      		
+<ul class="pagination pagination-sm">
+	<c:choose>
+		<c:when test="${pi.currentPage eq 1}">
+		<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+		</c:when>
+		<c:otherwise>
+		<li class="page-item"><a class="page-link" href="menuSales.csh?p=${pi.currentPage - 1}"><</a></li>
+		</c:otherwise>
+	</c:choose>
+
+	<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+		<c:if test="${pi.currentPage eq p}">
+			<li class="page-item active"><a class="page-link" href="menuSales.csh?p=${p}">${p}</a></li>
+		</c:if>
+		<c:if test="${pi.currentPage ne p}">
+			<li class="page-item"><a class="page-link" href="menuSales.csh?p=${p}">${p}</a></li>
+		</c:if>
+	</c:forEach>
+
+	<c:choose>
+		<c:when test="${pi.currentPage eq pi.maxPage}">
+		<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+		</c:when>
+		<c:otherwise>
+		<li class="page-item"><a class="page-link" href="menuSales.csh?p=${pi.currentPage + 1}">></a></li>
+		</c:otherwise>
+	</c:choose>
+</ul>		
+		
+		 		
 		    </div> <!-- /span8 -->
 	      	
 	      	
@@ -341,7 +340,6 @@
 
 
 <jsp:include page="include/6.jsp" />
-	<c:forEach var="i" begin="1" end="10" step="1">
 	<!-- The Modal -->
 	<div class="modal" id="Modal" style="display: none;">
 		<div class="modal-dialog">
@@ -433,7 +431,6 @@
 	  </div>
 	</div>
   </div>
-</c:forEach>
 
   </body>
 

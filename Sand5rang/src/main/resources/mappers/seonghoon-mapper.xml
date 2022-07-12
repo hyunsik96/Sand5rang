@@ -26,6 +26,7 @@
 		<result column="STO_DATE" property="stoDate"/>
 		<result column="ING_TYPE" property="ingType"/>
 		<result column="STORE_ID" property="storeId"/>
+		<result column="STORE_NAME" property="storeName"/>
 	</resultMap>
 	
 	<!-- Flow -->
@@ -38,6 +39,14 @@
 		<result column="ING_NO" property="ingNo"/>
 		<result column="ING_TYPE" property="ingType"/>
 	</resultMap>
+	
+	<!-- Sales -->
+	<resultMap id="SalesResultMap" type="com.s5.sand5rang.seonghoon.vo.Sales">
+		<result column="SAL_DATE" property="salDate"/>
+		<result column="COUNT" property="count"/>
+		<result column="TOTAL" property="total"/>
+		<result column="MEN_NO" property="menNo"/>
+	</resultMap>		
 	
 	
 	<!-- *********************오늘의 재고 페이지******************** -->
@@ -171,8 +180,19 @@
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
-						
-						
+	<!-- ******************** 제품 판매 현황 ********************* -->					
+	<select id="menuSalesListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM SALES
+		WHERE STORE_ID = 
+	</select>					
+	
+	<select id="selectMenuSalesList" resultMap="SalesResultMap">
+		SELECT SAL_DATE, SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
+		FROM SALES
+		GROUP BY SAL_DATE
+		ORDER BY SAL_DATE DESC
+	</select>
 						
 	<!-- *********************판매 기입 페이지******************** -->
 	<insert id="insertSales" parameterType="com.s5.sand5rang.seonghoon.vo.Menu">
@@ -243,14 +263,11 @@
 	</select>
 	
 	<!-- ****************** 재료별 재고현황 ********************** -->
-	<select id="">
-	
-	</select>
-	
 	<select id="selectSearchIng" parameterType="hashmap" resultMap="StockResultMap">
-		SELECT STORE_ID, ING_NAME, COUNT, STO_DATE
+		SELECT STORE_NAME, ING_NAME, COUNT, TO_CHAR(STO_DATE,'YY-MM-DD')"STO_DATE"
 		FROM STOCK
 		JOIN INGREDIENT USING(ING_NO)
+		JOIN STORE USING(STORE_ID)
 		WHERE ING_NAME = #{search}
 	</select>
 	
