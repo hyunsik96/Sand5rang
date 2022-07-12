@@ -42,5 +42,9 @@ public class AnnaDao {
 	public Inquery selectInquery(SqlSessionTemplate sqlSession, int inqNo) {
 		return sqlSession.selectOne("annaMapper.selectInquery", inqNo);
 	}
+	// 문의 답변 달기 폼
+	public Inquery answerForm(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("annaMapper.answerForm");
+	}
 
 }

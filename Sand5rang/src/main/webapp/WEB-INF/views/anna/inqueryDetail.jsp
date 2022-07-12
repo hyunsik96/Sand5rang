@@ -22,8 +22,9 @@
 
   </head>
 <style>
-    pre { background-color: white;}
-    inq_info {font-size: 12px;}
+   pre { background-color: white;}
+   inq_info {font-size: 12px;}
+   answer {align: right;}
    
 
 </style>
@@ -182,65 +183,44 @@
 
                 <!--가맹점이 작성한 문의 제목-->
                 <div class="inq_title"> 
-                  	<div width="800" style="padding-bottom:5px; margin-left:10px;"><h1>채소류 발주에 대한 문의 드립니다.</h1></div>
+                  	<div style="padding-bottom:5px; margin-left:10px;">
+                  		<h1>${i.inqTitle}</h1>
+                  	</div>
                   
                        	<!--작성글 세부 정보 및 답변 상태-->
                        	<div class="inq_info">
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">카테고리</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">청계천점 </div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">22.06.26</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변상태</div>
-                            <div style="display:inline-block; font-size:15px;">답변완료</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">${i.category}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변</div>
+                            <div style="display:inline-block; font-size:15px;">${i.ansDate}</div>
                         </div><br>
                 </div>
 
                 <!--가맹점이 작성한 문의 본문-->
                 <div class="inq_content"> 
-                    <pre>
-안녕하세요 샌드오랑 청계천점입니다.
-현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요? 현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. 공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다.
-현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요? 발주가 되지 않는데 어떤 문제가 있는건가요?
-공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-
- 현재 채소류 발주시 40개 이상은  공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-
- 현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.</pre>
-                 </div>
+                    <pre>${ i.inqQuery }</pre>
+                </div>
 
             </div><br>
             
              <!--관리자 답변 버튼 -->
-             <div  align="center">
-                <a href="inqAnswer.an" class="btn btn-success btn-large">답변하기</a>
-                <a href="#" onClick="history.back();" class="btn btn-invert btn-large" >문의 목록</a>
-            </div>
+             <div class="answer" align="right">
+                <a href="ansForm.an" class="btn btn-success btn-large">답변하기</a>
+                <a href="#" onClick="history.back();" class="btn btn-invert btn-large" >목록으로</a>
+            </div><!-- 관리자 답변 버튼 끝 -->
 
 
 
          </div>
-     
-     </div>
-    </div>
-        
-						
-				</div> <!-- /widget -->
-	      		
-		    </div> <!-- /span8 -->
-	      	
-	      	
-	      	
-	      	
-	      </div> <!-- /row -->
-	
-	    </div> <!-- /container -->
-	    
-	</div> <!-- /main-inner -->
-    
+     		</div>
+    			</div>
+        			</div> <!-- /widget -->
+	      		</div> <!-- /span8 -->
+	  		 </div> <!-- /row -->
+	  	 </div> <!-- /container -->
+	    </div> <!-- /main-inner -->  
 </div> <!-- /main -->
-    
-    
     
  
 <div class="extra">

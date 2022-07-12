@@ -124,17 +124,24 @@ public class AnnaController {
 			return mv;
 		}
 		
+	// 문의 답변하기 폼 (상세보기+답변폼)
+	@RequestMapping(value="ansForm.an")
+	public ModelAndView answerForm(int ino,ModelAndView mv) {
+		
+		Inquery i = annaService.answerForm(ino);
+		
+		mv.addObject("i",i).setViewName("anna/answerForm");
+		
+		return mv;
+	}
 	
-	
-	@RequestMapping(value="inqAnswer.an")
-	public String annatest1() {return "anna/inqueryAnswer";}
-	
-
-	
-	
-	
+	// 가맹문의 폼
 	@RequestMapping(value="joinForm.an")
-	public String annatest6() {return "anna/joinForm";}
+	public String joinForm(Model model) {
+		
+		return "anna/joinForm";
+		
+	}
 	
 	@RequestMapping(value="changePwd.an")
 	public String annatest7() {return "anna/changePwd";}

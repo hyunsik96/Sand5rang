@@ -28,6 +28,32 @@
 	   <result column="STORE_NAME" property="storeName"/>
 	 </resultMap>
 
+	 <!-- answerForm -->
+	  <resultMap id="answerFormResultSet" type="com.s5.sand5rang.anna.vo.Inquery">
+	   <result column="INQ_NO" property="inqNo" />
+	   <result column="INQ_TITLE" property="inqTitle" />
+	   <result column="INQ_DATE" property="inqDate" />
+	   <result column="INQ_QUERY" property="inqQuery" />
+	   <result column="INQ_ANSWER" property="inqAnswer" />
+	   <result column="STATUS" property="status" />
+	   <result column="ANS_DATE" property="ansDate" />
+	   <result column="CATEGORY" property="category" />
+	   <result column="STORE_ID" property="storeId" />
+	   
+	   <result column="STORE_NAME" property="storeName"/>
+	 </resultMap>
+	 
+	 <!-- joinForm -->
+	 <resultMap id="joinFormResultSet" type="com.s5.sand5rang.anna.vo.Enroll">
+	 	<result column="ENR_NO" property="enrNo" />
+	 	<result column="STORE_NAME" property="storeName" />
+	 	<result column="ENROLL_ADD" property="enrollAdd" />
+	 	<result column="EMAIL" property="email" />
+	 	<result column="PHONE" property="phone" />
+	 	<result column="TITLE" property="title" />
+	 	<result column="CONTENT" property="content" />
+	 	<result column="STATUS" property="status" />
+	 </resultMap>
 
 	<!-- 로그인 -->
 	<select id="loginStore" parameterType="com.s5.sand5rang.anna.vo.Store" resultMap="loginResultSet">
@@ -54,12 +80,44 @@
 	
 	<!--문의글 상세 조회 -->
 	<select id="selectInquery" parameterType="_int" resultMap="inqueryResultSet">
-		SELECT INQ_NO, CATEGORY, INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, ANS_DATE
+		SELECT INQ_NO, CATEGORY, STORE_NAME, INQ_TITLE, INQ_QUERY, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, ANS_DATE
 		FROM INQUERY I
 		JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
 		WHERE INQ_NO =  #{inqNo}
 	</select>
 	
-
+	<!-- 문의글 답변 폼(상세조회+답변 textarea) -->
+	<select id="answerForm" parameterType="com.s5.sand5rang.anna.vo.Inquery" resultMap="answerFormResultSet">
+		SELECT INQ_NO, CATEGORY, STORE_NAME, INQ_TITLE, INQ_QUERY, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, ANS_DATE
+		FROM INQUERY I
+		JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
+		WHERE INQ_NO =  #{inqNo}
+	</select>
+	
+	<!-- 문의글 답변 등록(답변만 업데이트) -->
+	<update id="enrollAnswer" parameterType="com.s5.sand5rang.anna.vo.Inquery">
+		UPDATE INQUERY
+	   	   SET INQ_ANSWER = ${inqAnswer}
+		 , STATUS = 'Y'
+    	 WHERE INQ_NO = ${inqNo}
+	</update>
+	
+	<!-- 가맹문의 서비스 -->
+	<insert id="joinForm" parameterType="com.s5.sand5rang.anna.vo.Store">
+		INSERT INTO ENROLL( ENR_NO
+	                  , STORE_NAME
+	                  , PHONE
+	                  , EMAIL
+	                  , ENROLL_ADD
+	                  , TITLE
+	                  , CONTENT)
+		 VALUES ( SEQ_ENRNO.NEXTVAL
+		          , #{storeName}
+		          , #{phone}
+		          , #{email}
+		          , #{enrollAdd}
+		          , #{title}
+		          , #{content})
+	</insert>
 </mapper>
 

@@ -185,42 +185,33 @@
                   
                        	<!--작성글 세부 정보 및 답변 상태-->
                        	<div class="inq_info">
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">카테고리</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">청계천점 </div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">22.06.26</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">${i.category}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
                             <div style="display:inline-block; padding-right:10px; font-size:15px;">답변상태</div>
-                            <div style="display:inline-block; font-size:15px;">답변완료</div>
+                            <div style="display:inline-block; font-size:15px;">${i.status} ${i.ansDate}</div>
                         </div><br>
                 </div>
 					</div>
 
 					<!--가맹점이 작성한 문의 본문-->
 					<div class="inq_content"> 
-						<pre>
-안녕하세요 샌드오랑 청계천점입니다.
-현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요? 현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다. 공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다.
-현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요? 발주가 되지 않는데 어떤 문제가 있는건가요?
-공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-
- 현재 채소류 발주시 40개 이상은  공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.
-
- 현재 채소류 발주시 40개 이상은 발주가 되지 않는데 어떤 문제가 있는건가요?
-공지채널에서도 확인 할 수 없어 문의를 먼저 남깁니다 빠른 답변 부탁드립니다.</pre>
+						<pre>${i.inqQuery}</pre>
 					</div>
 
 				</div><br>
 				
-				<!--관리자 답변 부분-->
+				<!--관리자 답변 입력 부분-->
 
 				<div class="inq_answer" align="center">
-					<textarea style="width:800px; height:400px; resize: none; color:grey;" placeholder="답변내용을 입력하세요.">
+					<textarea style="width:90%; height:400px; resize: none; color:grey;" placeholder="답변내용을 입력하세요.">
 					</textarea>
 				</div><br>
 				
-				<div align="center">
-					<button type="submit" class="btn btn-primary btn-large">등록하기</button>
+				<div align="right">
 					<button type="reset" onClick="history.back();" class="btn btn-large">취소하기</button>
+					<button type="submit" class="btn btn-primary btn-large">등록하기</button>
+					
 				</div>
 			
 			</div>

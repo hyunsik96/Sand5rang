@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.anna.dao.AnnaDao;
+import com.s5.sand5rang.anna.vo.Enroll;
 import com.s5.sand5rang.anna.vo.Inquery;
 import com.s5.sand5rang.anna.vo.Store;
 
@@ -26,10 +27,9 @@ public class AnnaService {
 		return annaDao.loginStore(sqlSession, s);
 	}
 	 
-	 //	가맹문의 서비스(insert)
-	 int insertStore(Store s) {
-		return 0;
-		 
+	 //	가맹문의 신청 서비스(insert)
+	 public int joinForm(Enroll e) {
+		return annaDao.joinForm(sqlSession, e);	 
 	 }
 	 
 
@@ -46,6 +46,11 @@ public class AnnaService {
 	// 문의글상세 조회 
 	public Inquery selectInquery(int inqNo) {
 		return annaDao.selectInquery(sqlSession,inqNo);
+	}
+
+	// 문의 답변 달기 폼
+	public Inquery answerForm(int ino) {
+		return annaDao.answerForm(sqlSession);
 	}
 	
 
