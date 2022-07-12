@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
+import com.s5.sand5rang.hyunsik.vo.StockF;
 
 @Repository
 public class HyunsikDao {
@@ -98,6 +99,24 @@ public class HyunsikDao {
 	
 	public int realPayList(SqlSessionTemplate sqlSession, Payment p) {
 		return sqlSession.selectOne("hyunsikMapper.realPayList", p);
+	}
+	
+	public int getMyStock(SqlSessionTemplate sqlSession, StockF sf) {
+		return sqlSession.selectOne("hyunsikMapper.getMyStock", sf);
+	}
+	
+	public int endFlowDate(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("hyunsikMapper.endFlowDate", storeId);
+	}
+	
+	public ArrayList<StockF> indexList(SqlSessionTemplate sqlSession, PageInfo pi, int index){
+		
+		int limit = pi.getBoardLimit();
+		int offset = (pi.getCurrentPage() - 1) * limit;
+		
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		return (ArrayList)sqlSession.selectList("hyunsikMapper.indexList", index, rowBounds);
 	}
 
 

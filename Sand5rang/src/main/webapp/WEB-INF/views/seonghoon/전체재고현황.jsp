@@ -24,10 +24,10 @@
 
 <body>
 
-<jsp:include page="include/1.jsp" />
-<jsp:include page="include/2.jsp" />
-<jsp:include page="include/3.jsp" />
-<jsp:include page="include/4.jsp" />
+<jsp:include page="../hyunsik/include/1.jsp" />
+<jsp:include page="../hyunsik/include/2.jsp" />
+<jsp:include page="../hyunsik/include/3.jsp" />
+<jsp:include page="../hyunsik/include/4.jsp" />
 <jsp:include page="include/5.jsp" />
 <div class="navbar navbar-fixed-top">
 	
@@ -201,31 +201,11 @@
 		</thead>
 		<tbody>
 			<tr class="st_body">
-			<c:forEach var="ss" items="${ss_list }">
-				<c:if test="${ss.ingType eq 'B'}">
-				<td>${ss.count}</td>
-				</c:if>			
-			</c:forEach>
-			<c:forEach var="ss" items="${ss_list }">
-				<c:if test="${ss.ingType eq 'V'}">
-				<td>${ss.count}</td>
-				</c:if>
-			</c:forEach>
-			<c:forEach var="ss" items="${ss_list }">
-				<c:if test="${ss.ingType eq 'M'}">
-				<td>${ss.count}</td>
-				</c:if>
-			</c:forEach>
-			<c:forEach var="ss" items="${ss_list }">
-				<c:if test="${ss.ingType eq 'C'}">
-				<td>${ss.count}</td>
-				</c:if>
-			</c:forEach>
-			<c:forEach var="ss" items="${ss_list }">
-				<c:if test="${ss.ingType eq 'S'}">
-				<td>${ss.count}</td>
-				</c:if>
-			</c:forEach>												
+				<td>${b}</td>		
+				<td>${v}</td>
+				<td>${m}</td>
+				<td>${c}</td>
+				<td>${s}</td>		
 			</tr>
 		</tbody>
 	</table>
@@ -460,7 +440,7 @@
     
 
 
-<jsp:include page="include/6.jsp" />
+<jsp:include page="../hyunsik/include/6.jsp" />
 
 
   </body>

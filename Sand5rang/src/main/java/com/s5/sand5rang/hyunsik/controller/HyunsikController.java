@@ -1,5 +1,7 @@
 package com.s5.sand5rang.hyunsik.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,8 +17,7 @@ import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
-import com.s5.sand5rang.seonghoon.vo.Flow;
-import com.s5.sand5rang.seonghoon.vo.Stock;
+import com.s5.sand5rang.hyunsik.vo.StockF;
 
 @Controller
 public class HyunsikController {
@@ -176,10 +177,43 @@ public class HyunsikController {
 			@RequestParam(value="p",defaultValue="1") int currentPage
 			){
 		// 재고 합계
-
+		// storeId=15라 가정
+		String storeId= "15";
+		
+		StockF sf = new StockF();
+		sf.setStoreId(storeId);
+		 
+		sf.setIndex(1); sf.setType("B"); int b = hyunsikService.getMyStock(sf); model.addAttribute("b", b);
+		sf.setIndex(1); sf.setType("V"); int v = hyunsikService.getMyStock(sf); model.addAttribute("v", v);
+		sf.setIndex(6); sf.setType("M"); int m = hyunsikService.getMyStock(sf); model.addAttribute("m", m);
+		sf.setIndex(6); sf.setType("C"); int c = hyunsikService.getMyStock(sf); model.addAttribute("c", c);
+		sf.setIndex(13); sf.setType("S"); int s = hyunsikService.getMyStock(sf); model.addAttribute("s", s);
+		
+		
 		
 		// 재고 현황
+		
+		int flowDate = hyunsikService.endFlowDate(storeId);
 
+		LocalDate now = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
+		String formatedNow = now.format(formatter);
+		int nowDate = Integer.parseInt(formatedNow);		
+		
+		int chai = nowDate - flowDate;
+		
+		int listCount = (chai+1)*2;
+		int pageLimit = 10;
+		int boardLimit = 6;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
+		ArrayList<StockF> indexList = hyunsikService.indexList(pi, listCount);
+		
+		for(int i = 0; i < indexList.size(); i+=2) {
+			indexList.get(i).getIndex();
+		}
+		
 			
 	return "seonghoon/전체재고현황";
 	}

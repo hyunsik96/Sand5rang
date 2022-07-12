@@ -23,6 +23,14 @@
 		<result column="STORE_NAME" property="storeName" />
 		<result column="EMAIL" property="email" />
 	</resultMap>
+	
+	<resultMap id="stockFResultSet" type="com.s5.sand5rang.hyunsik.vo.StockF">
+		<result column="STORE_ID" property="storeId" />
+		<result column="ING_NO" property="ingNo" />
+		<result column="TOTAL" property="total" />
+		<result column="TYPE" property="type" />
+		<result column="FINDEX" property="index" />
+	</resultMap>
 
 	<select id="ad1ListCount" resultType="_int">
 		SELECT COUNT(*)
@@ -244,6 +252,38 @@
 		JOIN STORE USING(STORE_ID) 
 		WHERE PAY_NO <![CDATA[<]]>= #{payNo} AND STORE_ID = #{storeId} 
 		ORDER BY PAY_NO DESC 
+  	</select>
+  	
+  	<select id="getMyStock" resultType="_int" parameterType="com.s5.sand5rang.hyunsik.vo.StockF">
+		SELECT SUM(COUNT) 
+		FROM STOCK 
+		JOIN INGREDIENT USING(ING_NO) 
+		WHERE 
+		STORE_ID = #{storeId} AND ( 
+		TO_NUMBER(TO_CHAR(STO_DATE, 'YYMMDD')) 
+		BETWEEN 
+		TO_NUMBER(TO_CHAR(SYSDATE-#{index}, 'YYMMDD')) 
+		AND 
+		TO_NUMBER(TO_CHAR(SYSDATE, 'YYMMDD')) 
+		) 
+		AND 
+		ING_TYPE = #{type} 
+  	</select>
+  	
+  	<select id="endFlowDate" parameterType="string" resultType="_int">
+		SELECT FDATE
+		FROM (SELECT TO_NUMBER(TO_CHAR(FLO_DATE, 'YYMMDD')) FDATE, ROW_NUMBER() OVER(PARTITION BY STORE_ID ORDER BY FLO_DATE ASC) AS RN
+		FROM FLOW
+		WHERE STORE_ID = #{storeId}
+		ORDER BY FLO_DATE ASC)
+		WHERE RN = 1
+  	</select>
+  	
+  	<select id="indexList" parameterType="_int" resultMap="stockFResultSet">
+		SELECT TRUNC((LEVEL-1)/2) FINDEX 
+		FROM DUAL 
+		CONNECT BY LEVEL <![CDATA[<]]>= #{index} 
+		ORDER BY LEVEL DESC 
   	</select>
 
 </mapper>

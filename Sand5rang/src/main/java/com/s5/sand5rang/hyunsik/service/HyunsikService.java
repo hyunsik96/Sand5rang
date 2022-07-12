@@ -12,6 +12,7 @@ import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.dao.HyunsikDao;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
+import com.s5.sand5rang.hyunsik.vo.StockF;
 
 @Component
 @Service
@@ -89,6 +90,18 @@ public class HyunsikService {
 	
 	public int realPayList(Payment p) {
 		return hyunsikDao.realPayList(sqlSession, p);
+	}
+	
+	public int getMyStock(StockF sf){
+		return hyunsikDao.getMyStock(sqlSession, sf);
+	}
+	
+	public int endFlowDate(String storeId) {
+		return hyunsikDao.endFlowDate(sqlSession, storeId);
+	}
+	
+	public ArrayList<StockF> indexList(PageInfo pi, int index){
+		return hyunsikDao.indexList(sqlSession, pi, index);
 	}
 	
 }
