@@ -124,7 +124,7 @@
 				<div class="login-box"><!-- 가운데 화이트 박스 만들고 싶음 -->
 				<div class="content clearfix heading_container heading_center">
 					
-					<form action="#" method="post">
+					<form action="login2.an" method="post">
 					
 			            <div class="brand-logo">
                    <img src="resources/images/sandimg.png" style="width:300px; height:150px;"alt="logo">
@@ -156,7 +156,7 @@
 						</div>	
 						
 						<div>						
-							<button class="button btn btn-success btn-large">로그인</button>
+							<button type="submit" class="button btn btn-success btn-large">로그인</button>
 						</div>
 					</form>
 					

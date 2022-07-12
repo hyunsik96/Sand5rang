@@ -30,8 +30,13 @@ public class AnnaController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	@RequestMapping(value="login.an")
+	public String login() {
+		return "anna/login";
+	}
+	
 	// 로그인 
-	@RequestMapping(value="login.an") //ReqestMapping 어노테이션을 붙여줌으로써 컨트롤러로 등록
+	@RequestMapping(value="login2.an") //ReqestMapping 어노테이션을 붙여줌으로써 컨트롤러로 등록
 	public ModelAndView loginStore(
 			  Store s,
 			  HttpSession session,
