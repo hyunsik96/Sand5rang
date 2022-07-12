@@ -103,23 +103,7 @@ public class SeonghoonController {
 	}
 	
 	/***************** 전체 재고현황 *********************/
-	@RequestMapping(value="ingredientAllStock.csh")
-	public String ingredientAllStockList(
-			Model model,
-			@RequestParam(value="spage",defaultValue="1") int currentPage
-			){
-		// 재고 합계
-		ArrayList<Stock> ss_list = seonghoonService.selectSumStock();
-		model.addAttribute("ss_list",ss_list);
-		
-		// 재고 현황
-		ArrayList<Flow> in_list = seonghoonService.selectInFlow();
-		ArrayList<Flow> out_list = seonghoonService.selectOutFlow();
-		model.addAttribute("in_list", in_list);
-		model.addAttribute("out_list", out_list);
-			
-	return "seonghoon/전체재고현황";
-	}
+
 	
 	@RequestMapping(value="ingredientDisposal.csh")
 	public String ingredientDisposalList(Model model) {

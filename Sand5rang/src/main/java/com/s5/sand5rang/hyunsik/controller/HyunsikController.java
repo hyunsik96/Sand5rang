@@ -15,6 +15,8 @@ import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
+import com.s5.sand5rang.seonghoon.vo.Flow;
+import com.s5.sand5rang.seonghoon.vo.Stock;
 
 @Controller
 public class HyunsikController {
@@ -167,6 +169,20 @@ public class HyunsikController {
     	}
     	
     }
+    
+	@RequestMapping(value="ingredientAllStock.csh")
+	public String ingredientAllStockList(
+			Model model,
+			@RequestParam(value="p",defaultValue="1") int currentPage
+			){
+		// 재고 합계
+
+		
+		// 재고 현황
+
+			
+	return "seonghoon/전체재고현황";
+	}
 	
 	
 }
