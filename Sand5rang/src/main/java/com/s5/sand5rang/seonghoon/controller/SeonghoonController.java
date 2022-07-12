@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.s5.sand5rang.sein.vo.Order;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Flow;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
@@ -131,226 +132,38 @@ public class SeonghoonController {
 	
 	/*********** 판매기입페이지 ***********/
 	@RequestMapping(value="salesPage0.csh")
-	public String salesPage0(Model model) {
-		ArrayList<Menu> list = seonghoonService.selectMenu();
-		model.addAttribute("sa_list", list);
-		return "seonghoon/판매기입페이지";
+	public String salesPage0(Model model) { return "seonghoon/판매기입페이지"; }
+	
+	/*매출 기입 insert용 */
+	@ResponseBody
+	@RequestMapping(value="salesPage1.csh", produces="text/html; charset=UTF-8")
+	public void orderEnrollController(int order_count, int ingNo, int tot_price, Model model, HttpSession session) {
+		
+
+		// 1. SALES 테이블에 INSERT
+		
+
+		
+		Menu m = new Menu();
+		m.setMenNo(ingNo);
+		m.setCount(order_count);
+		m.setTotal(tot_price);
+//		m.setStoreId((Store)session.getAttribute("loginUser").getUserId());
+		
+		seonghoonService.insertSales(m);
+		
+		
+		
+		// 2. FLOW 테이블에 INSERT
+		
+		// 3. STOCK 테이블에 UPDATE
+		
+			
 	}
 	
 	
-	@RequestMapping(value="salesPage1.csh")
-	public String salesPage_menu1( int count, int menNo,
-			 Model model, HttpSession session){
-		
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);
-		
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-		
-	}
-	@RequestMapping(value="salesPage2.csh")
-	public String salesPage_menu2( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);		
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage3.csh")
-	public String salesPage_menu3( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage4.csh")
-	public String salesPage_menu4( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage5.csh")
-	public String salesPage_menu5( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage6.csh")
-	public String salesPage_menu6( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage7.csh")
-	public String salesPage_menu7( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage8.csh")
-	public String salesPage_menu8( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage9.csh")
-	public String salesPage_menu9( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage10.csh")
-	public String salesPage_menu10( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage11.csh")
-	public String salesPage_menu11( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage12.csh")
-	public String salesPage_menu12( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage13.csh")
-	public String salesPage_menu13( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage14.csh")
-	public String salesPage_menu14( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
-	@RequestMapping(value="salesPage15.csh")
-	public String salesPage_menu15( int count, int menNo,
-			 Model model, HttpSession session){
-		HashMap<String,Integer> hashmap = new HashMap<String, Integer>();
-		hashmap.put("count", count);
-		hashmap.put("menNo", menNo);	
-		int result = seonghoonService.insertSales(hashmap);
-		
-		if(result > 0) {
-			return "redirect:salesPage0.csh";
-		}else {
-			return "common/errorFr";
-		}
-	}
+
+	
 	
 
 

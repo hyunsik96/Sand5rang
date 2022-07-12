@@ -69,11 +69,8 @@ public class SeonghoonDao {
 	
  	
 	// *******************************판매기입 페이지***********************************
-	public ArrayList<Menu> selectMenu(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenu");
-	}
-	public int insertSales(SqlSessionTemplate sqlSession, HashMap<String,Integer> hashmap) {
-		return sqlSession.insert("seonghoonMapper.insertSales", hashmap);
+	public int insertSales(SqlSessionTemplate sqlSession, Menu m) {
+		return sqlSession.insert("seonghoonMapper.insertSales", m);
 	}
 	
 	// ****************************** 전체 재고현황 ***********************************

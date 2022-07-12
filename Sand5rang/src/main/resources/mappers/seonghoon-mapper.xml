@@ -6,6 +6,8 @@
 	<resultMap id="MenuResultMap" type="com.s5.sand5rang.seonghoon.vo.Menu">
 		<result column="MEN_NAME" property="menName"/>
 		<result column="MEN_NO" property="menNo"/>
+		<result column="MDATE" property="date"/>
+		<result column="PRICE" property="price"/>
 	</resultMap>
 	
 	<!-- Ingredient -->
@@ -172,20 +174,10 @@
 						
 						
 	<!-- *********************판매 기입 페이지******************** -->
-	<insert id="insertSales" parameterType="hashmap">
+	<insert id="insertSales" parameterType="com.s5.sand5rang.seonghoon.vo.Menu">
 		INSERT INTO SALES(SAL_NO, SAL_DATE, COUNT, TOTAL, STORE_ID, MEN_NO)
-		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count},
-		(SELECT PRICE 
-		FROM MENU 
-		WHERE MEN_NO=#{menNo})*#{count}
-		,'STORE1',#{menNo})
+		VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, #{count}, #{total}, 'admin', #{menNo})
 	</insert>
-	
-	<select id="selectMenu" resultMap="MenuResultMap">
-		SELECT MEN_NAME, MEN_NO
-		FROM MENU
-	</select>
-	
 	
 	<!-- *****************전체 재고현황 ***************** -->
 	<!-- 재고합계 -->

@@ -46,8 +46,7 @@ public class SeonghoonService {
 	public ArrayList<Stock> selectExpDate5(){ return seonghoonDao.selectExpDate5(sqlSession); }
 	
 	// *****************판매기입페이지************************* 
-	public ArrayList<Menu> selectMenu(){ return seonghoonDao.selectMenu(sqlSession); }
-	public int insertSales(HashMap<String,Integer> hashmap) { return seonghoonDao.insertSales(sqlSession,hashmap); }
+	public int insertSales(Menu m) { return seonghoonDao.insertSales(sqlSession, m); }
 	
 	// ***************** 전체 재고현황 ************************
 	// 재고 합계
