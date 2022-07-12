@@ -34,6 +34,8 @@
    <result column="ANS_DATE" property="ansDate" />
    <result column="CATEGORY" property="category" />
    <result column="STORE_ID" property="storeId" />
+   
+   <result column="STORE_NAME" property="storeName" />
  </resultMap>
  
  
@@ -73,8 +75,9 @@ WHERE ENR_NO = #{enrNo}
 
 <!-- 문의 전체 리스트 조회 -->
 <select id="inqueryList" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultMap="inqueryResultSet">
-SELECT INQ_NO,INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" , INQ_QUERY, INQ_ANSWER, STATUS, ANS_DATE, CATEGORY, STORE_ID
-FROM INQUERY
+SELECT I.INQ_NO,I.INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" , I.STATUS, I.CATEGORY, I.STORE_ID, S.STORE_NAME
+FROM INQUERY I
+JOIN STORE S ON(I.STORE_ID=S.STORE_ID)
 ORDER BY INQ_NO DESC
 </select>
 

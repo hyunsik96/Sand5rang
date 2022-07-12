@@ -185,14 +185,23 @@
  
          
                <table class="cd_table"  align="center">
+                   <tr>
+                     <th><label for="title" style="font-size:18px">카테고리</label></th> 
+	                   <td>
+	                     <select name="category" disabled >
+	                     <option>${i.category}</option>
+	                  
+	                     </select>
+	                   </td> 
+                   </tr>
                     <tr class="cd_table_title">
                         <td width="70px;">제목 : </td>
-                        <td width="700px" height="150px"><input type="text" name="inqTitle" disabled value="${i.inqTitle}"></td>
+                        <td width="100px" height="100px"><input type="text" name="inqTitle" disabled value="${i.inqTitle}"></td>
                     </tr>
                     <tr class="cd_table_content1">
                         <td colspan="2">
                             <div class="cd_table_content_title">문의내용</div>
-                            <textarea name="inqQuery"  style="resize:none; width:100%; height:200px" disabled>${ i.inqQuery }</textarea>
+                            <textarea name="inqQuery" style="resize:none; width:100%; height:200px" disabled>${ i.inqQuery }</textarea>
                         </td>
                     </tr>
                     <tr class="cd_table_content1">
@@ -203,12 +212,14 @@
                         </td>
                     </tr>
                 </table>
+                <br><br>
  <!--<c:if test="${ (not empty loginUser) and (b.boardWriter eq loginUser.userId) }"> 수정하기 버튼은 본인이 작성한 글만 -->
  <!-- </c:if> -->
         <div align="center">
             <a class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</a>
+            &nbsp;&nbsp;
             <a class="btn btn-danger" onclick="postFormSubmit(2);">삭제하기</a>
-            <br>
+          <br><br>
             <a class="btn btn-secondary" href="inqueryList.sm">목록가기</a>       
         </div>
          

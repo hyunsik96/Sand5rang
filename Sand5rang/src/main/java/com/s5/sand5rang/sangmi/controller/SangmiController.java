@@ -186,7 +186,7 @@ public class SangmiController {
 		
 		return mv;
 	}
-	//ino 못찾음.. 음..
+	
 	
 	
 	

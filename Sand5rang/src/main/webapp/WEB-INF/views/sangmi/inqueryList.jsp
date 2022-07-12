@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -176,24 +176,28 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>문의글 전체 리스트</h3>
+	      				문의글 전체 리스트&nbsp;
+	      				
+	      				<form action="incate.sm" style="display:inline-block; margin-left: 10px;">
+									<select name="category" style="width: 100px; margin-top: 6px">
+										<option value="category">운영문의</option>
+										<option value="category">재고문의</option> 
+										<option value="category">발주문의</option>
+									</select>     
+							</form>
+	      				
+	      				
 	  				</div> <!-- /widget-header -->
-	<form id="searchForm" action="" method="get" align="left">
-
-           <select class="custom-select" name="condition">
-               <option value="writer"></option>
-               <option value="title">제목</option>
-           </select>
-   </form>
+	
     
     <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
             <tr>
                 <th width="10%">글번호</th>
+                 <th width="10%">카테고리</th>
                 <th width="30%">제목</th>
                 <th width="10%">작성자</th>
                 <th width="10%">작성일</th>
-                <th width="10%">카테고리</th>
                 <th width="10%">답변유무</th>
             </tr>
         </thead>
@@ -201,10 +205,10 @@
           <c:forEach var="i" items="${list }">
             <tr>
                <td class="ino">${i.inqNo}</td>
+                 <td>${i.category }</td>
                 <td>${i.inqTitle }</td>
-                <td>${i.storeId }</td>
+                <td>${i.storeName }</td>
                 <td>${i.inqDate }</td>
-                <td>${i.category }</td>
                 <td>${i.status }</td>
             </tr>
            </c:forEach> 		
@@ -225,7 +229,7 @@
 <script>
   $(function(){
 	  $("#boardList>tbody>tr").click(function(){
-		 location.href="inqueryDetail.sm?ino="+$(this).children(".ino").text();
+		 location.href="indetail.sm?ino="+$(this).children(".ino").text();
 	  });
   });
 </script>

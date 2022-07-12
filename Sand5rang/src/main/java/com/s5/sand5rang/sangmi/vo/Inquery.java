@@ -21,6 +21,7 @@ public class Inquery {
 	private String category; //문의카테고리
 	private String storeId; //가맹점아이디
 	
+	private String storeName; //가맹점이름
 	
 	
 }
