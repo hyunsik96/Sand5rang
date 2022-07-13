@@ -187,17 +187,17 @@
 	      				문의글 전체 리스트&nbsp;
 	      				
 	      				<form action="incate.sm" style="display:inline-block; margin-left: 10px;">
-									<select name="category" style="width: 100px; margin-top: 6px">
-										<option value="category">운영문의</option>
-										<option value="category">재고문의</option> 
-										<option value="category">발주문의</option>
+									<select class="form-control so" name="category" style="width: 100px; margin-top: 6px">
+										<option value="operate" >운영문의</option>
+										<option value="stock" >재고문의</option> 
+										<option value="orders">발주문의</option>
 									</select>     
+								      
 							</form>
 	      				
 	      				
 	  				</div> <!-- /widget-header -->
-	
-    
+
     <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
             <tr>

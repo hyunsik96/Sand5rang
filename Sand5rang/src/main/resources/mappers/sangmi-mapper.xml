@@ -90,14 +90,14 @@ ORDER BY INQ_NO DESC
 </select>
 
 <!-- 문의글 작성하기 -->
-<insert id="inquertInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery">
+<insert id="inqueryInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery">
 INSERT INTO INQUERY(INQ_NO
-                  , STORE_NAME
+                  , STORE_ID
                   , INQ_TITLE
                   , INQ_QUERY
                   , CATEGORY)
  VALUES ( SEQ_INQNO.NEXTVAL
-          , #{storeName}
+          , #{storeId}
           , #{inqTitle}
           , #{inqQuery}
           , #{category})
@@ -105,7 +105,7 @@ INSERT INTO INQUERY(INQ_NO
 
 <!--문의글 상세 조회 -->
 <select id="selectInquery" parameterType="_int" resultMap="inqueryResultSet">
-SELECT INQ_NO,INQ_TITLE, INQ_QUERY, INQ_ANSWER, CATEGORY, STORE_NAME
+SELECT INQ_NO,INQ_TITLE, INQ_QUERY, INQ_ANSWER, CATEGORY, STORE_NAME, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", TO_CHAR(ANS_DATE, 'YY.MM.DD') "ANS_DATE"
 FROM INQUERY I
 JOIN STORE S ON(I.STORE_ID=S.STORE_ID)
 WHERE INQ_NO = #{inqNo}
