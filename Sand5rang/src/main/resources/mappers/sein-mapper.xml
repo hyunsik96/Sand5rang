@@ -101,4 +101,8 @@
 		ORDER BY ING_NO
 	</select>
 	
+	<update id="updateOrder" parameterType="order">
+		
+	</update>
+	
 </mapper>

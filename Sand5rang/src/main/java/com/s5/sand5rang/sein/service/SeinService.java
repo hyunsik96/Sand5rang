@@ -55,7 +55,7 @@ public class SeinService {
 	}
 	
 	public int updateOrder() {
-		
+		return seinDao.updateOrder(sqlSession);
 	}
 }
 

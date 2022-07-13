@@ -47,4 +47,8 @@ public class SeinDao {
 	public ArrayList<Order> selectOrder2(SqlSessionTemplate sqlSession) {
 		return (ArrayList)sqlSession.selectList("seinMapper.selectOrder2");
 	}
+	
+	public int updateOrder(SqlSessionTemplate sqlSession) {
+		return sqlSession.update("seinMapper.updateOrder");
+	}
 }
