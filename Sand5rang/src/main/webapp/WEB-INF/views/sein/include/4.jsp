@@ -465,32 +465,27 @@ textarea {
 }
 
 .widget-content .table .th3{
-	width: 70px;
+	width: 130px;
 	text-align: center;
 }
 
 .widget-content .table .th4{
-	width: 70px;
+	width: 130px;
 	text-align: center;
 }
 
 .widget-content .table .th5{
-	width: 70px;
+	width: 130px;
 	text-align: center;
 }
 
 .widget-content .table .th6{
-	width: 70px;
+	width: 130px;
 	text-align: center;
 }
 
 .widget-content .table .th7{
-	width: 70px;
-	text-align: center;
-}
-
-.widget-content .table .th6{
-	width: 70px;
+	width: 130px;
 	text-align: center;
 }
 
@@ -499,7 +494,7 @@ textarea {
 }
 
 .widget-content .table .td-actions{
-	width: 200px;
+	width: 100px;
 	text-align: center;
 }
 

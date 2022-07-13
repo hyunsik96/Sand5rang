@@ -189,12 +189,12 @@
 										<thead>
 											<tr>
 												<th class="th1">No</th>
-												<th class="th2">발주날짜</th>
 												<th class="th3">Bread</th>
 												<th class="th4">Vegetable</th>
 												<th class="th5">Cheese</th>
 												<th class="th6">Meat</th>
 												<th class="th7">Sauce</th>
+												<th class="th2">발주날짜</th>
 												<th class="td-actions" colspan="2">승인상태</th>
 												
 											</tr>
@@ -202,21 +202,21 @@
 										
 										<tbody>
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
-											<c:if test="${status.first eq true}">
+											<c:if test="${status.first ne true}">
 												<tr>
 													<td class="th1">${all_Olist.rowNo}</td>
-													<td class="th2">${all_Olist.indDate}</td>
 													<td class="th3"><a data-toggle="modal" href="#vModal1" style="color :blue;">${all_Olist.b}</a></td>
 													<td class="th4"><a data-toggle="modal" href="#vModal2" style="color :blue;">${all_Olist.v}</a></td>
 													<td class="th5"><a data-toggle="modal" href="#vModal3" style="color :blue;">${all_Olist.c}</a></td>
 													<td class="th6"><a data-toggle="modal" href="#vModal4" style="color :blue;">${all_Olist.m}</a></td>
 													<td class="th7"><a data-toggle="modal" href="#vModal5" style="color :blue;">${all_Olist.s}</a></td>
+													<td class="th2">${all_Olist.indD}</td>
 													<c:choose>
 														<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
 																<td class="td-actions" style="color: red;">승인대기</td>
 															</c:when>
 															<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
-																<td class="td-actions" style="color: red;">승인완료</td>
+																<td class="td-actions" style="color: black;">승인완료</td>
 															</c:when>
 															<c:when test="${all_Olist.status eq 'N'}">
 																<td class="td-actions" style="color: red;">반려</td>
@@ -227,21 +227,21 @@
 										</c:forEach>
 											
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
-											<c:if test="${status.first ne true}">
+											<c:if test="${status.first eq true}">
 												<tr>
 													<td class="th1">${all_Olist.rowNo}</td>
-													<td class="th2">${all_Olist.indDate}</td>
 													<td class="th3">${all_Olist.b}</td>
 													<td class="th4">${all_Olist.v}</td>
 													<td class="th5">${all_Olist.c}</td> 
 													<td class="th6">${all_Olist.m}</td>
 													<td class="th7">${all_Olist.s}</td>
+													<td class="th2">${all_Olist.indD}</td>
 													<c:choose>
 															<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
 																<td class="td-actions" style="color: red;">승인대기</td>
 															</c:when>
 															<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
-																<td class="td-actions" style="color: red;">승인완료</td>
+																<td class="td-actions" style="color: black;">승인완료</td>
 															</c:when>
 															<c:when test="${all_Olist.status eq 'N'}">
 																<td class="td-actions" style="color: red;">반려</td>
@@ -441,7 +441,7 @@
 					<b style="font-size: 11px; color : tomato">[단가 :</b> 
 					<b id="iprice" style="font-size: 11px; color : tomato"> ${order.price}</b>
 					<b style="font-size: 11px; color : tomato">]</b><br>
-					<input class="count" id="count" value="${order.count}" style="width : 24px" name="count">
+					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
 					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
 					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
 					<div id="price" style="display: block; width : 100px">
@@ -669,9 +669,18 @@ for(var i=0; i<resultElement.length; i++){
 	  // 더하기/빼기
 	  if(type === 'plus') {
 
-		  number = parseInt(number) + 1;
+		number = parseInt(number) + 1;
 
-		  num2 = iprice[i].innerText * number;  
+		if(number==1000){
+
+			alert("하루 발주가능 수량 1000개 이하입니다.\n수량을 다시입력해주세요");
+
+			number = 0;
+
+		}else{
+
+			num2 = iprice[i].innerText * number;       
+		}
 
 	  }else if(type === 'minus')  {
 
@@ -695,7 +704,6 @@ for(var i=0; i<resultElement.length; i++){
 
 			//콤마없는 가격 찍어주기
 			//hidden_iprice[i].value = num2;
-
 			hidden_iprice[i].setAttribute("value", num2);
 
 		}
@@ -731,8 +739,17 @@ for(var i=0; i<resultElement.length; i++){
 // 		}
 // 	}
 
+//발주 수량 직접입력 시 기본값 0 -> 공백으로 만들어주기
+$("input[class=count]").on("keydown",function(key){ 
 
-	//발주 수량 직접 입력시 자동으로 가격 계산하여 보여주기
+if($(this).val() == 0){
+
+	$(this).val('');
+}
+});
+
+
+//발주 수량 직접 입력시 자동으로 가격 계산하여 보여주기
 $("input[class=count]").on("keyup",function(key){ 
 
 //input 입력값에 대한 유효성체크
@@ -751,7 +768,7 @@ if(!regExp.test(amount)){
 		$(this).val(amount);
 }
 
-if(amount>1000){
+if(amount==1000 || amount>1000){
 
 	alert("하루 발주가능 수량 1000개 이하입니다.\n수량을 다시입력해주세요");
 

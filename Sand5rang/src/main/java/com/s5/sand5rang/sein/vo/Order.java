@@ -27,6 +27,7 @@ public class Order {
 	private String ingType;		//원재료종류
 	private String rowNo;		//발주select rowNum
 	private int price;			//원재료가격
+	private String indD;		//발주날짜(시/분/초)
 	private int b;
 	private int v;
 	private int c;

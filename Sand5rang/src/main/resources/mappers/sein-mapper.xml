@@ -22,6 +22,7 @@
 		<result column="ING_TYPE" property="ingType"/>
 		<result column="PRICE" property="price"/>
 		<result column="ROWNUM" property="rowNo"/>
+		<result column="IND" property="indD"/>
 		<result column="'B'" property="b"/>
 		<result column="'V'" property="v"/>
 		<result column="'C'" property="c"/>
@@ -37,10 +38,10 @@
 	
 	<!-- 발주 체크 select -->
 	<select id="selectOrder" resultType="_int">
-		SELECT COUNT(IND_DATE) FROM INDENT
+		SELECT COUNT(IND_NO) AS COUNT_NO
+		FROM INDENT
 		WHERE STORE_ID = 'GUM01' AND
-		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD')
-		GROUP BY IND_DATE
+			  TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD')
 	</select>
 	
 	<!-- 발주insert -->
@@ -74,11 +75,11 @@
 	<select id="selectAllOrderList" resultMap="TodyOrderResultSet">
 		SELECT ROWNUM, A.* 
 		FROM(SELECT *
-		      FROM (SELECT ING_TYPE, COUNT, IND_DATE, STATUS
-		            FROM INDENT JOIN INGREDIENT USING(ING_NO))
+		      FROM (SELECT ING_TYPE, COUNT, TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') AS "IND", STATUS
+		            FROM INDENT JOIN INGREDIENT USING(ING_NO)
+                    WHERE STORE_ID = 'GUM01')
 		      PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))
-		      ORDER BY IND_DATE ASC) A
-		ORDER BY ROWNUM DESC
+		      ORDER BY IND ASC) A
 	</select>
 	
 	<!-- 자동발주신청 select -->
@@ -102,7 +103,6 @@
 	</select>
 	
 	<update id="updateOrder" parameterType="order">
-		
 	</update>
 	
 </mapper>

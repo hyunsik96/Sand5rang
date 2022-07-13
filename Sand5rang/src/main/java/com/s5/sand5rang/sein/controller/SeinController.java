@@ -38,19 +38,26 @@ public class SeinController {
         return "main/branch";
     }
 	
+	/*발주 리스트 조회*/
 	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
     public String orderListController(Model m)
     {
 		//날짜별 발주 합계 list select 
 		ArrayList<Order> allOlist= seinService.selectAllOrderList();
 		
-		//날짜별 원재료별 발주 내역 select
-		ArrayList<Order> order = seinService.selectOrder2();
-		
-		m.addAttribute("all_Olist", allOlist);
-		m.addAttribute("order", order);
-		
-        return "sein/orderlist";
+		if(allOlist.isEmpty()) {
+			
+			return "sein/noOrderlist";
+			
+		}else {
+			//날짜별 원재료별 발주 내역 select
+			ArrayList<Order> order = seinService.selectOrder2();
+			
+			m.addAttribute("all_Olist", allOlist);
+			m.addAttribute("order", order);
+			
+	        return "sein/orderlist";
+		}
     }
 	
 	/*발주 신청 페이지 띄우기용*/
@@ -58,20 +65,18 @@ public class SeinController {
     public String orderEnrollFormController(HttpSession session)
     {
 		//당일 발주 신청 건이 있는지 선체크 해주고 페이지 띄워주기 
-		//int result = seinService.selectOrder();
+		int result = seinService.selectOrder();
 		
-//		if(result==24) {
-//			//당일 선 발주건 있음 
-//			
-//			session.setAttribute("messesage", "true");
-//			
-//			 return "sein/orderlist";
-//			 
-//		}else {
+		if(result==24) {
+			//당일 선 발주건 있음 
+			session.setAttribute("messesage", "true");
+			
+			 return "sein/orderlist";
+			 
+		}else {
 			//당일 선 발주건 없음 
 			return "sein/order_enroll";
-		//}
-       
+		}
     }
 	
 	/*발주 신청 insert용 */
@@ -134,6 +139,7 @@ public class SeinController {
 		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
 		ArrayList<Order> olist = seinService.selectTodayOrder();
 		
+		m.addAttribute("indDate", olist.get(0).getIndDate());
 		m.addAttribute("olist", olist);
 		
         return "sein/order_enroll_result";
@@ -143,9 +149,7 @@ public class SeinController {
 	@RequestMapping(value="orderUpdate.se")
 	public String orderUpdateController(Model m) {
 		
-		int result = seinService.updateOrder();
-		
-		
+		//int result = seinService.updateOrder();
 		
 		return "sein/orderlist";
 	}

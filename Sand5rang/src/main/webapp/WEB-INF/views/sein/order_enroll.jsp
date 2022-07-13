@@ -797,12 +797,12 @@
 
 
                             
-                                <div id="total" style="float : right; margin-right: 30px; font-size: 30px;">
+                                <div id="total" style="float : right; margin-right: 30px; font-size: 30px; margin-top: 20px; ">
                                     총 발주액 : <b id="tot_order_price">0</b>&nbsp;원
                                 </div>
 
                                 <br><br>
-								<div style="margin-top: 50px; width: 100%; text-align: center;">
+								<div style="margin-top: 100px; width: 100%; text-align: center;">
 								    
 								    <input type="checkbox" name="order_check" value="n">
 								    <span style="font-size : 15px; margin-top : 20px; line-height: 30px; font-family: 'Noto Sans KR', sans-serif;">자동발주신청</span>
@@ -811,7 +811,7 @@
 								    <button type="reset" onclick="history.back();" class="btn btn-danger btn-lg" style="font-family: 'Noto Sans KR', sans-serif;">취소</button><br>
 								
 								    <br>
-								    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
+								    <p style="color :rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder; margin-bottom: 10px;">
 								        ※ 자동발주 신청 시 매일(14:00시)에 자동으로 발주가 완료됩니다.<br> 
 								        관리자 승인 14:00시 이전까지 발주 수정이 가능하며, 체크박스 해제시 자동발주 취소가 됩니다.
 								    </p>
@@ -963,7 +963,7 @@ function re(){
     if(i == num){
 
         // 현재 화면에 표시된 값
-        let number = resultElement[i].value;
+        var number = resultElement[i].value;
 
         //사용자 입력값 숫자 유효성 체크 
         if(!regExp.test(number)){
@@ -977,11 +977,18 @@ function re(){
         // 더하기/빼기
         if(type === 'plus') {
 
-            number = parseInt(number) + 1;
+			if(number==1000){
 
-            num2 = price[i].innerText * number;        
-            
+				alert("하루 발주가능 수량 1000개 이하입니다.\n수량을 다시입력해주세요");
 
+				number = 0;
+
+			}else{
+				number = parseInt(number) + 1;
+			
+           		num2 = price[i].innerText * number;       
+			}
+        
         }else if(type === 'minus')  {
 
                 if(number==0){
@@ -996,29 +1003,34 @@ function re(){
                 num2 = price[i].innerText * number;
             }
         }
+    
+			resultElement[i].value = number;
+			// 가격 출력 
+        	// 콤마 찍어내기 .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        	tot[i].innerText = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        // 가격 출력 
-        // 콤마 찍어내기 .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        tot[i].innerText = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        	//콤마없는 가격 찍어주기
+        	hidden_value[i].innerText = num2;
 
-        //콤마없는 가격 찍어주기
-        hidden_value[i].innerText = num2;
+        	tot_price[i].value = num2;    
 
-        tot_price[i].value = num2;
-        
-        // 수량 결과 출력
-        resultElement[i].value = number;    
-        
-        orderPrice();
+			orderPrice();
     }
  }
 }
+//발주 수량 직접입력 시 기본값 0 -> 공백으로 만들어주기
+$("input[class=count_result]").on("keydown",function(key){ 
 
+	if($(this).val() == 0){
+
+		$(this).val('');
+	}
+});
 
 //발주 수량 직접 입력시 자동으로 가격 계산하여 보여주기
 $("input[class=count_result]").on("keyup",function(key){ 
 
-    //input 입력값에 대한 유효성체크
+    //input 입력값에 대한 숫자 유효성체크
     var regExp = /^[0-9]+$/;
  
     //수량
@@ -1034,7 +1046,7 @@ $("input[class=count_result]").on("keyup",function(key){
             $(this).val(amount);
     }
 
-    if(amount>1000){
+    if(amount==1000 || amount>1000){
 
         alert("하루 발주가능 수량 1000개 이하입니다.\n수량을 다시입력해주세요");
 

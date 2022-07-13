@@ -174,9 +174,11 @@
 <!-- /widget-header -->
 <div class="widget-content"> 
     <div>
-        <p style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif; font-weight: bolder;">
+		&nbsp;&nbsp;&nbsp;<b>[ 발주날짜 : </b>
+		<b><c:out value="${indDate}"/>  ]</b>
+        <b style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
             &nbsp;&nbsp;&nbsp;&nbsp;* 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
-        </p>
+        </b>
     </div>
 
 <h3 style="margin-left:20px; margin-top: 30px; margin-bottom: 10px;">빵(Bread)</h3><br>
@@ -268,8 +270,8 @@
               <thead>
                 <tr>
                   <th style="text-align: center;">No</th>
-                  <th style="text-align: center;">재료종류</th>
                   <th style="text-align: center;">원재료명</th>
+				  <th style="text-align: center;">재료종류</th>
                   <th style="text-align: center;">수량</th>
                 </tr>
               </thead>
@@ -279,6 +281,7 @@
               <c:forEach var="olist" items="${olist}">
                 <tr>
                   <td style="text-align: center;">${olist.ingNo}</td>
+				  <td style="text-align: center;">${olist.ingName}</td>
                   <c:choose>
                     <c:when test="${olist.ingType eq 'B'}">
                         <td style="text-align: center;">빵</td>
@@ -296,7 +299,7 @@
                         <td style="text-align: center;">소스</td>
                     </c:when>
                   </c:choose>
-                  <td style="text-align: center;">${olist.ingName}</td>
+                  
                   <td style="text-align: center;">${olist.count}</td>
                 </tr>
                 <c:set var="tot_price" value="${tot_price + olist.total}"/>
@@ -318,8 +321,8 @@
               <tr>
                 <th style="text-align: center;">총 발주 수량(단위/개)</th>
                 <th style="text-align: center;">총 발주 가격(단위/원)</th>
-                <th class="td-actions" style="text-align: center;">현재 잔액(단위/원)</th>
-                <th class="td-actions" style="text-align: center;">총 결제 금액(단위/원)</th>
+                <th style="text-align: center;">현재 잔액(단위/원)</th>
+                <th style="text-align: center;">총 결제 금액(단위/원)</th>
               </tr>
             </thead>
             <tbody>
