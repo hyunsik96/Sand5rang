@@ -212,7 +212,7 @@
 <hr>
 
 <h3 style="margin-left:20px; margin-bottom: 10px">고기(Meat)</h3><br>
-<c:forEach var="olist" items="${olist}" varStatus="satus" begin="10" end="15">
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="13" end="18">
 <div class="meat" style="margin-top:10px">
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
@@ -225,22 +225,9 @@
 <br><br>
 <hr>
 
-<h3 style="margin-left:20px; margin-bottom: 10px">소스(sauce)</h3><br>
-<c:forEach var="olist" items="${olist}" varStatus="satus" begin="16" end="20">
-<div class="sauce" style="margin-top:10px">
-	<h4>*${olist.ingName}</h4>
-	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
-	<br>
-    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
-    <br>     
-    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
-</div>
-</c:forEach>
-<br><br>
-<hr>
 
 <h3 style="margin-left:20px; margin-bottom: 10px">치즈(cheese)</h3><br>
-<c:forEach var="olist" items="${olist}" varStatus="satus" begin="21" end="23">
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="10" end="12">
 <div class="cheese" style="margin-top:10px">
 	<h4>*${olist.ingName}</h4>
 	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
@@ -253,6 +240,20 @@
 <br><br>
 <hr>
 <br><br>
+
+<h3 style="margin-left:20px; margin-bottom: 10px">소스(sauce)</h3><br>
+<c:forEach var="olist" items="${olist}" varStatus="satus" begin="19" end="23">
+<div class="sauce" style="margin-top:10px">
+	<h4>*${olist.ingName}</h4>
+	<img src="resources/images/ingredient/${olist.ingName}.jpg" width="150" height="150">
+	<br>
+    <b style="width:30px; margin-left: 40px;">발주 수량 : <b style="color :blue">${olist.count}</b></b>&nbsp;개 
+    <br>     
+    <b style="width:30px; margin-left: 40px;">발주 금액 : <b style="color :rgb(243, 128, 5)"><fmt:formatNumber value="${olist.total}" pattern="###,###,###,###"/></b></b>&nbsp;원
+</div>
+</c:forEach>
+<br><br>
+<hr>
 
 
 
