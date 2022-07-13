@@ -163,16 +163,16 @@
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   <div id="big_stats" class="cf">
-                    <div class="stat"> <div>주문</div> <span class="value">100</span> </div>
+                    <div class="stat"> <div>주문</div> <span class="value">${m.adInd}</span> </div>
                     <!-- 가맹점주들에게 받은 미처리 주문 총 수 -->
                     
-                    <div class="stat"> <div>전날발주</div><span class="value">100</span> </div>
+                    <div class="stat"> <div>전날발주</div><span class="value">${m.adFac}</span> </div>
                     <!-- 전날 공장으로 자동발주한 원재료 총 수 -->
                     
-                    <div class="stat"> <div>가맹신청</div> <span class="value">100</span> </div>
+                    <div class="stat"> <div>가맹신청</div> <span class="value">${m.adEnr}</span> </div>
                     <!-- 미처리 가맹신청 수 -->
                     
-                    <div class="stat"> <div>문의글</div> <span class="value">100</span> </div>
+                    <div class="stat"> <div>문의글</div> <span class="value">${m.adInq}</span> </div>
                     <!-- 미답변 문의글 수 --> 
                   </div>
                 </div>

@@ -179,7 +179,7 @@
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
-
+<c:if test="${!empty list}">
               <table class="table table-striped table-bordered sein-table">
                 <thead>
                   <tr>
@@ -194,91 +194,55 @@
                   </tr>
                 </thead>
                 <tbody>
+                <c:forEach var="payment" items="${list}">
                   <tr>
-                    <td>9</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
+                    <td>${payment.payNo}</td>
+                    <td>${payment.storeName}</td>
+                    <td>${payment.deposit}</td>
+                    <td>${payment.withdraw}</td>
+                    <td>${payment.total}</td>
                     <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
+                    <td>${payment.date}</td>
+                    <td>${payment.email}</td>
                   </tr>
-                  <tr>
-                    <td>8</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
-                    <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
-                    <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
-                    <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
-                    <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
-                    <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>우장산점</td>
-                    <td>500,000</td>
-                    <td>0</td>
-                    <td>500,000</td>
-                    <td>성현식</td>
-                    <td>22/07/13</td>
-                    <td>hyunsig96@gmail.com</td>
-                  </tr>
+                </c:forEach>
                 </tbody>
               </table>
-
+</c:if>
 					</div> <!-- /widget-content -->
-						
+<c:if test="${empty list}"><div style="width:250px; margin:auto; margin-top:30px; font-size:15px; color:red;">대금내역이 없습니다.</div></c:if>
 				</div> <!-- /widget -->
-	      		
-								<ul class="pagination pagination-sm">
-									<li class="page-item"><a class="page-link" href="#"><</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">></a></li>
-								</ul>
-	      		
+<c:if test="${!empty list}">     		
+		<ul class="pagination pagination-sm">
+		<c:choose>
+			<c:when test="${pi.currentPage eq 1}">
+			<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+			</c:when>
+			<c:otherwise>
+			<li class="page-item"><a class="page-link" href="fr1.hs?p=${pi.currentPage - 1}"><</a></li>
+			</c:otherwise>
+		</c:choose>
+		
+		<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+			<c:if test="${pi.currentPage eq p}">
+				<li class="page-item active"><a class="page-link" href="fr1.hs?p=${p}">${p}</a></li>
+			</c:if>
+			<c:if test="${pi.currentPage ne p}">
+				<li class="page-item"><a class="page-link" href="fr1.hs?p=${p}">${p}</a></li>
+			</c:if>
+		</c:forEach>
+		
+		<c:choose>
+			<c:when test="${pi.currentPage eq pi.maxPage}">
+			<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+			</c:when>
+			<c:otherwise>
+			<li class="page-item"><a class="page-link" href="fr1.hs?p=${pi.currentPage + 1}">></a></li>
+			</c:otherwise>
+		</c:choose>
+		</ul>
+
+</c:if>
 		    </div> <!-- /span8 -->
 	      	
 	      	

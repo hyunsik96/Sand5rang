@@ -37,6 +37,17 @@
 		<result column="S" property="s" />
 		<result column="FDATE" property="date" />
 	</resultMap>
+	
+	<resultMap id="mainResultSet" type="com.s5.sand5rang.hyunsik.vo.Main">
+		<result column="ADIND" property="adInd" />
+		<result column="ADFAC" property="adFac" />
+		<result column="ADENR" property="adEnr" />
+		<result column="ADINQ" property="adInq" />
+		<result column="FRIND" property="frInd" />
+		<result column="FRFAC" property="frFac" />
+		<result column="FRPAY" property="frPay" />
+		<result column="FRINQ" property="frInq" />
+	</resultMap>
 
 	<select id="ad1ListCount" resultType="_int">
 		SELECT COUNT(*)
@@ -336,5 +347,71 @@
 		F.STATUS = #{io}) AS S, TO_CHAR(SYSDATE-#{index}, 'YY.MM.DD') FDATE 
 		FROM DUAL
   	</select>
+  	
+  	<select id="befIndent" resultMap="mainResultSet">
+		SELECT
+		(SELECT COUNT(*)
+		FROM INDENT
+		WHERE STATUS = 'AB' OR STATUS = 'B') ADIND, 
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM FACTORY
+		WHERE 
+		TO_CHAR(FAC_DATE, 'YYMMDD') = TO_CHAR(SYSDATE-1, 'YYMMDD')) ADFAC, 
+		(SELECT COUNT(*)
+		FROM ENROLL
+		WHERE STATUS = 'B') ADENR, 
+		(SELECT COUNT(*)
+		FROM INQUERY
+		WHERE STATUS = 'N') ADINQ
+		FROM DUAL
+  	</select>
+  	
+  	<select id="befIndent2" resultMap="mainResultSet" parameterType="string">
+		SELECT
+		(SELECT COUNT(*)
+		FROM INDENT
+		WHERE (STATUS = 'AB' OR STATUS = 'B') AND STORE_ID = #{storeId}) FRIND, 
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM INDENT
+		WHERE (STATUS = 'AY' OR STATUS = 'Y') AND STORE_ID = #{storeId} AND 
+		TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) 
+		BETWEEN 
+		TO_NUMBER((TO_CHAR(SYSDATE-2, 'YYMMDD') || 150000))
+		AND 
+		TO_NUMBER((TO_CHAR(SYSDATE-1, 'YYMMDD') || 149999))) FRFAC, 
+		(SELECT NVL((SUM(DEPOSIT)+SUM(WITHDRAW)), 0) 
+		FROM PAYMENT 
+		JOIN STORE USING(STORE_ID) 
+		WHERE STORE_ID = #{storeId}) FRPAY, 
+		(SELECT COUNT(*)
+		FROM INQUERY
+		WHERE STORE_ID = #{storeId}) FRINQ
+		FROM DUAL
+  	</select>
+  	
+  	
+  	<select id="payListCount2" resultType="_int" parameterType="string">
+  		SELECT COUNT(*) 
+  		FROM PAYMENT 
+  		WHERE STORE_ID = #{storeId} 
+  	</select>
+  	
+  	<select id="paymentList2" resultMap="paymentResultSet" parameterType="string">
+		SELECT PAY_NO, DEPOSIT, -WITHDRAW WITHDRAW, TO_CHAR(PAY_DATE, 'YY.MM.DD') PAY_DATE, STORE_ID, S.STORE_NAME, EMAIL 
+		FROM PAYMENT
+		JOIN STORE S USING(STORE_ID)
+		JOIN ENROLL USING(ENR_NO)
+		WHERE STORE_ID = #{storeId} 
+		ORDER BY PAY_NO DESC 
+  	</select>
+  	
+  	<select id="realPayList2" resultType="_int" parameterType="com.s5.sand5rang.hyunsik.vo.Payment">
+		SELECT SUM(DEPOSIT)+SUM(WITHDRAW) 
+		FROM PAYMENT 
+		JOIN STORE USING(STORE_ID) 
+		WHERE PAY_NO <![CDATA[<]]>= #{payNo} AND STORE_ID = #{storeId} 
+		ORDER BY PAY_NO DESC 
+  	</select>
+  	
 
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.vo.Indent;
+import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.Payment;
 import com.s5.sand5rang.hyunsik.vo.StockF;
 
@@ -121,6 +122,32 @@ public class HyunsikDao {
 	
 	public StockF flowList(SqlSessionTemplate sqlSession, StockF s) {
 		return sqlSession.selectOne("hyunsikMapper.flowList", s);
+	}
+	
+	public Main befIndent(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("hyunsikMapper.befIndent");
+	}
+	
+	public Main befIndent2(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("hyunsikMapper.befIndent2", storeId);
+	}
+	
+	public int payListCount2(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("hyunsikMapper.payListCount2", storeId);
+	}
+	
+	public ArrayList<Payment> paymentList2(SqlSessionTemplate sqlSession, PageInfo pi, String storeId){
+		
+		int limit = pi.getBoardLimit();
+		int offset = (pi.getCurrentPage() - 1) * limit;
+		
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		return (ArrayList)sqlSession.selectList("hyunsikMapper.paymentList2", storeId, rowBounds);
+	}
+	
+	public int realPayList2(SqlSessionTemplate sqlSession, Payment p) {
+		return sqlSession.selectOne("hyunsikMapper.realPayList2", p);
 	}
 
 

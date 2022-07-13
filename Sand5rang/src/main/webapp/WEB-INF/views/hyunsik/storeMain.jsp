@@ -176,16 +176,16 @@
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   <div id="big_stats" class="cf">
-                    <div class="stat"> <div>발주대기</div> <span class="value">100</span> </div>
+                    <div class="stat"> <div>발주대기</div> <span class="value">${m.frInd}</span> </div>
                     <!-- 오늘 발주 신청했으나 아직 승인안된 총 수 -->
                     
-                    <div class="stat"> <div>입고대기</div><span class="value">100</span> </div>
+                    <div class="stat"> <div>오늘의입고</div><span class="value">${m.frFac}</span> </div>
                     <!-- 어제 발주 승인되어 오늘 들어오기로한 원재료 총 수 -->
                     
-                    <div class="stat"> <div>발주잔액</div> <span class="value">100</span> </div>
+                    <div class="stat"> <div>발주잔액</div> <span class="value">${m.frPay}</span> </div>
                     <!-- 발주잔액 -->
                     
-                    <div class="stat"> <div>문의현황</div> <span class="value">100</span> </div>
+                    <div class="stat"> <div>문의현황</div> <span class="value">${m.frInq}</span> </div>
                     <!-- 가맹점주가 작성한 문의글 총 수 --> 
                   </div>
                 </div>

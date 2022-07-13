@@ -6,17 +6,25 @@ import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.s5.sand5rang.hyunsik.service.HyunsikService;
+import com.s5.sand5rang.hyunsik.vo.Main;
 
 @Controller
 public class Crawling {
-
+	
+	@Autowired
+	private HyunsikService hyunsikService;
+	
     
     @RequestMapping(value="admain.hs")
     public String craw_select(HttpServletRequest req,HttpServletResponse resp)throws Exception {
         
-
+// 뉴스 크롤링
         String url = "https://search.naver.com/search.naver?where=news&sm=tab_jum&query=%EC%83%8C%EB%93%9C%EC%9C%84%EC%B9%98";
         Document doc =Jsoup.connect(url).get();
 
@@ -36,6 +44,14 @@ public class Crawling {
         req.setAttribute("title", arr);
         req.setAttribute("content", arr2);
         req.setAttribute("image", arr3);
+        
+        
+
+// 그 외 컨트롤링필요부분
+        
+        Main m = hyunsikService.befIndent();
+        
+        req.setAttribute("m", m);
         
         return "hyunsik/adminMain";
 	
@@ -47,7 +63,7 @@ public class Crawling {
     @RequestMapping(value="frmain.hs")
     public String craw_select2(HttpServletRequest req,HttpServletResponse resp)throws Exception {
         
-
+// 뉴스 크롤링
         String url = "https://search.naver.com/search.naver?where=news&sm=tab_jum&query=%EC%83%8C%EB%93%9C%EC%9C%84%EC%B9%98";
         Document doc =Jsoup.connect(url).get();
 
@@ -67,6 +83,16 @@ public class Crawling {
         req.setAttribute("title", arr);
         req.setAttribute("content", arr2);
         req.setAttribute("image", arr3);
+        
+
+// 그 외 컨트롤링필요부분
+        
+        String storeId = "47";
+        
+        Main m = hyunsikService.befIndent2(storeId);
+        
+        req.setAttribute("m", m);
+        
         
         return "hyunsik/storeMain";
 	

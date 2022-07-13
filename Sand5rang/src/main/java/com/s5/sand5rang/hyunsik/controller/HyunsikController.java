@@ -241,6 +241,40 @@ if(flowDate!=0) {
 		
 	return "seonghoon/전체재고현황";
 	}
+
 	
 	
+	// 가맹점 결제대금내역 리스트 조회
+	@RequestMapping(value="fr1.hs")
+	public String frPayList(
+			@RequestParam(value="p", defaultValue="1") int currentPage, 
+			Model model) {
+	
+		String storeId = "47";
+		
+		int listCount = hyunsikService.payListCount2(storeId);
+		int pageLimit = 10;
+		int boardLimit = 10;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
+		ArrayList<Payment> list = hyunsikService.paymentList2(pi, storeId);
+		int index = 0;
+		
+		for(Payment p : list) {
+			list.get(index).setTotal(hyunsikService.realPayList(p));
+			index++;
+		}
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+
+		return "sein/depositList";
+		
+		
+	}
+	
+	
+	
+
 }
