@@ -240,9 +240,9 @@
 	</table>				
 	
 </c:if>					
-
-					</div> <!-- /widget-content -->
 <c:if test="${confirm eq 1}"><div style="width:250px; margin:auto; margin-top:30px; font-size:15px; color:red;">입출금 내역이 없습니다.</div></c:if>
+					</div> <!-- /widget-content -->
+
 				</div> <!-- /widget -->
 <c:if test="${confirm!=1}">  		
 <ul class="pagination pagination-sm">
