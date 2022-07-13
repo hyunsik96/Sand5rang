@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -110,19 +111,80 @@ public class SangmiController {
 	}
 	*/
 	//가맹가입신청 상세페이지
-	@RequestMapping(value="storeEnrollDetail.sm")
-	public ModelAndView storeEnrollDetail(int enr, ModelAndView mv) {
+	@RequestMapping(value="stEnDetail.sm")
+	public ModelAndView selectEnroll(int enr, ModelAndView mv) {
 		
 		//번호뽑아야 한다. 
 		//상세 조회 
-		Enroll e = SangmiService.storeEnrollDetail(enr);
+		Enroll e = SangmiService.selectEnroll(enr);
 		
 		mv.addObject("e", e).setViewName("sangmi/storeEnrollDetail");
 		
 		
 		return mv;
 	}
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	//가맹가입 폼 
+	@RequestMapping("insert.sm")
+	public String insertStore(Store s, Model model, HttpSession session) {
+		
+		//암호화 작업
+		String encPwd = bCryptPasswordEncoder.encode(s.getStorePwd());
+		
+		//s =>storePwd필드값을 encPwd으로 바꿔치기
+		s.setStorePwd(encPwd);
+		
+		int result = SangmiService.insertStore(s);
+		
+		if(result>0) {
+			
+			session.setAttribute("alertMsg", "성공적으로 가입이 되었습니다");
+			
+			return "redirect:/";
+		}
+		else {
+			
+			model.addAttribute("errorMsg", "가입이 실패되었습니다.");
+			
+			return "common/errorAd";
+		}
+		
+	}
+	
+	
+	//가맹점 이름 체크!
+	@ResponseBody
+	@RequestMapping(value="idCheck.me", produces="text/html; charset=UTF-8")
+	public String idCheck(String checkId) {
+		
+		//System.out.println(checkId);
+		
+		int count =SangmiService.idCheck(checkId);
+		
+		/*
+		// count에 1이 담겨있을경우 => 이미 사용중인 아이디가 있음(사용불가)
+		 if(count >0 ) { //이미 존재하는 아이디=> "NNNNN"
+			 return "NNNNN";
+		 }
+		 else { //사용 가능한 아이디 =>"NNNNY"
+			 return "NNNNY";
+		 }
+		*/
+		
+		//return (조건식) ? ㅌㅌㅌ : xxx; 삼항연산자 이용
+		return (count >0 ) ? "NNNNN" : "NNNNY";
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	// 1:1 문의 전체조회
 	@RequestMapping(value="inqueryList.sm")

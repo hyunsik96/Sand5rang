@@ -171,29 +171,29 @@
     <br>
   
   
-    <table id="storeEnrollDetail" class="table table-striped table-bordered"> 
+    <table class="type05"> 
            <tr>
-               <th width="20%">이름</th>
-               <td width="50%">${e.storeName}</td>
+               <th scope="row">이름</th>
+               <td>${e.storeName}</td>
            </tr>  
            <tr>
-             <th>연락처</th>
+             <th scope="row">연락처</th>
              <td>${e.phone}</td>
            </tr>  
            <tr>
-             <th>이메일</th>
+             <th scope="row">이메일</th>
              <td>${e.email}</td> 
            </tr>
            <tr>
-             <th>지역</th>
+             <th scope="row">지역</th>
              <td>${e.enrollAdd}</td>
            </tr>
            <tr>
-             <th>제목</th>
+             <th scope="row">제목</th>
              <td>${e.title}</td>
            </tr>
            <tr>
-             <th>내용</th>
+             <th scope="row">내용</th>
              <td>${e.content}</td>
            </tr>   
       </table>
@@ -203,47 +203,101 @@
     
 
 
-     <form id="" class="" method="post" action="" style=" padding:5%; border:1px solid lightgrey">
- 
-          <table class="" align="center">
-            <tr>
-                <th align=""><label for="name">가맹점 명</label></th>
-                <td><input type="text" id="name" name="storeEnrollName" style="width:400px;"></td>
-            </tr>
-            <tr>
-                <th><label for="id">가맹점 아이디</label></th>
-                <td><input type="text" id="id"  name="storeEnrollId" style="width:400px;" ></td>
-            </tr>
-            <tr>
-                <th><label for="password">가맹점 비밀번호</label></th>
-                <td><input type="text" id="password"  name="" style="width:400px;"></td>
-            </tr>
-            <tr>
-                <th><label for="address">가맹점 주소</label></th>
-                <td><input type="text" id="address"  name="" style="width:400px;"></td>
-                
-            </tr>
-
-            <tr>
-                <th><label for="content">반려이유</label></th>
-                <td><textarea id="content" rows="10" style="width:400px; resize:none;" name="" ></textarea></td>
-            </tr>
-        </table>
+     <form id="enrollForm" class="" method="post" action="insert.sm" align="left" style="float:left; margin:auto; width:600px; border:1px solid lightgrey" >
+        <div class="" >
+          <label for="userName">* 가맹점 명 : </label>
+          <input type="text" class="form-control" id="userName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;"><br>
+          <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
+          
+          <label for="userId">* 가맹점 아이디 : </label>
+          <input type="text" class="form-control" id="userId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px;"><br>
+          <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
+        
+          <label for="userPwd">* 가맹점 비밀번호 : </label>
+          <input type="password" class="form-control" id="userPwd" name="storePwd" placeholder="가맹점 비밀번호를 써주세요." style="width:400px;"><br>
+           
+          <label for="address">* 가맹점 상세주소 : </label>
+          <input type="password" class="form-control" id="address" name="address" placeholder="가맹점 상세주소 클릭!" style="width:400px;"><br>
+        
+          <label for="content">^ 반려 이유 : </label>
+          <textarea class="form-control" id="content" name="" placeholder="가맹점 반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
+        
+        </div>
+          
       
         <br>
 
-        <div align="center">
+        <div align="right">
             <button type="submit" class="btn btn-primary">승인</button>
             <button type="submit" class="btn btn-danger">반려</button>
         </div>
     </form>
 
       <form id="postForm" action="" method="post">
-         <input type="hidden" name="enr" value="${ e.enrNo }">
+         <input type="hidden" name="enrNo" value="${ e.enrNo }">
 
        </form>
 
 <br><br>
+	
+	       <script>
+          $(function() {
+        	  
+        	  //아이디를 입력하는 input 요소 객체 자체를 변수에 담아두기
+        	  var $idInput = $("#enrollForm input[name=userId]");
+        	  
+        	  $idInput.keyup(function() {
+        		 // console.log($idInput.val());
+        		 
+        		 // 우선 최소5글자 이상으로 입력되어야지만 ajax를 요청 할 수 있게끔 막아주자
+        		 if($idInput.val().length >= 5){
+        			 
+        			 $.ajax({
+        				 url : "idCheck.me",
+        				 data : {checkId : $idInput.val()},
+        				 success : function(result) {
+        					 
+        					 if(result == "NNNNN"){ //사용 불가능
+        						 
+        						 // 빨간색 메세지(사용불가능) 출력
+        						 $("#checkResult").show();
+        					     $("#checkResult").css("color","red").text("중복된 아이디가 존재합니다. 다시 입력해주세요.");
+        						 
+        					     // 회원가입버튼 비활성
+        					     $("#enrollForm :submit").attr("disabled",true);
+        					     
+        					 }
+        					 else{ //사용 가능
+        						 
+        						 //초록색 메세지(사용가능) 출력
+        						 $("#checkResult").show();
+        					     $("#checkResult").css("color","green").text("멋진 아아디네요!");
+        						 
+        					     //회원가입버튼 활성
+        					     $("#enrollForm :submit").attr("disabled",false);
+        					     
+        					 }
+        					 
+        				 },
+        				 error : function() {
+        					 console.log("아이디 중복 체크용 ajax 통신 실패!");
+        				 }
+        			 });
+        			 
+        		 }
+        		 else{ //5글자 미만일때 => 회원가입버튼 비활성, 메세지 숨기기
+        			 
+        			 $("#checkResult").hide();
+        		     $("#enrollForm :submit").attr("disabled",true);
+        			 
+        		 }
+        		 
+        	  });
+        	  
+          });   
+        </script>
+	
+	
 	
 				</div> <!-- /widget -->
 	      		

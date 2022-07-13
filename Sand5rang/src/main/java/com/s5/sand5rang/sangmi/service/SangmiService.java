@@ -45,10 +45,27 @@ public class SangmiService {
 	}
 	
 	//가맹가입신청 상세페이지
-	public Enroll storeEnrollDetail(int enrNo) {
+	public Enroll selectEnroll(int enrNo) {
 		
-		return SangmiDao.storeEnrollDetail(sqlSession, enrNo);
+		return SangmiDao.selectEnroll(sqlSession, enrNo);
 	}
+	
+	//가맹가입 폼 신청
+	public int insertStore(Store s) {
+		
+		int result = SangmiDao.insertStore(sqlSession,s);
+		
+		return result;
+	}
+	
+	
+   // 가맹점 이름 체크	
+   public int idCheck(String checkId) {
+		
+		return SangmiDao.idCheck(sqlSession,checkId);
+		
+	}
+	
 	
 	//문의리스트 조회
 	//가맹점 전체리스트 조회

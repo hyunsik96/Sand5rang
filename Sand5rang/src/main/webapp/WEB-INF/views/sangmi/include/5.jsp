@@ -334,23 +334,7 @@ margin-bottom: 26px;}
 	}
 }
 
-/* 세부페이지마다 공통적으로 유지할 style */
-/*
-        .content {
-            background-color:rgb(247, 245, 245);
-            width:90%;
-            margin:auto;
-        }
-   
-        .innerOuter {
-            border:1px solid lightgray;
-            width:70%;
-            margin:auto;
-            padding:5% 10%;
-            background-color:white;
-        }
 
-*/
        .content_detail,cd_table_content_title{
             width:800px;
             height:2000px;
@@ -387,7 +371,31 @@ margin-bottom: 26px;}
  #boardList>tbody>tr:hover {cursor:pointer;}       
         
 #enrollForm>table {width:80%;}
-#enrollForm>table * {margin:5px;}        
+#enrollForm>table * {margin:5px;}   
+
+/*테이블 가맹신청 상세 css*/
+table.type05 {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin: 20px 10px;
+}
+table.type05 th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #efefef;
+}
+table.type05 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}     
         
 </style>
 </head>

@@ -196,7 +196,7 @@
     	  $("#boardList>tbody>tr").click(function(){
     		
     		  
-    		  location.href="storeEnrollDetail.sm?enr="+ $(this).children(".enr").text();
+    		  location.href="stEnDetail.sm?enr="+ $(this).children(".enr").text();
     	  });
     	  
       });  

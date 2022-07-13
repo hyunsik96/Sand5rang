@@ -51,10 +51,25 @@ public class SangmiDao {
 	   
    }
  //가맹가입신청 상세페이지
-   public Enroll storeEnrollDetail(SqlSessionTemplate sqlSession, int enrNo){
+   public Enroll selectEnroll(SqlSessionTemplate sqlSession, int enrNo){
 	   
-	   return sqlSession.selectOne("sangmiMapper.storeEnrollDetail");
+	   return sqlSession.selectOne("sangmiMapper.selectEnroll",enrNo);
    }
+  
+   //가맹가입 폼
+   public int insertStore(SqlSessionTemplate sqlSession, Store s) {
+	   
+	   return sqlSession.inset("sangmiMapper.insertStore",s);
+   }
+   
+   
+   
+   //가맹 이름 체크
+   public int idCheck(SqlSessionTemplate sqlSession, String checkId) {
+		
+		return sqlSession.selectOne("sangmiMapper.idCheck", checkId);
+	}
+   
    
    //문의 전체 리스트 조회
 	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi) {
