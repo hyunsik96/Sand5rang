@@ -336,8 +336,8 @@ margin-bottom: 26px;}
 
 
        .content_detail,cd_table_content_title{
-            width:800px;
-            height:2000px;
+            width:100%;
+            height:100%;
             /* border:1px solid red; */
         }
         .cd_table_title{
@@ -396,6 +396,12 @@ table.type05 td {
   vertical-align: top;
   border-bottom: 1px solid #ccc;
 }     
+/*문의글 상세*/
+   pre { background-color: white;}
+   inq_info {font-size: 12px;}
+   answer {align: right;}
+           
+        
         
 </style>
 </head>

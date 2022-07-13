@@ -177,74 +177,62 @@
 	      				<i class="icon-user"></i>
 	      				<h3>문의글  상세페이지</h3>
 	  				</div> <!-- /widget-header -->
-					
 					<div class="widget-content">
 
+          <div class="inq_content" style="width:800px; height:800px; margin:100px;"  >
+              <!--가맹점이 작성한 문의 제목-->
+             <div class="inq_title"> 
+               	<div style="padding-bottom:5px; margin-left:10px;">
+               		<h1>${i.inqTitle}</h1>
+               	</div>
+               
+                    	<!--작성글 세부 정보 및 답변 상태-->
+                    		<div class="inq_info">
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">${i.category}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변</div>
+                            <div style="display:inline-block; font-size:15px;">${i.ansDate}</div>
+                        </div><br>
+            
+             
+             <!--가맹점이 작성한 문의 본문-->
+                <div class="inq_content"> 
+                    <pre name="inqQuery" style="resize:none; width:100%; height:200px" >${ i.inqQuery }</pre>
+                </div>
+                
+                <div class="inq_content"> 
+                    <pre name="inqAnswer"  style="resize:none; width:100%; height:200px" >${ i.inqAnswer }</pre>
+                </div>
 
-
- 
-         
-               <table class="cd_table"  align="center">
-                   <tr>
-                     <th><label for="title" style="font-size:18px">카테고리</label></th> 
-	                   <td>
-	                     <select name="category" disabled >
-	                     <option>${i.category}</option>
-	                  
-	                     </select>
-	                   </td> 
-                   </tr>
-                    <tr class="cd_table_title">
-                        <td width="70px;">제목 : </td>
-                        <td width="100px" height="100px"><input type="text" name="inqTitle" disabled value="${i.inqTitle}"></td>
-                    </tr>
-                      <tr class="cd_table_title">
-                        <td width="70px;">작성자 : </td>
-                        <td width="100px" height="100px"><input type="text" name="storeName" disabled value="${i.storeName}"></td>
-                    </tr>
-                    <tr class="cd_table_content1">
-                        <td colspan="2">
-                            <div class="cd_table_content_title">문의내용</div>
-                            <textarea name="inqQuery" style="resize:none; width:100%; height:200px" disabled>${ i.inqQuery }</textarea>
-                        </td>
-                    </tr>
-                    <tr class="cd_table_content1">
-                        <td colspan="2">
-                        	<hr>
-                            <div class="cd_table_content_title">답변내용</div>
-                            <textarea name="inqAnswer"  style="resize:none; width:100%; height:200px" disabled>${ i.inqAnswer }</textarea>
-                        </td>
-                    </tr>
-                </table>
-                <br><br>
+            </div><br>
+        
+               
  <!--<c:if test="${ (not empty loginUser) and (b.boardWriter eq loginUser.userId) }"> 수정하기 버튼은 본인이 작성한 글만 -->
  <!-- </c:if> -->
-        <div align="center">
+       
+
+      <div align="center">
             <a class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</a>
             &nbsp;&nbsp;
-            <a class="btn btn-danger" onclick="postFormSubmit(2);">삭제하기</a>
-          <br><br>
-            <a class="btn btn-secondary" href="inqueryList.sm">목록가기</a>       
+      
+            <a class="btn btn-secondary" href="inqueryList.sm">목록가기</a>
         </div>
-         
                <form id="postForm" action="" method="post">
 	              <input type="hidden" name="ino" value="${ i.inqNo }">
 	            </form>
-
                <script>
                  function postFormSubmit(num){
                      if(num == 1){ //수정 요청으로 action 속성값 바꾸기
-	            		  
+	            		 
 	            		  $("#postForm").attr("action","inUpdateForm.sm").submit();
 	            	  }
-	            	  else{ // 삭제 요청으로 action 속성값 바꾸기
-	            		  $("#postForm").attr("action","inDelete.sm").submit();
-	            	  }
+	            	  
                  }
                </script>
-
-					</div> <!-- /widget-content -->
-						
+              </div>  
+      
+						</div>
 				</div> <!-- /widget -->
 	      		
 		    </div> <!-- /span8 -->

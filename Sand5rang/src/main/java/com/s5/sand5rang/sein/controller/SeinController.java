@@ -140,6 +140,17 @@ public class SeinController {
     }
 	
 	
+	@RequestMapping(value="orderUpdate.se")
+	public String orderUpdateController(Model m) {
+		
+		int result = seinService.updateOrder();
+		
+		
+		
+		return "sein/orderlist";
+	}
+	
+	
 	@RequestMapping(value="deposit.se")
     public String depositController()
     {

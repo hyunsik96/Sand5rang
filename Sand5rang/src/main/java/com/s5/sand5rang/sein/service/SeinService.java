@@ -53,5 +53,9 @@ public class SeinService {
 	public ArrayList<Order> selectOrder2() {
 		return (ArrayList)seinDao.selectOrder2(sqlSession);
 	}
+	
+	public int updateOrder() {
+		
+	}
 }
 

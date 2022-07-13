@@ -59,7 +59,7 @@ public class SangmiDao {
    //가맹가입 폼
    public int insertStore(SqlSessionTemplate sqlSession, Store s) {
 	   
-	   return sqlSession.inset("sangmiMapper.insertStore",s);
+	   return sqlSession.insert("sangmiMapper.insertStore",s);
    }
    
    
@@ -84,7 +84,7 @@ public class SangmiDao {
    //문의 글 작성하기
 	public int inquertInsert(SqlSessionTemplate sqlSession, Inquery i) {
 		
-		return sqlSession.insert("sangmiMapper.inquertInsert",i);
+		return sqlSession.insert("sangmiMapper.inqueryInsert",i);
 	}
 
   //문의 글 상세조회
@@ -99,13 +99,7 @@ public class SangmiDao {
 	  return sqlSession.update("sangmiMapper.inupdate",i);
   }
 
-  //문의글 삭제
-  /*
-  public int inDelete(SqlSessionTemplate sqlSession, int inqNo) {
-	  
-	  return sqlSession.inDelete("sangmiMapper.inDelete",inqNo);
-  }
-  */
+ 
   
 
 }

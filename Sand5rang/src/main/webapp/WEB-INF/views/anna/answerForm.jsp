@@ -178,6 +178,10 @@
 		
 				<!--content 영역-->
 				<div class="content_detail">
+				
+				<form id="postForm" action="" method="post">
+	              <input type="hidden" name="ino" value="${ i.inqNo }">
+	            </form>
 
 				<!--가맹점이 작성한 문의 제목-->
                 <div class="inq_title"> 

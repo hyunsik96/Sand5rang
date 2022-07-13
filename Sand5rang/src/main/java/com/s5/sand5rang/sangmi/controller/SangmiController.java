@@ -290,30 +290,7 @@ public class SangmiController {
 	
 	
 	
-	//1:1문의 삭제 => 원래 기능은 없었음 (없어도 될거같음)
-	//문의는 삭제를 하는것으로 할까? 상태 : 답변: Y / 답변안함: N => 상의해보기
-	/*
-		@PostMapping(value="inDelete.sm")
-		public String inDelete(int ino, Model model, HttpSession session ) {
-			
-		    int result = SangmiService.inDelete(ino);
-		    
-		    if(result>0) {
-		    	
-		    	session.setAttribute("alertMsg", "성공적으로 문의글이 삭제되었습니다.");
-		    	
-		    	return "redirect:inqueryList.sm";
-		    }
-		    else {
-		    	
-		    	model.addAttribute("errorMsg","문의글 삭제 실패가 되었습니다.");
-		    
-		    	return "common/errorFr";
-		    }
-		
-			
-		}
-		*/
+	
 	
 	
 	//FAQ 

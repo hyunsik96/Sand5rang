@@ -176,16 +176,16 @@
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   <div id="big_stats" class="cf">
-                    <div class="stat"> <div>발주대기</div> <span class="value">${m.frInd}</span> </div>
+                    <div class="stat"> <div>발주대기</div> <span class="value">&nbsp;${m.frInd}&nbsp;</span> </div>
                     <!-- 오늘 발주 신청했으나 아직 승인안된 총 수 -->
                     
-                    <div class="stat"> <div>오늘의입고</div><span class="value">${m.frFac}</span> </div>
+                    <div class="stat"> <div>오늘의입고</div><span class="value">&nbsp;${m.frFac}&nbsp;</span> </div>
                     <!-- 어제 발주 승인되어 오늘 들어오기로한 원재료 총 수 -->
                     
-                    <div class="stat"> <div>발주잔액</div> <span class="value">${m.frPay}</span> </div>
+                    <div class="stat"> <div>발주잔액</div> <span class="value">&nbsp;${m.frPay}&nbsp;</span> </div>
                     <!-- 발주잔액 -->
                     
-                    <div class="stat"> <div>문의현황</div> <span class="value">${m.frInq}</span> </div>
+                    <div class="stat"> <div>문의현황</div> <span class="value">&nbsp;${m.frInq}&nbsp;</span> </div>
                     <!-- 가맹점주가 작성한 문의글 총 수 --> 
                   </div>
                 </div>
@@ -249,49 +249,34 @@
 		<div class="container">
 
 			<div class="row">
+                    <!-- /span3 -->
                     <div class="span3">
                         <h4>
-                            About Free Admin Template</h4>
+                            Contact Us</h4>
                         <ul>
-                            <li><a href="javascript:;">EGrappler.com</a></li>
-                            <li><a href="javascript:;">Web Development Resources</a></li>
-                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
+                            <li><a href="javascript:;">Call 02) 807-4421</a></li>
+                            <li><a href="javascript:;">Sand5rang@naver.com</a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+
+                    <div class="span3">
+                        <h4>
+                            Opening Hours</h4>
+                        <ul>
+                            <li><a href="javascript:;">Everyday</a></li>
+                            <li><a href="javascript:;">10.00 Am -10.00 Pm</a></li>
                         </ul>
                     </div>
                     <!-- /span3 -->
                     <div class="span3">
                         <h4>
-                            Support</h4>
+		     				 Sand5rang</h4>
                         <ul>
-                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:;">Ask a Question</a></li>
-                            <li><a href="javascript:;">Video Tutorial</a></li>
-                            <li><a href="javascript:;">Feedback</a></li>
+	                        <li><a href="javascript:;">&copy; 2022 All Rights Reserved By Sand5rang.</a></li>
+	                        <li><a href="javascript:;">Distributed By Sand5rang.</a></li>
                         </ul>
                     </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Something Legal</h4>
-                        <ul>
-                            <li><a href="javascript:;">Read License</a></li>
-                            <li><a href="javascript:;">Terms of Use</a></li>
-                            <li><a href="javascript:;">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="">Open Source jQuery Plugins</a></li>
-                            <li><a href="">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="">Free Contact Form Plugin</a></li>
-                            <li><a href="">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
                 </div> <!-- /row -->
 
 		</div> <!-- /container -->
@@ -312,7 +297,7 @@
 			<div class="row">
 				
     			<div class="span12">
-    				&copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.
+    				Korea tradition Sandwich Franchise Sand5rang.
     			</div> <!-- /span12 -->
     			
     		</div> <!-- /row -->
@@ -322,6 +307,7 @@
 	</div> <!-- /footer-inner -->
 	
 </div> <!-- /footer -->
+    
     
 
 

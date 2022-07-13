@@ -103,7 +103,7 @@
 	</update>
 	
 	<!-- 가맹문의 서비스 -->
-	<insert id="joinForm" parameterType="com.s5.sand5rang.anna.vo.Store">
+	<insert id="joinForm" parameterType="com.s5.sand5rang.anna.vo.Enroll">
 		INSERT INTO ENROLL( ENR_NO
 	                  , STORE_NAME
 	                  , PHONE

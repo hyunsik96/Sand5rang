@@ -207,7 +207,7 @@
         <div class="" >
           <label for="userName">* 가맹점 명 : </label>
           <input type="text" class="form-control" id="userName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;"><br>
-          <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
+               
           
           <label for="userId">* 가맹점 아이디 : </label>
           <input type="text" class="form-control" id="userId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px;"><br>
