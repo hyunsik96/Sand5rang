@@ -18,5 +18,12 @@ public class StockF {
 	private int total;
 	private String type;
 	private int index;
+	private String io;
+	private int v;
+	private int m;
+	private int c;
+	private int s;
+	private int b;
+	private String date;
 
 }

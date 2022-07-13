@@ -182,12 +182,6 @@
 					
 					<div class="widget-content">
 
-<!-- 여기가 content 채우는 영역입니다 - 현식 -
-	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
-	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
-	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
--->
-<!-- /widget-header -->
 <h4 class="stockSum">재고합계</h4>
 	<table class="table table-bordered stockTable1">
 		<thead>
@@ -210,6 +204,7 @@
 		</tbody>
 	</table>
 <h4 class="stockSum">재고현황</h4>
+<c:if test="${confirm!=1}">
 	<table class="table table-bordered stockTable2">
 		<thead>
 			<tr class="st_head">
@@ -222,124 +217,54 @@
 			</tr>
 		</thead>
 		<tbody>
-
-				<tr class="st_body">
-				</tr>
-			<!-- 
+<c:forEach var="s" items="${list}">
 			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td></td>
-				<td>2022-07-06</td>
+				<td>${s.b}</td>
+				<td>${s.v}</td>
+				<td>${s.m}</td>
+				<td>${s.c}</td>
+				<td>${s.s}</td>
+				<td>${s.date}</td>
 			</tr>
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td></td>
-			</tr>		
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td></td>
-				<td>2022-07-06</td>
-			</tr>	
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td></td>
-			</tr>		
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td></td>
-				<td>2022-07-06</td>
-			</tr>				
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td></td>
-			</tr>				
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td></td>
-				<td>2022-07-06</td>
-			</tr>				
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>2022-07-06</td>
-				<td></td>
-			</tr>				
-			<tr class="st_body">
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td></td>
-				<td>2022-07-06</td>
-			</tr>
-			-->								
+</c:forEach>
 		</tbody>
 	</table>				
 	
-					
+</c:if>					
 
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
-	      		
-	<!-- /widget-content -->
-		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-               		<!-- 버튼이 보이지 않게 하는 것이 아닌, 단순히 클릭만 안되게끔 설정해줌. -->
-					<c:choose>
-						<c:when test="${pi.currentPage eq 1 }">
-	 	                  	<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-						</c:when>
-						<c:otherwise>
-	 	                  	<li class="page-item"><a class="page-link" href="list.bo?spage=${pi.currentPage-1 }">Previous</a></li>
-						</c:otherwise>
-					</c:choose> 
-                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}" step="1">
-	                    <li class="page-item"><a class="page-link" href="list.bo?spage=${p}">${p}</a></li>
-                    </c:forEach>
-	              	<c:choose>
-	              		<c:when test="${pi.currentPage eq pi.maxPage }">
-	                    	<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-	              		</c:when>
-	              		<c:otherwise>
-	                    	<li class="page-item"><a class="page-link" href="list.bo?spage=${pi.currentPage + 1 }">Next</a></li>
-	              		</c:otherwise>
-	              	</c:choose>     
-		</ul>
+<c:if test="${confirm!=1}">  		
+<ul class="pagination pagination-sm">
+<c:choose>
+	<c:when test="${pi.currentPage eq 1}">
+	<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ingredientAllStock.csh?p=${pi.currentPage - 1}"><</a></li>
+	</c:otherwise>
+</c:choose>
+
+<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+	<c:if test="${pi.currentPage eq p}">
+		<li class="page-item active"><a class="page-link" href="ingredientAllStock.csh?p=${p}">${p}</a></li>
+	</c:if>
+	<c:if test="${pi.currentPage ne p}">
+		<li class="page-item"><a class="page-link" href="ingredientAllStock.csh?p=${p}">${p}</a></li>
+	</c:if>
+</c:forEach>
+
+<c:choose>
+	<c:when test="${pi.currentPage eq pi.maxPage}">
+	<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ingredientAllStock.csh?p=${pi.currentPage + 1}">></a></li>
+	</c:otherwise>
+</c:choose>
+</ul>
+</c:if>
 	</div>		      	
 		    </div> <!-- /span8 -->
 	<div>

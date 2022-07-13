@@ -118,6 +118,10 @@ public class HyunsikDao {
 		
 		return (ArrayList)sqlSession.selectList("hyunsikMapper.indexList", index, rowBounds);
 	}
+	
+	public StockF flowList(SqlSessionTemplate sqlSession, StockF s) {
+		return sqlSession.selectOne("hyunsikMapper.flowList", s);
+	}
 
 
 }

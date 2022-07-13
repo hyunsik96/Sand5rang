@@ -194,7 +194,10 @@ public class HyunsikController {
 		// 재고 현황
 		
 		int flowDate = hyunsikService.endFlowDate(storeId);
-
+		
+//입출고 내역이 있을때		
+if(flowDate!=0) {
+	
 		LocalDate now = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
 		String formatedNow = now.format(formatter);
@@ -203,6 +206,11 @@ public class HyunsikController {
 		int chai = nowDate - flowDate;
 		
 		int listCount = (chai+1)*2;
+		
+		if(chai==0) {
+			listCount = 0;
+		}
+		
 		int pageLimit = 10;
 		int boardLimit = 6;
 		
@@ -210,11 +218,27 @@ public class HyunsikController {
 		
 		ArrayList<StockF> indexList = hyunsikService.indexList(pi, listCount);
 		
+		StockF fsf = new StockF();
+		fsf.setStoreId(storeId);
+		ArrayList<StockF> list = new ArrayList<>();
+		
 		for(int i = 0; i < indexList.size(); i+=2) {
-			indexList.get(i).getIndex();
+			
+			fsf.setIndex(indexList.get(i).getIndex());
+			
+			fsf.setIo("O"); list.add(hyunsikService.flowList(fsf));
+			
+			fsf.setIo("I"); list.add(hyunsikService.flowList(fsf));
 		}
 		
+		model.addAttribute("list", list);
+		model.addAttribute("pi", pi);
 			
+// 입출고 내역이 없을때
+}else {
+		model.addAttribute("confirm", 1);
+}
+		
 	return "seonghoon/전체재고현황";
 	}
 	

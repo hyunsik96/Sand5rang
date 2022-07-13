@@ -398,8 +398,8 @@ margin-bottom: 26px;}
 	margin-left:20px;
 }
 
-.stockTable2>tbody tr:nth-child(even)  { color: blue; }
-.stockTable2>tbody tr:nth-child(odd)  { color: red; }
+.stockTable2>tbody tr:nth-child(even)  { color: red; }
+.stockTable2>tbody tr:nth-child(odd)  { color: blue; }
 
 
 .st_head th{

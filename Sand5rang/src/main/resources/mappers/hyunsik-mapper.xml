@@ -30,6 +30,12 @@
 		<result column="TOTAL" property="total" />
 		<result column="TYPE" property="type" />
 		<result column="FINDEX" property="index" />
+		<result column="B" property="b" />
+		<result column="V" property="v" />
+		<result column="C" property="c" />
+		<result column="M" property="m" />
+		<result column="S" property="s" />
+		<result column="FDATE" property="date" />
 	</resultMap>
 
 	<select id="ad1ListCount" resultType="_int">
@@ -255,7 +261,7 @@
   	</select>
   	
   	<select id="getMyStock" resultType="_int" parameterType="com.s5.sand5rang.hyunsik.vo.StockF">
-		SELECT SUM(COUNT) 
+		SELECT NVL(SUM(COUNT), 0) 
 		FROM STOCK 
 		JOIN INGREDIENT USING(ING_NO) 
 		WHERE 
@@ -271,7 +277,7 @@
   	</select>
   	
   	<select id="endFlowDate" parameterType="string" resultType="_int">
-		SELECT FDATE
+		SELECT NVL(AVG(FDATE), 0) 
 		FROM (SELECT TO_NUMBER(TO_CHAR(FLO_DATE, 'YYMMDD')) FDATE, ROW_NUMBER() OVER(PARTITION BY STORE_ID ORDER BY FLO_DATE ASC) AS RN
 		FROM FLOW
 		WHERE STORE_ID = #{storeId}
@@ -283,7 +289,52 @@
 		SELECT TRUNC((LEVEL-1)/2) FINDEX 
 		FROM DUAL 
 		CONNECT BY LEVEL <![CDATA[<]]>= #{index} 
-		ORDER BY LEVEL DESC 
+		ORDER BY LEVEL ASC 
+  	</select>
+  	
+  	<select id="flowList" parameterType="com.s5.sand5rang.hyunsik.vo.StockF" resultMap="stockFResultSet">
+		SELECT 
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM FLOW F
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE
+		TO_CHAR(FLO_DATE, 'YYDDMM') = TO_CHAR(SYSDATE-#{index}, 'YYDDMM') AND 
+		ING_TYPE = 'B' AND 
+		F.STORE_ID = #{storeId} AND 
+		F.STATUS = #{io}) AS B, 
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM FLOW F
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE
+		TO_CHAR(FLO_DATE, 'YYDDMM') = TO_CHAR(SYSDATE-#{index}, 'YYDDMM') AND 
+		ING_TYPE = 'V' AND 
+		F.STORE_ID = #{storeId} AND 
+		F.STATUS = #{io}) AS V,
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM FLOW F
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE
+		TO_CHAR(FLO_DATE, 'YYDDMM') = TO_CHAR(SYSDATE-#{index}, 'YYDDMM') AND 
+		ING_TYPE = 'M' AND 
+		F.STORE_ID = #{storeId} AND 
+		F.STATUS = #{io}) AS M, 
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM FLOW F
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE
+		TO_CHAR(FLO_DATE, 'YYDDMM') = TO_CHAR(SYSDATE-#{index}, 'YYDDMM') AND 
+		ING_TYPE = 'C' AND 
+		F.STORE_ID = #{storeId} AND 
+		F.STATUS = #{io}) AS C, 
+		(SELECT NVL(SUM(COUNT), 0)
+		FROM FLOW F
+		JOIN INGREDIENT USING(ING_NO)
+		WHERE
+		TO_CHAR(FLO_DATE, 'YYDDMM') = TO_CHAR(SYSDATE-#{index}, 'YYDDMM') AND 
+		ING_TYPE = 'S' AND 
+		F.STORE_ID = #{storeId} AND 
+		F.STATUS = #{io}) AS S, TO_CHAR(SYSDATE-#{index}, 'YY.MM.DD') FDATE 
+		FROM DUAL
   	</select>
 
 </mapper>

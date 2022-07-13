@@ -104,5 +104,9 @@ public class HyunsikService {
 		return hyunsikDao.indexList(sqlSession, pi, index);
 	}
 	
+	public StockF flowList(StockF s) {
+		return hyunsikDao.flowList(sqlSession, s);
+	}
+	
 }
 
