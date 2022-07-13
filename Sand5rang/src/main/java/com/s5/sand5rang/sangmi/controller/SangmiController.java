@@ -127,6 +127,7 @@ public class SangmiController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	/*
 	//가맹가입 폼 
 	@RequestMapping("insert.sm")
 	public String insertStore(Store s, Model model, HttpSession session) {
@@ -153,8 +154,9 @@ public class SangmiController {
 		}
 		
 	}
+	*/
 	
-	
+	/*
 	//가맹점 이름 체크!
 	@ResponseBody
 	@RequestMapping(value="idCheck.me", produces="text/html; charset=UTF-8")
@@ -164,7 +166,7 @@ public class SangmiController {
 		
 		int count =SangmiService.idCheck(checkId);
 		
-		/*
+		
 		// count에 1이 담겨있을경우 => 이미 사용중인 아이디가 있음(사용불가)
 		 if(count >0 ) { //이미 존재하는 아이디=> "NNNNN"
 			 return "NNNNN";
@@ -172,14 +174,14 @@ public class SangmiController {
 		 else { //사용 가능한 아이디 =>"NNNNY"
 			 return "NNNNY";
 		 }
-		*/
+		
 		
 		//return (조건식) ? ㅌㅌㅌ : xxx; 삼항연산자 이용
 		return (count >0 ) ? "NNNNN" : "NNNNY";
 		
 	}
 	
-	
+	*/
 	
 	
 	
