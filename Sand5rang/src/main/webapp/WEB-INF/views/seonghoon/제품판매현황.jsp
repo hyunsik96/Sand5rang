@@ -188,6 +188,7 @@
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 	<!-- 가게 마감 시간에 제품이 실제로 판매가 이루어졌다고 가정하고 해당 리스트에 오늘판매된 제품 목록을 기입해줌. -->
+	
 	<table class="table table-bordered">
 		<thead>
 			<tr class="st_head">
@@ -197,11 +198,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="sales" items="${sales_list}" varStatus="status">
+			<c:forEach var="sales" items="${sales_list1}" varStatus="status">
 			<tr class="st_body">
 				<td>${sales.salDate}</td>
-				<td><a data-toggle="modal" href="#Modal">${sales.count}</a></td>
-				<td>${sales.total }</td>
+				<td><a data-toggle="modal" href="#Modal${status.count}">${sales.count}</a></td>
+				<td>${sales.total}</td>
 			</tr>
 			</c:forEach>
 		</tbody>
@@ -341,7 +342,8 @@
 
 <jsp:include page="include/6.jsp" />
 	<!-- The Modal -->
-	<div class="modal" id="Modal" style="display: none;">
+<c:forEach var="s" items="${menu_list}" varStatus="status">
+	<div class="modal" id="Modal${status.count}" style="display: none;">
 		<div class="modal-dialog">
 		  <div class="modal-content">	 
 	  
@@ -357,71 +359,100 @@
 					<tr class="menuModal">
 						<td>	
 							<span>에그마요</span><br>
-							<span>1000</span>
+							<c:if test="${s[0].menNo eq 1}">
+								<span>${s[0].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>로스트치킨</span><br>
-							<span>1000</span>
+							<c:if test="${s[1].menNo eq 2}">
+								<span>${s[1].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>쉬림프</span><br>
-							<span>1000</span>
+							<c:if test="${s[2].menNo eq 3 }">
+								<span>${s[2].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>베지</span><br>
-							<span>1000</span>
+							<c:if test="${s[3].menNo eq 4}">
+								<span>${s[3].count}</span>
+							</c:if>
 						</td>																								
 						<td>
 							<span>베지아보카도</span><br>
-							<span>1000</span>
+							<c:if test="${s[4].menNo eq 5 }">
+								<span>${s[4].count}</span>
+							</c:if>
 						</td>
 					</tr>
 					<tr class="menuModal">
 						<td>
 							<span>스테이크치즈</span><br>
-							<span>1000</span>
+							<c:if test="${s[5].menNo eq 6 }">
+								<span>${s[5].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>로스트치킨아보카도</span><br>
-							<span>1000</span>
+							<c:if test="${s[6].menNo eq 7 }">
+								<span>${s[6].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>비엘티</span><br>
-							<span>1000</span>
+							<c:if test="${s[7].menNo eq 8 }">
+								<span>${s[7].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>풀드포크바비큐</span><br>
-							<span>1000</span>
+							<c:if test="${s[8].menNo eq 9 }">
+								<span>${s[8].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>치킨데리야끼</span><br>
-							<span>1000</span>
+							<c:if test="${s[9].menNo eq 10 }">
+								<span>${s[9].count}</span>
+							</c:if>
 						</td>	
 					</tr>
 					<tr class="menuModal">
 						<td>
 							<span>터키베이컨아보카도</span><br>
-							<span>1000</span>
+							<c:if test="${s[10].menNo eq 11 }">
+								<span>${s[10].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>로티세리바비큐치킨</span><br>
-							<span>1000</span>
+							<c:if test="${s[11].menNo eq 12 }">
+								<span>${s[11].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>이탈리안비엠티</span><br>
-							<span>1000</span>
+							<c:if test="${s[12].menNo eq 13 }">
+								<span>${s[12].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>K-바비큐</span><br>
-							<span>1000</span>
+							<c:if test="${s[13].menNo eq 14 }">
+								<span>${s[13].count}</span>
+							</c:if>
 						</td>
 						<td>
 							<span>스파이시이탈리안</span><br>
-							<span>1000</span>
+							<c:if test="${s[14].menNo eq 15 }">
+								<span>${s[14].count}</span>
+							</c:if>
 						</td>	
 					</tr>																														
 				</table>	
-		  	
 		  </div>
 
 		  <!-- Modal footer -->
@@ -431,6 +462,7 @@
 	  </div>
 	</div>
   </div>
+</c:forEach>		  
 
   </body>
 

@@ -50,8 +50,12 @@ public class SeonghoonService {
 		return seonghoonDao.menuSalesListCount(sqlSession);
 	}
 	
-	public ArrayList<Sales> selectMenuSalesList(PageInfo pi){
-		return seonghoonDao.selectMenuSalesList(pi,sqlSession);
+	public ArrayList<Sales> selectMenuSalesList1(PageInfo pi){
+		return seonghoonDao.selectMenuSalesList1(pi,sqlSession);
+	}
+	
+	public ArrayList<Sales> MenuSalDate_List(Sales s){
+		return seonghoonDao.MenuSalDate_List(s,sqlSession);
 	}
 	
 	// ***************** 판매기입페이지 ************************* 

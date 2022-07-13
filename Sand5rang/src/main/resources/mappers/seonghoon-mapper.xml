@@ -182,16 +182,28 @@
 	</select>		
 	<!-- ******************** 제품 판매 현황 ********************* -->					
 	<select id="menuSalesListCount" resultType="_int">
-		SELECT COUNT(*)
-		FROM SALES
-		WHERE STORE_ID = 
+        SELECT COUNT(*)
+        FROM 
+        (
+            SELECT SAL_DATE, ROW_NUMBER() OVER(PARTITION BY SAL_DATE ORDER BY SAL_DATE DESC) "RN"
+            FROM SALES
+        )
+        WHERE RN=1
 	</select>					
 	
-	<select id="selectMenuSalesList" resultMap="SalesResultMap">
-		SELECT SAL_DATE, SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
+	<select id="selectMenuSalesList1" resultMap="SalesResultMap">
+		SELECT TO_CHAR(SAL_DATE,'yy.MM.dd')"SAL_DATE", SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
 		FROM SALES
-		GROUP BY SAL_DATE
+        GROUP BY SAL_DATE
 		ORDER BY SAL_DATE DESC
+	</select>
+	
+	<select id="MenuSalDate_List" parameterType="com.s5.sand5rang.seonghoon.vo.Sales" resultMap="SalesResultMap">
+ 		SELECT MEN_NO, SUM(COUNT)"COUNT"
+		FROM SALES
+        WHERE SAL_DATE = #{salDate}
+        GROUP BY MEN_NO 
+        ORDER BY MEN_NO     		
 	</select>
 						
 	<!-- *********************판매 기입 페이지******************** -->

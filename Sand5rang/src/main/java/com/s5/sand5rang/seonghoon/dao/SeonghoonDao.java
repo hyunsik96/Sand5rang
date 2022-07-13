@@ -73,14 +73,19 @@ public class SeonghoonDao {
 		return sqlSession.selectOne("seonghoonMapper.menuSalesListCount");
 	}
 	
-	public ArrayList<Sales> selectMenuSalesList(PageInfo pi, SqlSessionTemplate sqlSession){
+	public ArrayList<Sales> selectMenuSalesList1(PageInfo pi, SqlSessionTemplate sqlSession){
 		int limit = pi.getBoardLimit();
 		int offset = (pi.getCurrentPage() - 1) * limit;
 		
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenuSalesList",null, rowBounds);
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenuSalesList1",null, rowBounds);
 	}
+	
+	public ArrayList<Sales> MenuSalDate_List(Sales s, SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("MenuSalDate_List",s);
+	}
+	
  	
 	// *******************************판매기입 페이지***********************************
 	public int insertSales(SqlSessionTemplate sqlSession, Menu m) {
