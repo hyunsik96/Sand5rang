@@ -6,6 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.s5.sand5rang.anna.vo.Enroll;
 import com.s5.sand5rang.anna.vo.Inquery;
 import com.s5.sand5rang.anna.vo.Store;
 import com.s5.sand5rang.common.model.vo.PageInfo;
@@ -42,9 +43,18 @@ public class AnnaDao {
 	public Inquery selectInquery(SqlSessionTemplate sqlSession, int inqNo) {
 		return sqlSession.selectOne("annaMapper.selectInquery", inqNo);
 	}
+	
 	// 문의 답변 달기 폼
 	public Inquery answerForm(SqlSessionTemplate sqlSession) {
 		return sqlSession.selectOne("annaMapper.answerForm");
 	}
+	
+	// 가맹문의 신청
+	public int joinForm(SqlSessionTemplate sqlSession, Enroll e) {
+		return sqlSession.selectOne("annaMapper.joinForm", e);
+	}
+
+	
+	
 
 }

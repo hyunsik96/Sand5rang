@@ -36,6 +36,20 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+<script type="text/javascript">
+    $("input[name=chk]").click(function() {
+        var total = $("input[class=chk]").length;
+        var checked = $("input[class=chk]:checked").length;
+        
+        if(total != checked) $("#checkbox").prop("checked", false);
+        else $("#checkbox").prop("checked", true); 
+    });
+});
+</script>
 
     
 </head>
@@ -220,7 +234,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
               
                     <!-- checkbox -->
                     <label class="form_checkbox">
-                        <input name="agree1" type="checkbox">
+                        <input name="agree1" type="checkbox" class="chk">
                         <span class="icon"></span>개인정보수집 및 이용에 동의합니다. <em>(필수)</em>
                     </label>
                     <!--// checkbox -->
@@ -247,7 +261,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                 <!--// 20180131 -->
                 <!-- checkbox -->
                 <label class="form_checkbox">
-                    <input name="agree2" type="checkbox">
+                    <input name="agree2" type="checkbox" class="chk">
                     <span class="icon"></span>개인정보 위탁에 동의합니다. <em>(필수)</em>
                 </label>
                 <!--// checkbox -->
@@ -271,7 +285,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <td>
                               <span class="form_text" style="width:100%">
                                   <!-- #210416 이름, 연락처, 이메일 readonly 추가 요청 -->
-                                  <input maxlength="10" name="writer" placeholder="이름을 입력해주세요" type="text" value="">
+                                  <input maxlength="10" name="storeName" placeholder="이름을 입력해주세요" type="text" value="">
                               </span>
                           </td>
                       </tr>
@@ -280,7 +294,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <td>
                               <span class="form_text" style="width:100%">
                                   <!-- #210416 이름, 연락처, 이메일 readonly 추가 요청 -->
-                                  <input maxlength="15" name="contact" onkeyup="" placeholder="연락 가능한 전화번호를 입력해주세요" type="text" value="">
+                                  <input maxlength="15" name="phone" onkeyup="" placeholder="연락 가능한 전화번호를 입력해주세요" type="text" value="">
                               </span>
                           </td>
                       </tr>

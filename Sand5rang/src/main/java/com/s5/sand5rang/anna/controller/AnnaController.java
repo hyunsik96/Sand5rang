@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.s5.sand5rang.anna.service.AnnaService;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.anna.vo.Enroll;
 import com.s5.sand5rang.anna.vo.Inquery;
 import com.s5.sand5rang.anna.vo.Store;
 
@@ -110,8 +111,7 @@ public class AnnaController {
 		
 		return "anna/inqueryList";
 
-	} // 문의 게시판 리스트 조회 끝
-
+	} 
 
 	// 문의 게시판 상세보기
 	@RequestMapping(value="inqDetail.an")
@@ -122,7 +122,7 @@ public class AnnaController {
 			mv.addObject("i",i).setViewName("anna/inqueryDetail");
 			
 			return mv;
-		}
+	}
 		
 	// 문의 답변하기 폼 (상세보기+답변폼)
 	@RequestMapping(value="ansForm.an")
@@ -137,10 +137,17 @@ public class AnnaController {
 	
 	// 가맹문의 폼
 	@RequestMapping(value="joinForm.an")
-	public String joinForm(Model model) {
+	public String joinForm(Enroll e, HttpSession session, Model model) {
+	int result = annaService.joinForm(e);
 		
-		return "anna/joinForm";
-		
+		if(result > 0) {
+			session.setAttribute("alertMsg", "성공적으로 문의가 등록되었습니다.");
+			return "redirect:joinForm.an";
+		}
+		else {
+			model.addAttribute("errorMsg", "문의등록에 실패하였습니다. 다시 시도해주세요.");
+			return "common/errorFr";
+		}	
 	}
 	
 	@RequestMapping(value="changePwd.an")

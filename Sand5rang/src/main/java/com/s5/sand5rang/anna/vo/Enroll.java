@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 public class Enroll {
 
-	
 	private int enrNo; //문의번호 
 	private String storeName; //이름
 	private String enrollAdd; //주소
