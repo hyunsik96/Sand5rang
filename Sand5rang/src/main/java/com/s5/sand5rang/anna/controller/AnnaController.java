@@ -138,6 +138,13 @@ public class AnnaController {
 	// 가맹문의 폼
 	@RequestMapping(value="joinForm.an")
 	public String joinForm(Enroll e, HttpSession session, Model model) {
+
+		
+		return "anna/joinForm";
+	}
+	
+	@RequestMapping(value="joinForm2.an")
+	public String joinForm2(Enroll e, HttpSession session, Model model) {
 	int result = annaService.joinForm(e);
 		
 		if(result > 0) {

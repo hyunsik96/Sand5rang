@@ -398,7 +398,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 
         <div class="btns_wrapper">
             <a class="btn" href="#" onclick="view.cancel();return false;" style="width:100px; color:white;"><span>취소</span></a>
-            <a class="btn" href="#" onclick="view.save();return false;" style="width:120px; color:white;"><span>등록하기</span></a>
+            <a class="btn" href="joinForm2.an" onclick="view.save();return false;" style="width:120px; color:white;"><span>등록하기</span></a>
         </div>
        </div> 
   
