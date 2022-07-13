@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -217,14 +218,22 @@
 			</tr>
 		</thead>
 		<tbody>
-<c:forEach var="s" items="${list}">
+<c:forEach var="i" begin="0" end="${fn:length(list)-1}" step="2">
 			<tr class="st_body">
-				<td>${s.b}</td>
-				<td>${s.v}</td>
-				<td>${s.m}</td>
-				<td>${s.c}</td>
-				<td>${s.s}</td>
-				<td>${s.date}</td>
+				<td style="text-align:center;">- ${list[i].b}</td>
+				<td style="text-align:center;">- ${list[i].v}</td>
+				<td style="text-align:center;">- ${list[i].m}</td>
+				<td style="text-align:center;">- ${list[i].c}</td>
+				<td style="text-align:center;">- ${list[i].s}</td>
+				<td style="text-align:center;">${list[i].date}</td>
+			</tr>
+			<tr class="st_body">
+				<td style="text-align:center;">+ ${list[i+1].b}</td>
+				<td style="text-align:center;">+ ${list[i+1].v}</td>
+				<td style="text-align:center;">+ ${list[i+1].m}</td>
+				<td style="text-align:center;">+ ${list[i+1].c}</td>
+				<td style="text-align:center;">+ ${list[i+1].s}</td>
+				<td style="text-align:center;">${list[i+1].date}</td>
 			</tr>
 </c:forEach>
 		</tbody>
