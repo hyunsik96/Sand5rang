@@ -168,10 +168,10 @@
 
   
     <a class="btn btn-secondary" style="float:right;" href="storeEnrollList.sm">목록으로</a>
-    <br>
+    <br><br><br>
   
   
-    <table class="type05"> 
+    <table class="type05" style="margin:auto;"> 
            <tr>
                <th scope="row">이름</th>
                <td>${e.storeName}</td>
@@ -198,26 +198,27 @@
            </tr>   
       </table>
     
-    <hr>
+    <hr border="1px solid lightgrey;">
 
     
 
 
-     <form id="enrollForm" class="" method="post" action="insert.sm" align="left" style="float:left; margin:auto; width:600px; border:1px solid lightgrey" >
-        <div class="" >
+     <form id="enrollForm" class="" method="post" action="insertStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
+        <div class="form-group" >
           <label for="userName">* 가맹점 명 : </label>
-          <input type="text" class="form-control" id="userName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;"><br>
+          <input type="text" class="form-control" id="storeName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;"><br>
                
           
           <label for="userId">* 가맹점 아이디 : </label>
-          <input type="text" class="form-control" id="userId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px;"><br>
+          <input type="text" class="form-control" id="storeId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px;"><br>
           <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
+          <br>
         
           <label for="userPwd">* 가맹점 비밀번호 : </label>
-          <input type="password" class="form-control" id="userPwd" name="storePwd" placeholder="가맹점 비밀번호를 써주세요." style="width:400px;"><br>
+          <input type="password" class="form-control" id="storePwd" name="storePwd" placeholder="가맹점 비밀번호를 써주세요." style="width:400px;"><br>
            
           <label for="address">* 가맹점 상세주소 : </label>
-          <input type="password" class="form-control" id="address" name="address" placeholder="가맹점 상세주소 클릭!" style="width:400px;"><br>
+          <input type="text" class="form-control" id="address" name="address" placeholder="가맹점 상세주소 클릭!" style="width:400px;"><br>
         
           <label for="content">^ 반려 이유 : </label>
           <textarea class="form-control" id="content" name="" placeholder="가맹점 반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
@@ -228,7 +229,7 @@
         <br>
 
         <div align="right">
-            <button type="submit" class="btn btn-primary">승인</button>
+            <button type="submit" class="btn btn-primary" disabled>승인</button>
             <button type="submit" class="btn btn-danger">반려</button>
         </div>
     </form>
@@ -244,16 +245,15 @@
           $(function() {
         	  
         	  //아이디를 입력하는 input 요소 객체 자체를 변수에 담아두기
-        	  var $idInput = $("#enrollForm input[name=userId]");
+        	  var $idInput = $("#enrollForm input[name=storeId]");
         	  
         	  $idInput.keyup(function() {
-        		 // console.log($idInput.val());
         		 
-        		 // 우선 최소5글자 이상으로 입력되어야지만 ajax를 요청 할 수 있게끔 막아주자
-        		 if($idInput.val().length >= 5){
+        		 // 우선 최소5글자 이상으로 입력되어야지만 ajax를 요청 할 수 있게끔 막아주기
+        		 if($idInput.val().length >= 6){
         			 
         			 $.ajax({
-        				 url : "idCheck.me",
+        				 url : "idCheck.sm",
         				 data : {checkId : $idInput.val()},
         				 success : function(result) {
         					 
@@ -285,7 +285,7 @@
         			 });
         			 
         		 }
-        		 else{ //5글자 미만일때 => 회원가입버튼 비활성, 메세지 숨기기
+        		 else{ //6글자 미만일때 => 회원가입버튼 비활성, 메세지 숨기기
         			 
         			 $("#checkResult").hide();
         		     $("#enrollForm :submit").attr("disabled",true);

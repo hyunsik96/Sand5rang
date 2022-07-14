@@ -75,13 +75,29 @@ FROM ENROLL
 WHERE ENR_NO = #{enrNo}
 </select>
 
+<!-- 가맹가입 폼 insert -->
+  <insert id="insertStore" parameterType="com.s5.sand5rang.sangmi.vo.Store">
+   INSERT INTO STORE( ENR_NO
+                     , STORE_NAME
+                     , STORE_ID
+                     , STORE_PWD
+                     , ADDRESS) 
+	VALUES( #{enrNo}
+	     , #{storeName}
+         , #{storeId}
+         , #{storePwd}
+         , #{address}) 
+   </insert>
 
-<!-- 가맹점 이름 체크 -->
+<!-- 아이디 체크 -->
 <select id="idCheck" parameterType="string" resultType="_int">
      SELECT COUNT(*)
-     FROM MEMBER
-     WHERE USER_ID = #{checkId}
-   </select>
+     FROM STORE
+     WHERE STORE_ID = #{checkId}
+ </select>
+
+
+
 
 <!-- 문의 전체 리스트 조회 -->
 <select id="inqueryList" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultMap="inqueryResultSet">
