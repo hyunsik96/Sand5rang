@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="seinMapper">
-
-	<resultMap type="com.s5.sand5rang.sein.vo.Ingredient" id="IngredientResultSet">
-		<result column="ING_NO" property="ingNo"/>
-		<result column="ING_NAME" property="ingName"/>
-		<result column="PRICE" property="price"/>
-		<result column="EXPIRATION" property="expiration"/>
-		<result column="ING_TYPE" property="ingType"/>
-	</resultMap>
 	
-	<resultMap type="com.s5.sand5rang.sein.vo.Order" id="TodyOrderResultSet">
+	<resultMap type="order" id="TodyOrderResultSet">
 		<result column="IND_NO" property="indNo"/>
 		<result column="COUNT" property="count"/>
 		<result column="IND_DATE" property="indDate"/>
@@ -29,12 +21,24 @@
 		<result column="'M'" property="m"/>
 		<result column="'S'" property="s"/>
 	</resultMap>
+	
+	
+	<resultMap type="store" id="loginStoreResultSet">
+		<result column="STORE_ID" property="storeId"/>
+		<result column="STORE_PWD" property="storePwd"/>
+		<result column="STORE_NAME" property="storeName"/>
+		<result column="ADDRESS" property="address"/>
+		<result column="STATUS" property="status"/>
+		<result column="ENR_NO" property="enrNo"/>
+	</resultMap>
 
-	<!-- 원재료 전체 조회 select -->
-	<!-- <select id="selectIngredient" resultMap="IngredientResultSet">
-		SELECT ING_NO, ING_NAME, PRICE, EXPIRATION, ING_TYPE 
-		FROM INGREDIENT
-	</select> -->
+	<!-- 로그인 -->
+	<select id="loginStore" parameterType="store" resultMap="loginStoreResultSet">
+		SELECT STORE_ID, STORE_PWD, STORE_NAME, ADDRESS, STATUS, ENR_NO
+		FROM STORE 
+		WHERE STORE_ID = #{storeId} AND
+		STATUS = 'Y'
+	</select>
 	
 	<!-- 발주 체크 select -->
 	<select id="selectOrder" resultType="_int">
@@ -73,13 +77,14 @@
 
 	<!-- 발주전체조회 select -->
 	<select id="selectAllOrderList" resultMap="TodyOrderResultSet">
-		SELECT ROWNUM, A.* 
+		SELECT ROWNUM, A.*
 		FROM(SELECT *
-		      FROM (SELECT ING_TYPE, COUNT, TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') AS "IND", STATUS
+		      FROM (SELECT ING_TYPE, COUNT, IND_DATE, STATUS
 		            FROM INDENT JOIN INGREDIENT USING(ING_NO)
                     WHERE STORE_ID = 'GUM01')
 		      PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))
-		      ORDER BY IND ASC) A
+		      ORDER BY IND_DATE ASC) A
+		ORDER BY IND_DATE DESC
 	</select>
 	
 	<!-- 자동발주신청 select -->

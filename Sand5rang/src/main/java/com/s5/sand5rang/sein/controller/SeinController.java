@@ -2,17 +2,22 @@ package com.s5.sand5rang.sein.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.s5.sand5rang.sein.service.SeinService;
 import com.s5.sand5rang.sein.vo.Order;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Controller
 public class SeinController {
@@ -20,23 +25,127 @@ public class SeinController {
 	@Autowired
 	private SeinService seinService;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;	
+	
+
+	//main(메인) - 메뉴 
 	@RequestMapping(value="menu.ma")
     public String menuController()
     {
         return "main/menu";
     }
 	
+	//main(메인) - 회사소개
 	@RequestMapping(value="aboutSand.ma")
     public String aboutController()
     {
         return "main/aboutSand";
     }
 	
+	//main(메인) - 지사소개
 	@RequestMapping(value="branch.ma")
     public String branchController()
     {
         return "main/branch";
     }
+	
+	//main(메인) - 로그인
+	@RequestMapping(value="login.me")
+	public String loginController() {
+		
+		return "main/login";
+	}
+	
+	//main(메인) - 로그인(아이디/비밀번호 일치확인)
+	@RequestMapping(value="loginStore.me")
+	public ModelAndView loginStoreController(ModelAndView mv, Store store,  HttpSession session, 
+													String saveId, HttpServletResponse response) {
+		
+		System.out.println(store.getStoreId());
+		System.out.println("몇번?");
+		
+		//saveId값이 'y'와 일치한다면 => 아이디를 저장하겠다(쿠키생성)
+		//아니라면 아이디를 저장하지 않겠다(쿠키삭제)
+		if(saveId != null && saveId.equals("y")) {
+			
+			//아이디 저장 체크박스 클릭 시 
+			Cookie cookie = new Cookie("saveId", store.getStoreId());
+			
+			//쿠키의 유효기간
+			//60초 * 60분(1시간) * 24(하루) * 일수 => 초로 환산해서 만료시간 1일 
+			cookie.setMaxAge(60*60*24*365);
+			
+			response.addCookie(cookie);
+			
+		}else {
+			//아이디 저장 체크박스 선택하지 않았을 경우 
+			Cookie cookie = new Cookie("saveId", store.getStoreId());
+			
+			cookie.setMaxAge(0);
+			
+			response.addCookie(cookie);
+		}
+		
+		// 비밀번호 암호화 후 
+		// loginstore의 storePwd필드 : 암호화된 비밀번호 담겨있을 예정임 
+		// store의 storePwd 필드 : 영문 비밀번호 값
+		// loginstore의 storePwd 필드 : 암호화된 비밀번호 값 
+		Store loginstore = seinService.loginStore(store);
+		// 아이디만 일치하는지 1차 체크 
+		// 비밀번호도 일치하는지 2차 체크 
+		
+		
+		//BCryptPassowrdEncoder 클래스에서 제공하는 maches메소드
+		//matches(평문, 암호문)을 작성하면 내부적으로 대조작업이 이루어져 구문이 일치하는지 비교 
+		//일치한다면 true/ 일치하지않는다면 false로 반환
+		
+		// 일단 조회된 회원결과가 있는지 그리고 평문 비밀번호와 암호화된 비밀번호가 일치하는지 확인해주기 
+		if(loginstore != null && bCryptPasswordEncoder.matches(store.getStorePwd(), loginstore.getStorePwd())){
+			
+			session.setAttribute("loginstore", loginstore);
+			session.setAttribute("alertMsg", "로그인에 성공했습니다.");
+			
+			if(loginstore.getStoreId().equals("admin")) {
+				
+				
+				mv.setViewName("redirect:admain.hs");
+				
+			}else {
+				
+				mv.setViewName("redirect:frmain.hs");
+			}
+			
+		}else { 
+			//로그인 실패 
+			session.setAttribute("alertMsg", "실패");
+			 
+			mv.setViewName("redirect:login.me"); 
+		}
+
+			return mv;
+	}
+	
+	//url 매핑값만 적어줄 경우 value속성 생략 가능
+	@RequestMapping("logout.me")
+	public String logoutMember(HttpSession session) {
+			
+			//session무효화 시켰음 : session().invalidate();
+			session.invalidate();
+			
+			//메인페이지로 url재요청
+			return "redirect:/";
+	}
+	
+	//비밀번호 찾기
+	@RequestMapping("findpass.me")
+	public String findPassword() {
+		
+		
+		
+		return "main/findPassword";
+		
+	}
 	
 	/*발주 리스트 조회*/
 	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
@@ -69,7 +178,7 @@ public class SeinController {
 		
 		if(result==24) {
 			//당일 선 발주건 있음 
-			session.setAttribute("messesage", "true");
+			session.setAttribute("alertMsg", "당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요.'");
 			
 			 return "sein/orderlist";
 			 

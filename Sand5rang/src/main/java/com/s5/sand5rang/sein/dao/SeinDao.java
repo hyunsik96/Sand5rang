@@ -7,9 +7,16 @@ import org.springframework.stereotype.Repository;
 
 import com.s5.sand5rang.sein.vo.Ingredient;
 import com.s5.sand5rang.sein.vo.Order;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Repository
 public class SeinDao {
+	
+	//로그인 - Store/본사(id/pw)조회
+	public Store loginStore(SqlSessionTemplate sqlSession, Store store) {
+		
+		return sqlSession.selectOne("seinMapper.loginStore", store);
+	}
 	
 	//원재료 조회 select문
 	public ArrayList<Ingredient> selectIngredient(SqlSessionTemplate sqlSession){

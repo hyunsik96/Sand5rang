@@ -239,7 +239,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="/sand5rang/resources/images/menu/k-바비큐.png" alt="">
+                  <img src="/sand5rang/resources/images/menu/K바비큐.png" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>

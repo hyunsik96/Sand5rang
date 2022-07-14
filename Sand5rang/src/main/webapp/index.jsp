@@ -36,7 +36,6 @@
 </head>
 
 <body>
-
   <div class="hero_area">
     <div class="bg-box active">
       <img src="resources/images/burger.png" alt="">
@@ -73,9 +72,19 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="login.an" class="order_online">
-                Login
-              </a>
+            <c:choose>
+            	<c:when test="${empty loginstore}" >
+            		<a href="login.me" class="order_online">
+	                	Login
+	               </a>
+            	</c:when>
+            	<c:otherwise>
+            		<a href="logout.me" class="order_online">
+	                	Logout
+	                </a>
+            	</c:otherwise>
+            </c:choose>
+              
             </div>
           </div>
         </nav>

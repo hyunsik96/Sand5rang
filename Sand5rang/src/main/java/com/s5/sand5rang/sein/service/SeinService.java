@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.s5.sand5rang.sein.dao.SeinDao;
 import com.s5.sand5rang.sein.vo.Ingredient;
 import com.s5.sand5rang.sein.vo.Order;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Service
 public class SeinService {
@@ -18,6 +19,13 @@ public class SeinService {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
+	
+	//로그인 - Store/본사(id/pw)조회
+	public Store loginStore(Store store) {
+		
+		return seinDao.loginStore(sqlSession, store);
+	}
 	
 	//원재료 전체조회 Service
 	public ArrayList<Ingredient> selectIngredient(){

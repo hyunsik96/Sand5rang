@@ -163,9 +163,9 @@
      <!-- 알람메세지 내용이 있다면  -->
 	 
 
-	<c:if var="messesage" test="${ not empty messesage }">
+	<c:if test="${ not empty alertMsg }">
 		<script>
-			alert('당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요.');
+			alert("${alertMsg}");
 		</script>
 		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
 		<c:remove var="messesage" scope="session"/>
@@ -202,32 +202,8 @@
 										
 										<tbody>
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
-											<c:if test="${status.first ne true}">
-												<tr>
-													<td class="th1">${all_Olist.rowNo}</td>
-													<td class="th3"><a data-toggle="modal" href="#vModal1" style="color :blue;">${all_Olist.b}</a></td>
-													<td class="th4"><a data-toggle="modal" href="#vModal2" style="color :blue;">${all_Olist.v}</a></td>
-													<td class="th5"><a data-toggle="modal" href="#vModal3" style="color :blue;">${all_Olist.c}</a></td>
-													<td class="th6"><a data-toggle="modal" href="#vModal4" style="color :blue;">${all_Olist.m}</a></td>
-													<td class="th7"><a data-toggle="modal" href="#vModal5" style="color :blue;">${all_Olist.s}</a></td>
-													<td class="th2">${all_Olist.indD}</td>
-													<c:choose>
-														<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
-																<td class="td-actions" style="color: red;">승인대기</td>
-															</c:when>
-															<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
-																<td class="td-actions" style="color: black;">승인완료</td>
-															</c:when>
-															<c:when test="${all_Olist.status eq 'N'}">
-																<td class="td-actions" style="color: red;">반려</td>
-															</c:when>
-													</c:choose>
-												</tr>
-											</c:if>
-										</c:forEach>
-											
-										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
-											<c:if test="${status.first eq true}">
+										<c:choose>
+											<c:when test="${status.last eq true}">
 												<tr>
 													<td class="th1">${all_Olist.rowNo}</td>
 													<td class="th3">${all_Olist.b}</td>
@@ -248,9 +224,31 @@
 															</c:when>
 													</c:choose>
 												</tr>
-											</c:if>
-										</c:forEach>
-										
+											</c:when>
+											<c:otherwise>
+												<tr>
+													<td class="th1">${all_Olist.rowNo}</td>
+													<td class="th3"><a data-toggle="modal" href="#vModal1" style="color :blue;">${all_Olist.b}</a></td>
+													<td class="th4"><a data-toggle="modal" href="#vModal2" style="color :blue;">${all_Olist.v}</a></td>
+													<td class="th5"><a data-toggle="modal" href="#vModal3" style="color :blue;">${all_Olist.c}</a></td>
+													<td class="th6"><a data-toggle="modal" href="#vModal4" style="color :blue;">${all_Olist.m}</a></td>
+													<td class="th7"><a data-toggle="modal" href="#vModal5" style="color :blue;">${all_Olist.s}</a></td>
+													<td class="th2">${all_Olist.indD}</td>
+													<c:choose>
+														<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
+																<td class="td-actions" style="color: red;">승인대기</td>
+															</c:when>
+															<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
+																<td class="td-actions" style="color: black;">승인완료</td>
+															</c:when>
+															<c:when test="${all_Olist.status eq 'N'}">
+																<td class="td-actions" style="color: red;">반려</td>
+															</c:when>
+													</c:choose>
+												</tr>
+											</c:otherwise>
+										</c:choose>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
