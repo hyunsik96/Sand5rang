@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
 import com.s5.sand5rang.hyunsik.vo.StockF;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Controller
 public class HyunsikController {
@@ -172,13 +175,15 @@ public class HyunsikController {
     }
     
 	@RequestMapping(value="ingredientAllStock.csh")
-	public String ingredientAllStockList(
+	public String ingredientAllStockList( HttpSession session,
 			Model model,
 			@RequestParam(value="p",defaultValue="1") int currentPage
 			){
 		// 재고 합계
-		// storeId=15라 가정
-		String storeId= "15";
+
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
 		
 		StockF sf = new StockF();
 		sf.setStoreId(storeId);
@@ -246,11 +251,13 @@ if(flowDate!=0) {
 	
 	// 가맹점 결제대금내역 리스트 조회
 	@RequestMapping(value="fr1.hs")
-	public String frPayList(
+	public String frPayList(HttpSession session, 
 			@RequestParam(value="p", defaultValue="1") int currentPage, 
 			Model model) {
 	
-		String storeId = "47";
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
 		
 		int listCount = hyunsikService.payListCount2(storeId);
 		int pageLimit = 10;

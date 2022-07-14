@@ -15,4 +15,5 @@ public class Ingredient {
 	private int count;
 	private int index;
 	private int use; // 까줄개수를 재고에서 빼서 업데이트시켜줄 뭐시기
+	private String storeId;
 }

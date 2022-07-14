@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.sein.vo.Store;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Expiration;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
@@ -136,10 +137,10 @@ public class SeonghoonController {
 			menu_list.add(seonghoonService.MenuSalDate_List(s));
 		}
 		
-		for(int i=0; i<menu_list.size(); i++) {
-			System.out.println(menu_list.get(i).get(i));
-			
-		}
+//		for(int i=0; i<menu_list.size(); i++) {
+//			System.out.println(menu_list.get(i).get(i));
+//			
+//		}
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("sales_list1", sales_list1);
@@ -161,12 +162,16 @@ public class SeonghoonController {
 	@RequestMapping(value="salesPage1.csh", produces="text/html; charset=UTF-8")
 	public void orderEnrollController(int order_count, int ingNo, int tot_price, Model model, HttpSession session) {
 		
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
 
 	// 1. SALES 테이블에 INSERT
 		Menu m = new Menu();
 		m.setMenNo(ingNo); // 원재료 번호
 		m.setCount(order_count); // 판매 개수
 		m.setTotal(tot_price); // 
+		m.setStoreId(storeId);
 //		m.setStoreId((Store)session.getAttribute("loginUser").getUserId());
 		
 		seonghoonService.insertSales(m);
@@ -183,7 +188,7 @@ public class SeonghoonController {
 			// 반복문을돌려 한 원재료를 i 에 담는다.
 			i.setCount(order_count);
 			
-			// i.setStoreId(세션의 아이디);
+			i.setStoreId(storeId);
 			
 			// flow 테이블에 인서트
 			int stock = seonghoonService.insertFlow(i);

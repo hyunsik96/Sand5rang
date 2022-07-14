@@ -29,6 +29,13 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+		<c:remove var="alertMsg" scope="session"/>
+	 </c:if> 
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -47,18 +54,7 @@
 			
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
-					<li class="dropdown">						
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
-							설정
-							<b class="caret"></b>
-						</a>
-						
-						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Settings</a></li>
-							<li><a href="javascript:;">Help</a></li>
-						</ul>						
-					</li>
+
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -68,8 +64,7 @@
 						</a>
 						
 						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Profile</a></li>
-							<li><a href="javascript:;">Logout</a></li>
+							<li><a href="logout.me">Logout</a></li>
 						</ul>						
 					</li>
 				</ul>
