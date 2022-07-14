@@ -194,17 +194,17 @@
                    </td> 
                  </tr>
                 <tr>
-                   <th><label for="title" style="font-size:18px">제목</label></th> 
-                   <td><input type="text" id="title" class="form-control" name="inqTitle" required></td> 
+                   <th><label for="title" style="font-size:18px" >제목</label></th> 
+                   <td><input type="text" id="title" class="form-control" name="inqTitle" required placeholder="제목을 적어주세요"></td> 
                  </tr>                               
                  <tr>
                    <th><label for="writer" style="font-size:18px">작성자</label></th> 
-                   <td><input type="text" id="writer" class="form-control" value="" name="storeId"></td> 
+                   <td><input type="text" id="writer" class="form-control" value="" name="storeId" required placeholder="아이디를 적어주세요"></td> 
                 </tr>        
                 <tr>
                   <th><label for="content" style="font-size:18px">문의내용</label> </th>
                   <td>
-                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px">
+                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px" placeholder="내용을 적어주세요">
                    </textarea>
                   </td>
                 </tr>

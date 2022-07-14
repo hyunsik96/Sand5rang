@@ -186,14 +186,7 @@
 	      				<i class="icon-user"></i>
 	      				문의글 전체 리스트&nbsp;
 	      				
-	      				<form action="inqueryList.sm" style="display:inline-block; margin-left: 10px;">
-									<select class="form-control" id="sel11" name="category" style="width: 100px; margin-top: 6px">
-										<option value="1" >운영문의</option>
-										<option value="2" >재고문의</option> 
-										<option value="3" >발주문의</option>
-									</select>     
-								<input type="hidden" name="inqNo" value="${ i.inqNo }">      
-							</form>
+	      			
 	      				
 	      				
 	  				</div> <!-- /widget-header -->
@@ -217,7 +210,9 @@
                 <td>${i.inqTitle }</td>
                 <td>${i.storeName }</td>
                 <td>${i.inqDate }</td>
-                <td>${i.status }</td>
+                <td>
+                <c:if test="${empty i.ansDate }">대기</c:if>${i.ansDate}
+                </td>
             </tr>
            </c:forEach> 		
         </tbody>

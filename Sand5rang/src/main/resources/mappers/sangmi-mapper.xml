@@ -43,6 +43,7 @@
  <select id="selectListCount" resultType="_int">
   SELECT COUNT(*)
   FROM STORE
+  
  </select>
  <!--가맹점 전체리스트 조회-->
   <select id="storeList" resultMap="storeResultSet">
@@ -51,9 +52,6 @@
 	 JOIN ENROLL E USING(ENR_NO)
 	 WHERE S.STATUS = 'Y'
   </select>
-  
-  
-  
   
   <!-- 폐업 버튼 -> 삭제 -->
    <update id="storeclose" parameterType="_int">
@@ -67,6 +65,7 @@
 <select id="storeEnrollList" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
  SELECT ENR_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
+
 </select>
 
 <!-- 가맹가입신청 상세페이지 -->
@@ -86,18 +85,12 @@ WHERE ENR_NO = #{enrNo}
 
 <!-- 문의 전체 리스트 조회 -->
 <select id="inqueryList" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultMap="inqueryResultSet">
-SELECT I.INQ_NO,I.INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" , I.STATUS, I.CATEGORY, I.STORE_ID, S.STORE_NAME
+SELECT I.INQ_NO,I.INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" 
+      , TO_CHAR(ANS_DATE, 'YY.MM.DD') "ANS_DATE"
+       , I.CATEGORY, I.STORE_ID, S.STORE_NAME
 FROM INQUERY I
 JOIN STORE S ON(I.STORE_ID=S.STORE_ID)
- <if test="condition == 'operate'">
-WHERE CATEGORY = 'operate'
-</if>
-<if test="condition == 'stock'">
-AND  CATEGORY = 'stock'
-</if>
-<if test="condition == 'orders'">
-AND  CATEGORY = 'orders
-</if>
+<!--WHERE I.STORE_ID = #{storeId}  -->
 ORDER BY INQ_NO DESC
 </select>
 

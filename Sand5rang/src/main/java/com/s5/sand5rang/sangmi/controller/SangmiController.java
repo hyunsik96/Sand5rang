@@ -265,7 +265,6 @@ public class SangmiController {
 		return "sangmi/inqueryUpdate";
 	}
 	//1:1문의 수정
-     // 1.jsp오류 해결
 	// => 카테고리 정렬, 카테고리수정한거 적용되야 하고, 답변상태 N과 Y되면 날짜로 변하게 하기 
 	@RequestMapping(value="inupdate.sm")
 	public String inupdate(Inquery i, HttpSession session, Model model) {
@@ -276,13 +275,10 @@ public class SangmiController {
 		
 		if(result > 0) {
 			
-			session.setAttribute("alertMsg", "성공적으로 문의글이 수정되었습니다.");
-		    
 			
 			return "redirect:indetail.sm?ino="+i.getInqNo();
 		}
 		else {
-			model.addAttribute("errorMsg", "문의글 수정 실패가 되었습니다.");
 			
 			return "common/errorFr";
 		}
