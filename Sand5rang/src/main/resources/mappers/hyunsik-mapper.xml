@@ -48,6 +48,23 @@
 		<result column="FRPAY" property="frPay" />
 		<result column="FRINQ" property="frInq" />
 	</resultMap>
+	
+	<resultMap id="chartResultSet" type="com.s5.sand5rang.hyunsik.vo.Chart">
+		<result column="DAY1" property="day1" />
+		<result column="DAY2" property="day2" />
+		<result column="DAY3" property="day3" />
+		<result column="DAY4" property="day4" />
+		<result column="DAY5" property="day5" />
+		<result column="DAY6" property="day6" />
+		<result column="DAY7" property="day7" />
+		<result column="COUNT1" property="count1" />
+		<result column="COUNT2" property="count2" />
+		<result column="COUNT3" property="count3" />
+		<result column="COUNT4" property="count4" />
+		<result column="COUNT5" property="count5" />
+		<result column="COUNT6" property="count6" />
+		<result column="COUNT7" property="count7" />
+	</resultMap>
 
 	<select id="ad1ListCount" resultType="_int">
 		SELECT COUNT(*)
@@ -411,6 +428,58 @@
 		JOIN STORE USING(STORE_ID) 
 		WHERE PAY_NO <![CDATA[<]]>= #{payNo} AND STORE_ID = #{storeId} 
 		ORDER BY PAY_NO DESC 
+  	</select>
+  	
+  	<select id="getChart" resultMap="chartResultSet">
+		SELECT TO_CHAR(SYSDATE-1, 'MM/DD') DAY1, TO_CHAR(SYSDATE-2, 'MM/DD') DAY2, TO_CHAR(SYSDATE-3, 'MM/DD') DAY3, TO_CHAR(SYSDATE-4, 'MM/DD') DAY4, TO_CHAR(SYSDATE-5, 'MM/DD') DAY5, TO_CHAR(SYSDATE-6, 'MM/DD') DAY6, TO_CHAR(SYSDATE-7, 'MM/DD') DAY7, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-1, 'YYMMDD')) COUNT1, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-2, 'YYMMDD')) COUNT2, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-3, 'YYMMDD')) COUNT3, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-4, 'YYMMDD')) COUNT4, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-5, 'YYMMDD')) COUNT5, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-6, 'YYMMDD')) COUNT6, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-7, 'YYMMDD')) COUNT7
+		FROM DUAL
+  	</select>
+  	
+  	<select id="getChart2" resultMap="chartResultSet">
+		SELECT TO_CHAR(SYSDATE-1, 'MM/DD') DAY1, TO_CHAR(SYSDATE-2, 'MM/DD') DAY2, TO_CHAR(SYSDATE-3, 'MM/DD') DAY3, TO_CHAR(SYSDATE-4, 'MM/DD') DAY4, TO_CHAR(SYSDATE-5, 'MM/DD') DAY5, TO_CHAR(SYSDATE-6, 'MM/DD') DAY6, TO_CHAR(SYSDATE-7, 'MM/DD') DAY7, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-1, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT1, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-2, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT2, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-3, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT3, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-4, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT4, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-5, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT5, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-6, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT6, 
+		(SELECT NVL(SUM(TOTAL), 0)
+		FROM SALES
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE-7, 'YYMMDD') AND STORE_ID = #{storeId}) COUNT7
+		FROM DUAL
   	</select>
   	
 

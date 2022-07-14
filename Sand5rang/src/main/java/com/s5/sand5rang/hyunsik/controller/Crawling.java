@@ -8,10 +8,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
+import com.s5.sand5rang.hyunsik.vo.Chart;
 import com.s5.sand5rang.hyunsik.vo.Main;
 
 @Controller
@@ -53,6 +53,14 @@ public class Crawling {
         
         req.setAttribute("m", m);
         
+// 차트용
+        
+        Chart lc = hyunsikService.getChart();
+        
+        req.setAttribute("ch", lc);
+        
+        
+        
         return "hyunsik/adminMain";
 	
 	
@@ -92,6 +100,11 @@ public class Crawling {
         Main m = hyunsikService.befIndent2(storeId);
         
         req.setAttribute("m", m);
+        
+        
+        Chart lc = hyunsikService.getChart2(storeId);
+        
+        req.setAttribute("ch", lc);
         
         
         return "hyunsik/storeMain";

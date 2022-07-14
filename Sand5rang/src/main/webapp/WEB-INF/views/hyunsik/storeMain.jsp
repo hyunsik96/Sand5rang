@@ -198,7 +198,7 @@
               <div class="widget-header">
                   <i class="icon-bar-chart"></i>
                   <h3>
-                      Line Chart</h3>
+                      가맹점 매출 현황</h3>
               </div>
               <!-- /widget-header -->
               <div class="widget-content">
@@ -331,21 +331,14 @@
 <script>
 
 var lineChartData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: ["${ch.day7}", "${ch.day6}", "${ch.day5}", "${ch.day4}", "${ch.day3}", "${ch.day2}", "${ch.day1}"],
         datasets: [
-			{
-			    fillColor: "rgba(220,220,220,0.5)",
-			    strokeColor: "rgba(220,220,220,1)",
-			    pointColor: "rgba(220,220,220,1)",
-			    pointStrokeColor: "#fff",
-			    data: [65, 59, 90, 81, 56, 55, 40]
-			},
 			{
 			    fillColor: "rgba(151,187,205,0.5)",
 			    strokeColor: "rgba(151,187,205,1)",
 			    pointColor: "rgba(151,187,205,1)",
 			    pointStrokeColor: "#fff",
-			    data: [28, 48, 40, 19, 96, 27, 100]
+			    data: [${ch.count7}, ${ch.count6}, ${ch.count5}, ${ch.count4}, ${ch.count3}, ${ch.count2}, ${ch.count1}]
 			}
 		]
 

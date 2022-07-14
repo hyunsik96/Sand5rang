@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.dao.HyunsikDao;
+import com.s5.sand5rang.hyunsik.vo.Chart;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.Payment;
@@ -127,6 +128,14 @@ public class HyunsikService {
 	
 	public int realPayList2(Payment p) {
 		return hyunsikDao.realPayList2(sqlSession, p);
+	}
+	
+	public Chart getChart() {
+		return hyunsikDao.getChart(sqlSession);
+	}
+	
+	public Chart getChart2(String storeId) {
+		return hyunsikDao.getChart2(sqlSession, storeId);
 	}
 	
 }

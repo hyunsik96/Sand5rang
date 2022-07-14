@@ -317,14 +317,14 @@
 <script>
 
 var lineChartData = {
-        labels: ["January", "February", "March", "April", "May", "June", "07/14"],
+        labels: ["${ch.day7}", "${ch.day6}", "${ch.day5}", "${ch.day4}", "${ch.day3}", "${ch.day2}", "${ch.day1}"],
         datasets: [
 			{
 			    fillColor: "rgba(151,187,205,0.5)",
 			    strokeColor: "rgba(151,187,205,1)",
 			    pointColor: "rgba(151,187,205,1)",
 			    pointStrokeColor: "#fff",
-			    data: [28, 48, 40, 19, 96, 27, 100]
+			    data: [${ch.count7}, ${ch.count6}, ${ch.count5}, ${ch.count4}, ${ch.count3}, ${ch.count2}, ${ch.count1}]
 			}
 		]
 

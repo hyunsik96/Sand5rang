@@ -2823,16 +2823,15 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 	color: #333333;
 }
 .pagination {
+	display: block;
+	text-align: center;
 	height: 36px;
 	margin: 18px 0;
-	display: block;
-   	text-align: center;
 }
-
 .pagination ul {
 	display: inline-block;
-	*display:inline;
-	*zoom:1;
+*display:inline;
+*zoom:1;
 	margin-left: 0;
 	margin-bottom: 0;
 	-webkit-border-radius: 3px;
@@ -2846,22 +2845,23 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 	display: inline;
 }
 .pagination a {
-   display: inline-block;
-   padding: 0 14px;
-   line-height: 34px;
-   text-decoration: none;
-   border: 1px solid #ddd;
-   border-left-width: 0;
-   margin-left: -5px;
-   margin-top: 30px;
+	display: inline-block;
+	padding: 0 14px;
+	line-height: 34px;
+	text-decoration: none;
+	border: 1px solid #ddd;
+	border-left-width: 0;
+	margin-left: -5px;
 }
 .pagination a:hover, .pagination .active a {
-	background-color: #f5f5f5;
+	color: #f5f5f5;
+	background-color: #999999;
 }
 .pagination .active a {
-	color: #999999;
+	color: #f5f5f5;
+	background-color: #999999;
 	cursor: default;
-}
+} 
 .pagination .disabled span, .pagination .disabled a, .pagination .disabled a:hover {
 	color: #999999;
 	background-color: transparent;

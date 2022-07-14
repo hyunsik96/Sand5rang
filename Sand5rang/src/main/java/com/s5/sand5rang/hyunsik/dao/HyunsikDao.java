@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
+import com.s5.sand5rang.hyunsik.vo.Chart;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.Payment;
@@ -148,6 +149,14 @@ public class HyunsikDao {
 	
 	public int realPayList2(SqlSessionTemplate sqlSession, Payment p) {
 		return sqlSession.selectOne("hyunsikMapper.realPayList2", p);
+	}
+	
+	public Chart getChart(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("hyunsikMapper.getChart");
+	}
+	
+	public Chart getChart2(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("hyunsikMapper.getChart2", storeId);
 	}
 
 
