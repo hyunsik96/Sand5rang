@@ -133,7 +133,7 @@ COMMENT ON COLUMN ENROLL.STATUS IS '승인상태';
 --가맹점 테이블
 CREATE TABLE STORE(
     STORE_ID VARCHAR2(15) PRIMARY KEY NOT NULL,          -- 아이디
-    STORE_PWD VARCHAR2(15) NOT NULL,                     -- 비밀번호
+    STORE_PWD VARCHAR2(1000) NOT NULL,                     -- 비밀번호
     STORE_NAME VARCHAR2(30) UNIQUE NOT NULL,             -- 가맹점명
     ADDRESS VARCHAR2(200) NOT NULL,                      -- 점주이름 
     STATUS VARCHAR2(1) DEFAULT 'Y' NOT NULL,             -- 상태 (승인시 Y로 인서트, 폐점처리시 N로 업데이트)

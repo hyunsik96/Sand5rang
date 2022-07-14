@@ -176,16 +176,16 @@
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   <div id="big_stats" class="cf">
-                    <div class="stat"> <div>발주대기</div> <span class="value">&nbsp;${m.frInd}&nbsp;</span> </div>
+                    <div class="stat"> <div>발주대기</div> <a href="orderList.se" class="aTag"><span class="value">&nbsp;${m.frInd}&nbsp;</span></a> </div>
                     <!-- 오늘 발주 신청했으나 아직 승인안된 총 수 -->
                     
-                    <div class="stat"> <div>오늘의입고</div><span class="value">&nbsp;${m.frFac}&nbsp;</span> </div>
+                    <div class="stat"> <div>오늘의입고</div><a href="ingredientAllStock.csh" class="aTag"><span class="value">&nbsp;${m.frFac}&nbsp;</span></a> </div>
                     <!-- 어제 발주 승인되어 오늘 들어오기로한 원재료 총 수 -->
                     
-                    <div class="stat"> <div>발주잔액</div> <span class="value">&nbsp;${m.frPay}&nbsp;</span> </div>
+                    <div class="stat"> <div>발주잔액</div> <a href="fr1.hs" class="aTag"><span class="value">&nbsp;${m.frPay}&nbsp;</span></a> </div>
                     <!-- 발주잔액 -->
                     
-                    <div class="stat"> <div>문의현황</div> <span class="value">&nbsp;${m.frInq}&nbsp;</span> </div>
+                    <div class="stat"> <div>문의현황</div> <a href="inqueryList.sm" class="aTag"><span class="value">&nbsp;${m.frInq}&nbsp;</span></a> </div>
                     <!-- 가맹점주가 작성한 문의글 총 수 --> 
                   </div>
                 </div>
@@ -193,6 +193,22 @@
             </div>
             <!-- /widget-content --> 
           </div>
+          
+          <div class="widget">
+              <div class="widget-header">
+                  <i class="icon-bar-chart"></i>
+                  <h3>
+                      Line Chart</h3>
+              </div>
+              <!-- /widget-header -->
+              <div class="widget-content">
+                  <canvas id="area-chart" class="chart-holder" width="538" height="250">
+                  </canvas>
+                  <!-- /line-chart -->
+              </div>
+              <!-- /widget-content -->
+          </div>
+          
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
               <h3>7월 광고이미지</h3>
@@ -215,7 +231,7 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <ul class="news-items">
-	          <c:forEach var="t" items="${title}" varStatus="status">
+	          <c:forEach var="t" items="${title}" begin="0" end="6" varStatus="status">
                 <li>
                   <div class="news-item-date"> ${image[status.index*2+1]}> </div>
                   <div class="news-item-detail"><div class="gustlr"><a>${t}</div>
@@ -312,127 +328,32 @@
 
 
 <jsp:include page="include/6.jsp" />
-<script>     
+<script>
 
-        var lineChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    pointColor: "rgba(220,220,220,1)",
-				    pointStrokeColor: "#fff",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    pointColor: "rgba(151,187,205,1)",
-				    pointStrokeColor: "#fff",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
+var lineChartData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+			{
+			    fillColor: "rgba(220,220,220,0.5)",
+			    strokeColor: "rgba(220,220,220,1)",
+			    pointColor: "rgba(220,220,220,1)",
+			    pointStrokeColor: "#fff",
+			    data: [65, 59, 90, 81, 56, 55, 40]
+			},
+			{
+			    fillColor: "rgba(151,187,205,0.5)",
+			    strokeColor: "rgba(151,187,205,1)",
+			    pointColor: "rgba(151,187,205,1)",
+			    pointStrokeColor: "#fff",
+			    data: [28, 48, 40, 19, 96, 27, 100]
+			}
+		]
 
-        }
+    }
 
-        var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
-
-
-        var barChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
-
-        }    
-
-        $(document).ready(function() {
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-        var calendar = $('#calendar').fullCalendar({
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-          },
-          selectable: true,
-          selectHelper: true,
-          select: function(start, end, allDay) {
-            var title = prompt('Event Title:');
-            if (title) {
-              calendar.fullCalendar('renderEvent',
-                {
-                  title: title,
-                  start: start,
-                  end: end,
-                  allDay: allDay
-                },
-                true // make the event "stick"
-              );
-            }
-            calendar.fullCalendar('unselect');
-          },
-          editable: true,
-          events: [
-            {
-              title: 'All Day Event',
-              start: new Date(y, m, 1)
-            },
-            {
-              title: 'Long Event',
-              start: new Date(y, m, d+5),
-              end: new Date(y, m, d+7)
-            },
-            {
-              id: 999,
-              title: 'Repeating Event',
-              start: new Date(y, m, d-3, 16, 0),
-              allDay: false
-            },
-            {
-              id: 999,
-              title: 'Repeating Event',
-              start: new Date(y, m, d+4, 16, 0),
-              allDay: false
-            },
-            {
-              title: 'Meeting',
-              start: new Date(y, m, d, 10, 30),
-              allDay: false
-            },
-            {
-              title: 'Lunch',
-              start: new Date(y, m, d, 12, 0),
-              end: new Date(y, m, d, 14, 0),
-              allDay: false
-            },
-            {
-              title: 'Birthday Party',
-              start: new Date(y, m, d+1, 19, 0),
-              end: new Date(y, m, d+1, 22, 30),
-              allDay: false
-            },
-            {
-              title: 'EGrappler.com',
-              start: new Date(y, m, 28),
-              end: new Date(y, m, 29),
-              url: 'http://EGrappler.com/'
-            }
-          ]
-        });
-      });
-    </script><!-- /Calendar -->
+    var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
+    
+</script>
 
   </body>
 

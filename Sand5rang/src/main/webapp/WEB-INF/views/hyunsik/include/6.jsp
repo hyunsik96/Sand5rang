@@ -47,6 +47,9 @@ padding-bottom:10px;
 #micheuri{
 width:250px; margin:auto; margin-top:30px; font-size:15px; color:red;
 }
+.aTag:hover{
+text-decoration:none;
+}
 </style>
 </head>
 <body>
