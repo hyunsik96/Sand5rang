@@ -2,6 +2,7 @@ package com.s5.sand5rang.hyunsik.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Chart;
 import com.s5.sand5rang.hyunsik.vo.Main;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Controller
 public class Crawling {
@@ -69,7 +71,7 @@ public class Crawling {
     
     
     @RequestMapping(value="frmain.hs")
-    public String craw_select2(HttpServletRequest req,HttpServletResponse resp)throws Exception {
+    public String craw_select2(HttpServletRequest req,HttpServletResponse resp, HttpSession session)throws Exception {
         
 // 뉴스 크롤링
         String url = "https://search.naver.com/search.naver?where=news&sm=tab_jum&query=%EC%83%8C%EB%93%9C%EC%9C%84%EC%B9%98";
@@ -95,7 +97,9 @@ public class Crawling {
 
 // 그 외 컨트롤링필요부분
         
-        String storeId = "47";
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
         
         Main m = hyunsikService.befIndent2(storeId);
         
