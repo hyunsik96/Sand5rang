@@ -21,4 +21,6 @@ public class Store {
 	private String status;		//가맹점상태(폐업 : N/영업 : Y)
 	private int enrNo;			//가맹점번호
 	
+	//private String phone; //상미-새로추가
+    //private String email;//상미- 새로추가
 }
