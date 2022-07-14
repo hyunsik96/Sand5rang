@@ -186,13 +186,13 @@
 	      				<i class="icon-user"></i>
 	      				문의글 전체 리스트&nbsp;
 	      				
-	      				<form action="incate.sm" style="display:inline-block; margin-left: 10px;">
-									<select class="form-control so" name="category" style="width: 100px; margin-top: 6px">
-										<option value="operate" >운영문의</option>
-										<option value="stock" >재고문의</option> 
-										<option value="orders">발주문의</option>
+	      				<form action="inqueryList.sm" style="display:inline-block; margin-left: 10px;">
+									<select class="form-control" id="sel11" name="category" style="width: 100px; margin-top: 6px">
+										<option value="1" >운영문의</option>
+										<option value="2" >재고문의</option> 
+										<option value="3" >발주문의</option>
 									</select>     
-								      
+								<input type="hidden" name="inqNo" value="${ i.inqNo }">      
 							</form>
 	      				
 	      				

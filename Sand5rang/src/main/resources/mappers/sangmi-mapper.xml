@@ -52,6 +52,9 @@
 	 WHERE S.STATUS = 'Y'
   </select>
   
+  
+  
+  
   <!-- 폐업 버튼 -> 삭제 -->
    <update id="storeclose" parameterType="_int">
     UPDATE STORE
@@ -86,6 +89,15 @@ WHERE ENR_NO = #{enrNo}
 SELECT I.INQ_NO,I.INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" , I.STATUS, I.CATEGORY, I.STORE_ID, S.STORE_NAME
 FROM INQUERY I
 JOIN STORE S ON(I.STORE_ID=S.STORE_ID)
+ <if test="condition == 'operate'">
+WHERE CATEGORY = 'operate'
+</if>
+<if test="condition == 'stock'">
+AND  CATEGORY = 'stock'
+</if>
+<if test="condition == 'orders'">
+AND  CATEGORY = 'orders
+</if>
 ORDER BY INQ_NO DESC
 </select>
 
