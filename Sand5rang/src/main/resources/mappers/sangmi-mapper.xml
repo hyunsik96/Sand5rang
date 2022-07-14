@@ -65,7 +65,7 @@
 <select id="storeEnrollList" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
  SELECT ENR_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
-
+ WHERE STATUS = 'B'
 </select>
 
 <!-- 가맹가입신청 상세페이지 -->
@@ -95,8 +95,15 @@ WHERE ENR_NO = #{enrNo}
      FROM STORE
      WHERE STORE_ID = #{checkId}
  </select>
-
-
+ 
+ <!--가맹가입 승인버튼 누르면  상태값 바꾸기 -->
+ <!--  
+  <update id="updateStatus" parameterType="_int">
+   UPDATE ENROLL 
+   SET STATUS = 'Y'
+   WHERE ENR_NO = #{enrNo}
+  </update>
+-->
 
 <!--=======가맹주==========-->
 <!-- 문의 전체 리스트 조회 -->

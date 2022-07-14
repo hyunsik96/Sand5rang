@@ -31,6 +31,8 @@
 <jsp:include page="include/5.jsp" />
 <div class="navbar navbar-fixed-top">
 	
+
+	
 	<div class="navbar-inner">
 		
 		<div class="container">
@@ -229,15 +231,15 @@
         <br>
 
         <div align="right">
+         
+            <input type="hidden" name="enrNo" value="${ e.enrNo }">
+   
             <button type="submit" class="btn btn-primary" disabled>승인</button>
             <button type="submit" class="btn btn-danger">반려</button>
         </div>
     </form>
 
-      <form id="postForm" action="" method="post">
-         <input type="hidden" name="enrNo" value="${ e.enrNo }">
-
-       </form>
+    
 
 <br><br>
 	

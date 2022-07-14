@@ -61,7 +61,7 @@ public class SangmiController {
 	
 		 if(result > 0) {
 				
-				session.setAttribute("alertMsg", "성공적으로 폐업처리가 되었습니다."); //알람 안뜸=> 확인하기 
+				session.setAttribute("alertMsg", "성공적으로 폐업처리가 되었습니다."); 
 				
 				return "redirect:storeList.sm";
 				
@@ -261,10 +261,12 @@ public class SangmiController {
 		
 		if(result > 0) {
 			
+			session.setAttribute("alertMsg", "문의글이 성공적으로 수정되었습니다.");
 			
 			return "redirect:indetail.sm?ino="+i.getInqNo();
 		}
 		else {
+			model.addAttribute("errorMsg", "문의글 수정이 실패가 되었습니다.");
 			
 			return "common/errorFr";
 		}
