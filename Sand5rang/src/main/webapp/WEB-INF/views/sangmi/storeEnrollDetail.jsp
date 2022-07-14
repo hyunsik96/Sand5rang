@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -212,14 +212,14 @@
           <label for="userId">* 가맹점 아이디 : </label>
           <input type="text" class="form-control" id="storeId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px;"><br>
           <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
-          <br>
-        
+      
           <label for="userPwd">* 가맹점 비밀번호 : </label>
           <input type="password" class="form-control" id="storePwd" name="storePwd" placeholder="가맹점 비밀번호를 써주세요." style="width:400px;"><br>
            
-          <label for="address">* 가맹점 상세주소 : </label>
-          <input type="text" class="form-control" id="address" name="address" placeholder="가맹점 상세주소 클릭!" style="width:400px;"><br>
-        
+          <label for="address">* 가맹점 주소 : 
+          <input type="text" class="form-control" id="address_kakao" name="address" placeholder="가맹점  주소 클릭!" style="width:400px;" >
+                     <!--  상세주소:<input type="text" name="address_detail" />-->
+        </label>
           <label for="content">^ 반려 이유 : </label>
           <textarea class="form-control" id="content" name="" placeholder="가맹점 반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
         
@@ -296,7 +296,20 @@
         	  
           });   
         </script>
-	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<script>
+		window.onload = function(){
+		    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+		        //카카오 지도 발생
+		        new daum.Postcode({
+		            oncomplete: function(data) { //선택시 입력값 세팅
+		                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+		                //document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+		            }
+		        }).open();
+		    });
+		}
+		</script>
 	
 	
 				</div> <!-- /widget -->

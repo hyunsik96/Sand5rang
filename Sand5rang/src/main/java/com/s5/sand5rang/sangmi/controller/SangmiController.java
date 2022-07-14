@@ -18,7 +18,7 @@ import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.sangmi.service.SangmiService;
 import com.s5.sand5rang.sangmi.vo.Enroll;
 import com.s5.sand5rang.sangmi.vo.Inquery;
-import com.s5.sand5rang.sangmi.vo.Store;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Controller
 public class SangmiController {
@@ -26,6 +26,7 @@ public class SangmiController {
 	@Autowired
 	private SangmiService SangmiService;
 	
+	//---------관리자----------------
 	//가맹점 전체리스트 조회
 	@RequestMapping(value="storeList.sm")
 	public String storeList(
@@ -103,13 +104,7 @@ public class SangmiController {
 	
 	
 	
-	/*
-	@RequestMapping(value="storeEnrollDetail.sm")
-	public String storeEnrollDetail(Model model) {
-		
-		return "sangmi/storeEnrollDetail";
-	}
-	*/
+
 	//가맹가입신청 상세페이지
 	@RequestMapping(value="stEnDetail.sm")
 	public ModelAndView selectEnroll(int enr, ModelAndView mv) {
@@ -173,12 +168,17 @@ public class SangmiController {
 	
 
 
-	
+	//---------가맹주----------------
 	// 1:1 문의 전체조회
 	@RequestMapping(value="inqueryList.sm")
 	public String inqueryList(
 			@RequestParam(value="cpage", defaultValue="1") int currentPage
 			,Model model) {
+		
+		//Store user = (Store)session.getAttribute("loginstore");
+
+		//String storeId = user.getStoreId();
+
 		
 		//1.게시글 총 갯수 조회
 		int listCount = SangmiService.selectListCount();
@@ -193,7 +193,7 @@ public class SangmiController {
 		
 		model.addAttribute("pi",pi);
 		model.addAttribute("list",list);
-		
+		//model.addAttribute("storeId",storeId);
 		
 		return "sangmi/inqueryList";
 	}

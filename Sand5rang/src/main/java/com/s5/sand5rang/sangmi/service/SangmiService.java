@@ -10,7 +10,7 @@ import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.sangmi.dao.SangmiDao;
 import com.s5.sand5rang.sangmi.vo.Enroll;
 import com.s5.sand5rang.sangmi.vo.Inquery;
-import com.s5.sand5rang.sangmi.vo.Store;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Service
 public class SangmiService {
@@ -21,6 +21,7 @@ public class SangmiService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	//---------관리자----------------
 	//게시글 총 갯수 조회
 	public int selectListCount() {
 		return SangmiDao.selectListCount(sqlSession);
@@ -66,7 +67,7 @@ public class SangmiService {
 		
 	}
 	
-	
+	//---------가맹주----------------
 	//문의리스트 조회
 	//가맹점 전체리스트 조회
 	public ArrayList<Inquery> inqueryList(PageInfo pi) {

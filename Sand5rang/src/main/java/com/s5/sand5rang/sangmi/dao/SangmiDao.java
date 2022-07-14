@@ -9,11 +9,12 @@ import org.springframework.stereotype.Repository;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.sangmi.vo.Enroll;
 import com.s5.sand5rang.sangmi.vo.Inquery;
-import com.s5.sand5rang.sangmi.vo.Store;
+import com.s5.sand5rang.sein.vo.Store;
 
 @Repository
 public class SangmiDao {
 	
+	//---------관리자----------------
 	//게시글 총 갯수 조회
 	public int selectListCount(SqlSessionTemplate sqlSession) {
 		
@@ -70,7 +71,7 @@ public class SangmiDao {
 		return sqlSession.selectOne("sangmiMapper.idCheck", checkId);
 	}
    
-   
+	//---------가맹주----------------
    //문의 전체 리스트 조회
 	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi) {
 		   
