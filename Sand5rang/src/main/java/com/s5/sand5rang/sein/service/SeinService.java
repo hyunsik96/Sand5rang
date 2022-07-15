@@ -27,14 +27,14 @@ public class SeinService {
 		return seinDao.loginStore(sqlSession, store);
 	}
 	
-	//원재료 전체조회 Service
-	public ArrayList<Ingredient> selectIngredient(){
-	
-		return (ArrayList)seinDao.selectIngredient(sqlSession);
+	//비밀번호 변경 update 
+	public int newPwdUpdate(Store store) {
+		return seinDao.newPwdUpdate(sqlSession, store);
 	}
+	
 	//가맹점 당일 발주 건 있는지 체크 select Service 
-	public int selectOrder() {
-		return seinDao.selectOrder(sqlSession);
+	public int selectOrder(String storeId) {
+		return seinDao.selectOrder(sqlSession, storeId);
 	}
 	
 	//가맹점 발주 insert Service
@@ -43,23 +43,23 @@ public class SeinService {
 	}
 	
 	//가맹점 발주내역 상세조회 select Service
-	public ArrayList<Order> selectTodayOrder(){
-		return (ArrayList)seinDao.selectTodayOrder(sqlSession);
+	public ArrayList<Order> selectTodayOrder(String storeId){
+		return (ArrayList)seinDao.selectTodayOrder(sqlSession, storeId);
 	}
 	
 	//가맹점 발주내역 리스트조회 select Service
-	public ArrayList<Order> selectAllOrderList(){
-		return (ArrayList)seinDao.selectAllOrderList(sqlSession);
+	public ArrayList<Order> selectAllOrderList(String storeId){
+		return (ArrayList)seinDao.selectAllOrderList(sqlSession, storeId);
 	}
 	
 	//가맹점 자동발주 신청 내역 select
-	public ArrayList<Order> selectAutoOrder(){
-		return (ArrayList)seinDao.selectAutoOrder(sqlSession);
+	public ArrayList<Order> selectAutoOrder(String storeId){
+		return (ArrayList)seinDao.selectAutoOrder(sqlSession, storeId);
 	}
 	
 	//가맹점 발주대기 상태의 원재료 list select
-	public ArrayList<Order> selectOrder2() {
-		return (ArrayList)seinDao.selectOrder2(sqlSession);
+	public ArrayList<Order> selectOrder2(String storeId) {
+		return (ArrayList)seinDao.selectOrder2(sqlSession, storeId);
 	}
 	
 	public int updateOrder() {

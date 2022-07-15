@@ -23,7 +23,7 @@
 	</resultMap>
 	
 	
-	<resultMap type="store" id="loginStoreResultSet">
+	<resultMap type="store" id="StoreResultSet">
 		<result column="STORE_ID" property="storeId"/>
 		<result column="STORE_PWD" property="storePwd"/>
 		<result column="STORE_NAME" property="storeName"/>
@@ -33,18 +33,25 @@
 	</resultMap>
 
 	<!-- 로그인 -->
-	<select id="loginStore" parameterType="store" resultMap="loginStoreResultSet">
+	<select id="loginStore" parameterType="store" resultMap="StoreResultSet">
 		SELECT STORE_ID, STORE_PWD, STORE_NAME, ADDRESS, STATUS, ENR_NO
 		FROM STORE 
 		WHERE STORE_ID = #{storeId} AND
 		STATUS = 'Y'
 	</select>
 	
+	<update id="newPwdUpdate" parameterType="store">
+		UPDATE STORE SET STORE_PWD = #{storePwd} 
+					 WHERE STORE_ID = #{storeId} 
+					 AND STATUS = 'Y'
+	</update>
+	
+	
 	<!-- 발주 체크 select -->
-	<select id="selectOrder" resultType="_int">
+	<select id="selectOrder" parameterType="string" resultType="_int">
 		SELECT COUNT(IND_NO) AS COUNT_NO
 		FROM INDENT
-		WHERE STORE_ID = 'GUM01' AND
+		WHERE STORE_ID = #{storeId} AND
 			  TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD')
 	</select>
 	
@@ -62,46 +69,46 @@
 						 SYSDATE, 
 						 #{total}, 
 						 #{status}, 
-						 'GUM01', 
+						 #{storeId}, 
 						 #{ingNo})
 	</insert>
 	
 	<!-- 발주상세조회 select -->
-	<select id="selectTodayOrder" resultMap="TodyOrderResultSet">
+	<select id="selectTodayOrder" parameterType="string" resultMap="TodyOrderResultSet">
 		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, ING_TYPE
 		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
-		WHERE STORE_ID = 'GUM01' 
+		WHERE STORE_ID = #{storeId} 
 		      AND TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
 		ORDER BY ING_NO ASC
 	</select>
 
 	<!-- 발주전체조회 select -->
-	<select id="selectAllOrderList" resultMap="TodyOrderResultSet">
+	<select id="selectAllOrderList" parameterType="string" resultMap="TodyOrderResultSet">
 		SELECT ROWNUM, A.*
 		FROM(SELECT *
 		      FROM (SELECT ING_TYPE, COUNT, IND_DATE, STATUS
 		            FROM INDENT JOIN INGREDIENT USING(ING_NO)
-                    WHERE STORE_ID = 'GUM01')
+                    WHERE STORE_ID = #{storeId})
 		      PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))
 		      ORDER BY IND_DATE ASC) A
 		ORDER BY IND_DATE DESC
 	</select>
 	
 	<!-- 자동발주신청 select -->
-	<select id="selectAutoOrder" resultMap="TodyOrderResultSet">
+	<select id="selectAutoOrder" parameterType="string" resultMap="TodyOrderResultSet">
 	     SELECT TO_DATE(IND_DATE, 'YY-MM-DD HH24:MI:SS') IND_DATE, IND_NO, COUNT, TOTAL, STATUS, STORE_ID, ING_NO
 		 FROM INDENT 
-		 WHERE STORE_ID = 'GUM01' 
+		 WHERE STORE_ID = #{storeId} 
 		 AND TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') BETWEEN TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') - INTERVAL '33' HOUR, 'YY-MM-DD HH24:MI:SS') AND
 		                         TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') + INTERVAL '15' HOUR, 'YY-MM-DD HH24:MI:SS')
 		 AND STATUS ='AB'
 	</select>
 	
 	<!-- 가맹점 발주대기 상태의 원재료 list select -->
-	<select id="selectOrder2" resultMap="TodyOrderResultSet">
+	<select id="selectOrder2" parameterType="string" resultMap="TodyOrderResultSet">
 		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, PRICE
 		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
-		WHERE STORE_ID = 'GUM01' AND 
+		WHERE STORE_ID = #{storeId} AND 
 		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') AND 
 		      STATUS LIKE '%B' 
 		ORDER BY ING_NO

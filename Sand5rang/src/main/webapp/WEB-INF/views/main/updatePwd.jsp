@@ -44,7 +44,7 @@
 	.input-box{position:relative; margin:10px 0;}
 	.input-box > input{background:transparent; border:none; border-bottom: solid 1px #ccc; padding:20px 0px 5px 0px; font-size:14pt; width:100%;}
               input::placeholder{color:transparent;}
-              input:placeholder-shown + label{color:#aaa; font-size:14pt; top:15px;}
+              input:placeholder-shown + label{color:#aaa; font-size:12pt; top:15px;}
               input:focus + label, label{color:#8aa1a1; font-size:10pt; pointer-events: none; position: absolute; left:0px; top:0px;
                 transition: all 0.2s ease ; -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease;}
 			  input:focus, input:not(:placeholder-shown){ border-bottom: solid 1px #8aa1a1;outline:none;}
@@ -52,28 +52,27 @@
               					 border-radius: 5px; width:100%; height:35px; font-size: 14pt; margin-top:100px;}
 	#forgot{text-align: right; font-size:12pt; color:rgb(164, 164, 164); margin:10px 0px;}
             
-	.login-fields> h2 {font-family: 'Noto Sans KR', sans-serif;}
+	.login-fields> h3 {text-align:left; font-family: 'Noto Sans KR', sans-serif;}
 	.login-fields> p {font-family: 'Noto Sans KR', sans-serif;}
 	
-	.login-box { margin:auto; width:500px; height: 600px; border-radius: 5px; background: rgba(255, 255, 255, 0.5); margin-bottom: 100px;}
+	.login-box { margin:auto; width:500px; height: 650px; border-radius: 5px; background: rgba(255, 255, 255, 0.5); }
 	
 	.sub_page { background-color: rgb(234 234 234);}
+  .input-box> p { color:grey; font-size:10px; text-align: left; margin-bottom: 30px; margin-top: 20px;}
 
   .content { padding-top: 30px; }
-  .brand-logo{ margin-bottom: 10px;}
+  .changePw{ margin-bottom: 20px; align:left;}
   .login-actions { text-align:left; font-size: 14px; margin-bottom: 20px;}
   .button {background-color: #0b571f; padding:10px 150px; border-radius: 4px;}
   
-  #pwdf a:hover{
-    color : rgb(198, 23, 23);
-  }  
+            
 
 
 </style>
 
 
 <body class="sub_page">
-
+	
 	<c:if test="${ not empty alertMsg }">
 		<script>
 			alert("${alertMsg}");
@@ -81,8 +80,7 @@
 		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
 		<c:remove var="alertMsg" scope="session"/>
 	 </c:if> 
-
-
+	
   <div class="hero_area">
    
 
@@ -117,8 +115,8 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="order_online">
-                Login
+              <a href="login.an" class="order_online">
+                 Login
               </a>
             </div>
           </div>
@@ -129,65 +127,52 @@
   </div>
 
 
-<!--  로그인 폼      -->
-			<div class="account-container" style="margin-bottom: 400px;">
+<!--  비밀번호 변경 폼      -->
+			<div class="account-container" style="margin-bottom: 200px; margin-top : 100px">
 				<div class="login-box"><!-- 가운데 화이트 박스 만들고 싶음 -->
-				<div class="content clearfix heading_container heading_center" >
+				<div class="content clearfix heading_container heading_center">
 					
-					<form action="loginStore.me" method="post">
+					<form action="newPwd.me" method="post">
 					
-			            <div class="brand-logo">
-                   <img src="resources/images/sandimg.png" style="width:300px; height:150px;"alt="logo">
+			            <div class="changePw">
+                   			<img src="resources/images/pwimg.png" style="width:200px; height:150px;"alt="changePw">
 			            </div>
 			     
 					
 						<div class="login-fields">
-							<h2>안녕하세요!</h2>	
-							<p>신선한 샌드위치, Sand5rang 입니다</p>
-							
-							<br>
+							<h3>비밀번호 변경</h3>	
+	
 							<div class="input-box">
-				                <input id="username" type="text" name="storeId" placeholder="아이디" value="${ cookie.saveId.value }">
-				                <label for="username">아이디</label>
+				                <input id="storeId" type="text" name="storeId" placeholder="아이디">
+				                <label for="storeId">아이디를 입력하세요</label>
+				            </div>
+	
+							
+							<div class="input-box">
+				                <input id="storePwd" type="password" name="storePwd" placeholder="현재비밀번호">
+				                <label for="storePwd">현재 비밀번호를 입력하세요</label>
 				            </div>
 				
-				            <div class="input-box">
-				                <input id="password" type="password" name="storePwd" placeholder="비밀번호">
-				                <label for="password">비밀번호</label>
-				            </div>				
+				            <div class="input-box" style="maring-bottom : 50px">
+				                <input id="newPwd" type="password" name="newPwd" placeholder="새비밀번호">
+				                <label for="newPwd">새로운 비밀번호를 입력하세요</label>
+			                    <p>* 가맹점 계정에 등록되어 있는 이메일을 입력하세요.<br>
+			                                                        가맹점 아이디와 이메일 정보가 일치할 시 비밀번호 변경 링크가 전송됩니다. </p>
+				            </div>	
+
 						</div> <!-- /login-fields -->
-						
-						<div class="login-actions">	
-							<span class="login-checkbox">
-		                         <c:choose>
-		                        	<c:when test="${ not empty cookie.saveId }">
-		                        		<input type="checkbox" id="saveId" name="saveId" value="y" checked>&nbsp;&nbsp;아이디 저장
-		                    		</c:when>
-		                    		<c:otherwise>
-		                    			<input type="checkbox" id="saveId" name="saveId" value="y">&nbsp;&nbsp;아이디 저장
-		                    		</c:otherwise>
-                    		     </c:choose>
-							</span>
-							<div style="display: block; float: right; " id="pwdf">
-								<a href="findPwd.me" style="text-align: right; color:rgb(164, 164, 164); float: right;">&nbsp;비밀번호 찾기 ]</a>
-							</div>
-							<div style="display: inline; float: right;" id="pwdu">	
-								<a href="updatePwd.me" style="color: rgb(164, 164, 164); float : right;">&nbsp;[ 비밀번호 변경 / </a>
-							</div>
-						</div>	
-						<br>
-						<div>						
-							<button type="submit" class="button btn btn-success btn-large">로그인</button>
+				
+						<div style="margin-top : 50px;">						
+							<button class=" submit button btn btn-success btn-large">보내기</button>
 						</div>
 					</form>
-					<br><br>
+					
 				</div><!-- content clearfix -->
 			
 						</div> <!-- /content -->
 							
 				
 					</div> <!-- /account-container -->
-			
 
   <!-- footer section -->
   <footer class="footer_section">

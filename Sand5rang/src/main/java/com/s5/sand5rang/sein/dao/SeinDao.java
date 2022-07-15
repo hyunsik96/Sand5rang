@@ -18,16 +18,15 @@ public class SeinDao {
 		return sqlSession.selectOne("seinMapper.loginStore", store);
 	}
 	
-	//원재료 조회 select문
-	public ArrayList<Ingredient> selectIngredient(SqlSessionTemplate sqlSession){
-		
-		return (ArrayList)sqlSession.selectList("seinMapper.selectIngredient");
+	//비밀번호 변경 update문
+	public int newPwdUpdate(SqlSessionTemplate sqlSession, Store store) {
+		return sqlSession.update("seinMapper.newPwdUpdate", store);
 	}
 
 	//가맹점 당일 발주건 있는지 체크 select문
-	public int selectOrder(SqlSessionTemplate sqlSession) {
+	public int selectOrder(SqlSessionTemplate sqlSession, String storeId) {
 		
-		return sqlSession.selectOne("seinMapper.selectOrder");
+		return sqlSession.selectOne("seinMapper.selectOrder", storeId);
 	}
 	
 	//발주 insert문
@@ -37,22 +36,22 @@ public class SeinDao {
 	}
 	
 	//발주상세내역 조회 select문
-	public ArrayList<Order> selectTodayOrder(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder");
+	public ArrayList<Order> selectTodayOrder(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder", storeId);
 	}
 	
 	//가맹점 발주리스트 조회
-	public ArrayList<Order> selectAllOrderList(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seinMapper.selectAllOrderList");
+	public ArrayList<Order> selectAllOrderList(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectAllOrderList", storeId);
 	}
 	
 	//자동발주내역조회 select문
-	public ArrayList<Order> selectAutoOrder(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seinMapper.selectAutoOrder");
+	public ArrayList<Order> selectAutoOrder(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectAutoOrder", storeId);
 	}
 	
-	public ArrayList<Order> selectOrder2(SqlSessionTemplate sqlSession) {
-		return (ArrayList)sqlSession.selectList("seinMapper.selectOrder2");
+	public ArrayList<Order> selectOrder2(SqlSessionTemplate sqlSession, String storeId) {
+		return (ArrayList)sqlSession.selectList("seinMapper.selectOrder2", storeId);
 	}
 	
 	public int updateOrder(SqlSessionTemplate sqlSession) {

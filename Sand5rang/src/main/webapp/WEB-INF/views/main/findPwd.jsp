@@ -121,14 +121,14 @@
 
 
 <!--  비밀번호 찾기 폼      -->
-			<div class="account-container layout_padding" >
+			<div class="account-container" style="margin-bottom: 200px; margin-top : 200px">
 				<div class="login-box"><!-- 가운데 화이트 박스 만들고 싶음 -->
 				<div class="content clearfix heading_container heading_center">
 					
 					<form action="#" method="post">
 					
 			            <div class="changePw">
-                   <img src="resources/images/pwimg.png" style="width:200px; height:150px;"alt="changePw">
+                   			<img src="resources/images/pwimg.png" style="width:200px; height:150px;"alt="changePw">
 			            </div>
 			     
 					
@@ -137,15 +137,15 @@
 	
 							
 							<div class="input-box">
-				                <input id="username" type="text" name="username" placeholder="아이디">
+				                <input id="username" type="text" name="storeId" placeholder="아이디">
 				                <label for="username">아이디를 입력하세요</label>
 				            </div>
 				
 				            <div class="input-box">
 				                <input id="email" type="email" name="email" placeholder="이메일">
 				                <label for="email">이메일을 입력하세요</label>
-                        <p>* 가맹점 계정에 등록되어 있는 이메일을 입력하세요.<br>
-                          가맹점 아이디와 이메일 정보가 일치할 시 비밀번호 변경 링크가 전송됩니다. </p>
+			                    <p>* 가맹점 계정에 등록되어 있는 이메일을 입력하세요.<br>
+			                                                        가맹점 아이디와 이메일 정보가 일치할 시 비밀번호 변경 링크가 전송됩니다. </p>
 				            </div>	
 
 						</div> <!-- /login-fields -->
@@ -161,18 +161,6 @@
 							
 				
 					</div> <!-- /account-container -->
-			
-					
-					
-					
-					
-			
-			<script src="js/jquery-1.7.2.min.js"></script>
-			<script type="text/javascript" src="../wp-content/themes/piha/js/top-bar.js"></script>
-			<script type="text/javascript" src="../wp-content/themes/piha/js/bsa-ads.js"></script>
-			<script src="js/bootstrap.js"></script>
-			
-			<script src="js/signin.js"></script>
 
   <!-- footer section -->
   <footer class="footer_section">
