@@ -46,8 +46,8 @@ public class SeinDao {
 	}
 	
 	//자동발주내역조회 select문
-	public ArrayList<Order> selectAutoOrder(SqlSessionTemplate sqlSession, String storeId){
-		return (ArrayList)sqlSession.selectList("seinMapper.selectAutoOrder", storeId);
+	public ArrayList<Order> selectAutoOrder(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectAutoOrder");
 	}
 	
 	public ArrayList<Order> selectOrder2(SqlSessionTemplate sqlSession, String storeId) {

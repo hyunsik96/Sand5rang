@@ -367,7 +367,7 @@
 	<jsp:include page="include/6.jsp" />
 
 	<!-- The Modal -->
-	<div class="modal" id="vModal1" style="display: none;">
+	<div class="modal" id="vModal1" style="display: none;" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
 		  <div class="modal-content">	 
 	  
@@ -416,7 +416,7 @@
   </div>
 
   <!-- The Modal -->
-	<div class="modal" id="vModal2" style="display: none; width : 540px;" >
+	<div class="modal" id="vModal2" style="display: none; width : 540px;" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
 		  <div class="modal-content"  style="width : 540px">	 
 	  
@@ -464,7 +464,7 @@
 </div>
 
 
-<div class="modal" id="vModal3" style="display: none;">
+<div class="modal" id="vModal3" style="display: none;" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="width : 530px">	 
   
@@ -514,7 +514,7 @@
 </div>
 </div>
 
-<div class="modal" id="vModal4" style="display: none;">
+<div class="modal" id="vModal4" style="display: none;" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 			  <div class="modal-content" style="width : 550px">	 
 		  
@@ -564,7 +564,7 @@
 
  
 
-<div class="modal" id="vModal5" style="display: none;">
+<div class="modal" id="vModal5" style="display: none;" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="width : 530px">	 
   
@@ -708,35 +708,6 @@ for(var i=0; i<resultElement.length; i++){
  	 }
 	}
 
-//    //수정버튼 클릭 시 발생되는 함수 
-// 	function updateI(e1, e2){
-
-// 		//보내야하는 값 : 수정된 수량, 가격, 원재료번호
-
-// 		//원재료 번호 
-// 		var ingNo = $('input[name=ingNo]');
-
-// 		for(var i=e1; i<=e2; i++){
-
-// 		(function(i){
-
-// 			ingNo[i].value = i+1;
-
-// 			var form1 = $("form[id="+i+"]").serialize();
-
-// 			console.log(form1);
-			
-// 				// $.ajax({
-// 				// 	type: "post",
-// 				// 	url: "orderEnroll.se",
-// 				// 	data: form1,
-// 				// 	dataType: 'json',
-// 				// 	async: false
-// 				// });
-// 			})(i);
-// 		}
-// 	}
-
 //발주 수량 직접입력 시 기본값 0 -> 공백으로 만들어주기
 $("input[class=count]").on("keydown",function(key){ 
 
@@ -806,6 +777,8 @@ for(var j=1; j<6; j++){
 		}
 	});
 }
+
+
 </script>
 
 </body>

@@ -267,20 +267,17 @@ public class SeinController {
 	
 	// 자동발주
 	// 매일 14시 00분 00초 실행
-    @Scheduled(cron="00 00 15 * * ?")
-    public void orderEnrollOutoController(HttpSession session) 
+    @Scheduled(cron="00 00 14 * * ?")
+    public void orderEnrollOutoController() 
 	{
-    	Store loginstore = (Store)session.getAttribute("loginstore");
-		String storeId = loginstore.getStoreId();
-    	
     	//0. 자동발주 신청 내역 조회
-    	ArrayList<Order> olist = seinService.selectAutoOrder(storeId);
+    	ArrayList<Order> olist = seinService.selectAutoOrder();
     	
     	Order order = new Order();
     	
     	//1. 잔액조회시 현재 가지고있는 금액보다 큰 금액 발주안됨 
     	for(int i=0; i< olist.size(); i++) {
-    		
+    
     		order.setCount(olist.get(i).getCount());
     		order.setIngNo(olist.get(i).getIngNo());
     		order.setTotal(olist.get(i).getTotal());

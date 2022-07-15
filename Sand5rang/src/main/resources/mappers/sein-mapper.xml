@@ -95,11 +95,10 @@
 	</select>
 	
 	<!-- 자동발주신청 select -->
-	<select id="selectAutoOrder" parameterType="string" resultMap="TodyOrderResultSet">
+	<select id="selectAutoOrder" resultMap="TodyOrderResultSet">
 	     SELECT TO_DATE(IND_DATE, 'YY-MM-DD HH24:MI:SS') IND_DATE, IND_NO, COUNT, TOTAL, STATUS, STORE_ID, ING_NO
 		 FROM INDENT 
-		 WHERE STORE_ID = #{storeId} 
-		 AND TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') BETWEEN TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') - INTERVAL '33' HOUR, 'YY-MM-DD HH24:MI:SS') AND
+		 WHERE TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') BETWEEN TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') - INTERVAL '33' HOUR, 'YY-MM-DD HH24:MI:SS') AND
 		                         TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') + INTERVAL '15' HOUR, 'YY-MM-DD HH24:MI:SS')
 		 AND STATUS ='AB'
 	</select>
