@@ -195,7 +195,8 @@
 						<script>
 							function categoryChange(e){
 								var good_a = ["파마산", "화이트", "플렛"];
-								var good_b = 
+								var good_b = ["양상추", "토마토","오이","양파","피망","할라피뇨","아보카도"];
+								var good_
 							}
 	
 						</script>											

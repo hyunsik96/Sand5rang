@@ -51,9 +51,10 @@
 	
 	
 	<!-- *********************오늘의 재고 페이지******************** -->
-	<select id="selectStoreId_list" resultMap="StockResultMap">
-		SELECT STORE_ID
+	<select id="selectStoreId_list" parameterType="string" resultType="_int">
+		SELECT COUNT(STORE_ID)"STORE_ID"
 		FROM STOCK
+		WHERE STORE_ID = #{storeId}
 	</select>
 	
 	<!-- 원재료명, 원재료이미지 -->
@@ -91,7 +92,7 @@
 		WHERE ING_TYPE='B'
         AND STORE_ID = #{storeId}
         AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-2,'yy.MM.dd')
-        AND S.STATUS= 'N' 
+        AND S.STATUS= 'O' 
 		GROUP BY ING_NO, ING_TYPE
 	</select>
 	<select id="selectStock2" parameterType="string" resultMap="StockResultMap">
@@ -101,7 +102,7 @@
 		WHERE ING_TYPE='V'
         AND STORE_ID = #{storeId}
         AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-2,'yy.MM.dd')
-        AND S.STATUS= 'N' 
+        AND S.STATUS= 'O' 
 		GROUP BY ING_NO, ING_TYPE
 	</select>
 	<select id="selectStock3" parameterType="string" resultMap="StockResultMap">
@@ -111,7 +112,7 @@
 		WHERE ING_TYPE='M'
         AND STORE_ID = #{storeId}
         AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-7,'yy.MM.dd')
-        AND S.STATUS= 'N'        		
+        AND S.STATUS= 'O'        		
 		GROUP BY ING_NO, ING_TYPE
 	</select>
 	<select id="selectStock4" parameterType="string" resultMap="StockResultMap">
@@ -121,7 +122,7 @@
 		WHERE ING_TYPE='S'
         AND STORE_ID = #{storeId}	
         AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-14,'yy.MM.dd')
-        AND S.STATUS= 'N'         	
+        AND S.STATUS= 'O'         	
 		GROUP BY ING_NO, ING_TYPE
 	</select>
 	<select id="selectStock5" parameterType="string" resultMap="StockResultMap">
@@ -131,7 +132,7 @@
 		WHERE ING_TYPE='C'
         AND STORE_ID = #{storeId}		
         AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-7,'yy.MM.dd')
-        AND S.STATUS= 'N'         
+        AND S.STATUS= 'O'         
 		GROUP BY ING_NO, ING_TYPE
 	</select>
 	

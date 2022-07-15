@@ -19,8 +19,8 @@ public class SeonghoonDao {
 	
 	// *******************************오늘의 재고***********************************
 	// StoreId용 select문
-	public ArrayList<Stock> selectStoreId_list(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStoreId_list");
+	public int selectStoreId_list(SqlSessionTemplate sqlSession, String storeId){
+		return sqlSession.selectOne("seonghoonMapper.selectStoreId_list", storeId);
 	}
 
 	

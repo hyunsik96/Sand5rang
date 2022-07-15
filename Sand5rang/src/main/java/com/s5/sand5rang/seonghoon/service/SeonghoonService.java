@@ -25,7 +25,7 @@ public class SeonghoonService {
 	
 	// *****************오늘의 재고 페이지*********************
 	// StoreId용 select문
-	public ArrayList<Stock> selectStoreId_list(){ return seonghoonDao.selectStoreId_list(sqlSession); }
+	public int selectStoreId_list(String storeId){ return seonghoonDao.selectStoreId_list(sqlSession, storeId); }
 	
 	// 원재료명, 원재료 이미지
 	public ArrayList<Ingredient> selectTodayStock1(){ return seonghoonDao.selectTodayStock1(sqlSession); }

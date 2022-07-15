@@ -41,6 +41,12 @@ public class SeonghoonController {
 		Store user = (Store)session.getAttribute("loginstore");
 		String storeId = user.getStoreId();		
 		
+		// STORE_ID가 테이블에 없는 경우 아래의 구문이 실행되지 않게끔.
+		int a = seonghoonService.selectStoreId_list(storeId);
+		if(a==0) {
+			return "common/errorFr";
+		}else {
+			
 		// 원재료명, 원재료 이미지
 		ArrayList<Ingredient> i_list1 = seonghoonService.selectTodayStock1();
 		ArrayList<Ingredient> i_list2 = seonghoonService.selectTodayStock2();
@@ -53,13 +59,6 @@ public class SeonghoonController {
 		model.addAttribute("i_list4", i_list4);
 		model.addAttribute("i_list5", i_list5);
 		
-		// STORE_ID가 테이블에 없는 경우 아래의 구문이 실행되지 않게끔.
-/*		
-ArrayList<Stock> store_id_list = seonghoonService.selectStoreId_list();
-for(int i=0; i<store_id_list.size(); i++) { // 반복문 시작
-	if(store_id_list.get(i).getStoreId().equals(storeId)) { // 조건문 시작
-		System.out.println(store_id_list);		
-*/
 		// 현재재고
 		// 파마산 현재재고 : 1
 		// 화이트 현재재고 : 2
@@ -88,14 +87,8 @@ for(int i=0; i<store_id_list.size(); i++) { // 반복문 시작
 		model.addAttribute("d_list4",d_list4);
 		model.addAttribute("d_list5",d_list5);
 		
-/*		
-	}else { 
-		 return "common/errorFr";
-	} // 조건문 끝
-} // 반복문 끝		
- */
-		return "seonghoon/오늘의재고";
-		
+			return "seonghoon/오늘의재고";
+		}
 }
 	
 	/********************* 재료별 재고 현황 ************************/
