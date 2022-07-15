@@ -203,14 +203,21 @@
 
                 <!--가맹점이 작성한 문의 본문-->
                 <div class="inq_content"> 
-                    <pre>${ i.inqQuery }</pre>
+                    <pre name="inqQuery">${ i.inqQuery }</pre>
                 </div>
+                
+                <div class="inq_content"> 
+                    <pre name="inqAnswer" style="resize:none; width:100%; height:200px" >
+                    ${ i.inqAnswer }</pre>
+                </div>
+
+            </div><br>
 
             </div><br>
             
              <!--관리자 답변 버튼 -->
              <div class="answer" align="right">
-                <a href="ansForm.an" class="btn btn-success btn-large">답변하기</a>
+                <a href="ansForm.an?ino=${i.inqNo}" class="btn btn-success btn-large">답변하기</a>
                 <a href="#" onClick="history.back();" class="btn btn-invert btn-large" >목록으로</a>
             </div><!-- 관리자 답변 버튼 끝 -->
 

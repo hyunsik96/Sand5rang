@@ -179,8 +179,9 @@
 				<!--content 영역-->
 				<div class="content_detail">
 				
-				<form id="postForm" action="" method="post">
-	              <input type="hidden" name="ino" value="${ i.inqNo }">
+				
+				<form id="postForm" action="" method="post" action="ansForm.an">
+	              <input type="hidden" name="inqNo" value="${ i.inqNo }">
 	            </form>
 
 				<!--가맹점이 작성한 문의 제목-->
@@ -193,7 +194,7 @@
                             <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
                             <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
                             <div style="display:inline-block; padding-right:10px; font-size:15px;">답변상태</div>
-                            <div style="display:inline-block; font-size:15px;">${i.status} ${i.ansDate}</div>
+                            <div style="display:inline-block; font-size:15px;">${i.ansDate}</div>
                         </div><br>
                 </div>
 					</div>

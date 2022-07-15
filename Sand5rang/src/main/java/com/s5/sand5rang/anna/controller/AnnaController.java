@@ -1,17 +1,18 @@
 package com.s5.sand5rang.anna.controller;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,64 +33,12 @@ public class AnnaController {
 	@Autowired
 	private AnnaService annaService;
 	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	
 	@RequestMapping(value="login.an")
 	public String login() {
 		return "anna/login";
 	}
-	
-	// 로그인 
-	//@RequestMapping(value="login2.an") //ReqestMapping 어노테이션을 붙여줌으로써 컨트롤러로 등록
-	//public ModelAndView loginStore(
-	//		  Store s,
-	//		  HttpSession session,
-	//		  ModelAndView mv, 
-	//		 /* String saveId,*/
-	//		  HttpServletResponse response) {
-		
-		// saveId 'y'라면 아이디 쿠키 생성하여 저장하겠다.
-		/*if(saveId != null && saveId.equals("y")) {
-			
-			Cookie cookie = new Cookie("saveId", s.getStoreId());
-			cookie.setMaxAge(1 * 24 * 60 * 60); // 초로 환산해서 만료시간 1일
-			response.addCookie(cookie);
-		} else {
-			Cookie cookie = new Cookie("saveId", s.getStoreId());
-			cookie.setMaxAge(0); // 삭제한 효과
-			response.addCookie(cookie);
-		}*/
-		
-		// 비밀번호 암호화 후  s의 storePwd 필드 : 폄문 비밀번호 값
-		// loginUser의 storePwd 필드 : 암호화된 비밀번호 값
-		
-		// 1차 체크 : 아이디 일치 확인
-		//Store loginUser = annaService.loginStore(s);
-		
-		
-		//2차 체크 : 비밀번호 일치 확인
-		// Bcryp..머시기 클래스에서 제공하는 matches 메소드 사용
-		// 매치스(평문, 암호문) 대조하여 일치 여부 확인 (일치=true/ 불일치=false)
-		
-		//if(loginUser != null && bCryptPasswordEncoder.matches(s.getStorePwd(), loginUser.getStorePwd())) { // 로그인 성공
-		//		if(loginUser.getStoreId().equals("admin")) {
-		//			session.setAttribute("alertMsg", "관리자 권한으로 로그인 되었습니다.");
-		//			mv.setViewName("redirect:/admain.hs"); // jsp말고 주소넣고 싶으면 어떻게 해야하는지?? 이게 맞나??
-		//		}
-		//		else {
-		//			session.setAttribute("loginUser", loginUser);
-		//			session.setAttribute("alertMsg", "가맹점주님 반갑습니다.");
-		//		mv.setViewName("redirect:/");
-		//		}
-		//	}else { // 로그인 실패 => 에러페이지로 포워딩
-					
-		//			mv.addObject("errorMsg", "로그인 실패");
-		//			mv.setViewName("common/errorPage"); // /WEB-INF/views/common/errorPage.jsp
-		//		}
-		
-		//return mv;
-	//}
 	
 	
 	// 문의 게시판 리스트 조회
@@ -127,17 +76,35 @@ public class AnnaController {
 			return mv;
 	}
 		
-	// 문의 답변하기 폼 (상세보기+답변폼)
+	// 문의 답변 폼 (상세보기+답변폼)
 	@RequestMapping(value="ansForm.an")
-	public ModelAndView answerForm(int ino, ModelAndView mv) {
+	public String answerForm(int ino, Model model) {
 		
-		Inquery i = annaService.answerForm(ino);
-		
-		mv.addObject("i",i).setViewName("anna/answerForm");
-		
-		return mv;
+		Inquery i = annaService.selectInquery(ino);
+		model.addAttribute("i", i);
+		return "anna/answerForm";
 	}
 	
+	// 문의 답변 등록 
+	@RequestMapping(value="enrollAnswer.an")
+	public String enrollAswer(Inquery i, HttpSession session, Model model) {
+		
+		int result = annaService.enrollAnswer(i);
+		
+		if(result >0 ) {
+			
+			session.setAttribute("alertMsg", "답변이 등록되었습니다.");
+			
+			return "redirect:inqueryList.an";
+		}
+		else {
+		
+			model.addAttribute("errorMsg", "답변 등록에 실패하였습니다.");
+			
+			return "common/errorFr";
+		}
+		
+	}
 	
 	// 가맹문의 폼
 	@RequestMapping(value="joinForm.an")
@@ -159,11 +126,12 @@ public class AnnaController {
 		}	
 	}
 	
-	@RequestMapping(value="changePwd.an")
-	public String annatest7() {return "anna/changePwd";}
 	
-	// 메일링
-	
-		
+
 }
+
+
+
+
+	
 

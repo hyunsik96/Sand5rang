@@ -95,12 +95,9 @@
 		WHERE INQ_NO =  #{inqNo}
 	</select>
 	
-	<!-- 문의글 답변 등록(답변만 업데이트) -->
+	<!-- 문의글 답변 등록(답변 insert) -->
 	<update id="enrollAnswer" parameterType="com.s5.sand5rang.anna.vo.Inquery">
-		UPDATE INQUERY
-	   	   SET INQ_ANSWER = ${inqAnswer}
-		 , STATUS = 'Y'
-    	 WHERE INQ_NO = ${inqNo}
+		INSERT INTO INQUERY (NQ_ANSWER) VALUES(#{inqAnswer})
 	</update>
 	
 	<!-- 가맹문의 서비스 -->

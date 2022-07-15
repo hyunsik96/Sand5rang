@@ -56,9 +56,102 @@
     		else
     			${".btn"}.attr("")
     			
-    	})
-    })
+    	});
+    });
 
+</script>
+
+<script>
+//이메일 체크 
+	function emailCheck(){
+				
+		// 아이디를 입력받을 수 있는 input 요소 객체
+		var $email = $("#enroll-form input[name=email]");
+		var $checkEmail = $("#enroll-form input[name=checkemail]");
+		// $storeId 요소객체의 value 속성값인 이메일값을 가지고 중복확인
+		$.ajax({
+			
+			url : "emailCheck.me",
+			data : {checkEmail : $email.val()},
+		//	type : 생략하면 get
+			success : function(result){
+				
+				if(result=="NNNNN"){
+					alert("이미 존재하거나 탈퇴한 회원의 이메일입니다.");
+					$email.val("");
+					$email.focus();
+					
+				}else{
+					
+					if(confirm("사용 가능한 이메일입니다. 인증번호를 전송하시겠습니까?")){
+						
+
+						$email.attr("readonly", true);
+						
+						/////////////////////////////////// 중복체크 끝 인증번호 전송부분
+						
+						$.ajax({
+								
+								url : "emailSend.me",
+								data : {email : $email.val()},
+							//	type : 생략하면 get
+								success : function(result){
+									alert("인증번호가 전송되었습니다.")
+									$checkEmail.focus();
+									$("#hiddenCheck").val(result);
+								},
+								error : function(){
+									console.log("이메일 보내기 ajax 통신 실패!");
+								}
+								
+							});
+						
+			/////////////////////////////////////////////////////////
+						
+					}else{
+						$email.val("");
+						$email.focus();
+					}
+					
+				}
+			},
+			error : function(){
+				console.log("이메일 체크용 ajax 통신 실패!");
+			}
+			
+		});
+		
+	}
+	
+	function resNumCheck(){
+	     
+	     var aaaaa = document.getElementById("checkemail");
+
+		
+       if(aaaaa.value != $("#hiddenCheck").val()) {
+           alert("인증번호가 다릅니다. 다시 확인해 주세요.");
+           aaaaa.value = "";
+           aaaaa.focus();
+           return false;
+       } else{
+    	   alert("인증에 성공하였습니다.");
+			$("#totalSubmit").removeAttr("disabled");
+			$aaaaa.attr("readonly", true);
+    	   
+       }
+		
+	function check(re, what, message) {
+	    if(re.test(what.value)) {
+	        return true;
+	    }
+	    alert(message);
+	    what.value = "";
+	    what.focus();
+
+	}
+		
+	}
+	
 </script>
 
     
@@ -278,6 +371,9 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 
         <h2 class="h_title">문의 작성하기</h2>
         <div class="board_write_wrapper">
+        <input type="hidden" id="hiddenCheck">
+        
+        
         <p class="rt_note">* 필수입력사항<span class="ess"></span></p>
             <table class="writeTable">
                 <colgroup>
@@ -305,14 +401,14 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">이메일 * <span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:200px">
-                                  <input id="franchiseEmail" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="" required>
-                                  <button class="button btn btn-success btn-large">인증번호 발송</button><br>
+                                  <input id="franchiseEmail" onclick="return emailCheck();" disabled id="send" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="" required>
+                                  <button class="button btn btn-success btn-large" onclick="return emailCheck();" disabled id="send">인증번호 발송</button><br>
                             </span><br>
 
                               <span class="form_text" style="width:200px">
                                   <!--<input type="text" name="email2" id="franchiseEmail2" maxlength="50" onkeypress="view.onchangeEmailDomail(); return true;" onkeyup="subwayCommon.inputEmail(this);" th:value="${email2}"/>-->
                                   <input id="authNum" maxlength="8" name="authNum" type="text" placeholder="인증번호를 입력하세요" value="" required>
-                                  <button class="button btn btn-success btn-large">인증번호 확인</button>
+                                  <button class="button btn btn-success btn-large" onclick="return resNumCheck();">인증번호 확인</button>
                                 </span>
                               <div class="form_select" style="width:196px; margin-left:7px;">
                               </div>

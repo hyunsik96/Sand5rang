@@ -163,13 +163,13 @@
 	      				
 	      				<div>문의 조회
 
-							<form action="test.do" style="display:inline-block; margin-left: 10px;">
+							<!--  <form action="test.do" style="display:inline-block; margin-left: 10px;">
 									<select name="category" style="width: 100px; margin-top: 6px">
 										<option value="category">운영문의</option>
 										<option value="category">재고문의</option> 
 										<option value="category">발주문의</option>
 									</select>     
-							</form>
+							</form>-->
 
 	      				
 	      				</div>
