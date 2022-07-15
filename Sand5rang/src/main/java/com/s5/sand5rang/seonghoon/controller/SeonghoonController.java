@@ -36,7 +36,10 @@ public class SeonghoonController {
 	}
 	/*********** 오늘의 재고 페이지 ***********/
 	@RequestMapping(value="todayStock.csh")
-	public String todayStockList(Model model) {
+	public String todayStockList(Model model, HttpSession session) {
+		
+		Store user = (Store)session.getAttribute("loginstore");
+		String storeId = user.getStoreId();		
 		
 		// 원재료명, 원재료 이미지
 		ArrayList<Ingredient> i_list1 = seonghoonService.selectTodayStock1();
@@ -50,16 +53,23 @@ public class SeonghoonController {
 		model.addAttribute("i_list4", i_list4);
 		model.addAttribute("i_list5", i_list5);
 		
+		// STORE_ID가 테이블에 없는 경우 아래의 구문이 실행되지 않게끔.
+/*		
+ArrayList<Stock> store_id_list = seonghoonService.selectStoreId_list();
+for(int i=0; i<store_id_list.size(); i++) { // 반복문 시작
+	if(store_id_list.get(i).getStoreId().equals(storeId)) { // 조건문 시작
+		System.out.println(store_id_list);		
+*/
 		// 현재재고
 		// 파마산 현재재고 : 1
 		// 화이트 현재재고 : 2
 		// 플렛 현재재고 : 3
 		// ...
-		ArrayList<Stock> s_list1 = seonghoonService.selectStock1();
-		ArrayList<Stock> s_list2 = seonghoonService.selectStock2();
-		ArrayList<Stock> s_list3 = seonghoonService.selectStock3();
-		ArrayList<Stock> s_list4 = seonghoonService.selectStock4();
-		ArrayList<Stock> s_list5 = seonghoonService.selectStock5();
+		ArrayList<Stock> s_list1 = seonghoonService.selectStock1(storeId);
+		ArrayList<Stock> s_list2 = seonghoonService.selectStock2(storeId);
+		ArrayList<Stock> s_list3 = seonghoonService.selectStock3(storeId);
+		ArrayList<Stock> s_list4 = seonghoonService.selectStock4(storeId);
+		ArrayList<Stock> s_list5 = seonghoonService.selectStock5(storeId);
 		model.addAttribute("s_list1",s_list1);
 		model.addAttribute("s_list2",s_list2);
 		model.addAttribute("s_list3",s_list3);
@@ -67,20 +77,26 @@ public class SeonghoonController {
 		model.addAttribute("s_list5",s_list5);
 		
 		// 유통기한
-		ArrayList<Stock> d_list1 = seonghoonService.selectExpDate1();
-		ArrayList<Stock> d_list2 = seonghoonService.selectExpDate2();
-		ArrayList<Stock> d_list3 = seonghoonService.selectExpDate3();
-		ArrayList<Stock> d_list4 = seonghoonService.selectExpDate4();
-		ArrayList<Stock> d_list5 = seonghoonService.selectExpDate5();
+		ArrayList<Stock> d_list1 = seonghoonService.selectExpDate1(storeId);
+		ArrayList<Stock> d_list2 = seonghoonService.selectExpDate2(storeId);
+		ArrayList<Stock> d_list3 = seonghoonService.selectExpDate3(storeId);
+		ArrayList<Stock> d_list4 = seonghoonService.selectExpDate4(storeId);
+		ArrayList<Stock> d_list5 = seonghoonService.selectExpDate5(storeId);
 		model.addAttribute("d_list1",d_list1);
 		model.addAttribute("d_list2",d_list2);
 		model.addAttribute("d_list3",d_list3);
 		model.addAttribute("d_list4",d_list4);
 		model.addAttribute("d_list5",d_list5);
 		
-		
+/*		
+	}else { 
+		 return "common/errorFr";
+	} // 조건문 끝
+} // 반복문 끝		
+ */
 		return "seonghoon/오늘의재고";
-	}
+		
+}
 	
 	/********************* 재료별 재고 현황 ************************/
 	@RequestMapping(value="ingredientStock.csh")
@@ -90,11 +106,15 @@ public class SeonghoonController {
 	
 	@ResponseBody
 	@RequestMapping(value="ingredientStock1.csh", produces="application/json; charset=UTF-8")
-	public String ingredientStockList(String search, Model model) {
+	public String ingredientStockList(String search, HttpSession session, Model model) {
+		
+		Store user = (Store)session.getAttribute("loginstore");
+		String storeId = user.getStoreId();			
 		
 		// System.out.println("검색어 : "+search);
 		HashMap<String,String> hashmap = new HashMap<>();
 		hashmap.put("search", search);
+		hashmap.put("storeId", storeId);
 		
 		ArrayList<Stock> ing_list = seonghoonService.selectSearchIng(hashmap);
 		
@@ -403,27 +423,7 @@ public class SeonghoonController {
 					i.setUse(0); i.setIndex(1); seonghoonService.updateStock(i);
 					use = (exp.getDay13()+exp.getDay12()+exp.getDay11()+exp.getDay10()+exp.getDay9()+exp.getDay8()+exp.getDay7()+exp.getDay6()+exp.getDay5()+exp.getDay4()+exp.getDay3()+exp.getDay2()+exp.getDay1()+exp.getDay0()-c); i.setUse(use); i.setIndex(0); seonghoonService.updateStock(i);
 				}
-					
-				
-				
-				
-				
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 // for문 끝			
 		}

@@ -18,6 +18,13 @@ import com.s5.sand5rang.seonghoon.vo.Stock;
 public class SeonghoonDao {
 	
 	// *******************************오늘의 재고***********************************
+	// StoreId용 select문
+	public ArrayList<Stock> selectStoreId_list(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStoreId_list");
+	}
+
+	
+	
 	// 원재료명, 원재료 이미지
 	public ArrayList<Ingredient> selectTodayStock1(SqlSessionTemplate sqlSession){
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectTodayStock1");
@@ -35,37 +42,37 @@ public class SeonghoonDao {
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectTodayStock5");
 	}
 	// 현재재고
-	public ArrayList<Stock> selectStock1(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock1");
+	public ArrayList<Stock> selectStock1(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock1", storeId);
 	}
-	public ArrayList<Stock> selectStock2(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock2");
+	public ArrayList<Stock> selectStock2(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock2", storeId);
 	}
-	public ArrayList<Stock> selectStock3(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock3");
+	public ArrayList<Stock> selectStock3(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock3", storeId);
 	}
-	public ArrayList<Stock> selectStock4(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock4");
+	public ArrayList<Stock> selectStock4(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock4", storeId);
 	}
-	public ArrayList<Stock> selectStock5(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock5");
+	public ArrayList<Stock> selectStock5(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectStock5", storeId);
 	}
 	
 	// 유통기한
-	public ArrayList<Stock> selectExpDate1(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate1");
+	public ArrayList<Stock> selectExpDate1(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate1", storeId);
 	}
-	public ArrayList<Stock> selectExpDate2(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate2");
+	public ArrayList<Stock> selectExpDate2(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate2", storeId);
 	}
-	public ArrayList<Stock> selectExpDate3(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate3");
+	public ArrayList<Stock> selectExpDate3(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate3", storeId);
 	}
-	public ArrayList<Stock> selectExpDate4(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate4");
+	public ArrayList<Stock> selectExpDate4(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate4", storeId);
 	}
-	public ArrayList<Stock> selectExpDate5(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate5");
+	public ArrayList<Stock> selectExpDate5(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate5", storeId);
 	}
 	
 	// ******************************* 제품 판매 현황 **********************************

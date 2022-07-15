@@ -178,10 +178,30 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>재료별 재고 현황</h3>
+	      				<!-- 
 						<input type="text" id="search"
 						style="display:inline-block; width:150px; height:15px; margin-top:10px; margin-left:65%;">
 						<button id="btn" class="btn btn-success">검색</button>
-
+						 -->
+						 
+						<select onchange="categoryChange(this)">
+							<option>전체</option>
+							<option value="B">빵</option>
+							<option value="V">야채</option>
+							<option value="M">고기</option>
+							<option value="C">치즈</option>
+							<option value="S">소스</option>
+						</select>
+						<script>
+							function categoryChange(e){
+								var good_a = ["파마산", "화이트", "플렛"];
+								var good_b = 
+							}
+	
+						</script>											
+					
+						
+						
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -194,7 +214,6 @@
 	<table id="st_table" class="table table-bordered">
 		<thead>
 			<tr class="st_head">
-				<th>가맹점명</th>
 				<th>재료명</th>
 				<th>재고개수</th>
 				<th>입고일</th>
@@ -325,7 +344,6 @@
  					var resultStr = ""
  					for(var i=0; i<result.length; i++){
  						resultStr += "<tr>"
- 									+		"<td>"+ result[i].storeId +"</td>"
  									+		"<td>"+ result[i].ingName +"</td>"
  									+		"<td>"+ result[i].count +"</td>"
  									+		"<td>"+ result[i].stoDate +"</td>"
@@ -350,7 +368,6 @@
  					var resultStr = ""
  					for(var i=0; i<result.length; i++){
  						resultStr += "<tr>"
- 									+		"<td>"+ result[i].storeId +"</td>"
  									+		"<td>"+ result[i].ingName +"</td>"
  									+		"<td>"+ result[i].count +"</td>"
  									+		"<td>"+ result[i].stoDate +"</td>"

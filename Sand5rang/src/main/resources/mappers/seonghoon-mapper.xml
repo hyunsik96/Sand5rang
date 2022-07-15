@@ -51,6 +51,11 @@
 	
 	
 	<!-- *********************오늘의 재고 페이지******************** -->
+	<select id="selectStoreId_list" resultMap="StockResultMap">
+		SELECT STORE_ID
+		FROM STOCK
+	</select>
+	
 	<!-- 원재료명, 원재료이미지 -->
 	<select id="selectTodayStock1" resultMap="IngredientResultMap">
 		SELECT ING_NO, ING_NAME, ING_TYPE
@@ -79,45 +84,60 @@
 	</select>
 	
 	<!-- 원재료 현재재고 -->
-	<select id="selectStock1" resultMap="StockResultMap">
-		SELECT ING_NO, SUM(COUNT)"COUNT"
-		FROM INGREDIENT
-		JOIN STOCK USING(ING_NO)
+	<select id="selectStock1" parameterType="string" resultMap="StockResultMap">
+ 		SELECT ING_NO, ING_TYPE, NVL(SUM(COUNT),0)"COUNT"
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
 		WHERE ING_TYPE='B'
-		GROUP BY ING_NO
+        AND STORE_ID = #{storeId}
+        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-2,'yy.MM.dd')
+        AND S.STATUS= 'N' 
+		GROUP BY ING_NO, ING_TYPE
 	</select>
-	<select id="selectStock2" resultMap="StockResultMap">
-		SELECT ING_NO, SUM(COUNT)"COUNT"
-		FROM INGREDIENT
-		JOIN STOCK USING(ING_NO)
+	<select id="selectStock2" parameterType="string" resultMap="StockResultMap">
+		SELECT ING_NO, ING_TYPE, NVL(SUM(COUNT),0)"COUNT"
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
 		WHERE ING_TYPE='V'
-		GROUP BY ING_NO
+        AND STORE_ID = #{storeId}
+        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-2,'yy.MM.dd')
+        AND S.STATUS= 'N' 
+		GROUP BY ING_NO, ING_TYPE
 	</select>
-	<select id="selectStock3" resultMap="StockResultMap">
-		SELECT ING_NO, SUM(COUNT)"COUNT"
-		FROM INGREDIENT
-		JOIN STOCK USING(ING_NO)
+	<select id="selectStock3" parameterType="string" resultMap="StockResultMap">
+		SELECT ING_NO, ING_TYPE, NVL(SUM(COUNT),0)"COUNT"
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
 		WHERE ING_TYPE='M'
-		GROUP BY ING_NO
+        AND STORE_ID = #{storeId}
+        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-7,'yy.MM.dd')
+        AND S.STATUS= 'N'        		
+		GROUP BY ING_NO, ING_TYPE
 	</select>
-	<select id="selectStock4" resultMap="StockResultMap">
-		SELECT ING_NO, SUM(COUNT)"COUNT"
-		FROM INGREDIENT
-		JOIN STOCK USING(ING_NO)
+	<select id="selectStock4" parameterType="string" resultMap="StockResultMap">
+		SELECT ING_NO, ING_TYPE, NVL(SUM(COUNT),0)"COUNT"
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
 		WHERE ING_TYPE='S'
-		GROUP BY ING_NO
+        AND STORE_ID = #{storeId}	
+        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-14,'yy.MM.dd')
+        AND S.STATUS= 'N'         	
+		GROUP BY ING_NO, ING_TYPE
 	</select>
-	<select id="selectStock5" resultMap="StockResultMap">
-		SELECT ING_NO, SUM(COUNT)"COUNT"
-		FROM INGREDIENT
-		JOIN STOCK USING(ING_NO)
+	<select id="selectStock5" parameterType="string" resultMap="StockResultMap">
+		SELECT ING_NO, ING_TYPE, NVL(SUM(COUNT),0)"COUNT"
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
 		WHERE ING_TYPE='C'
-		GROUP BY ING_NO
+        AND STORE_ID = #{storeId}		
+        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-7,'yy.MM.dd')
+        AND S.STATUS= 'N'         
+		GROUP BY ING_NO, ING_TYPE
 	</select>
 	
 	<!-- 원재료 유통기한 -->
-	<select id="selectExpDate1" resultMap="StockResultMap">
-		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+	<select id="selectExpDate1" parameterType="string" resultMap="StockResultMap">
+		SELECT ING_NO, TO_CHAR(MIN(A.STO_DATE),'yy.MM.dd')"STO_DATE"		
 		FROM 
 		    (
 		    SELECT ROWNUM, ING_NO, STO_DATE
@@ -125,12 +145,13 @@
 		    JOIN INGREDIENT USING(ING_NO)
 		    WHERE S.STATUS='N'
 		    AND ING_TYPE='B'
+            AND STORE_ID = #{storeId}
 		    ORDER BY STO_DATE ASC
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
-	<select id="selectExpDate2" resultMap="StockResultMap">
-		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+	<select id="selectExpDate2" parameterType="string"  resultMap="StockResultMap">
+		SELECT ING_NO, TO_CHAR(MIN(A.STO_DATE),'yy.MM.dd')"STO_DATE"	
 		FROM 
 		    (
 		    SELECT ROWNUM, ING_NO, STO_DATE
@@ -138,12 +159,13 @@
 		    JOIN INGREDIENT USING(ING_NO)
 		    WHERE S.STATUS='N'
 		    AND ING_TYPE='V'
+            AND STORE_ID = #{storeId}		    
 		    ORDER BY STO_DATE ASC
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
-	<select id="selectExpDate3" resultMap="StockResultMap">
-		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+	<select id="selectExpDate3" parameterType="string"  resultMap="StockResultMap">
+		SELECT ING_NO, TO_CHAR(MIN(A.STO_DATE),'yy.MM.dd')"STO_DATE"	
 		FROM 
 		    (
 		    SELECT ROWNUM, ING_NO, STO_DATE
@@ -151,12 +173,13 @@
 		    JOIN INGREDIENT USING(ING_NO)
 		    WHERE S.STATUS='N'
 		    AND ING_TYPE='M'
+            AND STORE_ID = #{storeId}		    
 		    ORDER BY STO_DATE ASC
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
-	<select id="selectExpDate4" resultMap="StockResultMap">
-		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+	<select id="selectExpDate4" parameterType="string"  resultMap="StockResultMap">
+		SELECT ING_NO, TO_CHAR(MIN(A.STO_DATE),'yy.MM.dd')"STO_DATE"	
 		FROM 
 		    (
 		    SELECT ROWNUM, ING_NO, STO_DATE
@@ -164,12 +187,13 @@
 		    JOIN INGREDIENT USING(ING_NO)
 		    WHERE S.STATUS='N'
 		    AND ING_TYPE='S'
+            AND STORE_ID = #{storeId}		    
 		    ORDER BY STO_DATE ASC
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
-	<select id="selectExpDate5" resultMap="StockResultMap">
-		SELECT ING_NO, MIN(A.STO_DATE)"STO_DATE"
+	<select id="selectExpDate5" parameterType="string"  resultMap="StockResultMap">
+		SELECT ING_NO, TO_CHAR(MIN(A.STO_DATE),'yy.MM.dd')"STO_DATE"	
 		FROM 
 		    (
 		    SELECT ROWNUM, ING_NO, STO_DATE
@@ -177,6 +201,7 @@
 		    JOIN INGREDIENT USING(ING_NO)
 		    WHERE S.STATUS='N'
 		    AND ING_TYPE='C'
+            AND STORE_ID = #{storeId}		    
 		    ORDER BY STO_DATE ASC
 		    )"A"
 		GROUP BY ING_NO
@@ -281,11 +306,13 @@
 	
 	<!-- ****************** 재료별 재고현황 ********************** -->
 	<select id="selectSearchIng" parameterType="hashmap" resultMap="StockResultMap">
-		SELECT STORE_NAME, ING_NAME, COUNT, TO_CHAR(STO_DATE,'YY-MM-DD')"STO_DATE"
+		SELECT ING_NAME, COUNT, TO_CHAR(STO_DATE,'YY-MM-DD')"STO_DATE"
 		FROM STOCK
 		JOIN INGREDIENT USING(ING_NO)
 		JOIN STORE USING(STORE_ID)
 		WHERE ING_NAME = #{search}
+		AND STORE_ID = #{storeId}
+		ORDER BY STO_DATE DESC
 	</select>
 	
 </mapper>
