@@ -69,17 +69,17 @@ public class SeonghoonDao {
 	}
 	
 	// ******************************* 제품 판매 현황 **********************************
-	public int menuSalesListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("seonghoonMapper.menuSalesListCount");
+	public int menuSalesListCount(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("seonghoonMapper.menuSalesListCount", storeId);
 	}
 	
-	public ArrayList<Sales> selectMenuSalesList1(PageInfo pi, SqlSessionTemplate sqlSession){
+	public ArrayList<Sales> selectMenuSalesList1(PageInfo pi, String storeId, SqlSessionTemplate sqlSession){
 		int limit = pi.getBoardLimit();
 		int offset = (pi.getCurrentPage() - 1) * limit;
 		
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenuSalesList1",null, rowBounds);
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectMenuSalesList1",storeId, rowBounds);
 	}
 	
 	public ArrayList<Sales> MenuSalDate_List(Sales s, SqlSessionTemplate sqlSession){

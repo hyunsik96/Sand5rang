@@ -112,21 +112,24 @@ public class SeonghoonController {
 	/*********** 제품판매현황 ************/
 	@RequestMapping(value="menuSales.csh")
 	public String menuSalesList(Model model,
-			@RequestParam(value="p", defaultValue="1") int currentPage
+			@RequestParam(value="p", defaultValue="1") int currentPage,
+			HttpSession session
 			) {
 		// session.getAttribute(로그인)
-		String storeId = "STORE1";
+		Store user = (Store)session.getAttribute("loginstore");
+		String storeId = user.getStoreId();
 		
-		int listCount = seonghoonService.menuSalesListCount();
-		// System.out.println("listCount : "+listCount);
+		int listCount = seonghoonService.menuSalesListCount(storeId);
+		System.out.println("listCount : "+listCount);
+		
 		int pageLimit = 10;
 		int boardLimit = 5; 
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
-		// System.out.println(pi);
+		System.out.println("pi : "+pi);
 		
 		// 제품판매현황의 판매날짜, 총판매개수, 총판매금액을 담은 list
 		// 1. 제품판매현황을 찍어주기 위한 list
-		ArrayList<Sales> sales_list1 = seonghoonService.selectMenuSalesList1(pi);
+		ArrayList<Sales> sales_list1 = seonghoonService.selectMenuSalesList1(pi, storeId);
 		
 		// 2. 페이징바가 먹혀있는 sales_list1에서 
 		// salDate를 가져와서 이것을 동적쿼리로 대입함.
@@ -134,12 +137,14 @@ public class SeonghoonController {
 		ArrayList<ArrayList<Sales>> menu_list = new ArrayList<>();
 		for(int i=0; i<sales_list1.size(); i++) {
 			s.setSalDate(sales_list1.get(i).getSalDate());
+			s.setStoreId(sales_list1.get(i).getStoreId());
+			// System.out.println(s);
 			menu_list.add(seonghoonService.MenuSalDate_List(s));
 		}
 		
 //		for(int i=0; i<menu_list.size(); i++) {
 //			System.out.println(menu_list.get(i).get(i));
-//			
+//		
 //		}
 		
 		model.addAttribute("pi", pi);
@@ -423,13 +428,6 @@ public class SeonghoonController {
 // for문 끝			
 		}
 		
-
-		
-		
-		
-		
-		
-			
 	}
 	
 	

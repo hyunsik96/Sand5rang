@@ -46,6 +46,7 @@
 		<result column="COUNT" property="count"/>
 		<result column="TOTAL" property="total"/>
 		<result column="MEN_NO" property="menNo"/>
+		<result column="STORE_ID" property="storeId"/>
 	</resultMap>		
 	
 	
@@ -180,21 +181,24 @@
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
+	
 	<!-- ******************** 제품 판매 현황 ********************* -->					
-	<select id="menuSalesListCount" resultType="_int">
+	<select id="menuSalesListCount" parameterType="string" resultType="_int">
         SELECT COUNT(*)
         FROM 
         (
-            SELECT SAL_DATE, ROW_NUMBER() OVER(PARTITION BY SAL_DATE ORDER BY SAL_DATE DESC) "RN"
+            SELECT SAL_DATE, STORE_ID, ROW_NUMBER() OVER(PARTITION BY SAL_DATE ORDER BY SAL_DATE DESC) "RN"
             FROM SALES
+            WHERE STORE_ID = #{storeId}
         )
         WHERE RN=1
 	</select>					
 	
-	<select id="selectMenuSalesList1" resultMap="SalesResultMap">
-		SELECT TO_CHAR(SAL_DATE,'yy.MM.dd')"SAL_DATE", SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
+	<select id="selectMenuSalesList1" parameterType="string" resultMap="SalesResultMap">
+		SELECT TO_CHAR(SAL_DATE,'yy.MM.dd')"SAL_DATE", STORE_ID, SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
 		FROM SALES
-        GROUP BY SAL_DATE
+        WHERE STORE_ID = #{storeId}
+        GROUP BY SAL_DATE, STORE_ID
 		ORDER BY SAL_DATE DESC
 	</select>
 	
@@ -202,6 +206,7 @@
  		SELECT MEN_NO, SUM(COUNT)"COUNT"
 		FROM SALES
         WHERE SAL_DATE = #{salDate}
+        AND STORE_ID = #{storeId}
         GROUP BY MEN_NO 
         ORDER BY MEN_NO     		
 	</select>

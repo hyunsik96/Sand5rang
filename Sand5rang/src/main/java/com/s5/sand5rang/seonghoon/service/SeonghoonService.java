@@ -46,12 +46,12 @@ public class SeonghoonService {
 	public ArrayList<Stock> selectExpDate5(){ return seonghoonDao.selectExpDate5(sqlSession); }
 	
 	// ***************** 제품 판매 현황 *************************
-	public int menuSalesListCount() {
-		return seonghoonDao.menuSalesListCount(sqlSession);
+	public int menuSalesListCount(String storeId) {
+		return seonghoonDao.menuSalesListCount(sqlSession, storeId);
 	}
 	
-	public ArrayList<Sales> selectMenuSalesList1(PageInfo pi){
-		return seonghoonDao.selectMenuSalesList1(pi,sqlSession);
+	public ArrayList<Sales> selectMenuSalesList1(PageInfo pi, String storeId){
+		return seonghoonDao.selectMenuSalesList1(pi,storeId,sqlSession);
 	}
 	
 	public ArrayList<Sales> MenuSalDate_List(Sales s){
