@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.s5.sand5rang.common.model.vo.EmailSend;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.sangmi.service.SangmiService;
@@ -23,8 +24,11 @@ import com.s5.sand5rang.sein.vo.Store;
 @Controller
 public class SangmiController {
 
+	
 	@Autowired
 	private SangmiService SangmiService;
+	
+	
 	
 	//---------관리자----------------
 	//가맹점 전체리스트 조회
@@ -109,6 +113,7 @@ public class SangmiController {
 	@RequestMapping(value="stEnDetail.sm")
 	public ModelAndView selectEnroll(int enr, ModelAndView mv) {
 		
+		
 		//번호뽑아야 한다. 
 		//상세 조회 
 		Enroll e = SangmiService.selectEnroll(enr);
@@ -127,6 +132,10 @@ public class SangmiController {
 	@RequestMapping("insertStore.sm")
 	public String insertStore(Store s, Model model, HttpSession session) {
 		
+		EmailSend.naverMailSend("osm248@naver.com");
+		
+		
+				
 		//암호화 작업
 		String encPwd = bCryptPasswordEncoder.encode(s.getStorePwd());
 		

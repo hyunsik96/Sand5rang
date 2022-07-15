@@ -15,11 +15,15 @@
    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+
+
+    
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+	
   </head>
 
 <body>
@@ -32,7 +36,6 @@
 <div class="navbar navbar-fixed-top">
 	
 
-	
 	<div class="navbar-inner">
 		
 		<div class="container">
@@ -207,6 +210,8 @@
 
      <form id="enrollForm" class="" method="post" action="insertStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
         <div class="form-group" >
+            <input type="hidden" name="contact_number">
+
           <label for="userName">* 가맹점 명 : </label>
           <input type="text" class="form-control" id="storeName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;"><br>
                
@@ -222,8 +227,8 @@
           <input type="text" class="form-control" id="address_kakao" name="address" placeholder="가맹점  주소 클릭!" style="width:400px;" >
                      <!--  상세주소:<input type="text" name="address_detail" />-->
         </label>
-          <label for="content">^ 반려 이유 : </label>
-          <textarea class="form-control" id="content" name="" placeholder="가맹점 반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
+          <label for="content">^ 내용 : </label>
+          <textarea class="form-control" id="content" name="message" placeholder="가맹점 승인 혹은 반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
         
         </div>
           
@@ -234,15 +239,11 @@
          
             <input type="hidden" name="enrNo" value="${ e.enrNo }">
    
-            <button type="submit" class="btn btn-primary" disabled>승인</button>
-            <button type="submit" class="btn btn-danger">반려</button>
+            <button type="submit" class="btn btn-primary" >확인</button>
+            <!-- <button type="submit" class="btn btn-danger">반려</button> -->
         </div>
     </form>
 
-    
-
-<br><br>
-	
 	       <script>
           $(function() {
         	  
@@ -298,6 +299,7 @@
         	  
           });   
         </script>
+        
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script>
 		window.onload = function(){
@@ -312,7 +314,7 @@
 		    });
 		}
 		</script>
-	
+
 	
 				</div> <!-- /widget -->
 	      		
