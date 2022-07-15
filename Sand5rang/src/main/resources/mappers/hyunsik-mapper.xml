@@ -257,7 +257,7 @@
 		FROM (SELECT ROW_NUMBER() OVER(PARTITION BY TO_CHAR(FAC_DATE, 'YYMMDD') ORDER BY FAC_NO DESC) AS rn, FAC_DATE, FAC_NO 
 		      FROM FACTORY) 
 		WHERE rn = 1 
-		ORDER BY FAC_NO 
+		ORDER BY FAC_NO DESC 
   	</select>
   	
   	<select id="facIndList" resultMap="indentResultSet" parameterType="string">

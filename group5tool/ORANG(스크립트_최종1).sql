@@ -243,7 +243,7 @@ COMMENT ON COLUMN STOCK.ING_NO IS '원재료번호';
 
 -- 원재료 입출고내역 테이블
 CREATE TABLE FLOW(
-    FLO_NO NUMBER NOT NULL,                     --입출고번호
+    FLO_NO NUMBER PRIMARY KEY NOT NULL,                     --입출고번호
     COUNT NUMBER NOT NULL,                      --입출고갯수
     FLO_DATE DATE DEFAULT SYSDATE NOT NULL,     --입출고날짜
     STATUS VARCHAR2(1) NOT NULL, -- I O         --입출고상태
@@ -264,7 +264,7 @@ COMMENT ON COLUMN FLOW.ING_NO IS '원재료번호';
 
 -- 공장 자동발주내역 테이블
 CREATE TABLE FACTORY(
-    FAC_NO NUMBER NOT NULL,                     --공장발주번호
+    FAC_NO NUMBER PRIMARY KEY NOT NULL,                     --공장발주번호
     COUNT NUMBER NOT NULL,                      --공장발주갯수
     FAC_DATE DATE DEFAULT SYSDATE NOT NULL,     --공장발주날짜
     -- 외래키
@@ -319,7 +319,7 @@ COMMENT ON COLUMN PAYMENT.STORE_ID IS '가맹점아이디';
 
 -- 문의 테이블
 CREATE TABLE INQUERY(
-    INQ_NO NUMBER NOT NULL,                     --문의번호
+    INQ_NO NUMBER PRIMARY KEY NOT NULL,                     --문의번호
     INQ_TITLE VARCHAR2(150) NOT NULL,           --문의제목
     INQ_DATE DATE DEFAULT SYSDATE NOT NULL,     --문의날짜
     INQ_QUERY VARCHAR2(3000) NOT NULL,          --문의내용

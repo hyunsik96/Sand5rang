@@ -212,7 +212,7 @@
           </div>
           
           <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
+            <div class="widget-header"> <i class="icon-picture"></i>
               <h3>7월 광고이미지</h3>
             </div>
             <!-- /widget-header -->
@@ -227,7 +227,7 @@
 
 
           <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
+            <div class="widget-header"> <i class="icon-columns"></i>
               <h3>샌드위치 관련 최근 기사</h3>
             </div>
             <!-- /widget-header -->

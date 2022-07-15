@@ -39,7 +39,7 @@
 
   <div class="hero_area">
     <div class="bg-box active">
-      <img src="resources/images/burger.png" alt="">
+      <img src="resources/images/gray.jpg" alt="">
     </div>
 
     <!-- header section strats -->
