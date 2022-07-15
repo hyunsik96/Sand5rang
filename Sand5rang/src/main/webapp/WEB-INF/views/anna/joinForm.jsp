@@ -48,7 +48,17 @@
         if(total != checked) $("#checkbox").prop("checked", false);
         else $("#checkbox").prop("checked", true); 
     });
-});
+    
+    $(function() {
+    	$("#input_text").on('input', function(){
+    		if($("input_text").val()=='')
+    			${".btn"}.attr("disabled", true);
+    		else
+    			${".btn"}.attr("")
+    			
+    	})
+    })
+
 </script>
 
     
@@ -138,11 +148,6 @@ input {vertical-align: middle; font-family: 'Noto Sans KR', sans-serif;  outline
 /*button*/
 .btns_wrapper{text-align:center; margin-bottom: 50px;}
 .btns_wrapper .btn{margin:0 4px;}
-.btn{font-size:14px; text-align:center; display:inline-block; vertical-align:middle; border-radius:4px;}
-.btn span{display:inline-block; vertical-align:middle;}
-
-a.btn{background-color: #0b571f; padding:10px 10px; border-radius: 4px; width: 100px; }
-a.btn:hover{background-color: #0f812e; padding:10px 10px; border-radius: 5px; width: 100px; }
 
 p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; }
 
@@ -234,7 +239,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
               
                     <!-- checkbox -->
                     <label class="form_checkbox">
-                        <input name="agree1" type="checkbox" class="chk">
+                        <input name="agree1" type="checkbox" class="chk" required>
                         <span class="icon"></span>개인정보수집 및 이용에 동의합니다. <em>(필수)</em>
                     </label>
                     <!--// checkbox -->
@@ -251,7 +256,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 
                     - 데이터 전산 처리 및 유지관리 : Wylie.Co.Ltd, IMT oteSoft Corporation<br>
                     - 결제 처리업체 : Fiserv<br>
-                    - 고객 경험 관리 서비스 제공, 샌드오랑 프로그램 및 마케팅 관리 : 써브카드 코리아<br>
+                    - 고객 경험 관리 서비스 제공, 샌드오랑 프로그램 및 마케팅 관리 : 샌드오랑 코리아<br>
                     ,IPCA, Simplicity Australasia Ltd<br>
                     - 고객센터 운영 : 씨엔티테크 ㈜<br><br>
 
@@ -261,7 +266,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                 <!--// 20180131 -->
                 <!-- checkbox -->
                 <label class="form_checkbox">
-                    <input name="agree2" type="checkbox" class="chk">
+                    <input name="agree2" type="checkbox" class="chk" required>
                     <span class="icon"></span>개인정보 위탁에 동의합니다. <em>(필수)</em>
                 </label>
                 <!--// checkbox -->
@@ -284,8 +289,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">이름 *<span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:100%">
-                                  <!-- #210416 이름, 연락처, 이메일 readonly 추가 요청 -->
-                                  <input maxlength="10" name="storeName" placeholder="이름을 입력해주세요" type="text" value="">
+                                  <input type="text" maxlength="5" name="storeName" placeholder="이름을 입력해주세요" value="" required>
                               </span>
                           </td>
                       </tr>
@@ -293,8 +297,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">연락처 *<span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:100%">
-                                  <!-- #210416 이름, 연락처, 이메일 readonly 추가 요청 -->
-                                  <input maxlength="15" name="phone" onkeyup="" placeholder="연락 가능한 전화번호를 입력해주세요" type="text" value="">
+                                  <input maxlength="11" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="연락 가능한 전화번호를 입력해주세요" type="text" value="" required>
                               </span>
                           </td>
                       </tr>
@@ -302,13 +305,13 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">이메일 * <span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:200px">
-                                  <input id="franchiseEmail" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="">
+                                  <input id="franchiseEmail" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="" required>
                                   <button class="button btn btn-success btn-large">인증번호 발송</button><br>
                             </span><br>
 
                               <span class="form_text" style="width:200px">
                                   <!--<input type="text" name="email2" id="franchiseEmail2" maxlength="50" onkeypress="view.onchangeEmailDomail(); return true;" onkeyup="subwayCommon.inputEmail(this);" th:value="${email2}"/>-->
-                                  <input id="authNum" maxlength="8" name="authNum" type="text" placeholder="인증번호를 입력하세요" value="">
+                                  <input id="authNum" maxlength="8" name="authNum" type="text" placeholder="인증번호를 입력하세요" value="" required>
                                   <button class="button btn btn-success btn-large">인증번호 확인</button>
                                 </span>
                               <div class="form_select" style="width:196px; margin-left:7px;">
@@ -360,7 +363,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">제목 * <span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:100%">
-                                  <input maxlength="50" name="subject" placeholder="제목을 입력해주세요" type="text" value="">
+                                  <input maxlength="50" name="subject" placeholder="제목을 입력해주세요" type="text" value="" required>
                               </span>
                           </td>
                       </tr>
@@ -369,7 +372,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <td>
                               <span class="form_textarea" style="width:100%";>
                                   <textarea cols="5" maxlength="1000" name="content" placeholder="가맹점 신청과 관련된 문의사항을 작성해 주세요.
-문의하실 내용을 구체적으로 작성해 주시면 더욱 빠르고 정확한 답변을 드릴 수 있습니다." rows="10" style="width:900px; height:300px;">
+문의하실 내용을 구체적으로 작성해 주시면 더욱 빠르고 정확한 답변을 드릴 수 있습니다." rows="10" style="width:900px; height:300px;" required>
                                   </textarea>
                               </span>
                           </td>
@@ -381,7 +384,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                 <p>신청·문의사항에 대한 답변은 메일로 발송됩니다. 동의하시겠습니까?</p>
                 <!-- checkbox -->
                 <label class="form_checkbox">
-                    <input name="agree3" type="checkbox">
+                    <input name="agree3" type="checkbox" required>
                     <span class="icon"></span> 동의합니다.
                 </label>
                 <!--// checkbox -->
@@ -397,9 +400,19 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 
 
         <div class="btns_wrapper">
-            <a class="btn" href="#" onclick="view.cancel();return false;" style="width:100px; color:white;"><span>취소</span></a>
-            <a class="btn" href="joinForm2.an" onclick="view.save();return false;" style="width:120px; color:white;"><span>등록하기</span></a>
+        	<button  class="btn" onclick="clickBack(); history.back();"><span>취소</span></button>
+            <button class="btn btn-success" onclick="clickSubmit(); location.href='joinForm2.an'"><span>등록하기</span></button>
         </div>
+        
+        <script>
+			function clickBack(){
+				alert('작성한 내용은 저장되지 않습니다. 취소 하시겠습니까?');
+			}
+			
+			function clickSubmit(){
+				alert('등록하시겠습니까?');
+			}
+			</script>
        </div> 
   
 

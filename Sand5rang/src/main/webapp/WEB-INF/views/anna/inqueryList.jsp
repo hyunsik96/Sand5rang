@@ -198,7 +198,7 @@
 						<td>${i.inqTitle}</td>
 						<td>${i.storeName}</td>
 						<td>${i.inqDate}</td>
-						<td>${i.status}</td>
+						<td>${i.ansDate}</td>
 					</tr>
 				</c:forEach>	
 			</tbody>

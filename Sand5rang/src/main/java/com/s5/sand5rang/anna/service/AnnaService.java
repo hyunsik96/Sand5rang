@@ -52,6 +52,7 @@ public class AnnaService {
 	public Inquery answerForm(int ino) {
 		return annaDao.answerForm(sqlSession);
 	}
+
 	
 
 }
