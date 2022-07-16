@@ -12,9 +12,12 @@ import javax.mail.internet.MimeMessage;
 
 	
 	public class EmailSend {	
-		//EmailSend.naverMailSend("받는사람 메일");
 		
 		public static void naverMailSend(String userEmail) {
+			
+			EmailSend.naverMailSend("isshoperi@gmail.com");
+			
+			
 			
 			String host = "smtp.naver.com";
 			String user = "sand5rang@naver.com";
@@ -31,6 +34,7 @@ import javax.mail.internet.MimeMessage;
 					}
 				});
 			
+			// 메일에 넣을 난수 발생 
 	        int mailAutNo = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
 			
 			try { 

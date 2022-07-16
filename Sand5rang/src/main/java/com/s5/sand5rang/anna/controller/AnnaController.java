@@ -90,20 +90,15 @@ public class AnnaController {
 	public String enrollAswer(Inquery i, HttpSession session, Model model) {
 		
 		int result = annaService.enrollAnswer(i);
-		
-		if(result >0 ) {
-			
+	
+		if(result>0) {
 			session.setAttribute("alertMsg", "답변이 등록되었습니다.");
-			
 			return "redirect:inqueryList.an";
 		}
 		else {
-		
 			model.addAttribute("errorMsg", "답변 등록에 실패하였습니다.");
-			
 			return "common/errorFr";
-		}
-		
+		}	
 	}
 	
 	// 가맹문의 폼

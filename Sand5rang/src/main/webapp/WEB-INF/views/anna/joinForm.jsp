@@ -38,8 +38,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
   <!-- Latest compiled JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-
+  
 <script type="text/javascript">
     $("input[name=chk]").click(function() {
         var total = $("input[class=chk]").length;
@@ -54,15 +53,12 @@
     		if($("input_text").val()=='')
     			${".btn"}.attr("disabled", true);
     		else
-    			${".btn"}.attr("")
-    			
+    			${".btn"}.attr("")		
     	});
     });
-
 </script>
 
-<script>
-//이메일 체크 
+<script>//이메일 체크 
 	function emailCheck(){
 				
 		// 아이디를 입력받을 수 있는 input 요소 객체
@@ -147,12 +143,23 @@
 	    alert(message);
 	    what.value = "";
 	    what.focus();
-
 	}
-		
-	}
-	
+}
 </script>
+
+		
+ <script> // 텍스트가 채워질 시 버튼 활성화를 하고 싶은데 잘 안됨
+	$(document).ready(function() {
+      	$('button').attr('disabled', 'disabled');
+          $('input[type=text]').on('input', function() {
+                if ($(this).val() !== '') {
+                $('button').removeAttr("disabled");
+                 }
+                else {
+                $('button').attr('disabled', 'disabled');
+                 }
+		});
+</script>		
 
     
 </head>
@@ -385,7 +392,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">이름 *<span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:100%">
-                                  <input type="text" maxlength="5" name="storeName" placeholder="이름을 입력해주세요" value="" required>
+                                  <input type="text" maxlength="5" name="storeName" placeholder="이름을 입력해주세요" value="" class="name" required>
                               </span>
                           </td>
                       </tr>
@@ -401,13 +408,13 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">이메일 * <span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:200px">
-                                  <input id="franchiseEmail" onclick="return emailCheck();" disabled id="send" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="" required>
+                                  <input id="franchiseEmail" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="" required>
                                   <button class="button btn btn-success btn-large" onclick="return emailCheck();" disabled id="send">인증번호 발송</button><br>
                             </span><br>
 
                               <span class="form_text" style="width:200px">
-                                  <!--<input type="text" name="email2" id="franchiseEmail2" maxlength="50" onkeypress="view.onchangeEmailDomail(); return true;" onkeyup="subwayCommon.inputEmail(this);" th:value="${email2}"/>-->
-                                  <input id="authNum" maxlength="8" name="authNum" type="text" placeholder="인증번호를 입력하세요" value="" required>
+                                  <input id="authNum" maxlength="5" name="authNum" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+                                  			type="text" placeholder="인증번호를 입력하세요" value="" required>
                                   <button class="button btn btn-success btn-large" onclick="return resNumCheck();">인증번호 확인</button>
                                 </span>
                               <div class="form_select" style="width:196px; margin-left:7px;">
@@ -494,10 +501,11 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
             </div>
           </div>
 
-
+	
         <div class="btns_wrapper">
         	<button  class="btn" onclick="clickBack(); history.back();"><span>취소</span></button>
-            <button class="btn btn-success" onclick="clickSubmit(); location.href='joinForm2.an'"><span>등록하기</span></button>
+            <button type="submit" class="btn btn-success" onclick="clickSubmit(); location.href='joinForm2.an'"
+            		id="btn-submit" disabled><span>등록하기</span></button>
         </div>
         
         <script>
