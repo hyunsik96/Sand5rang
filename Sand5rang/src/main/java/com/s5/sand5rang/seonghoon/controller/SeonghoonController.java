@@ -93,16 +93,19 @@ public class SeonghoonController {
 }
 	
 	/********************* 재료별 재고 현황 ************************/
+	/*
 	@RequestMapping(value="ingredientStock.csh")
 	public String ingredientView(Model model) {
 		return "seonghoon/재료별재고현황";
 	}
+	*/
 	
 	@RequestMapping(value="ingredientStock1.csh")
 	public String selectSortIngredient(
 				Model model,
 				@RequestParam(value="p", defaultValue="1") int currentPage,
-				String ingType, String ingName,
+				@RequestParam(value="ingType", defaultValue="B") String ingType,
+				@RequestParam(value="ingName", defaultValue="파마산") String ingName,
 				HttpSession session
 			) {
 		// 세션에 담긴 로그인 정보 가져오기

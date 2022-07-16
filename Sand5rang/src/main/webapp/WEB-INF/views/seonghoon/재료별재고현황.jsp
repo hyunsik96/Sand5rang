@@ -191,10 +191,6 @@
    var ingType = $(this).val();
    temp.children().remove();
    
-   if(ingType == '전체')
-   temp.append('<option value="전체">전체</option>');
-   
-    
    if(ingType == 'B'){
     temp.append('<option value="파마산">파마산</option>');
     temp.append('<option value="화이트">화이트</option>');
@@ -235,7 +231,6 @@
  </script>
  <form action="ingredientStock1.csh" method="get">
 	<select name="ingType" style="width:100px; margin-top:10px;">
-	  <option value="전체">전체</option>
 	  <option value="B">빵</option>
 	  <option value="V">야채</option>
 	  <option value="M">고기</option>
@@ -243,7 +238,7 @@
 	  <option value="S">소스</option>
 	</select>
 	<select name="ingName" style="width:100px; margin-top:10px;">
-	  <option value="전체">전체</option>
+		<option value="파마산">파마산</option>
 	</select>
 	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
 </form>					
@@ -280,14 +275,36 @@
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
+<ul class="pagination pagination-sm">
+<c:choose>
+	<c:when test="${pi.currentPage eq 1}">
+	<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ingredientAllStock.csh?p=${pi.currentPage - 1}"><</a></li>
+	</c:otherwise>
+</c:choose>
+
+<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+	<c:if test="${pi.currentPage eq p}">
+		<li class="page-item active"><a class="page-link" href="ingredientStock1.csh?p=${p}&ingType=${sort_list[0].ingType}&ingName=${sort_list[0].ingName}">${p}</a></li>
+	</c:if>
+	<c:if test="${pi.currentPage ne p}">
+		<li class="page-item"><a class="page-link" href="ingredientStock1.csh?p=${p}&ingType=${sort_list[0].ingType}&ingName=${sort_list[0].ingName}">${p}</a></li>
+	</c:if>
+</c:forEach>
+
+<c:choose>
+	<c:when test="${pi.currentPage eq pi.maxPage}">
+	<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ingredientStock1.csh?p=${pi.currentPage + 1}">></a></li>
+	</c:otherwise>
+</c:choose>
+</ul>				
 	<!-- /widget-content -->
-		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-			<li class="page-item"><a class="page-link" href="#"><</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">></a></li>
-		</ul>	      		
+ 		
 		    </div> <!-- /span8 -->
 	      	
 	      	
