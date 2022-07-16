@@ -97,7 +97,11 @@
 	
 	<!-- 문의글 답변 등록(답변 insert) -->
 	<update id="enrollAnswer" parameterType="com.s5.sand5rang.anna.vo.Inquery">
-		INSERT INTO INQUERY (NQ_ANSWER) VALUES(#{inqAnswer})
+		UPDATE INQUERY 
+		   SET INQ_ANSWER = #{inqAnswer}
+			  , STATUS = 'Y'
+			  , ANS_DATE = SYSDATE
+		  WHERE INQ_NO = #{inqNo}
 	</update>
 	
 	<!-- 가맹문의 서비스 -->
