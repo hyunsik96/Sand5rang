@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Ingredient;
 import com.s5.sand5rang.sein.vo.Order;
+import com.s5.sand5rang.sein.vo.Payment;
 import com.s5.sand5rang.sein.vo.Store;
 
 @Repository
@@ -63,5 +64,14 @@ public class SeinDao {
 	//가맹점 신청정보 조회
 	public Enroll selectEnrollInfo(SqlSessionTemplate sqlSession, int enrNo) {
 		return sqlSession.selectOne("seinMapper.selectEnrollInfo", enrNo);
+	}
+	//가맹점 현재 잔액조회
+	public int todayMyPayment(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("seinMapper.todayMyPayment", storeId);
+	}
+
+	//가맹점 payment행 조회
+	public int myPayment(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("seinMapper.myPayment", storeId);
 	}
 }

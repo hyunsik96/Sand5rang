@@ -22,9 +22,11 @@
 		<script>
 			alert("${alertMsg}");
 		</script>
-		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
 		<c:remove var="alertMsg" scope="session"/>
 	 </c:if> 
+
+
+  <div class="hero_area">
 
 <jsp:include page="include/1.jsp" />
 <jsp:include page="include/2.jsp" />

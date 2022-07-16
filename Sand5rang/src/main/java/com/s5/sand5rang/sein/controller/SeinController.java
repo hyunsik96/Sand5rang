@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.s5.sand5rang.sein.service.SeinService;
 import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Order;
+import com.s5.sand5rang.sein.vo.Payment;
 import com.s5.sand5rang.sein.vo.Store;
 
 @Controller
@@ -178,7 +179,7 @@ public class SeinController {
 			
 		}else {
 			//기존 비밀번호와 일치하지 않음 에러 발생시키기 
-			session.setAttribute("alertMsg", "기존 비밀번호와 일치하지 않습니다.\n다시 시도해주세요.");
+			session.setAttribute("alertMsg", "기존 비밀번호와 일치하지 않습니다. 다시 시도해주세요.");
 			
 			mv.setViewName("redirect:updatePwd.me");
 		}
@@ -226,7 +227,7 @@ public class SeinController {
 		
 		if(result==24) {
 			
-			String alertMsg ="당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요."; 
+			String alertMsg ="당일 발주 신청한 내역이 있습니다. 발주 취소 후 다시 신청해주세요."; 
 			//당일 선 발주건 있음 
 		
 			session.setAttribute("alertMsg", alertMsg);
@@ -240,7 +241,6 @@ public class SeinController {
     }
 	
 	/*발주 신청 insert용 */
-	@ResponseBody
 	@RequestMapping(value="orderEnroll.se", produces="text/html; charset=UTF-8")
 	public String orderEnrollController(int order_count, int ingNo, int tot_price, String stat, Model m, HttpSession session) 
 	{
@@ -258,12 +258,31 @@ public class SeinController {
 			order.setTotal(tot_price);
 			order.setStatus(stat);
 			
-			//1. 잔액조회시 현재 가지고있는 금액보다 큰 금액 발주안됨 
-			int result = seinService.insertOrder(order);
+			int total = 0;
+			total += tot_price;
 			
-			//성공 => 게시글 리스트페이지로 url재요청
-			//session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
-			return (result>0) ? "success" : "fail";
+			
+			//현재 잔액보다 발주 금액이 큰지 조회 먼저 ==> 현재 잔액조회 select
+			int balance = seinService.todayMyPayment(storeId);
+			
+			//payment행 조회
+			int payCount = seinService.myPayment(storeId);
+			
+			//payment행이 아예 없을 경우에는 발주 실행이 되지 않도록 만들어주기 
+			//발주 금액 > 현재 잔액
+			if(tot_price<balance && payCount>0) {
+				//현재 잔액보다 발주 금액이 작으면 발주 가능 
+				int result = seinService.insertOrder(order);
+				
+				//성공 => 게시글 리스트페이지로 url재요청
+				//session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
+				return (result>0) ? "success" : "fail";
+				
+			}else {
+				session.setAttribute("alertMsg", "잔액보다 발주금액이 큽니다. 잔액 충전 후 발주해주세요.");
+				
+				return "redirect:orderEnroll.se";
+			}
 			
 	}
 	

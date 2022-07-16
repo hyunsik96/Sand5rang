@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.s5.sand5rang.sein.dao.SeinDao;
 import com.s5.sand5rang.sein.vo.Enroll;
-import com.s5.sand5rang.sein.vo.Ingredient;
 import com.s5.sand5rang.sein.vo.Order;
+import com.s5.sand5rang.sein.vo.Payment;
 import com.s5.sand5rang.sein.vo.Store;
 
 @Service
@@ -73,5 +73,14 @@ public class SeinService {
 		return seinDao.selectEnrollInfo(sqlSession, enrNo);
 	}
 	
+	//가맹점 현재 잔액 조회 
+	public int todayMyPayment(String storeId) {
+		return seinDao.todayMyPayment(sqlSession, storeId);
+	}
+	
+	//가맹점 payment행조회
+	public int myPayment(String storeId) {
+		return seinDao.myPayment(sqlSession, storeId);
+	}
 }
 

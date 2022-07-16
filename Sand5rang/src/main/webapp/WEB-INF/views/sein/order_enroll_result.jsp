@@ -300,7 +300,7 @@
                 <c:set var="tot_price" value="${tot_price + olist.total}"/>
                 <c:set var="sum" value="${sum + olist.count}"/>
 				<c:set var="bal" value="${olist.bal}"/>
-				<c:set var="total" value="${olist.bal - olist.total}"/>
+				<c:set var="total" value="${olist.bal - tot_price}"/>
               </c:forEach>
                   <tr>
                     <td style="text-align: center;" colspan="3">총 발주 수량</td>

@@ -43,6 +43,15 @@
 		<result column="CONTENT" property="content"/>
 		<result column="STATUS" property="status"/>
 	</resultMap>
+	
+	<resultMap type="payment" id="PaymentResultSet">
+		<result column="PAY_NO" property="payNo"/>
+		<result column="DEPOSIT" property="deposit"/>
+		<result column="WITHDRAW" property="withdraw"/>
+		<result column="BAL" property="bal"/>		
+		<result column="PAY_DATE" property="payDate"/>
+		<result column="STORE_ID" property="storeId"/>
+	</resultMap>
 
 	<!-- 로그인 -->
 	<select id="loginStore" parameterType="store" resultMap="StoreResultSet">
@@ -51,6 +60,7 @@
 		WHERE STORE_ID = #{storeId} AND
 		STATUS = 'Y'
 	</select>
+	
 	
 	<update id="newPwdUpdate" parameterType="store">
 		UPDATE STORE SET STORE_PWD = #{storePwd} 
@@ -61,7 +71,7 @@
 	
 	<!-- 발주 체크 select -->
 	<select id="selectOrder" parameterType="string" resultType="_int">
-		SELECT COUNT(IND_NO) AS COUNT_NO
+		SELECT COUNT(IND_NO)
 		FROM INDENT
 		WHERE STORE_ID = #{storeId} AND
 			  TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD')
@@ -89,9 +99,15 @@
 	<select id="selectTodayOrder" parameterType="string" resultMap="TodyOrderResultSet">
 		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, 
 		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, (P.DEPOSIT-P.WITHDRAW) BAL
-		FROM INDENT I, INGREDIENT G, PAYMENT P
+		FROM INDENT I, INGREDIENT G, 
+		        (SELECT PAY_NO, DEPOSIT, WITHDRAW, PAY_DATE, STORE_ID, 
+		        RANK() OVER(PARTITION BY STORE_ID ORDER BY TO_CHAR(PAY_DATE,'YYMMDD HH24:MI:SS') DESC) AS RNK
+		        FROM PAYMENT
+		        WHERE STORE_ID = #{storeId}) P
 		WHERE I.ING_NO = G.ING_NO AND 
 		I.STORE_ID = P.STORE_ID AND 
+        I.STORE_ID = #{storeId} AND 
+        P.RNK = 1 AND
 		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
 		ORDER BY I.ING_NO ASC
 	</select>
@@ -138,4 +154,18 @@
 		WHERE ENR_NO = #{enrNo} 
 		AND STATUS='Y' 
 	</select>
+	
+	
+	<!-- 가맹점 현재 잔액조회 -->
+	<select id="todayMyPayment" parameterType="String" resultType="_int">
+		SELECT SUM(NVL(DEPOSIT,0) + NVL(WITHDRAW,0)) BAL 
+		FROM PAYMENT 
+		WHERE STORE_ID = #{storeId}
+	</select>
+	
+	<!-- 가맹점 현재 payment행조회 -->
+	<select id="myPayment" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM PAYMENT WHERE STORE_ID = #{storeId}
+	</select>
+	
 </mapper>
