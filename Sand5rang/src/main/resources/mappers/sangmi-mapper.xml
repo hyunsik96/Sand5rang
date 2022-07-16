@@ -40,10 +40,9 @@
  
  	<!--=======관리자==========-->
  <!-- 게시글 총 갯수 조회 -->
- <select id="selectListCount" resultType="_int">
+ <select id="selectListCount1" resultType="_int">
   SELECT COUNT(*)
   FROM STORE
-  
  </select>
  <!--가맹점 전체리스트 조회-->
   <select id="storeList" resultMap="storeResultSet">
@@ -66,6 +65,7 @@
  SELECT ENR_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
  WHERE STATUS = 'B'
+ 
 </select>
 
 <!-- 가맹가입신청 상세페이지 -->
@@ -97,15 +97,22 @@ WHERE ENR_NO = #{enrNo}
  </select>
  
  <!--가맹가입 승인버튼 누르면  상태값 바꾸기 -->
- <!--  
-  <update id="updateStatus" parameterType="_int">
+ 
+  <update id="updateEnroll" parameterType="com.s5.sand5rang.sangmi.vo.Enroll">
    UPDATE ENROLL 
    SET STATUS = 'Y'
    WHERE ENR_NO = #{enrNo}
   </update>
--->
+
 
 <!--=======가맹주==========-->
+<!-- 게시글 총 갯수 조회 -->
+ <select id="selectListCount2" resultType="_int">
+  SELECT COUNT(*)
+  FROM INQUERY
+  WHERE STORE_ID = #{storeId}
+ </select>
+
 <!-- 문의 전체 리스트 조회 -->
 <select id="inqueryList" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultMap="inqueryResultSet">
 SELECT I.INQ_NO,I.INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE" 
@@ -113,7 +120,7 @@ SELECT I.INQ_NO,I.INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE"
        , I.CATEGORY, I.STORE_ID, S.STORE_NAME
 FROM INQUERY I
 JOIN STORE S ON(I.STORE_ID=S.STORE_ID)
-<!--  WHERE I.STORE_ID = #{storeId}-->
+WHERE I.STORE_ID = #{storeId}
 ORDER BY INQ_NO DESC
 </select>
 
@@ -129,6 +136,7 @@ INSERT INTO INQUERY(INQ_NO
           , #{inqTitle}
           , #{inqQuery}
           , #{category})
+          
 </insert>
 
 <!--문의글 상세 조회 -->

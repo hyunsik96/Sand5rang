@@ -217,9 +217,7 @@
            </c:forEach> 		
         </tbody>
     </table>
-    <!-- 로그인 후 상태일 경우만 보여지는 글등록, 수정 버튼 -->
-   <!-- <c:if test="${ not empty loginUser }">  --> 
-       <!--</c:if>-->
+
 	
 	
 		 <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>

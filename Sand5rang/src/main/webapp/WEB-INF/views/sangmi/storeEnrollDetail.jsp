@@ -240,7 +240,7 @@
             <input type="hidden" name="enrNo" value="${ e.enrNo }">
    
             <button type="submit" class="btn btn-primary" >확인</button>
-            <!-- <button type="submit" class="btn btn-danger">반려</button> -->
+          
         </div>
     </form>
 
@@ -252,7 +252,7 @@
         	  
         	  $idInput.keyup(function() {
         		 
-        		 // 우선 최소5글자 이상으로 입력되어야지만 ajax를 요청 할 수 있게끔 막아주기
+        		 // 우선 최소6글자 이상으로 입력되어야지만 ajax를 요청 할 수 있게끔 막아주기
         		 if($idInput.val().length >= 6){
         			 
         			 $.ajax({

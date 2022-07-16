@@ -23,8 +23,8 @@ public class SangmiService {
 	
 	//---------관리자----------------
 	//게시글 총 갯수 조회
-	public int selectListCount() {
-		return SangmiDao.selectListCount(sqlSession);
+	public int selectListCount1() {
+		return SangmiDao.selectListCount1(sqlSession);
 	}
 	
 	//가맹점 전체리스트 조회
@@ -58,7 +58,14 @@ public class SangmiService {
 		
 		return result;
 	}
-	
+	//가맹가입 상태 변화
+	public int updateEnroll(Enroll e) {
+		
+		int result = SangmiDao.updateEnroll(sqlSession,e);
+		
+		return result;
+		
+	}
 	
    // 가맹점 이름 체크	
    public int idCheck(String checkId) {
@@ -70,9 +77,13 @@ public class SangmiService {
 	//---------가맹주----------------
 	//문의리스트 조회
 	//가맹점 전체리스트 조회
-	public ArrayList<Inquery> inqueryList(PageInfo pi) {
+   public int selectListCount2(String storeId) {
+		return SangmiDao.selectListCount2(sqlSession,storeId);
+	}
+   
+	public ArrayList<Inquery> inqueryList(PageInfo pi, String storeId) {
 		
-		return SangmiDao.inqueryList(sqlSession,pi);
+		return SangmiDao.inqueryList(sqlSession,pi,storeId);
 	}
 	
 	//가맹점 작성하기

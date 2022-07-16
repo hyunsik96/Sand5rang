@@ -23,5 +23,6 @@ public class Store {
 	
 	private String phone; //상미-새로추가
     private String email;//상미- 새로추가
+    private String message;//상미- 새로추가
 }
  

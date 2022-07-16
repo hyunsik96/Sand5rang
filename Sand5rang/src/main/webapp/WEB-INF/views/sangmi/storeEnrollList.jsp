@@ -183,7 +183,8 @@
                <th>연락처</th>
                <th>이메일</th>
                <th>지역</th>
-               <th>상태(비포B)</th>
+               <th>상태(대기중B)</th>
+               <th>반려</th>
            </tr>
           </thead>
            <tbody>
@@ -195,6 +196,9 @@
                  <td>${e.email}</td> 
                  <td>${e.enrollAdd}</td>
                  <td>${e.status}</td>
+                 <td>
+                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#${status.index}">반려</button>
+                 </td>
                </tr>
               </c:forEach>   
            </tbody>

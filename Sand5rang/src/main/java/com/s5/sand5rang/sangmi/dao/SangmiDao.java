@@ -16,9 +16,9 @@ public class SangmiDao {
 	
 	//---------관리자----------------
 	//게시글 총 갯수 조회
-	public int selectListCount(SqlSessionTemplate sqlSession) {
+	public int selectListCount1(SqlSessionTemplate sqlSession) {
 		
-		return sqlSession.selectOne("sangmiMapper.selectListCount");
+		return sqlSession.selectOne("sangmiMapper.selectListCount1");
 	}
 	
 	
@@ -62,7 +62,11 @@ public class SangmiDao {
 	   
 	   return sqlSession.insert("sangmiMapper.insertStore",s);
    }
-   
+  //가맹가입 상태 변화
+   public int updateEnroll(SqlSessionTemplate sqlSession, Enroll e) {
+	   
+	   return sqlSession.update("sangmiMapper.updateEnroll",e);
+   }
    
    
    //가맹 이름 체크
@@ -72,15 +76,24 @@ public class SangmiDao {
 	}
    
 	//---------가맹주----------------
+   //게시글 총 갯수 조회
+ 	public int selectListCount2(SqlSessionTemplate sqlSession, String storeId) {
+ 		
+ 		return sqlSession.selectOne("sangmiMapper.selectListCount2",storeId);
+ 	}
+ 	
+ 	
+   
+   
    //문의 전체 리스트 조회
-	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi) {
+	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession,PageInfo pi,String storeId) {
 		   
 		   int limit = pi.getBoardLimit();
 		   int offset = (pi.getCurrentPage() -1)*limit;
 		   
 		   RowBounds rowBounds = new RowBounds(offset, limit);
 		 
-		   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",null,rowBounds);
+		   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",storeId,rowBounds);
 	   }
    //문의 글 작성하기
 	public int inquertInsert(SqlSessionTemplate sqlSession, Inquery i) {
