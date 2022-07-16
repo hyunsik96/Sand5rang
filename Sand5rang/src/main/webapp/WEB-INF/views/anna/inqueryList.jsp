@@ -29,6 +29,13 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+		<c:remove var="alertMsg" scope="session"/>
+	 </c:if> 
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
