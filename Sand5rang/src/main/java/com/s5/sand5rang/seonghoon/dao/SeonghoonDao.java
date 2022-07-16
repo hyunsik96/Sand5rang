@@ -130,7 +130,14 @@ public class SeonghoonDao {
 	}
 	
 	// ****************************** 재료별 재고현황 ********************************
-	public ArrayList<Stock> selectSearchIng(HashMap<String,String> hashmap, SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectSearchIng",hashmap);
+	public int ingListcount(SqlSessionTemplate sqlSession, HashMap<String,String> hashmap) {
+		return sqlSession.selectOne("seonghoonMapper.ingListcount", hashmap);
+	}
+	public ArrayList<Stock> selectSortIngredient(SqlSessionTemplate sqlSession, PageInfo pi, HashMap<String, String> hashmap){
+		int limit = pi.getBoardLimit();
+		int offset = (pi.getCurrentPage() - 1) * limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);	
+		
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectSortIngredient", hashmap, rowBounds);
 	}
 }

@@ -306,14 +306,46 @@
 	</select>
 	
 	<!-- ****************** 재료별 재고현황 ********************** -->
-	<select id="selectSearchIng" parameterType="hashmap" resultMap="StockResultMap">
-		SELECT ING_NAME, COUNT, TO_CHAR(STO_DATE,'YY-MM-DD')"STO_DATE"
-		FROM STOCK
-		JOIN INGREDIENT USING(ING_NO)
-		JOIN STORE USING(STORE_ID)
-		WHERE ING_NAME = #{search}
-		AND STORE_ID = #{storeId}
-		ORDER BY STO_DATE DESC
+	<select id="ingListcount" parameterType="hashmap" resultType="_int">
+        SELECT COUNT(*)
+        FROM 
+        (
+            SELECT STO_DATE, ROW_NUMBER() OVER(PARTITION BY STO_DATE ORDER BY STO_DATE DESC) "RN"
+            FROM STOCK S
+            JOIN INGREDIENT USING(ING_NO)
+            WHERE STORE_ID = #{storeId}
+            AND ING_TYPE= #{ingType}
+            AND ING_NAME= #{ingName}
+            AND S.STATUS = 'O'
+        )
+        WHERE RN=1		
 	</select>
 	
+	<select id="selectSortIngredient" parameterType="hashmap" resultMap="StockResultMap">
+        SELECT TO_CHAR(STO_DATE,'yy.MM.dd')"STO_DATE",ING_NAME,ING_TYPE, COUNT 
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
+        WHERE S.STATUS = 'O'
+        AND STORE_ID = #{storeId}
+        AND ING_TYPE= #{ingType}
+        AND ING_NAME= #{ingName}	
+        <choose>
+        	<when test="ING_TYPE=='B'">
+		        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-2, 'yy.MM.dd')
+        	</when>
+        	<when test="ING_TYPE=='V'">
+		        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-2, 'yy.MM.dd')
+        	</when>
+        	<when test="ING_TYPE=='M'">
+		        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-7, 'yy.MM.dd')
+        	</when>
+        	<when test="ING_TYPE=='C'">
+		        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-7, 'yy.MM.dd')
+        	</when>
+        	<otherwise>
+		        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-14, 'yy.MM.dd')
+        	</otherwise>
+        </choose>
+       	ORDER BY STORE
+	</select>
 </mapper>

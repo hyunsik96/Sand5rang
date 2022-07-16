@@ -15,8 +15,6 @@ VALUES(SEQ_SALESNO.NEXTVAL, SYSDATE, 10,
 
 SELECT MEN_NAME, MEN_NO
 FROM MENU;
-        
-  
   
 -- 판매된 제품의 원재료 가져오기
 -- SALES테이블에서 판매가 이루어졌을 때, 제품에 대한 원재료를 가져오려고 함.
@@ -54,9 +52,26 @@ FROM STOCK
 where to_char( 대상 테이블 컬럼, 'yyyymmdd' ) = to_char( sysdate, 'yyyymmdd');
 
     
+        SELECT COUNT(*)
+        FROM 
+        (
+            SELECT STO_DATE, ROW_NUMBER() OVER(PARTITION BY STO_DATE ORDER BY STO_DATE DESC) "RN"
+            FROM STOCK S
+            JOIN INGREDIENT USING(ING_NO)
+            WHERE STORE_ID = 'STORE1'
+            AND ING_TYPE= 'B'
+            AND ING_NAME= '파마산'
+            AND S.STATUS = 'O'
+        )
+        WHERE RN=1;		
 
- 
-
-
+        SELECT TO_CHAR(STO_DATE,'yy.MM.dd'),ING_NAME, COUNT 
+        FROM STOCK S
+        JOIN INGREDIENT USING(ING_NO)
+        WHERE S.STATUS = 'O'
+        AND TO_CHAR(STO_DATE,'yy.MM.dd') > TO_CHAR(SYSDATE-14, 'yy.MM.dd')
+        AND STORE_ID = 'STORE1'
+        AND ING_TYPE= 'S'
+        AND ING_NAME= '랜치';
 
 

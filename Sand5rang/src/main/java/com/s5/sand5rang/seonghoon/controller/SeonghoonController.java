@@ -97,30 +97,48 @@ public class SeonghoonController {
 		return "seonghoon/재료별재고현황";
 	}
 	
-	@ResponseBody
-	@RequestMapping(value="ingredientStock1.csh", produces="application/json; charset=UTF-8")
-	public String ingredientStockList(String search, HttpSession session, Model model) {
-		
+	@RequestMapping(value="ingredientStock1.csh")
+	public String selectSortIngredient(
+				Model model,
+				@RequestParam(value="p", defaultValue="1") int currentPage,
+				String ingType, String ingName,
+				HttpSession session
+			) {
+		// 세션에 담긴 로그인 정보 가져오기
 		Store user = (Store)session.getAttribute("loginstore");
-		String storeId = user.getStoreId();			
+		String storeId = user.getStoreId();		
+		/*
+		System.out.println("ingType : "+ingType);
+		System.out.println("ingName : "+ingName);
+		System.out.println("storeId : "+storeId);
+		*/
 		
-		// System.out.println("검색어 : "+search);
-		HashMap<String,String> hashmap = new HashMap<>();
-		hashmap.put("search", search);
+		// select태그 2개의 값 가져오기
+		HashMap<String, String> hashmap = new HashMap<>();
+		hashmap.put("ingType", ingType);
+		hashmap.put("ingName", ingName);
 		hashmap.put("storeId", storeId);
 		
-		ArrayList<Stock> ing_list = seonghoonService.selectSearchIng(hashmap);
+		// 페이징 바 
+		int listCount = seonghoonService.ingListcount(hashmap);
+		// System.out.println("listCount : "+listCount);
+		int pageLimit = 10;
+		int boardLimit = 5;
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
 		
-		return new Gson().toJson(ing_list);
+		ArrayList<Stock> sort_list = seonghoonService.selectSortIngredient(pi, hashmap);
+		
+		/*
+		for(int i=0; i<sort_list.size(); i++) {
+			System.out.println(sort_list.get(i));
+		}
+		*/
+		model.addAttribute("pi", pi);
+		model.addAttribute("sort_list", sort_list);
+		
+		return "seonghoon/재료별재고현황";
 		
 	}
-	
-	/***************** 전체 재고현황 *********************/
-	@RequestMapping(value="ingredientDisposal.csh")
-	public String ingredientDisposalList(Model model) {
-		return "seonghoon/폐기현황";
-	}
-	
 	
 	/*********** 제품판매현황 ************/
 	@RequestMapping(value="menuSales.csh")
@@ -133,12 +151,10 @@ public class SeonghoonController {
 		String storeId = user.getStoreId();
 		
 		int listCount = seonghoonService.menuSalesListCount(storeId);
-		System.out.println("listCount : "+listCount);
 		
 		int pageLimit = 10;
 		int boardLimit = 5; 
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
-		System.out.println("pi : "+pi);
 		
 		// 제품판매현황의 판매날짜, 총판매개수, 총판매금액을 담은 list
 		// 1. 제품판매현황을 찍어주기 위한 list

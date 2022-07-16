@@ -83,11 +83,13 @@ public class SeonghoonService {
 	public ArrayList<Stock> selectSumStock(){return seonghoonDao.selectSumStock(sqlSession); }
 	
 	
-	// *************** 재료별 재고현황 **************************
-	public ArrayList<Stock> selectSearchIng(HashMap<String,String> hashmap){
-		return seonghoonDao.selectSearchIng(hashmap,sqlSession);
+	// *************** 재료별 재고현황 **************************\
+	public int ingListcount(HashMap<String, String> hashmap) {
+		return seonghoonDao.ingListcount(sqlSession,hashmap);
 	}
 	
-	
+	public ArrayList<Stock> selectSortIngredient(PageInfo pi, HashMap<String,String> hashmap){
+		return seonghoonDao.selectSortIngredient(sqlSession, pi, hashmap);
+	}
 }
 

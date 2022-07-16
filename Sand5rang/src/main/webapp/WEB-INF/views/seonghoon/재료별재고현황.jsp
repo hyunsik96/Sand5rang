@@ -184,23 +184,69 @@
 						<button id="btn" class="btn btn-success">검색</button>
 						 -->
 						 
-						<select onchange="categoryChange(this)">
-							<option>전체</option>
-							<option value="B">빵</option>
-							<option value="V">야채</option>
-							<option value="M">고기</option>
-							<option value="C">치즈</option>
-							<option value="S">소스</option>
-						</select>
-						<script>
-							function categoryChange(e){
-								var good_a = ["파마산", "화이트", "플렛"];
-								var good_b = ["양상추", "토마토","오이","양파","피망","할라피뇨","아보카도"];
-								var good_
-							}
-	
-						</script>											
-					
+	 <script>
+ $(function() {
+  $("select[name=ingType]").change(function() {
+   var temp = $("select[name=ingName]");
+   var ingType = $(this).val();
+   temp.children().remove();
+   
+   if(ingType == '전체')
+   temp.append('<option value="전체">전체</option>');
+   
+    
+   if(ingType == 'B'){
+    temp.append('<option value="파마산">파마산</option>');
+    temp.append('<option value="화이트">화이트</option>');
+    temp.append('<option value="플렛">플렛</option>');
+   }
+   if(ingType == 'V'){
+    temp.append('<option value="양상추">양상추</option>');
+    temp.append('<option value="토마토">토마토</option>');
+    temp.append('<option value="오이">오이</option>');
+    temp.append('<option value="양파">양파</option>');
+    temp.append('<option value="피망">피망</option>');
+    temp.append('<option value="할라피뇨">할라피뇨</option>');
+    temp.append('<option value="아보카도">아보카도</option>');
+   }
+   if(ingType == 'C'){
+    temp.append('<option value="아메리칸">아메리칸</option>');
+    temp.append('<option value="모짜렐라">모짜렐라</option>');
+    temp.append('<option value="슈레드">슈레드</option>');
+   }
+   if(ingType == 'M'){
+    temp.append('<option value="페퍼로니">페퍼로니</option>');
+    temp.append('<option value="에그마요">에그마요</option>');
+    temp.append('<option value="치킨">치킨</option>');
+    temp.append('<option value="쉬림프">쉬림프</option>');
+    temp.append('<option value="비프">비프</option>');
+    temp.append('<option value="베이컨">베이컨</option>');
+   }
+   if(ingType == 'S'){
+    temp.append('<option value="랜치">랜치</option>');
+    temp.append('<option value="스위트칠리">스위트칠리</option>');
+    temp.append('<option value="올리브오일">올리브오일</option>');
+    temp.append('<option value="머스타드">머스타드</option>');
+    temp.append('<option value="후추">후추</option>');
+   }      
+   
+  });
+ });
+ </script>
+ <form action="ingredientStock1.csh" method="get">
+	<select name="ingType" style="width:100px; margin-top:10px;">
+	  <option value="전체">전체</option>
+	  <option value="B">빵</option>
+	  <option value="V">야채</option>
+	  <option value="M">고기</option>
+	  <option value="C">치즈</option>
+	  <option value="S">소스</option>
+	</select>
+	<select name="ingName" style="width:100px; margin-top:10px;">
+	  <option value="전체">전체</option>
+	</select>
+	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
+</form>					
 						
 						
 	  				</div> <!-- /widget-header -->
@@ -212,6 +258,7 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
+	
 	<table id="st_table" class="table table-bordered">
 		<thead>
 			<tr class="st_head">
@@ -221,7 +268,13 @@
 			</tr>
 		</thead>
 		<tbody>
-
+			<c:forEach var="ing" items="${sort_list}">
+				<tr>
+					<th>${ing.ingName }</th>					
+					<th>${ing.count }</th>					
+					<th>${ing.stoDate }</th>					
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
@@ -335,12 +388,13 @@
 
 
 <jsp:include page="include/6.jsp" />
+<!-- 
  <script>
  	$(function(){
- 		$("#btn").click(function(){
+ 		$("#search").click(function(){
  			$.ajax({
  				url : "ingredientStock1.csh",
- 				data : {search : $("#search").val()},
+ 				data : {ingType},
  				success : function(result){
  					var resultStr = ""
  					for(var i=0; i<result.length; i++){
@@ -359,31 +413,7 @@
  		});
  	})
  </script>
- <script>
- 	$(function(){
- 		$("#search").keydown(function(){
- 			$.ajax({
- 				url : "ingredientStock1.csh",
- 				data : {search : $("#search").val()},
- 				success : function(result){
- 					var resultStr = ""
- 					for(var i=0; i<result.length; i++){
- 						resultStr += "<tr>"
- 									+		"<td>"+ result[i].ingName +"</td>"
- 									+		"<td>"+ result[i].count +"</td>"
- 									+		"<td>"+ result[i].stoDate +"</td>"
- 									+ "</tr>"
- 					}
- 					$("#st_table>tbody").html(resultStr);
- 				},
- 				error : function(){
- 					console.log("ajax통신 실패!");
- 				}
- 			}) 			
- 		})
- 	});
- </script>
- 
+ --> 
  </body>
 
 </html>
