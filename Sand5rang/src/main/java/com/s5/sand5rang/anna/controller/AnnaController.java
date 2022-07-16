@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.s5.sand5rang.anna.service.AnnaService;
@@ -121,6 +122,24 @@ public class AnnaController {
 		}	
 	}
 	
+//	@ResponseBody
+//	@RequestMapping(value="emailCheck.me", produces="text/html; charset=UTF-8")
+//	public int emailChecker (String checkEmail) {
+//		
+//		
+//		
+////		int mailAutNo = EmailSend.naverMailSend(checkEmail);
+//		
+//	}
+	
+	
+	@RequestMapping(value="xxxx.an")
+	public String joinForm(String answer, int inqNo) {
+		
+		
+		
+		return "redirect:ansForm.an?ino="+inqNo;
+	}
 	
 
 }

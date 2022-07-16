@@ -13,9 +13,9 @@ import javax.mail.internet.MimeMessage;
 	
 	public class EmailSend {	
 		
-		public static void naverMailSend(String userEmail) {
+		public static int naverMailSend(String userEmail) {
 			
-			EmailSend.naverMailSend("isshoperi@gmail.com");
+//			EmailSend.naverMailSend("isshoperi@gmail.com");
 			
 			
 			
@@ -60,7 +60,7 @@ import javax.mail.internet.MimeMessage;
 			} catch (MessagingException e) { 
 				e.printStackTrace(); 
 			}
-			
+			return mailAutNo;
 		
 		}
 		

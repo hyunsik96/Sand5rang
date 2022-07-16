@@ -21,6 +21,9 @@ import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
 import com.s5.sand5rang.hyunsik.vo.StockF;
 import com.s5.sand5rang.sein.vo.Store;
+import com.s5.sand5rang.seonghoon.service.SeonghoonService;
+import com.s5.sand5rang.seonghoon.vo.Ingredient;
+import com.s5.sand5rang.seonghoon.vo.Stock;
 
 @Controller
 public class HyunsikController {
@@ -28,12 +31,16 @@ public class HyunsikController {
 	@Autowired
 	private HyunsikService hyunsikService;
 	
+
+	@Autowired
+	private SeonghoonService seonghoonService;
+	
 	// 관리자 주문리스트
 	@RequestMapping(value="ad1.hs")
 	public String adCusIndentList(
 			@RequestParam(value="p", defaultValue="1") int currentPage, 
 			Model model) {
-	
+	forceStop("47", 1, 1);
 		int listCount = hyunsikService.ad1ListCount();
 
 		int pageLimit = 10;
@@ -279,6 +286,22 @@ if(flowDate!=0) {
 		return "sein/depositList";
 		
 		
+	}
+	
+	public void forceStop(String storeId, int menNo, int count) {
+		
+		ArrayList<Ingredient> ingList = seonghoonService.selectIngMen(menNo);
+		System.out.println(ingList);
+		for(Ingredient i : ingList) {
+			
+		}
+		
+		ArrayList<Stock> s_list1 = seonghoonService.selectStock1(storeId);
+		ArrayList<Stock> s_list2 = seonghoonService.selectStock2(storeId);
+		ArrayList<Stock> s_list3 = seonghoonService.selectStock3(storeId);
+		ArrayList<Stock> s_list4 = seonghoonService.selectStock4(storeId);
+		ArrayList<Stock> s_list5 = seonghoonService.selectStock5(storeId);
+
 	}
 	
 	
