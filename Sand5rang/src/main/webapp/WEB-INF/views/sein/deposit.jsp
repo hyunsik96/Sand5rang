@@ -10,16 +10,9 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-  <link rel="shortcut icon" href="resources/images/logo.png" type="">
+  	<link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-   
-
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+	<script src="https://js.tosspayments.com/v1"></script>
   </head>
 
 <body>
@@ -199,41 +192,37 @@
                 <h2>* 입금자명 : </h2>
 
                 <div class="deposit_name">
-                    <input type="text" placeholder="*필수입력 값입니다.">
+                    <input id="deposit_name" type="text" placeholder="*필수입력 값입니다.">
                 </div>
                 <br>
                 <br>
                 <h2>* 결제금액 : </h2>
 
                 <div class="deposit_price">
-                    <input type="text" placeholder="*필수입력 값입니다.">&nbsp;(단위/원)
+                    <input id="deposit_price" type="text" placeholder="*필수입력 값입니다.">&nbsp;(단위/원)
                 </div>
                 <br>
                 <br>
                 <h2>* 결제방법 : </h2>
 
                 <div class="deposit_method">
-                    <input type="radio">&nbsp;
+                    <input type="radio" checked>&nbsp;
                     <span>무통장입금</span>
                     <b>(Sand5rang은 무통장입금만 결제가능합니다)</b>
                 </div>
                 <br>
                 <br>
-                <h2 style="margin-top: 10px;">* 이메일 &nbsp;&nbsp;: </h2>
+                <h2 style="margin-top: 10px;">* 이메일 &nbsp;&nbsp;&nbsp;  : </h2>
 
                 <div class="deposit_email">
-                    <input type="text">&nbsp;@
-                    <select name="email_box">
-                        <option value="naver.com" name="email_box">naver.com</option>
-                        <option value="daum.net" name="email_box">daum.net</option>
-                        <option value="google.com" name="email_box">google.com</option>
-                    </select>
-                    <b style="line-height: 30%; margin-top: 20px;"> &nbsp;* 해당이메일로 결제명세서가 발행됩니다.</b>
+                
+                    <input id="deposit_email" type="text" style="width : 180px" value="&nbsp;<c:out value='${email}'/>" disabled>&nbsp;&nbsp;&nbsp;
+                    <b style="line-height: 30%; margin-top: 20px;"> &nbsp;* 가입시 기입한 이메일로 결제명세서가 발행됩니다.</b>
                 </div>
             </div> 
         </div>
         <div class="btn_deposit">
-            <button type="button" class="btn btn-success btn-lg" data-bs-dismiss="modal" onclick="closeModal();">결제</button>
+            <button type="button" id="btn" class="btn btn-success btn-lg" data-bs-dismiss="modal">결제</button>
             <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal" onclick="closeModal();">취소</button>
         </div>
 </div>
@@ -337,5 +326,75 @@
 	<jsp:include page="include/6.jsp" />
 
 </body>
+
+<script>
+
+	// function requestPay() {
+
+	//  //결제시 입금자명
+    //  var deposit_name = document.getElementById('deposit_name').value;
+
+	//  //결제시 입금금액
+	//  var deposit_price = document.getElementById('deposit_price').value;
+
+	//  //결제시 발송될 email
+	//  var deposit_email = document.getElementById('deposit_email').value;
+
+    //   //IMP.request_pay(param, callback) 		//결제창 호출
+	//   IMP.init("INIpayTest"); 			// 예: imp00000000
+
+    //   IMP.request_pay({ // param
+    //       pg: "html5_inicis",
+    //       pay_method: "card",
+	// 	  name : "Sand5rang 선결제",
+    //       merchant_uid: "ORD20180131-0000011",
+    //       amount: deposit_price,
+    //       buyer_email: 'sein1521@naver.com',
+    //       buyer_name: deposit_name
+    //   }, function (rsp) { // callback
+    //       if (rsp.success) {
+
+	// 		// 결제 성공 시 로직,			
+    //          var msg = '결제가 완료되었습니다.';
+	// 		 msg += '입금자명 : ' + rsp.deposit_name;
+	// 		 msg += '입금금액 : ' + rsp.amount;
+	// 		 msg += '결제이메일 : ' + rsp.deposit_email; 
+              
+    //       } else {
+	// 		// 결제 실패 시 로직,
+	// 		var msg = '결제가 실패하였습니다.\n';
+	// 		msg += '에러내용' + rsp.error_msg;
+    //       }
+	// 	  alert(msg);
+    //   });
+    // }
+
+	/*토스 페이먼츠 api연동*/
+	var clientKey = 'test_sk_zXLkKEypNArWmo50nX3lmeaxYG5R'
+	var tossPayments = TossPayments(clientKey) // 클라이언트 키로 초기화하기
+
+	//결제시 입금금액
+	var deposit_price = document.getElementById('deposit_price').value;
+
+	//결제시 입금자명
+	var deposit_name = document.getElementById('deposit_name').value;
+
+	var btn = document.getElementById('btn');
+
+	btn.addEventListener('click', function(){
+			tossPayments.requestPayment('계좌이체', {
+			// 결제 수단 파라미터
+			// 결제 정보 파라미터
+			amount: deposit_price,
+			orderId: deposit_name,
+			orderName: 'Sand5rang 선결제',
+			customerName: deposit_name,
+			customerEmail : deposit_email,
+			successUrl: 'http://localhost:8006/sand5rang/depositList.se/success',
+			failUrl: 'http://localhost:8006/sand5rang/deposit.se/fail',
+		});
+	});
+	
+</script>
 
 </html>

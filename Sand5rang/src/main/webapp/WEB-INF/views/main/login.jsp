@@ -130,7 +130,7 @@
 
 
 <!--  로그인 폼      -->
-			<div class="account-container" style="margin-bottom: 400px;">
+			<div class="account-container" style="margin-bottom: 200px; margin-top: 50px;">
 				<div class="login-box"><!-- 가운데 화이트 박스 만들고 싶음 -->
 				<div class="content clearfix heading_container heading_center" >
 					

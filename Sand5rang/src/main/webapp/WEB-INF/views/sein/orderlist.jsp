@@ -572,18 +572,13 @@
 	  <div class="modal-header" style="width : 530px">
 		  <h4 class="modal-title">SAUCE(소스) 발주내역</h4>
 	  </div> 
-	  
 	  <!-- Modal body -->
 	  <form class="order_list" id="${status.index}" action="orderUpdate.se" method="post" style="padding: 0px; margin: 0px;"></form>
 	  <div class="modal-body" style="width : 550px; margin: auto; padding: 0px;padding-bottom: 20px;">
-		  <c:forEach var="order" items="${order}" varStatus="status" begin="19" end="23">
-			
+				<c:forEach var="order" items="${order}" varStatus="status" begin="19" end="23">
 				  <div class="bimg" style="margin-left: 7px;">
 					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
 				  </div>
-
-				  <c:choose>
-				  <c:when test="${status.first eq true}">
 					
 						<div class="bb" style="margin-right: 8px;">
 							<b>${order.ingName}</b>
@@ -601,41 +596,17 @@
 						</div>
 						<input type="hidden" value="${status.index}" name="ingNo"/>
 						<input type="hidden" value="${order.total}" name="hidden_iprice"/>
-				  </form>
-				  </c:when>
+					</c:forEach>
+					</div>
 
-
-				  <c:otherwise>
-						<div class="bb">
-							<b>${order.ingName}</b>
-							<b style="font-size: 11px; color : tomato">[단가 :</b> 
-							<b id="iprice" style="font-size: 11px; color : tomato">${order.price}</b>
-							<b style="font-size: 11px; color : tomato">]</b><br>
-							<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
-							<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
-							<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
-							<div id="price" style="display: block; width : 100px">
-								<b style="font-size: 11px;">금액 : </b>
-								<b style="font-size: 11px;" id="tot"><fmt:formatNumber value="${order.total}" pattern="###,###,###,###"/></b>
-								<b style="font-size: 11px;">원</b>
-							</div>
-						</div>
-						<input type="hidden" value="${status.index}" name="ingNo"/>
-						<input type="hidden" value="${order.total}" name="hidden_iprice" />
-				  </c:otherwise>
-				</c:choose>
-				
-			  </c:forEach>
-	  </div>
-
-  <!-- Modal footer -->
-  <div class="modal-footer" style="width : 530px; height : 30px">
-	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23);">수정</button>
-	  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal5" id="btnClose5">취소</button>
-  </div> 
-</form>
-</div> 
-</div>
+					<!-- Modal footer -->
+					<div class="modal-footer" style="width : 530px; height : 30px">
+						<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23);">수정</button>
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal5" id="btnClose5">취소</button>
+					</div> 
+				</form>
+			</div> 
+		</div>
 </div>
  
 <script>

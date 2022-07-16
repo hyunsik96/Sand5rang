@@ -31,6 +31,17 @@
 		<result column="STATUS" property="status"/>
 		<result column="ENR_NO" property="enrNo"/>
 	</resultMap>
+		
+	<resultMap type="enroll" id="EnrollResultSet">
+		<result column="ENR_NO" property="enrNo"/>
+		<result column="STORE_NAME" property="storeName"/>
+		<result column="ENROLL_ADD" property="enrollAdd"/>
+		<result column="EMAIL" property="email"/>
+		<result column="PHONE" property="phone"/>
+		<result column="TITLE" property="title"/>
+		<result column="CONTENT" property="content"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
 
 	<!-- 로그인 -->
 	<select id="loginStore" parameterType="store" resultMap="StoreResultSet">
@@ -113,7 +124,15 @@
 		ORDER BY ING_NO
 	</select>
 	
+	<!-- 가맹점 발주내역 수정 update -->
 	<update id="updateOrder" parameterType="order">
 	</update>
 	
+	<!-- 가맹신청 내역 조회 -->
+	<select id="selectEnrollInfo" parameterType="_int" resultMap="EnrollResultSet">
+		SELECT ENR_NO, STORE_NAME, ENROLL_ADD, EMAIL, PHONE, TITLE, CONTENT, STATUS 
+		FROM ENROLL 
+		WHERE ENR_NO = #{enrNo} 
+		AND STATUS='Y' 
+	</select>
 </mapper>

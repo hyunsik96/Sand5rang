@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Ingredient;
 import com.s5.sand5rang.sein.vo.Order;
 import com.s5.sand5rang.sein.vo.Store;
@@ -54,7 +55,13 @@ public class SeinDao {
 		return (ArrayList)sqlSession.selectList("seinMapper.selectOrder2", storeId);
 	}
 	
+	//가맹점 발주(원재료) 수정
 	public int updateOrder(SqlSessionTemplate sqlSession) {
 		return sqlSession.update("seinMapper.updateOrder");
+	}
+	
+	//가맹점 신청정보 조회
+	public Enroll selectEnrollInfo(SqlSessionTemplate sqlSession, int enrNo) {
+		return sqlSession.selectOne("seinMapper.selectEnrollInfo", enrNo);
 	}
 }

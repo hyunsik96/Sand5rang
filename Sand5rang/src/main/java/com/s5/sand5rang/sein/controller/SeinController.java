@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.s5.sand5rang.sein.service.SeinService;
+import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Order;
 import com.s5.sand5rang.sein.vo.Store;
 
@@ -322,12 +323,26 @@ public class SeinController {
 		return "sein/orderlist";
 	}
 	
-	
+	//가맹점 결제page 
 	@RequestMapping(value="deposit.se")
-    public String depositController()
+    public String depositController(HttpSession session, Model m)
     {
+		Store loginstore = (Store)session.getAttribute("loginstore");
+		int enrNo = loginstore.getEnrNo();
+	
+		Enroll enrollInfo = seinService.selectEnrollInfo(enrNo);
+		
+		m.addAttribute("email", enrollInfo.getEmail());
+		
         return "sein/deposit";
     }
+	
+	//가맹점 결제구현 
+	@RequestMapping(value="")
+	public String depositPlayController() {
+		
+		return "";
+	}
 	
 	@RequestMapping(value="depositList.se")
     public String depositListController()

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.s5.sand5rang.sein.dao.SeinDao;
+import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Ingredient;
 import com.s5.sand5rang.sein.vo.Order;
 import com.s5.sand5rang.sein.vo.Store;
@@ -62,8 +63,15 @@ public class SeinService {
 		return (ArrayList)seinDao.selectOrder2(sqlSession, storeId);
 	}
 	
+	//가맹점 원재료 발주 수정
 	public int updateOrder() {
 		return seinDao.updateOrder(sqlSession);
 	}
+	
+	//가맹점 신청 정보 조회
+	public Enroll selectEnrollInfo(int enrNo) {
+		return seinDao.selectEnrollInfo(sqlSession, enrNo);
+	}
+	
 }
 
