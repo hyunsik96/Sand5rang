@@ -41,8 +41,8 @@ public class AnnaDao {
 	}
 	
 	// 문의 답변 등록
-	public int enrollAnser(SqlSessionTemplate sqlSession, Inquery i) {
-		return sqlSession.update("annaMapper.enrollAnser",i);
+	public int enrollAnswer(SqlSessionTemplate sqlSession, Inquery i) {
+		return sqlSession.update("annaMapper.enrollAnswer",i);
 	}
 	
 	

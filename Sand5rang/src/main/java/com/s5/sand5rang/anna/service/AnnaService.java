@@ -50,7 +50,7 @@ public class AnnaService {
 
 	// 답변 등록 
 	public int enrollAnswer(Inquery i) {
-		return annaDao.enrollAnser(sqlSession,i);
+		return annaDao.enrollAnswer(sqlSession,i);
 	}
 
 }

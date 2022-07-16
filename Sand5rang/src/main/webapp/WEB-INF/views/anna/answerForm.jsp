@@ -207,7 +207,7 @@
 				</div><br>
 				
 				<!--관리자 답변 입력 부분-->
-				<form action="enrollAnser.an">
+				<form action="enrollAnswer.an" method="post">
 					<input type="hidden" name="inqNo" value="${ i.inqNo }">
 				
 					<div class="inq_answer" align="center">

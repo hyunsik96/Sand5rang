@@ -101,16 +101,16 @@ public class AnnaController {
 			return "common/errorFr";
 		}	
 	}
-
-	// 답변달린 걸 보는건지,,? 이부분 모르겠음 ,,!!! 
-	@RequestMapping(value="inqDetail.an")
-	public String joinForm(String answer, int inqNo) {
-		
-		Inquery i = annaService.selectInquery(i);
-	
-		return "redirect:ansForm.an?ino="+i;
-	}
-	
+//
+//	// 답변달린 걸 보는건지,,? 이부분 모르겠음 ,,!!! 
+//	@RequestMapping(value="inqDetail.an")
+//	public String joinForm(String answer, int inqNo) {
+//		
+//		Inquery i = annaService.selectInquery(i);
+//	
+//		return "redirect:ansForm.an?ino="+i;
+//	}
+//	
 	
 
 	
