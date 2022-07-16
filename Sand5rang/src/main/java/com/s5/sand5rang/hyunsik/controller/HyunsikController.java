@@ -20,6 +20,7 @@ import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
 import com.s5.sand5rang.hyunsik.vo.StockF;
+import com.s5.sand5rang.hyunsik.vo.StockS;
 import com.s5.sand5rang.sein.vo.Store;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Ingredient;
@@ -40,7 +41,7 @@ public class HyunsikController {
 	public String adCusIndentList(
 			@RequestParam(value="p", defaultValue="1") int currentPage, 
 			Model model) {
-	forceStop("47", 1, 1);
+
 		int listCount = hyunsikService.ad1ListCount();
 
 		int pageLimit = 10;
@@ -288,20 +289,108 @@ if(flowDate!=0) {
 		
 	}
 	
-	public void forceStop(String storeId, int menNo, int count) {
+	public int forceStop(String storeId, int menNo, int count) {
 		
 		ArrayList<Ingredient> ingList = seonghoonService.selectIngMen(menNo);
-		System.out.println(ingList);
-		for(Ingredient i : ingList) {
-			
-		}
 		
 		ArrayList<Stock> s_list1 = seonghoonService.selectStock1(storeId);
 		ArrayList<Stock> s_list2 = seonghoonService.selectStock2(storeId);
 		ArrayList<Stock> s_list3 = seonghoonService.selectStock3(storeId);
 		ArrayList<Stock> s_list4 = seonghoonService.selectStock4(storeId);
 		ArrayList<Stock> s_list5 = seonghoonService.selectStock5(storeId);
+		
+		StockS s = new StockS(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+		
+		for(Stock sss : s_list1) {
+			if(sss.getIngNo()==1) { s.setA(sss.getCount()); }
+			if(sss.getIngNo()==2) { s.setB(sss.getCount()); }
+			if(sss.getIngNo()==3) { s.setC(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list2) {
+			if(sss.getIngNo()==4) { s.setD(sss.getCount()); }
+			if(sss.getIngNo()==5) { s.setE(sss.getCount()); }
+			if(sss.getIngNo()==6) { s.setF(sss.getCount()); }
+			if(sss.getIngNo()==7) { s.setG(sss.getCount()); }
+			if(sss.getIngNo()==8) { s.setH(sss.getCount()); }
+			if(sss.getIngNo()==9) { s.setI(sss.getCount()); }
+			if(sss.getIngNo()==10) { s.setJ(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list5) {
+			if(sss.getIngNo()==11) { s.setK(sss.getCount()); }
+			if(sss.getIngNo()==12) { s.setL(sss.getCount()); }
+			if(sss.getIngNo()==13) { s.setM(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list3) {
+			if(sss.getIngNo()==14) { s.setN(sss.getCount()); }
+			if(sss.getIngNo()==15) { s.setO(sss.getCount()); }
+			if(sss.getIngNo()==16) { s.setP(sss.getCount()); }
+			if(sss.getIngNo()==17) { s.setQ(sss.getCount()); }
+			if(sss.getIngNo()==18) { s.setR(sss.getCount()); }
+			if(sss.getIngNo()==19) { s.setS(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list4) {
+			if(sss.getIngNo()==20) { s.setT(sss.getCount()); }
+			if(sss.getIngNo()==21) { s.setU(sss.getCount()); }
+			if(sss.getIngNo()==22) { s.setV(sss.getCount()); }
+			if(sss.getIngNo()==23) { s.setW(sss.getCount()); }
+			if(sss.getIngNo()==24) { s.setX(sss.getCount()); }
+		}
+		
+		int kkk = 0;
+		
+		for(Ingredient iiiii : ingList) {
+			if(iiiii.getIngNo()==1) { if(count > s.getA()) { kkk = 1; } }
+			if(iiiii.getIngNo()==2) { if(count > s.getB()) { kkk = 1; } }
+			if(iiiii.getIngNo()==3) { if(count > s.getC()) { kkk = 1; } }
+			if(iiiii.getIngNo()==4) { if(count > s.getD()) { kkk = 1; } }
+			if(iiiii.getIngNo()==5) { if(count > s.getE()) { kkk = 1; } }
+			if(iiiii.getIngNo()==6) { if(count > s.getF()) { kkk = 1; } }
+			if(iiiii.getIngNo()==7) { if(count > s.getG()) { kkk = 1; } }
+			if(iiiii.getIngNo()==8) { if(count > s.getH()) { kkk = 1; } }
+			if(iiiii.getIngNo()==9) { if(count > s.getI()) { kkk = 1; } }
+			if(iiiii.getIngNo()==10) { if(count > s.getJ()) { kkk = 1; } }
+			if(iiiii.getIngNo()==11) { if(count > s.getK()) { kkk = 1; } }
+			if(iiiii.getIngNo()==12) { if(count > s.getL()) { kkk = 1; } }
+			if(iiiii.getIngNo()==13) { if(count > s.getM()) { kkk = 1; } }
+			if(iiiii.getIngNo()==14) { if(count > s.getN()) { kkk = 1; } }
+			if(iiiii.getIngNo()==15) { if(count > s.getO()) { kkk = 1; } }
+			if(iiiii.getIngNo()==16) { if(count > s.getP()) { kkk = 1; } }
+			if(iiiii.getIngNo()==17) { if(count > s.getQ()) { kkk = 1; } }
+			if(iiiii.getIngNo()==18) { if(count > s.getR()) { kkk = 1; } }
+			if(iiiii.getIngNo()==19) { if(count > s.getS()) { kkk = 1; } }
+			if(iiiii.getIngNo()==20) { if(count > s.getT()) { kkk = 1; } }
+			if(iiiii.getIngNo()==21) { if(count > s.getU()) { kkk = 1; } }
+			if(iiiii.getIngNo()==22) { if(count > s.getV()) { kkk = 1; } }
+			if(iiiii.getIngNo()==23) { if(count > s.getW()) { kkk = 1; } }
+			if(iiiii.getIngNo()==24) { if(count > s.getX()) { kkk = 1; } }
+		}
+		
+		return kkk;
 
+	}
+	
+	/*********** 판매기입페이지 ***********/
+	@RequestMapping(value="salesPage0.csh")
+	public String salesPage0(Model model, HttpSession session) {
+		
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
+		
+		int aaaaa = hyunsikService.countSales(storeId);
+		
+		if(aaaaa!=0) {
+			session.setAttribute("alertMsg", "이미 오늘의 판매 기입이 완료되었습니다.");
+			
+			return "redirect:menuSales.csh"; 
+			
+		}
+		
+		return "seonghoon/판매기입페이지"; 
 	}
 	
 	

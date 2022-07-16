@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.hyunsik.vo.StockS;
 import com.s5.sand5rang.sein.vo.Store;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
 import com.s5.sand5rang.seonghoon.vo.Expiration;
@@ -185,11 +186,7 @@ public class SeonghoonController {
 	}
 	
 	
-	
-	
-	/*********** 판매기입페이지 ***********/
-	@RequestMapping(value="salesPage0.csh")
-	public String salesPage0(Model model) { return "seonghoon/판매기입페이지"; }
+
 	
 	/*매출 기입 insert용 */
 	@ResponseBody
@@ -200,6 +197,88 @@ public class SeonghoonController {
 
 		String storeId = user.getStoreId();
 
+		ArrayList<Ingredient> ingList111 = seonghoonService.selectIngMen(ingNo);
+		
+		ArrayList<Stock> s_list111 = seonghoonService.selectStock1(storeId);
+		ArrayList<Stock> s_list222 = seonghoonService.selectStock2(storeId);
+		ArrayList<Stock> s_list333 = seonghoonService.selectStock3(storeId);
+		ArrayList<Stock> s_list444 = seonghoonService.selectStock4(storeId);
+		ArrayList<Stock> s_list555 = seonghoonService.selectStock5(storeId);
+		
+		StockS s = new StockS(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+		
+		for(Stock sss : s_list111) {
+			if(sss.getIngNo()==1) { s.setA(sss.getCount()); }
+			if(sss.getIngNo()==2) { s.setB(sss.getCount()); }
+			if(sss.getIngNo()==3) { s.setC(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list222) {
+			if(sss.getIngNo()==4) { s.setD(sss.getCount()); }
+			if(sss.getIngNo()==5) { s.setE(sss.getCount()); }
+			if(sss.getIngNo()==6) { s.setF(sss.getCount()); }
+			if(sss.getIngNo()==7) { s.setG(sss.getCount()); }
+			if(sss.getIngNo()==8) { s.setH(sss.getCount()); }
+			if(sss.getIngNo()==9) { s.setI(sss.getCount()); }
+			if(sss.getIngNo()==10) { s.setJ(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list555) {
+			if(sss.getIngNo()==11) { s.setK(sss.getCount()); }
+			if(sss.getIngNo()==12) { s.setL(sss.getCount()); }
+			if(sss.getIngNo()==13) { s.setM(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list333) {
+			if(sss.getIngNo()==14) { s.setN(sss.getCount()); }
+			if(sss.getIngNo()==15) { s.setO(sss.getCount()); }
+			if(sss.getIngNo()==16) { s.setP(sss.getCount()); }
+			if(sss.getIngNo()==17) { s.setQ(sss.getCount()); }
+			if(sss.getIngNo()==18) { s.setR(sss.getCount()); }
+			if(sss.getIngNo()==19) { s.setS(sss.getCount()); }
+		}
+		
+		for(Stock sss : s_list444) {
+			if(sss.getIngNo()==20) { s.setT(sss.getCount()); }
+			if(sss.getIngNo()==21) { s.setU(sss.getCount()); }
+			if(sss.getIngNo()==22) { s.setV(sss.getCount()); }
+			if(sss.getIngNo()==23) { s.setW(sss.getCount()); }
+			if(sss.getIngNo()==24) { s.setX(sss.getCount()); }
+		}
+		
+		int kkk = 0;
+		
+		for(Ingredient iiiii : ingList111) {
+			if(iiiii.getIngNo()==1) { if(order_count > s.getA()) { kkk = 1; } }
+			if(iiiii.getIngNo()==2) { if(order_count > s.getB()) { kkk = 1; } }
+			if(iiiii.getIngNo()==3) { if(order_count > s.getC()) { kkk = 1; } }
+			if(iiiii.getIngNo()==4) { if(order_count > s.getD()) { kkk = 1; } }
+			if(iiiii.getIngNo()==5) { if(order_count > s.getE()) { kkk = 1; } }
+			if(iiiii.getIngNo()==6) { if(order_count > s.getF()) { kkk = 1; } }
+			if(iiiii.getIngNo()==7) { if(order_count > s.getG()) { kkk = 1; } }
+			if(iiiii.getIngNo()==8) { if(order_count > s.getH()) { kkk = 1; } }
+			if(iiiii.getIngNo()==9) { if(order_count > s.getI()) { kkk = 1; } }
+			if(iiiii.getIngNo()==10) { if(order_count > s.getJ()) { kkk = 1; } }
+			if(iiiii.getIngNo()==11) { if(order_count > s.getK()) { kkk = 1; } }
+			if(iiiii.getIngNo()==12) { if(order_count > s.getL()) { kkk = 1; } }
+			if(iiiii.getIngNo()==13) { if(order_count > s.getM()) { kkk = 1; } }
+			if(iiiii.getIngNo()==14) { if(order_count > s.getN()) { kkk = 1; } }
+			if(iiiii.getIngNo()==15) { if(order_count > s.getO()) { kkk = 1; } }
+			if(iiiii.getIngNo()==16) { if(order_count > s.getP()) { kkk = 1; } }
+			if(iiiii.getIngNo()==17) { if(order_count > s.getQ()) { kkk = 1; } }
+			if(iiiii.getIngNo()==18) { if(order_count > s.getR()) { kkk = 1; } }
+			if(iiiii.getIngNo()==19) { if(order_count > s.getS()) { kkk = 1; } }
+			if(iiiii.getIngNo()==20) { if(order_count > s.getT()) { kkk = 1; } }
+			if(iiiii.getIngNo()==21) { if(order_count > s.getU()) { kkk = 1; } }
+			if(iiiii.getIngNo()==22) { if(order_count > s.getV()) { kkk = 1; } }
+			if(iiiii.getIngNo()==23) { if(order_count > s.getW()) { kkk = 1; } }
+			if(iiiii.getIngNo()==24) { if(order_count > s.getX()) { kkk = 1; } }
+		}
+		
+		if(kkk==1) {
+			order_count=0;
+		}
+		
 	// 1. SALES 테이블에 INSERT
 		Menu m = new Menu();
 		m.setMenNo(ingNo); // 원재료 번호

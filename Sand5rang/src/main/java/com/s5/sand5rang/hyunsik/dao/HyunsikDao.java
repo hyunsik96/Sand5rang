@@ -158,6 +158,10 @@ public class HyunsikDao {
 	public Chart getChart2(SqlSessionTemplate sqlSession, String storeId) {
 		return sqlSession.selectOne("hyunsikMapper.getChart2", storeId);
 	}
+	
+	public int countSales(SqlSessionTemplate sqlSession, String storeId) {
+		return sqlSession.selectOne("hyunsikMapper.countSales", storeId);
+	}
 
 
 }

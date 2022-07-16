@@ -138,5 +138,9 @@ public class HyunsikService {
 		return hyunsikDao.getChart2(sqlSession, storeId);
 	}
 	
+	public int countSales(String storeId) {
+		return hyunsikDao.countSales(sqlSession, storeId);
+	}
+	
 }
 

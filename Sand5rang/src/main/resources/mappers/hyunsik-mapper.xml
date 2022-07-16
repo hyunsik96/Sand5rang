@@ -482,5 +482,12 @@
 		FROM DUAL
   	</select>
   	
+  	<select id="countSales" parameterType="string" resultType="_int">
+		SELECT COUNT(*) 
+		FROM SALES 
+		WHERE TO_CHAR(SAL_DATE, 'YYMMDD')=TO_CHAR(SYSDATE, 'YYMMDD') AND 
+		STORE_ID = #{storeId} 
+  	</select>
+  	
 
 </mapper>
