@@ -14,11 +14,6 @@
   	<link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
   </head>
 
 <body>
@@ -304,6 +299,8 @@
                 </tr>
                 <c:set var="tot_price" value="${tot_price + olist.total}"/>
                 <c:set var="sum" value="${sum + olist.count}"/>
+				<c:set var="bal" value="${olist.bal}"/>
+				<c:set var="total" value="${olist.bal - olist.total}"/>
               </c:forEach>
                   <tr>
                     <td style="text-align: center;" colspan="3">총 발주 수량</td>
@@ -322,18 +319,20 @@
                 <th style="text-align: center;">총 발주 수량(단위/개)</th>
                 <th style="text-align: center;">총 발주 가격(단위/원)</th>
                 <th style="text-align: center;">현재 잔액(단위/원)</th>
-                <th style="text-align: center;">총 결제 금액(단위/원)</th>
+                <th style="text-align: center;">결제 후 잔액(단위/원)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td style="text-align: center;">${sum}</td>
                 <td style="text-align: center;"><fmt:formatNumber value="${tot_price}" pattern="###,###,###,###"/></td>
-                <td style="text-align: center;">1,000,000</td>
-                <td style="text-align: center;">900,000</td>
+                <td style="text-align: center;"><fmt:formatNumber value="${bal}" pattern="###,###,###,###"/></td>
+                <td style="text-align: center;"><fmt:formatNumber value="${total}" pattern="###,###,###,###"/></td>
               </tr>
             </tbody>
           </table>
+		  <br>
+		  <button type="button" onclick="location.href='orderList.se'" class="btn btn-success" style="float: right; margin-right: 20px;">발주조회</button>
         </div>
 	</div>
 	

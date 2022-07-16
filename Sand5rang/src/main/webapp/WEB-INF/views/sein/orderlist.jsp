@@ -11,25 +11,27 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
-  <link rel="shortcut icon" href="resources/images/logo.png" type="">
+  	<link rel="shortcut icon" href="resources/images/logo.png" type="">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
    
-
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
   </head>
 
 <body>
+	
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+		<c:remove var="alertMsg" scope="session"/>
+	 </c:if> 
 
 <jsp:include page="include/1.jsp" />
 <jsp:include page="include/2.jsp" />
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
+<jsp:include page="include/6.jsp" />
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -160,17 +162,6 @@
 
 </div> <!-- /subnavbar -->
     
-     <!-- 알람메세지 내용이 있다면  -->
-	 
-
-	<c:if test="${ not empty alertMsg }">
-		<script>
-			alert("${alertMsg}");
-		</script>
-		<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
-		<c:remove var="messesage" scope="session"/>
-	</c:if>
-
 	<div class="main">
 		<div class="main-inner">
 			<div class="container">
@@ -361,11 +352,6 @@
 
 	</div>
 	<!-- /footer -->
-
-
-
-	<jsp:include page="include/6.jsp" />
-
 	<!-- The Modal -->
 	<div class="modal" id="vModal1" style="display: none;" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">

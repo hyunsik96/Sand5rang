@@ -115,7 +115,6 @@ public class SeinController {
 			
 			if(loginstore.getStoreId().equals("admin")) {
 				
-				
 				mv.setViewName("redirect:admain.hs");
 				
 			}else {
@@ -166,7 +165,6 @@ public class SeinController {
 			
 			if(result>0) {
 				//새로운 비밀번호 변경 성공 
-				System.out.println(store.getStorePwd() + "새롭게 변경되었나요?");
 				session.setAttribute("alertMsg", "비밀번호변경에 성공하였습니다.");
 				
 				mv.setViewName("redirect:login.me");
@@ -227,10 +225,13 @@ public class SeinController {
 		int result = seinService.selectOrder(storeId);
 		
 		if(result==24) {
-			//당일 선 발주건 있음 
-			session.setAttribute("alertMsg", "당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요.'");
 			
-			 return "sein/orderlist";
+			String alertMsg ="당일 발주 신청한 내역이 있습니다. \n발주 취소 후 다시 신청해주세요."; 
+			//당일 선 발주건 있음 
+		
+			session.setAttribute("alertMsg", alertMsg);
+			
+			return "redirect:orderList.se";
 			 
 		}else {
 			//당일 선 발주건 없음 

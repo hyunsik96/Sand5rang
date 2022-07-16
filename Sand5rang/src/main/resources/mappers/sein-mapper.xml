@@ -15,6 +15,7 @@
 		<result column="PRICE" property="price"/>
 		<result column="ROWNUM" property="rowNo"/>
 		<result column="IND" property="indD"/>
+		<result column="BAL" property="bal"/>
 		<result column="'B'" property="b"/>
 		<result column="'V'" property="v"/>
 		<result column="'C'" property="c"/>
@@ -86,11 +87,13 @@
 	
 	<!-- 발주상세조회 select -->
 	<select id="selectTodayOrder" parameterType="string" resultMap="TodyOrderResultSet">
-		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, ING_TYPE
-		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
-		WHERE STORE_ID = #{storeId} 
-		      AND TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
-		ORDER BY ING_NO ASC
+		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, 
+		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, (P.DEPOSIT-P.WITHDRAW) BAL
+		FROM INDENT I, INGREDIENT G, PAYMENT P
+		WHERE I.ING_NO = G.ING_NO AND 
+		I.STORE_ID = P.STORE_ID AND 
+		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
+		ORDER BY I.ING_NO ASC
 	</select>
 
 	<!-- 발주전체조회 select -->

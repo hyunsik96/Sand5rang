@@ -28,6 +28,7 @@ public class Order {
 	private String rowNo;		//발주select rowNum
 	private int price;			//원재료가격
 	private String indD;		//발주날짜(시/분/초)
+	private int bal;			//잔액
 	private int b;
 	private int v;
 	private int c;
