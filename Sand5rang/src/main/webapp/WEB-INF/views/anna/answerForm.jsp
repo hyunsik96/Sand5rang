@@ -207,19 +207,20 @@
 				</div><br>
 				
 				<!--관리자 답변 입력 부분-->
-<form action="dd" >
-<input type="hidden" name="inqNo" value="${ i.inqNo }">
-				<div class="inq_answer" align="center">
-					<textarea style="width:90%; height:400px; resize: none; color:grey;" name="answer" placeholder="답변내용을 입력하세요.">
-					</textarea>
-				</div><br>
+				<form action="enrollAnser.an">
+					<input type="hidden" name="inqNo" value="${ i.inqNo }">
+				
+					<div class="inq_answer" align="center">
+						<textarea style="width:90%; height:400px; resize: none; color:grey;" name="inqAnswer" placeholder="답변내용을 입력하세요.">
+						</textarea>
+						</div><br>
 				
 				<div align="right">
 					<button type="reset" onClick="history.back();" class="btn btn-large">취소하기</button>
 					<button type="submit" class="btn btn-primary btn-large">등록하기</button>
-</form>					
 				</div>
-			
+			</form>	
+				
 			</div>
 		
 		</div>

@@ -94,13 +94,25 @@ public class AnnaController {
 	
 		if(result>0) {
 			session.setAttribute("alertMsg", "답변이 등록되었습니다.");
-			return "redirect:inqueryList.an";
+			return "redirect:inqList.an";
 		}
 		else {
 			model.addAttribute("errorMsg", "답변 등록에 실패하였습니다.");
 			return "common/errorFr";
 		}	
 	}
+
+	// 답변달린 걸 보는건지,,? 이부분 모르겠음 ,,!!! 
+	@RequestMapping(value="inqDetail.an")
+	public String joinForm(String answer, int inqNo) {
+		
+		Inquery i = annaService.selectInquery(i);
+	
+		return "redirect:ansForm.an?ino="+i;
+	}
+	
+	
+
 	
 	// 가맹문의 폼
 	@RequestMapping(value="joinForm.an")
@@ -122,25 +134,24 @@ public class AnnaController {
 		}	
 	}
 	
-//	@ResponseBody
-//	@RequestMapping(value="emailCheck.me", produces="text/html; charset=UTF-8")
-//	public int emailChecker (String checkEmail) {
-//		
-//		
-//		
-////		int mailAutNo = EmailSend.naverMailSend(checkEmail);
-//		
-//	}
 	
 	
-	@RequestMapping(value="xxxx.an")
-	public String joinForm(String answer, int inqNo) {
-		
-		
-		
-		return "redirect:ansForm.an?ino="+inqNo;
-	}
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping(value="emailCheck.me", produces="text/html; charset=UTF-8")
+	 * public int emailChecker (String checkEmail) {
+	 * 
+	 * 
+	 * 
+	 * int mailAutNo = EmailSend.naverMailSend(checkEmail);
+	 * 
+	 * }
+	 */
 	
+
+	
+	// 
 
 }
 
