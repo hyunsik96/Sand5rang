@@ -74,6 +74,20 @@ public class SangmiDao {
 		
 		return sqlSession.selectOne("sangmiMapper.idCheck", checkId);
 	}
+
+   //가맹가입 반려 폼
+   public int inreStore(SqlSessionTemplate sqlSession, Enroll e) {
+	   
+	   return sqlSession.insert("sangmiMapper.inreStore",e);
+   }
+   
+   
+ //가맹 가입 반려 변화
+   public int referStore(SqlSessionTemplate sqlSession, Enroll e) {
+	   
+	   return sqlSession.update("sangmiMapper.referStore",e);
+   }
+   
    
 	//---------가맹주----------------
    //게시글 총 갯수 조회

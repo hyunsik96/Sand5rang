@@ -178,44 +178,53 @@
     <table id="boardList" class="table table-striped table-bordered">
         <thead> 
            <tr>
-               <th>신청번호</th>
+               <th >신청번호</th>
                <th>이름</th>
                <th>연락처</th>
                <th>이메일</th>
                <th>지역</th>
-               <th>상태(대기중B)</th>
-               <th>반려</th>
+               <th>상태</th>
+         
            </tr>
           </thead>
            <tbody>
-              <c:forEach var="e" items="${ list }">
+              <c:forEach var="e" items="${ list }" varStatus="status">
                <tr>
-                 <td class="enr">${e.enrNo}</td>
+                 <td id="vv" class="enr1">${e.enrNo}</td>
                  <td>${e.storeName}</td>
                  <td>${e.phone}</td>
                  <td>${e.email}</td> 
                  <td>${e.enrollAdd}</td>
-                 <td>${e.status}</td>
                  <td>
-                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#${status.index}">반려</button>
+                  <c:if test="${e.status eq 'B'}">
+                                       대기중
+                 </c:if>
                  </td>
+                 
                </tr>
               </c:forEach>   
            </tbody>
-      </table>   
+      </table> 
+      
+
+      
+  
     <script>
       $(function(){
     	 
     	  $("#boardList>tbody>tr").click(function(){
     		
     		  
-    		  location.href="stEnDetail.sm?enr="+ $(this).children(".enr").text();
+    		  location.href="stEnDetail.sm?enr="+ $(this).children(".enr1").text();
     	  });
     	  
       });  
     
     </script>
-    
+
+
+
+
     <br><br>
    
 
@@ -352,7 +361,6 @@
 
 
 <jsp:include page="include/6.jsp" />
-
 
   </body>
 

@@ -228,7 +228,7 @@
                      <!--  상세주소:<input type="text" name="address_detail" />-->
         </label>
           <label for="content">^ 내용 : </label>
-          <textarea class="form-control" id="content" name="message" placeholder="가맹점 승인 혹은 반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
+          <textarea class="form-control" id="content" name="message" placeholder="가맹점 승인이유를  써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
         
         </div>
           
@@ -241,8 +241,35 @@
    
             <button type="submit" class="btn btn-primary" >확인</button>
           
+            
         </div>
     </form>
+
+  <form id="" class="" method="post" action="referStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
+        <div class="form-group" >
+            <input type="hidden" name="contact_number">
+
+
+          <label for="content">^ 내용 : </label>
+          <textarea class="form-control" id="content" name="message" placeholder="가맹점  반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 
+        
+        </div>
+          
+      
+        <br>
+
+        <div align="right">
+         
+            <input type="hidden" name="enrNo" value="${ e.enrNo }">
+   
+            <button type="submit" class="btn btn-danger" >반려</button>
+          
+            
+        </div>
+    </form>
+
+
+
 
 	       <script>
           $(function() {

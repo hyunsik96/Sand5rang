@@ -65,8 +65,9 @@
  SELECT ENR_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
  WHERE STATUS = 'B'
- 
 </select>
+
+
 
 <!-- 가맹가입신청 상세페이지 -->
 <select id="selectEnroll" parameterType="_int" resultMap="enrollResultSet">
@@ -103,6 +104,22 @@ WHERE ENR_NO = #{enrNo}
    SET STATUS = 'Y'
    WHERE ENR_NO = #{enrNo}
   </update>
+  
+<!-- 가맹가입 반려 insert -->
+  <insert id="inreStore" parameterType="com.s5.sand5rang.sangmi.vo.Enroll">
+   INSERT INTO STORE(ENR_NO)           
+	VALUES( #{enrNo}) 
+   </insert>
+  
+  
+  
+<!-- 반려버튼=> 반려 상태 C로 하기 -->
+  
+ <update id="referStore" parameterType="_int">
+UPDATE ENROLL
+SET STATUS = 'C'
+WHERE ENR_NO = #{enrNo}
+ </update>
 
 
 <!--=======가맹주==========-->

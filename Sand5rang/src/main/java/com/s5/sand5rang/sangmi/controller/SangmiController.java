@@ -132,10 +132,7 @@ public class SangmiController {
 	@RequestMapping("insertStore.sm")
 	public String insertStore(Store s, Enroll e, Model model, HttpSession session,
 			                  String storeName, String storeId, String storePwd, String address, String message) {
-		
-		
-		
-		
+
 		String a = "안녕하세요. 샌드오랑입니다. \n 가맹점 명 : "+storeName+""
 				+ " ,가맹점 아이디: "+storeId+" ,가맹점 비밀번호 : "+storePwd +" "
 				+ "\n 가맹점 주소: "+address+""
@@ -148,7 +145,7 @@ public class SangmiController {
 		s.setAddress(address);
 		s.setMessage(message);
 		
-		System.out.println("store: "+ s);		
+		//System.out.println("store: "+ s);		
 		//암호화 작업
 		String encPwd = bCryptPasswordEncoder.encode(s.getStorePwd());
 		
@@ -176,9 +173,37 @@ public class SangmiController {
 		
 		
 	}
+	//가맹가입 - 뱐려 폼
+	@RequestMapping("referStore.sm")
+	public String referStore(Enroll e, Model model, HttpSession session,
+			                 String message) {
 
+		String a = "안녕하세요. 샌드오랑입니다. "+""
+				+ "\n 메시지: "+message;
+		EmailSend.naverMailSend("osm248@naver.com", a);
+		
+		e.setMessage(message);
+		
+		int result = SangmiService.inreStore(e);
+		
+		int result2 = SangmiService.referStore(e);
+		
+		if(result>0 && result2 >0) {
+			
+			session.setAttribute("alertMsg","반려처리가 되었습니다");
+			return "redirect:/storeEnrollList.sm";
+		}
+		else {
+			
+			model.addAttribute("errorMsg","반려처리가 실패하였습니다.");
+			
+			return "common/errorAd";
+		}
+		
+		
+		
 	
-	
+	}
 	//가맹점 이름 체크!
 	@ResponseBody
 	@RequestMapping(value="idCheck.sm", produces="text/html; charset=UTF-8")

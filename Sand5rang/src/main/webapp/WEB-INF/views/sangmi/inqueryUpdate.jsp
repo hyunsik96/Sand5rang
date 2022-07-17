@@ -189,7 +189,7 @@
                    <td>
                      <select name="category" >
                        
-                        <option >${i.category}</option>
+                        <option style="background:gray;">${i.category}</option>
                      	<option value="운영문의" >운영문의</option>
 						<option value="재고문의">재고문의</option> 
 						<option value="발주문의">발주문의</option>
