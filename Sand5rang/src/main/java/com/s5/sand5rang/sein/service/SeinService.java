@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.sein.dao.SeinDao;
 import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Order;
@@ -21,6 +22,10 @@ public class SeinService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	//가맹점 발주 리스트 count
+	public int selectListCount(String storeId) {
+		return seinDao.selectListCount(sqlSession, storeId);
+	}
 	
 	//로그인 - Store/본사(id/pw)조회
 	public Store loginStore(Store store) {
@@ -49,8 +54,8 @@ public class SeinService {
 	}
 	
 	//가맹점 발주내역 리스트조회 select Service
-	public ArrayList<Order> selectAllOrderList(String storeId){
-		return (ArrayList)seinDao.selectAllOrderList(sqlSession, storeId);
+	public ArrayList<Order> selectAllOrderList(String storeId, PageInfo pi){
+		return (ArrayList)seinDao.selectAllOrderList(sqlSession, storeId, pi);
 	}
 	
 	//가맹점 자동발주 신청 내역 select
@@ -82,5 +87,7 @@ public class SeinService {
 	public int myPayment(String storeId) {
 		return seinDao.myPayment(sqlSession, storeId);
 	}
+
+	
 }
 

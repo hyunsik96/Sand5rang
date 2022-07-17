@@ -12,9 +12,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.s5.sand5rang.common.model.vo.PageInfo;
+import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.sein.service.SeinService;
 import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Order;
@@ -190,14 +193,23 @@ public class SeinController {
 	
 	/*발주 리스트 조회*/
 	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
-    public String orderListController(Model m, HttpSession session)
+    public String orderListController(Model m, HttpSession session, @RequestParam(value="cpage", defaultValue="1") int currentPage)
     {
-		
+
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
 		
+		//페이징처리를 위한 변수들 세팅 => PageInfo 객체
+		
+		int listCount = seinService.selectListCount(storeId);
+		
+		int pageLimit = 10;
+		int boardLimit = 5;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+		
 		//날짜별 발주 합계 list select 
-		ArrayList<Order> allOlist= seinService.selectAllOrderList(storeId);
+		ArrayList<Order> allOlist= seinService.selectAllOrderList(storeId, pi);
 		
 		if(allOlist.isEmpty()) {
 			
@@ -209,6 +221,8 @@ public class SeinController {
 			
 			m.addAttribute("all_Olist", allOlist);
 			m.addAttribute("order", order);
+			m.addAttribute("pi", pi);
+			
 			
 	        return "sein/orderlist";
 		}

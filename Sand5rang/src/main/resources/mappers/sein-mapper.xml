@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="seinMapper">
 	
-	<resultMap type="order" id="TodyOrderResultSet">
+	<resultMap type="order" id="OrderResultSet">
 		<result column="IND_NO" property="indNo"/>
 		<result column="COUNT" property="count"/>
 		<result column="IND_DATE" property="indDate"/>
@@ -61,13 +61,12 @@
 		STATUS = 'Y'
 	</select>
 	
-	
+	<!-- 비밀번호 변경 update -->	
 	<update id="newPwdUpdate" parameterType="store">
 		UPDATE STORE SET STORE_PWD = #{storePwd} 
 					 WHERE STORE_ID = #{storeId} 
 					 AND STATUS = 'Y'
 	</update>
-	
 	
 	<!-- 발주 체크 select -->
 	<select id="selectOrder" parameterType="string" resultType="_int">
@@ -96,7 +95,7 @@
 	</insert>
 	
 	<!-- 발주상세조회 select -->
-	<select id="selectTodayOrder" parameterType="string" resultMap="TodyOrderResultSet">
+	<select id="selectTodayOrder" parameterType="string" resultMap="OrderResultSet">
 		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, 
 		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, P.BAL
 		FROM INDENT I, INGREDIENT G, (SELECT NVL(SUM(DEPOSIT+WITHDRAW),0) AS BAL, STORE_ID
@@ -111,19 +110,28 @@
 	</select>
 
 	<!-- 발주전체조회 select -->
-	<select id="selectAllOrderList" parameterType="string" resultMap="TodyOrderResultSet">
-		SELECT ROWNUM, A.*
-		FROM(SELECT *
-		      FROM (SELECT ING_TYPE, COUNT, IND_DATE, STATUS
-		            FROM INDENT JOIN INGREDIENT USING(ING_NO)
-                    WHERE STORE_ID = #{storeId})
-		      PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))
-		      ORDER BY IND_DATE ASC) A
-		ORDER BY IND_DATE DESC
+	<select id="selectAllOrderList" parameterType="string" resultMap="OrderResultSet">
+		SELECT ROWNUM, H.*
+		FROM(SELECT * 
+			FROM(SELECT A, COUNT, ING_TYPE, STORE_ID, STATUS
+			     FROM(SELECT TO_CHAR(IND_DATE, 'YY-MM-DD') A,
+			                TO_CHAR(TO_DATE(IND_DATE, 'YYYY-MM-DD') - INTERVAL '1' DAY, 'YY-MM-DD') || ' '|| 15 B, 
+			                TO_CHAR(IND_DATE, 'YY-MM-DD') || ' ' || 15 C, 
+			                COUNT, 
+			                ING_TYPE,
+			                STORE_ID, 
+			                STATUS
+			         FROM INDENT I, INGREDIENT G
+			         WHERE STORE_ID = #{storeId} AND 
+			              I.ING_NO = G.ING_NO 
+			         ORDER BY A DESC) 
+			WHERE A BETWEEN TO_DATE(B, 'YY-MM-DD HH24') AND TO_DATE(C, 'YY-MM-DD HH24'))
+			PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))) H
+		ORDER BY ROWNUM DESC
 	</select>
 	
 	<!-- 자동발주신청 select -->
-	<select id="selectAutoOrder" resultMap="TodyOrderResultSet">
+	<select id="selectAutoOrder" resultMap="OrderResultSet">
 	     SELECT TO_DATE(IND_DATE, 'YY-MM-DD HH24:MI:SS') IND_DATE, IND_NO, COUNT, TOTAL, STATUS, STORE_ID, ING_NO
 		 FROM INDENT 
 		 WHERE TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') BETWEEN TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') - INTERVAL '33' HOUR, 'YY-MM-DD HH24:MI:SS') AND
@@ -132,7 +140,7 @@
 	</select>
 	
 	<!-- 가맹점 발주대기 상태의 원재료 list select -->
-	<select id="selectOrder2" parameterType="string" resultMap="TodyOrderResultSet">
+	<select id="selectOrder2" parameterType="string" resultMap="OrderResultSet">
 		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, PRICE
 		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
 		WHERE STORE_ID = #{storeId} AND 
@@ -165,5 +173,15 @@
 	<select id="myPayment" parameterType="String" resultType="_int">
 		SELECT COUNT(*) FROM PAYMENT WHERE STORE_ID = #{storeId}
 	</select>
+	
+	<!-- 가맹점 리스트 count -->
+	<select id="selectListCount" parameterType="String" resultType="_int">
+		SELECT COUNT(*) 
+		FROM (SELECT SUBSTR(IND_DATE, 1, 10) 
+				FROM INDENT 
+				WHERE STORE_ID = #{storeId} 
+				GROUP BY SUBSTR(IND_DATE, 1, 10))
+	</select>
+
 	
 </mapper>

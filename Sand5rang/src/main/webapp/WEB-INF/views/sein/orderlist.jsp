@@ -196,7 +196,7 @@
 										<tbody>
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
 										<c:choose>
-											<c:when test="${status.last eq true}">
+											<c:when test="${status.first ne true}">
 												<tr>
 													<td class="th1">${all_Olist.rowNo}</td>
 													<td class="th3">${all_Olist.b}</td>
@@ -251,11 +251,27 @@
 							<div style="margin-top: 100px">
 							<!-- /widget-content -->
 								<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-									<li class="page-item"><a class="page-link" href="#"><</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">></a></li>
+									<c:choose>
+										<c:when test="${pi.currentPage eq 1}">
+											<li class="page-item"><a class="page-link" href="#"><</a></li>
+										</c:when>
+										<c:otherwise>
+											<li><li class="page-item"><a class="page-link" href="orderList.se?cpage=${pi.currentPage-1}"><</a></li></li>
+										</c:otherwise>
+									</c:choose>
+
+									<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+										<li class="page-item"><a class="page-link" href="#">${p}</a></li>
+									</c:forEach>
+
+									<c:choose>
+										<c:when test="${pi.currentPage eq pi.maxPage}">
+											<li class="page-item"><a class="page-link" href="#">></a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item"><a class="page-link" href="orderList.se?cpage=${pi.currentPage + 1}">></a></li>
+										</c:otherwise>
+									</c:choose>
 								</ul>
 							</div>
 					</div>
