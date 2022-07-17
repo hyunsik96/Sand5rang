@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.vo.Chart;
+import com.s5.sand5rang.hyunsik.vo.Enroll;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.Payment;
@@ -161,6 +162,14 @@ public class HyunsikDao {
 	
 	public int countSales(SqlSessionTemplate sqlSession, String storeId) {
 		return sqlSession.selectOne("hyunsikMapper.countSales", storeId);
+	}
+	
+	public int checkEmail(SqlSessionTemplate sqlSession, String email) {
+		return sqlSession.selectOne("hyunsikMapper.checkEmail", email);
+	}
+	
+	public int insertStore(SqlSessionTemplate sqlSession, Enroll e) {
+		return sqlSession.insert("hyunsikMapper.insertStore", e);
 	}
 
 

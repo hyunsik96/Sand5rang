@@ -36,6 +36,12 @@
 </head>
 
 <body>
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<c:remove var="alertMsg" scope="session"/>
+	 </c:if>
   <div class="hero_area">
     <div class="bg-box active">
       <img src="resources/images/burger.png" alt="">

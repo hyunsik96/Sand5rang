@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.hyunsik.dao.HyunsikDao;
 import com.s5.sand5rang.hyunsik.vo.Chart;
+import com.s5.sand5rang.hyunsik.vo.Enroll;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.Payment;
@@ -140,6 +141,14 @@ public class HyunsikService {
 	
 	public int countSales(String storeId) {
 		return hyunsikDao.countSales(sqlSession, storeId);
+	}
+	
+	public int checkEmail(String email) {
+		return hyunsikDao.checkEmail(sqlSession, email);
+	}
+	
+	public int insertStore(Enroll e) {
+		return hyunsikDao.insertStore(sqlSession, e);
 	}
 	
 }

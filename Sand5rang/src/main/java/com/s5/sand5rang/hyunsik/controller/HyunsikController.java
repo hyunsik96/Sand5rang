@@ -13,10 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
+import com.s5.sand5rang.hyunsik.vo.EmailSendHs;
+import com.s5.sand5rang.hyunsik.vo.Enroll;
 import com.s5.sand5rang.hyunsik.vo.Indent;
 import com.s5.sand5rang.hyunsik.vo.Payment;
 import com.s5.sand5rang.hyunsik.vo.StockF;
@@ -393,7 +396,53 @@ if(flowDate!=0) {
 		return "seonghoon/판매기입페이지"; 
 	}
 	
+	@RequestMapping(value="joinStoreForm.hs")
+	public String joinjoin() {
+		return "hyunsik/joinFormHs";
+	}
 	
+	@ResponseBody
+	@RequestMapping(value="emailCheck.hs", produces="text/html; charset=UTF-8")
+	public String checkEmail(String checkEmail) {
+		
+		int a = hyunsikService.checkEmail(checkEmail);
+		
+		if(a>0) {
+			return "NNNNN";
+		}else {
+			return "NNNNY";
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="emailSend.hs", produces="text/html; charset=UTF-8")
+	public String sendEmail(String userEmail) {
+		
+		int autNo = EmailSendHs.naverMailSend(userEmail);
+		
+		return Integer.toString(autNo);
+		
+	}
+	
+	@RequestMapping(value="insertStore.hs")
+	public String insertStore(String storeName, String phone, String email, String region2, String subject, String content, HttpSession session) {
+		
+		Enroll e = new Enroll();
+		
+		e.setName(storeName); e.setPhone(phone); e.setEmail(email); e.setAddress(region2); e.setTitle(subject); e.setContent(content);
+		
+		int result = hyunsikService.insertStore(e);
+		
+		if(result>0) {
+			session.setAttribute("alertMsg", "신청되었습니다.");
+			return "redirect:/";
+		}else {
+			session.setAttribute("alertMsg", "신청에 실패하였습니다. 다시 시도해주세요.");
+			return "redirect:/";
+		}
+		
+
+	}
 	
 
 }

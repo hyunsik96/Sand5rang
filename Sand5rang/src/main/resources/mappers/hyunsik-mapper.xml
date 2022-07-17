@@ -489,5 +489,25 @@
 		STORE_ID = #{storeId} 
   	</select>
   	
+  	<select id="checkEmail" parameterType="string" resultType="_int">
+		SELECT COUNT(*) 
+		FROM ENROLL 
+		WHERE EMAIL = #{email} 
+  	</select>
+  	
+  	<insert id="insertStore" parameterType="com.s5.sand5rang.hyunsik.vo.Payment">
+		INSERT INTO ENROLL
+		VALUES(
+		SEQ_ENRNO.NEXTVAL, 
+		#{name}, 
+		#{address}, 
+		#{email}, 
+		#{phone}, 
+		#{title}, 
+		#{content}, 
+		'B'
+		)
+  	</insert>
+  	
 
 </mapper>
