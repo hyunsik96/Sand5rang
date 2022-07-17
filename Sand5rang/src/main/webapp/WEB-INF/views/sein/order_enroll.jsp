@@ -803,10 +803,12 @@
 										<hr>
 
 
-                            
-                                <div id="total" style="float : right; margin-right: 30px; font-size: 30px; margin-top: 20px; ">
+							<form class="order_list" id="25" >
+                                <div id="total" style="float : right; margin-right: 25px; font-size: 30px; margin-top: 20px; ">
                                     총 발주액 : <b id="tot_order_price">0</b>&nbsp;원
+									<input type="hidden" name="allPrice" value="">
                                 </div>
+							</form>
 
                                 <br><br>
 								<div style="margin-top: 100px; width: 100%; text-align: center;">
@@ -1087,11 +1089,11 @@ $("input[class=count_result]").on("keyup",function(key){
 
 function orderPrice()  {
 
-    // 모든 input태그 안에있는 가격 결과 element
-    //var price_el = $('div[id=total_price]');
-
     //결과 값을 담아줄 element
-    var tot = $("div[id=total]").children("b[id=tot_order_price]");
+    var tot = $("form[class=order_list]").children("div[id=total]").children("b[id=tot_order_price]");
+
+	// //hidden으로 숨겨놓은 값
+	var alltot = $("form[id=25]").children("div[id=total]").children("input[name=allPrice]");
 
     //,가 붙여져있지 않은 값이 담겨있는 element
     var tot2 = $("div[id=total_price_hidden]");
@@ -1105,6 +1107,7 @@ function orderPrice()  {
         num_tot += parseInt(tot2[i].innerText);
 
         tot.text(num_tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+		alltot.val(num_tot);
 
         }
 }
@@ -1144,12 +1147,17 @@ function exe(){
                     status[i].setAttribute("value", "AB");
 
                     var form1 = $("form[id="+(i+1)+"]").serialize();
+					
+					form1 += '&'+$("form[id=25]").serialize();
+					//var form2 = $("form[id=25]").serialize();
                     // //자동발주 신청 stat값 AB로 변경해주기 
-                    
+
+					console.log(form1);
+					//console.log(form2);
+
                     //controller로 보내기
                     (function(i){
 
-                        console.log(form1);
                             $.ajax({
                                 type: "post",
                                 url: "orderEnroll.se",
@@ -1164,12 +1172,18 @@ function exe(){
 
                     status[i].setAttribute("value", "B");
 
-                    var form1 = $("form[id="+(i+1)+"]").serialize();
+					var form1 = $("form[id="+(i+1)+"]").serialize();
+					
+					form1 += '&'+$("form[id=25]").serialize();
+					//var form2 = $("form[id=25]").serialize();
                     // //자동발주 신청 stat값 AB로 변경해주기 
                     
+					console.log(form1);
+					//console.log(form2);
+
                     //controller로 보내기
                     (function(i){
-                        console.log(form1);
+
                             $.ajax({
                                 type: "post",
                                 url: "orderEnroll.se",

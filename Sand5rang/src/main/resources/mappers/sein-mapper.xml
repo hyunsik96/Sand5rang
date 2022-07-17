@@ -98,17 +98,15 @@
 	<!-- 발주상세조회 select -->
 	<select id="selectTodayOrder" parameterType="string" resultMap="TodyOrderResultSet">
 		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, 
-		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, (P.DEPOSIT-P.WITHDRAW) BAL
-		FROM INDENT I, INGREDIENT G, 
-		        (SELECT PAY_NO, DEPOSIT, WITHDRAW, PAY_DATE, STORE_ID, 
-		        RANK() OVER(PARTITION BY STORE_ID ORDER BY TO_CHAR(PAY_DATE,'YYMMDD HH24:MI:SS') DESC) AS RNK
-		        FROM PAYMENT
-		        WHERE STORE_ID = #{storeId}) P
+		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, P.BAL
+		FROM INDENT I, INGREDIENT G, (SELECT SUM(DEPOSIT+WITHDRAW)AS BAL, STORE_ID
+                                        FROM PAYMENT 
+                                        WHERE STORE_ID = #{store_id}
+                                        GROUP BY STORE_ID) P
 		WHERE I.ING_NO = G.ING_NO AND 
 		I.STORE_ID = P.STORE_ID AND 
-        I.STORE_ID = #{storeId} AND 
-        P.RNK = 1 AND
-		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
+        I.STORE_ID = #{store_id} AND
+		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = '22-07-16' --TO_CHAR(SYSDATE, 'YY-MM-DD') 
 		ORDER BY I.ING_NO ASC
 	</select>
 

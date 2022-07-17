@@ -242,7 +242,7 @@ public class SeinController {
 	
 	/*발주 신청 insert용 */
 	@RequestMapping(value="orderEnroll.se", produces="text/html; charset=UTF-8")
-	public String orderEnrollController(int order_count, int ingNo, int tot_price, String stat, Model m, HttpSession session) 
+	public String orderEnrollController(int order_count, int ingNo, int tot_price, int allPrice, String stat, Model m, HttpSession session) 
 	{
 			Store loginstore = (Store)session.getAttribute("loginstore");
 			String storeId = loginstore.getStoreId();
@@ -258,19 +258,19 @@ public class SeinController {
 			order.setTotal(tot_price);
 			order.setStatus(stat);
 			
-			int total = 0;
-			total += tot_price;
-			
-			
 			//현재 잔액보다 발주 금액이 큰지 조회 먼저 ==> 현재 잔액조회 select
 			int balance = seinService.todayMyPayment(storeId);
 			
 			//payment행 조회
 			int payCount = seinService.myPayment(storeId);
 			
+			System.out.println("총발주금액: " + allPrice);
+			System.out.println("현재남은잔액: "+balance);
+			System.out.println("현재 payment에 있는 행의 갯수 : " + payCount);
+			
 			//payment행이 아예 없을 경우에는 발주 실행이 되지 않도록 만들어주기 
 			//발주 금액 > 현재 잔액
-			if(tot_price<balance && payCount>0) {
+			if(allPrice<balance && payCount>0) {
 				//현재 잔액보다 발주 금액이 작으면 발주 가능 
 				int result = seinService.insertOrder(order);
 				
@@ -326,7 +326,7 @@ public class SeinController {
 		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
 		ArrayList<Order> olist = seinService.selectTodayOrder(storeId);
 		
-		m.addAttribute("indDate", olist.get(0).getIndDate());
+		//m.addAttribute("indDate", olist.get(0).getIndDate());
 		m.addAttribute("olist", olist);
 		
         return "sein/order_enroll_result";
