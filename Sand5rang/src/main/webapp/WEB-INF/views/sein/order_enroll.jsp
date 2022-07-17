@@ -22,6 +22,7 @@
   </head>
 
 <body>
+<input type="hidden" id="result" value="0">
 
 	<c:if test="${ not empty alertMsg }">
 		<script>
@@ -1163,8 +1164,12 @@ function exe(){
                                 url: "orderEnroll.se",
                                 data: form1,
                                 dataType: 'json',
-                                async: false
-                            });
+                                async: false,
+								success: function(result){
+
+									$("#result").val(result);
+								}
+				            });
                     })(i);
                 }
             }else{
@@ -1189,13 +1194,22 @@ function exe(){
                                 url: "orderEnroll.se",
                                 data: form1,
                                 dataType: 'json',
-                                async: false
+                                async: false,
+								success: function(result){
+
+									$("#result").val(result);
+								}
                             });
                     })(i);
                 
                 }
             }
-            location.href = "orderEnrollResult.se";
+            //location.href = "orderEnrollResult.se";
+			if($("#re").val() == '1'){
+				location.href = "orderEnrollForm.se";
+			}else{
+				location.href = "orderEnrollResult.se";
+			}
         }
         else{
             alert("1개 이상 발주수량을 선택해주세요.");

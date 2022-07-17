@@ -264,10 +264,6 @@ public class SeinController {
 			//payment행 조회
 			int payCount = seinService.myPayment(storeId);
 			
-			System.out.println("총발주금액: " + allPrice);
-			System.out.println("현재남은잔액: "+balance);
-			System.out.println("현재 payment에 있는 행의 갯수 : " + payCount);
-			
 			//payment행이 아예 없을 경우에는 발주 실행이 되지 않도록 만들어주기 
 			//발주 금액 > 현재 잔액
 			if(allPrice<balance && payCount>0) {
@@ -275,13 +271,14 @@ public class SeinController {
 				int result = seinService.insertOrder(order);
 				
 				//성공 => 게시글 리스트페이지로 url재요청
-				//session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
-				return (result>0) ? "success" : "fail";
+				session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
+				
+				return (result>0) ? "success" : "error";
 				
 			}else {
 				session.setAttribute("alertMsg", "잔액보다 발주금액이 큽니다. 잔액 충전 후 발주해주세요.");
 				
-				return "redirect:orderEnroll.se";
+				return "1";
 			}
 			
 	}
@@ -326,7 +323,6 @@ public class SeinController {
 		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
 		ArrayList<Order> olist = seinService.selectTodayOrder(storeId);
 		
-		//m.addAttribute("indDate", olist.get(0).getIndDate());
 		m.addAttribute("olist", olist);
 		
         return "sein/order_enroll_result";

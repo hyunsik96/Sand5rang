@@ -17,7 +17,12 @@
   </head>
 
 <body>
-
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<c:remove var="alertMsg" scope="session"/>
+	 </c:if> 
 <jsp:include page="include/1.jsp" />
 <jsp:include page="include/2.jsp" />
 <jsp:include page="include/3.jsp" />
@@ -170,7 +175,7 @@
 <div class="widget-content"> 
     <div>
 		&nbsp;&nbsp;&nbsp;<b>[ 발주날짜 : </b>
-		<!-- <b><c:out value="${indDate}"/>  ]</b> -->
+		<b><c:out value="${indDate}"/>  ]</b> 
         <b style="color: rgb(214, 58, 58); font-family: 'Noto Sans KR', sans-serif;">
             &nbsp;&nbsp;&nbsp;&nbsp;* 14:00시 이전 본사 측 승인 전에는 발주 수정이 가능합니다. <br>
         </b>
