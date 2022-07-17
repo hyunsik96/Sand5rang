@@ -130,14 +130,26 @@ public class SeonghoonDao {
 	}
 	
 	// ****************************** 재료별 재고현황 ********************************
-	public int ingListcount(SqlSessionTemplate sqlSession, HashMap<String,String> hashmap) {
-		return sqlSession.selectOne("seonghoonMapper.ingListcount", hashmap);
-	}
+	public int ingListcount(SqlSessionTemplate sqlSession, HashMap<String,String> hashmap) {return sqlSession.selectOne("seonghoonMapper.ingListcount", hashmap);}
+	
 	public ArrayList<Stock> selectSortIngredient(SqlSessionTemplate sqlSession, PageInfo pi, HashMap<String, String> hashmap){
 		int limit = pi.getBoardLimit();
 		int offset = (pi.getCurrentPage() - 1) * limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);	
 		
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectSortIngredient", hashmap, rowBounds);
+	}
+	
+	//******************************* 폐기 관리 ************************************
+	public int disposalListCount(SqlSessionTemplate sqlSession, HashMap<String,String> hashmap) {
+		return sqlSession.selectOne("seonghoonMapper.disposalListCount", hashmap);
+	}
+	
+	public ArrayList<Stock> selectDisposalList(SqlSessionTemplate sqlSession, HashMap<String, String> hashmap, PageInfo pi){
+		int limit = pi.getBoardLimit();
+		int offset = (pi.getCurrentPage() - 1) * limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);	
+		
+		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectDisposalList", hashmap,rowBounds );
 	}
 }

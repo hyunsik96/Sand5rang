@@ -113,9 +113,9 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
-						<li><a href="ingredientStock.csh">재료별 재고현황</a></li>
+						<li><a href="ingredientStock1.csh">재료별 재고현황</a></li>
 						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
-						<li class="active"><a href="ingredientDisposal.csh">폐기현황</a></li>
+						<li class="active"><a href="ingredientDisposal1.csh">폐기관리</a></li>
                     </ul>    				
 				</li>
 				
@@ -178,8 +178,69 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>폐기 현황</h3>
+
+<script>
+ $(function() {
+  $("select[name=ingType]").change(function() {
+   var temp = $("select[name=ingName]");
+   var ingType = $(this).val();
+   temp.children().remove();
+   
+   if(ingType == 'B'){
+    temp.append('<option value="파마산">파마산</option>');
+    temp.append('<option value="화이트">화이트</option>');
+    temp.append('<option value="플렛">플렛</option>');
+   }
+   if(ingType == 'V'){
+    temp.append('<option value="양상추">양상추</option>');
+    temp.append('<option value="토마토">토마토</option>');
+    temp.append('<option value="오이">오이</option>');
+    temp.append('<option value="양파">양파</option>');
+    temp.append('<option value="피망">피망</option>');
+    temp.append('<option value="할라피뇨">할라피뇨</option>');
+    temp.append('<option value="아보카도">아보카도</option>');
+   }
+   if(ingType == 'C'){
+    temp.append('<option value="아메리칸">아메리칸</option>');
+    temp.append('<option value="모짜렐라">모짜렐라</option>');
+    temp.append('<option value="슈레드">슈레드</option>');
+   }
+   if(ingType == 'M'){
+    temp.append('<option value="페퍼로니">페퍼로니</option>');
+    temp.append('<option value="에그마요">에그마요</option>');
+    temp.append('<option value="치킨">치킨</option>');
+    temp.append('<option value="쉬림프">쉬림프</option>');
+    temp.append('<option value="비프">비프</option>');
+    temp.append('<option value="베이컨">베이컨</option>');
+   }
+   if(ingType == 'S'){
+    temp.append('<option value="랜치">랜치</option>');
+    temp.append('<option value="스위트칠리">스위트칠리</option>');
+    temp.append('<option value="올리브오일">올리브오일</option>');
+    temp.append('<option value="머스타드">머스타드</option>');
+    temp.append('<option value="후추">후추</option>');
+   }      
+   
+  });
+ });
+ </script>
+
+ <form action="ingredientDisposal1.csh" method="get">
+	<select name="ingType" style="width:100px; margin-top:10px;">
+	  <option value="B">빵</option>
+	  <option value="V">야채</option>
+	  <option value="M">고기</option>
+	  <option value="C">치즈</option>
+	  <option value="S">소스</option>
+	</select>
+	<select name="ingName" style="width:100px; margin-top:10px;">
+	  <option value="파마산">파마산</option>	
+	  <option value="화이트">화이트</option>	
+	  <option value="플렛">플렛</option>
+	</select>
+	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
+</form>						
 	  				</div> <!-- /widget-header -->
-					
 					<div class="widget-content">
 
 <!-- 여기가 content 채우는 영역입니다 - 현식 -
@@ -193,33 +254,50 @@
 				<th>재료명</th>
 				<th>재료개수</th>
 				<th>입고날짜</th>
-				<th>폐기여부</th>
-				<th>폐기승인</th>
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="i" begin="1" end="10" step="1">
+			<c:forEach var="disposal" items="${disposal_list}">
 			<tr class="st_body2">
-				<td>파마산</td>
-				<td>30</td>
-				<td>2022-07-06</td>
-				<td>X</td>
-				<td><a data-toggle="modal" href="#Modal${i}" class="btn btn-danger">폐기</a></td>
+				<td>${disposal.ingName}</td>
+				<td>${disposal.count}</td>
+				<td>${disposal.stoDate}</td>
 			</tr>	
-		</c:forEach>															
+			</c:forEach>
 		</tbody>
 	</table>
 					</div> <!-- /widget-content -->
 						
 				</div> <!-- /widget -->
 	<!-- /widget-content -->
-		<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-			<li class="page-item"><a class="page-link" href="#"><</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">></a></li>
-		</ul>	      		
+<ul class="pagination pagination-sm">
+<c:choose>
+	<c:when test="${pi.currentPage eq 1}">
+	<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ingredientDisposal1.csh?p=${pi.currentPage - 1}"><</a></li>
+	</c:otherwise>
+</c:choose>
+
+<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+	<c:if test="${pi.currentPage eq p}">
+		<li class="page-item active"><a class="page-link" href="ingredientDisposal1.csh?p=${p}&ingType=${disposal_list[0].ingType}&ingName=${disposal_list[0].ingName}">${p}</a></li>
+	</c:if>
+	<c:if test="${pi.currentPage ne p}">
+		<li class="page-item"><a class="page-link" href="ingredientDisposal1.csh?p=${p}&ingType=${disposal_list[0].ingType}&ingName=${disposal_list[0].ingName}">${p}</a></li>
+	</c:if>
+</c:forEach>
+
+<c:choose>
+	<c:when test="${pi.currentPage eq pi.maxPage}">
+	<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+	</c:when>
+	<c:otherwise>
+	<li class="page-item"><a class="page-link" href="ingredientDisposal1.csh?p=${pi.currentPage + 1}">></a></li>
+	</c:otherwise>
+</c:choose>
+</ul>	    		
 		    </div> <!-- /span8 -->
 	      	
 	      	
@@ -320,45 +398,8 @@
 
 
 <jsp:include page="include/6.jsp" />
-	<c:forEach var="i" begin="1" end="10" step="1">
-	<!-- 모달의 id의 끝에 재료번호를 부여해주어서 재료마다 뽑아올 수 있도록 -->
-	<!-- The Modal -->
-	<div class="modal" id="Modal${i}" style="display: none;">
-		<div class="modal-dialog">
-		  <div class="modal-content">	 
-	  
-		  <!-- Modal Header -->
-		  <div class="modal-header">
-			  <h4 class="modal-title">폐기승인</h4>
-		  </div> 
-		  
-		  <!-- Modal body -->
-		  <div class="modal-body">
-		  	<h4>다음과 같은 폐기의 항목이 존재합니다.</h4>
-		  	<br>
-			<div style="margin-top : 10px;">
-				<h4>파마산</h4>
-				<img src="resources/images/ingredient/파마산.jpg" width="150" height="150">
-				<p class="disposal">
-				재료개수 : <input type="number" class="stock_style" value="10000" readonly><br> 
-				입고날짜 : <input type="text" class="stock_style" value="2022-07-05" readonly>
-				</p>
-			</div>	
-		  	
-		  </div>
-
-		  <!-- Modal footer -->
-		  <div class="modal-footer">
-			  <button type="button" class="btn btn-danger">폐기</button>
-			  <button type="button" class="btn btn-success" data-dismiss="modal" onclick="closeModal();">취소</button>
-		  </div>  
-	  </div>
-	</div>
-  </div>
-</c:forEach>
 
 <script>
-// 모달 끄기
 
 </script>
  

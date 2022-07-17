@@ -117,7 +117,7 @@
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
 						<li><a href="ingredientStock1.csh">재료별 재고현황</a></li>
 						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
-						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
+						<li><a href="ingredientDisposal1.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
 				

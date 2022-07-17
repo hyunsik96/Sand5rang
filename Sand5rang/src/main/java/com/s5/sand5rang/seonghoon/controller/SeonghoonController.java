@@ -126,6 +126,7 @@ public class SeonghoonController {
 		// 페이징 바 
 		int listCount = seonghoonService.ingListcount(hashmap);
 		// System.out.println("listCount : "+listCount);
+		
 		int pageLimit = 10;
 		int boardLimit = 5;
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
@@ -522,8 +523,51 @@ public class SeonghoonController {
 	}
 	
 	
+/************* 폐기관리 ********************/
+// 1. 단순 포워딩	
+@RequestMapping(value="ingredientDisposal.csh")
+public String disposalView(Model model) {
+	return "seonghoon/폐기관리";
+}
 
+// 2. 본격적인 폐기 관리
+@RequestMapping(value="ingredientDisposal1.csh")
+public String selectDisposal(
+		Model model,
+		@RequestParam(value="p", defaultValue="1") int currentPage,
+		@RequestParam(value="ingType", defaultValue="B") String ingType,
+		@RequestParam(value="ingName", defaultValue="파마산") String ingName,
+		HttpSession session		
+		) {
+	// 가맹점 아이디를 세션에
+	Store user = (Store)session.getAttribute("loginstore");
+	String storeId = user.getStoreId();	
 	
+	// 두개의 select태그의 name값을 hashmap에
+	HashMap<String, String> hashmap = new HashMap<>();
+	hashmap.put("ingType",ingType);
+	hashmap.put("ingName",ingName);
+	hashmap.put("storeId",storeId);
+	/*
+	System.out.println("ingType : "+ingType);
+	System.out.println("ingName : "+ingName);
+	System.out.println("storeId : "+storeId);
+	*/
+	
+	// 페이징 바를 포함한 select 구현
+	
+	int listCount = seonghoonService.disposalListCount(hashmap);
+	// System.out.println("listCount : "+listCount);
+	int pageLimit = 10;
+	int boardLimit = 5;
+	PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
+	ArrayList<Stock> disposal_list = seonghoonService.selectDisposalList(pi,hashmap);
+	
+	model.addAttribute("pi", pi);
+	model.addAttribute("disposal_list", disposal_list);
+	
+	return "seonghoon/폐기관리";
+}
 	
 
 

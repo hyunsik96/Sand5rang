@@ -115,7 +115,7 @@
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
 						<li class="active"><a href="ingredientStock.csh">재료별 재고현황</a></li>
 						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
-						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
+						<li><a href="ingredientDisposal1.csh">폐기관리</a></li>
                     </ul>    				
 				</li>
 				
@@ -178,13 +178,8 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>재료별 재고 현황</h3>
-	      				<!-- 
-						<input type="text" id="search"
-						style="display:inline-block; width:150px; height:15px; margin-top:10px; margin-left:65%;">
-						<button id="btn" class="btn btn-success">검색</button>
-						 -->
 						 
-	 <script>
+<script>
  $(function() {
   $("select[name=ingType]").change(function() {
    var temp = $("select[name=ingName]");
@@ -229,6 +224,7 @@
   });
  });
  </script>
+
  <form action="ingredientStock1.csh" method="get">
 	<select name="ingType" style="width:100px; margin-top:10px;">
 	  <option value="B">빵</option>
@@ -238,7 +234,9 @@
 	  <option value="S">소스</option>
 	</select>
 	<select name="ingName" style="width:100px; margin-top:10px;">
-		<option value="파마산">파마산</option>
+	  <option value="파마산">파마산</option>	
+	  <option value="화이트">화이트</option>	
+	  <option value="플렛">플렛</option>
 	</select>
 	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
 </form>					
