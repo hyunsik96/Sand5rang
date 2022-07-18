@@ -180,7 +180,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -190,7 +190,7 @@
 	      				
 	      				
 	  				</div> <!-- /widget-header -->
-
+  <c:if test="${not empty list}">
     <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
             <tr>
@@ -203,7 +203,10 @@
             </tr>
         </thead>
         <tbody>
-          <c:forEach var="i" items="${list }">
+
+              
+         		
+         <c:forEach var="i" items="${list }">
             <tr>
                <td class="ino">${i.inqNo}</td> 
                  <td>${i.category }</td>
@@ -214,11 +217,13 @@
                 <c:if test="${empty i.ansDate }">대기</c:if>${i.ansDate}
                 </td>
             </tr>
-           </c:forEach> 		
+           </c:forEach> 
         </tbody>
     </table>
-
-	
+ </c:if>
+ <c:if test="${empty list}">
+   <div style="color:red; text-align:center; margin:10px 10px;" >현재 문의 결과가 없습니다. </div>
+ </c:if>	
 	
 		 <a class="btn btn-secondary" style="float:right;" href="inqueryEnroll.sm" >글등록</a>
 
@@ -235,7 +240,7 @@
   });
 </script>
 
-
+ <c:if test="${ not empty list}">
 	<ul class="pagination pagination-sm">
 		
 	   <c:choose>
@@ -247,9 +252,14 @@
 		 </c:otherwise>
 	   </c:choose> 
 		
-		
-		<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
+	 	
+		<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
+		 <c:if test="${pi.currentPage eq p}"> 
+			<li class="page-item active"><a class="page-link" href="inqueryList.sm?cpage=${ p }">${ p }</a></li>
+		</c:if>
+		 <c:if test="${pi.currentPage ne p}"> 
 			<li class="page-item"><a class="page-link" href="inqueryList.sm?cpage=${ p }">${ p }</a></li>
+		</c:if>
 		</c:forEach>
 		
 		<c:choose>
@@ -259,10 +269,11 @@
 		  <c:otherwise>
 			 <li class="page-item"><a class="page-link" href="inqueryList.sm?cpage=${ pi.currentPage + 1 }">></a></li>
 		  </c:otherwise>
-		</c:choose>
-	
-		
+		</c:choose>		
 	</ul>
+</c:if>
+
+	
 
 
 

@@ -37,7 +37,10 @@ public class SangmiService {
 		
 		return SangmiDao.storeclose(sqlSession, enrNo);
 	}
-	
+	//가맹 가입 게시글 총 갯수 조회
+		public int selectListCount3() {
+			return SangmiDao.selectListCount3(sqlSession);
+		}
 	
     //가맹 가입신청 리스트 조회
 	public ArrayList<Enroll> storeEnrollList(PageInfo pi){

@@ -37,7 +37,11 @@ public class SangmiDao {
     	
     	return sqlSession.update("sangmiMapper.storeclose", enrNo);
     }
-   
+  //게시글 총 갯수 조회
+  	public int selectListCount3(SqlSessionTemplate sqlSession) {
+  		
+  		return sqlSession.selectOne("sangmiMapper.selectListCount3");
+  	} 
    
    
  //가맹 가입신청 리스트 조회

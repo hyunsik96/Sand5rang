@@ -167,7 +167,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -190,7 +190,7 @@
            <tbody>
               <c:forEach var="e" items="${ list }" varStatus="status">
                <tr>
-                 <td id="vv" class="enr1">${e.enrNo}</td>
+                 <td class="enr1">${e.enrNo}</td>
                  <td>${e.storeName}</td>
                  <td>${e.phone}</td>
                  <td>${e.email}</td> 
@@ -241,7 +241,13 @@
               
               
               <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
+               <c:if test="${pi.currentPage eq p}">
+               <li class="page-item active"><a class="page-link" href="storeEnrollList.sm?cpage=${ p }">${ p }</a></li>
+               </c:if>
+                <c:if test="${pi.currentPage ne p}">
                <li class="page-item"><a class="page-link" href="storeEnrollList.sm?cpage=${ p }">${ p }</a></li>
+               </c:if>
+               
               </c:forEach>
               
               <c:choose>

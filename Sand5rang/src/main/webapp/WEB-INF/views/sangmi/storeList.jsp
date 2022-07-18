@@ -167,7 +167,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -219,8 +219,13 @@
                    </c:choose> 
                     
                     
-                    <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-	                    <li class="page-item"><a class="page-link" href="storeList.sm?cpage=${ p }">${ p }</a></li>
+                    <c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}"> 
+                        <c:if test="${pi.currentPage eq p}">
+	                    <li class="page-item active"><a class="page-link" href="storeList.sm?cpage=${ p }">${ p }</a></li>
+                        </c:if>
+                     <c:if test="${pi.currentPage ne p }">
+                        <li class="page-item"><a class="page-link" href="storeList.sm?cpage=${ p }">${ p }</a></li>
+                     </c:if> 
                     </c:forEach>
                     
                     <c:choose>
@@ -353,9 +358,8 @@
 		                <!-- Modal Header -->
 		                <div class="modal-header">
 		                    <h4 class="modal-title">폐업</h4>
-		                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+		                    <button type="button" class="close" data-dismiss="modal" style="margin:10px;text-align:right;" >&times;</button>
 		                </div>
-		
 		                <form action="storeclose.sm" method="get">
 		                    <!-- Modal body -->
 		                    <div class="modal-body">

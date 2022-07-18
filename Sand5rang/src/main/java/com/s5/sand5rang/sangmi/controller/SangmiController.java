@@ -89,7 +89,7 @@ public class SangmiController {
 			Model model) {
 
 		//1.게시글 총 갯수 조회
-		int listCount = SangmiService.selectListCount1();
+		int listCount = SangmiService.selectListCount3();
 		
 		int pageLimit=10;
 		int boardLimit=5;
@@ -131,13 +131,14 @@ public class SangmiController {
 	//가맹가입 폼 
 	@RequestMapping("insertStore.sm")
 	public String insertStore(Store s, Enroll e, Model model, HttpSession session, String email,
-			                  String storeName, String storeId, String storePwd, String address, String message) {
+			                  String storeName, String storeId, String storePwd, String address,
+			                  String address_detail, String message) {
         
 
 		
 		String a = "안녕하세요. 샌드오랑입니다. \n 가맹점 명 : "+storeName+""
 				+ " ,가맹점 아이디: "+storeId+" ,가맹점 비밀번호 : "+storePwd +" "
-				+ "\n 가맹점 주소: "+address+""
+				+ "\n 가맹점 주소: "+address+address_detail+""
 				+ "\n 메시지: "+message;
 		//EmailSend.naverMailSend("osm248@naver.com", a);
 		EmailSend.naverMailSend(email, a);
@@ -146,7 +147,7 @@ public class SangmiController {
 		s.setStoreName(storeName);
 		s.setStoreId(storeId);
 		s.setStorePwd(storePwd);
-		s.setAddress(address);
+		s.setAddress(address+address_detail);
 		s.setMessage(message);
 		
 		//System.out.println("store: "+ s);		

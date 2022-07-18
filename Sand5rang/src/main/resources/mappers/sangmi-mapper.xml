@@ -59,6 +59,14 @@
       WHERE ENR_NO = #{enrNo} 
    </update>
    
+ <!-- 가맹 가입 게시글 총 갯수 조회 -->
+ <select id="selectListCount3" resultType="_int">
+  SELECT COUNT(*)
+  FROM ENROLL
+  WHERE STATUS = 'B'
+ </select>   
+   
+   
 <!--가맹가입신청 list 조회  -->
 
 <select id="storeEnrollList" parameterType="com.s5.sand5rang.sangmi.vo.Enroll" resultMap="enrollResultSet">
@@ -112,7 +120,7 @@ WHERE ENR_NO = #{enrNo}
   
  <update id="referStore" parameterType="_int">
 UPDATE ENROLL
-SET STATUS = 'C'
+SET STATUS = 'N'
 WHERE ENR_NO = #{enrNo}
  </update>
 

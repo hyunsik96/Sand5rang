@@ -181,15 +181,15 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>문의글  상세페이지</h3>
 	  				</div> <!-- /widget-header -->
-					<div class="widget-content">
+					<div class="widget-content" style="height:700px;">
 
-          <div class="inq_content" style="width:800px; height:800px; margin:100px;"  >
+          <div class="inq_content" style="width:800px; height:800px; margin:100px 100px;"  >
               <!--가맹점이 작성한 문의 제목-->
              <div class="inq_title"> 
                	<div style="padding-bottom:5px; margin-left:10px;">
@@ -198,11 +198,12 @@
                
                     	<!--작성글 세부 정보 및 답변 상태-->
                     		<div class="inq_info">
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">${i.category}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변</div>
-                            <div style="display:inline-block; font-size:15px;">${i.ansDate}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">카테고리: ${i.category}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">가맹점: ${i.storeName}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">작성일: ${i.inqDate}</div>
+                            <div style="display:inline-block; font-size:15px;">답변일: 
+                            <c:if test="${empty i.ansDate}">대기</c:if>
+                            ${i.ansDate}</div>
                         </div><br>
             
              
@@ -211,21 +212,20 @@
                     <pre name="inqQuery" style="resize:none; width:100%; height:200px" >${ i.inqQuery }</pre>
                 </div>
                 
+                <c:if test="${not empty i.inqAnswer}">
                 <div class="inq_content"> 
                     <pre name="inqAnswer"  style="resize:none; width:100%; height:200px" >${ i.inqAnswer }</pre>
                 </div>
-
+                 </c:if>
+                 
             </div><br>
         
-               
- <!--<c:if test="${ (not empty loginUser) and (b.boardWriter eq loginUser.userId) }"> 수정하기 버튼은 본인이 작성한 글만 -->
- <!-- </c:if> -->
-       
-
-      <div align="center">
+        <div align="center">
+   <c:if test="${ empty i.inqAnswer }"> 
+      
             <a class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</a>
             &nbsp;&nbsp;
-      
+       </c:if> 
             <a class="btn btn-secondary" href="inqueryList.sm">목록가기</a>
         </div>
                <form id="postForm" action="" method="post">

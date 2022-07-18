@@ -170,7 +170,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -204,7 +204,7 @@
                  <tr>
                 <tr>
                    <th><label for="title" style="font-size:18px">제목</label></th> 
-                   <td><input type="text" id="title" class="form-control" name="inqTitle" value="${i.inqTitle}"></td> 
+                   <td><input type="text" id="title" class="form-control" name="inqTitle" maxlength="50" value="${i.inqTitle}"></td> 
                  </tr>                               
                  <tr>
                    <th><label for="writer" style="font-size:18px">작성자</label></th> 
@@ -213,7 +213,7 @@
                 <tr>
                   <th><label for="content" style="font-size:18px">문의내용</label> </th>
                   <td>
-                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px">${ i.inqQuery }
+                   <textarea id="content" class="form-control" name="inqQuery" maxlength="1000" required style="resize:none; width:100%; height:200px">${ i.inqQuery }
                    </textarea>
                   </td>
                 </tr>
