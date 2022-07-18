@@ -295,11 +295,19 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
     <!-- end header section -->
   </div>
 
+ 	<!-- 알림창 -->
+      <c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+			<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
+			<c:remove var="alertMsg" scope="session"/>
+	</c:if>
 
 <br>
 
     <div class="inquiry_wrapper">
-      
+	<input type="hidden" id="hiddenCheck">
           <div class="subTitle" align="center">
               <h2>가맹 신청ㆍ문의 </h2>
           </div>

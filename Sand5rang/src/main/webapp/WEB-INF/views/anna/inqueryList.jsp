@@ -20,7 +20,13 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  </head>
+</head>
+<style>
+  .headTitle { display: inline-block; width:300; }
+  .category {width: 300px; align:right;  width:300px; }
+  a {curser:pointer; text-decoration:none;}
+  a:hover {text-decoration:none !important;}
+</style>
 
 <body>
 
@@ -168,21 +174,17 @@
 	      			<div class="widget-header">
 	      				<i class="icon-comment-alt"></i>
 	      				
-	      				<div>문의 조회
-
-							<!--  <form action="test.do" style="display:inline-block; margin-left: 10px;">
-									<select name="category" style="width: 100px; margin-top: 6px">
-										<option value="category">운영문의</option>
-										<option value="category">재고문의</option> 
-										<option value="category">발주문의</option>
-									</select>     
-							</form>-->
-
-	      				
-	      				</div>
+	      				<div class="haedTitle">문의 조회</div>
 						
+						<div  class="category">
+							<form action="test.do"> <!-- style="display:inline-block;" -->
+								<a href="#">운영문의</a> | <a href="#">재고문의</a> | <a href="#">발주문의</a>
+							</form>
+						</div>
+					</div> <!-- /widget-header -->
+					
 
-	  				</div> <!-- /widget-header -->
+											
 	  				
 	  			
 
@@ -205,7 +207,7 @@
 						<td>${i.inqTitle}</td>
 						<td>${i.storeName}</td>
 						<td>${i.inqDate}</td>
-						<td>${i.ansDate}</td>
+						<td><c:if test="${empty i.ansDate }">대기</c:if>${i.ansDate}</td>
 					</tr>
 				</c:forEach>	
 			</tbody>
