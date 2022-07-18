@@ -23,9 +23,9 @@
 </head>
 <style>
   .headTitle { display: inline-block; width:300; }
-  .category {width: 300px; align:right;  width:300px; }
-  a {curser:pointer; text-decoration:none;}
-  a:hover {text-decoration:none !important;}
+  category {width: 300px; align:right;  }
+  a {curser:pointer; text-decoration:none; color:dimgrey;}
+  a:hover {color: dimgrey; text-decoration:none !important;}
 </style>
 
 <body>
@@ -176,9 +176,11 @@
 	      				
 	      				<div class="haedTitle">문의 조회</div>
 						
-						<div  class="category">
+						<div class="category">
 							<form action="test.do"> <!-- style="display:inline-block;" -->
-								<a href="inqList.an?cate=1">운영문의</a> | <a href="inqList.an?cate=2">재고문의</a> | <a href="inqList.an?cate=3">발주문의</a>
+								<a href="inqList.an?cate=1">운영문의</a> | 
+								<a href="inqList.an?cate=2">재고문의</a> | 
+								<a href="inqList.an?cate=3">발주문의</a>
 							</form>
 						</div>
 					</div> <!-- /widget-header -->
@@ -207,7 +209,7 @@
 						<td>${i.inqTitle}</td>
 						<td>${i.storeName}</td>
 						<td>${i.inqDate}</td>
-						<td><c:if test="${empty i.ansDate }">대기</c:if>${i.ansDate}</td>
+						<td><c:if test="${empty i.ansDate }">답변대기</c:if>${i.ansDate}</td>
 					</tr>
 				</c:forEach>	
 			</tbody>
@@ -232,8 +234,13 @@
 					</c:otherwise>
 				</c:choose> 
 		
-				<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ p }&cate=${cate}">${ p }</a></li>
+				<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}"> 
+					<c:if test="${pi.currentPage eq p}">
+						<li class="page-item active"><a class="page-link" href="inqList.an?cpage=${p}&cate=${cate}">${p}</a></li>
+					</c:if>
+					<c:if test="${pi.currentPage ne p}">
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${p}&cate${cate}">${p}</a></li>
+					</c:if>
 				</c:forEach>
 		
 				<c:choose>

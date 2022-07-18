@@ -373,7 +373,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                 </colgroup>
                 <tbody>
                       <tr>
-                          <th scope="col">이름 *<span class="ess"></span></th>
+                          <th class="name" scope="col">이름 *<span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:100%">
                                   <input type="text" maxlength="5" name="storeName" placeholder="이름을 입력해주세요" value="" class="name" required>

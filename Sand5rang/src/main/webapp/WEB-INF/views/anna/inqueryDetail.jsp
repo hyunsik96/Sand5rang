@@ -23,7 +23,10 @@
   </head>
 <style>
    inq_info {font-size: 12px;}
-   answer {align: right;}
+   .answer {align: center;}
+   hr {color:lightgrey;}
+   .ans_content{ width:100%; hight: 400px; }
+   
  
 
 </style>
@@ -169,7 +172,7 @@
 	      			<div class="widget-header">
                         
 	      				<i class="icon-comment-alt"></i>
-	      				<h3>문의조회</h3></div> <!-- /widget-header -->
+	      				<h3>문의 조회</h3></div> <!-- /widget-header -->
                         <div class="widget-content">
 <br>
 
@@ -192,22 +195,23 @@
                   
                        	<!--작성글 세부 정보 및 답변 상태-->
                        	<div class="inq_info">
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">${i.category}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변</div>
-                            <div style="display:inline-block; font-size:15px;">${i.ansDate}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px;">카테고리:  ${i.category} </div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">가맹점:  ${i.storeName}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">문의날짜 :  ${i.inqDate} </div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변상태: </div>
+                            <div style="display:inline-block; font-size:15px;">
+                            <c:if test="${empty i.ansDate }">답변대기</c:if>
+                            ${i.ansDate}</div>
+                             
                         </div><br>
                 </div>
 
                 <!--가맹점이 작성한 문의 본문-->
                 <div class="inq_content"> 
                     <pre name="inqQuery">${ i.inqQuery }</pre>
-                </div>
-                
-                <div class="inq_content"> 
-                    <pre name="inqAnswer" style="resize:none; width:100%; height:200px" >
-                    ${ i.inqAnswer }</pre>
+                </div><br><hr>
+				 <div  style="width:800px; align:center; font-size:16px; margin-left:40px;" class="ans_content"> 
+                    ${ i.inqAnswer }
                 </div>
 
             </div><br>

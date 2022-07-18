@@ -76,7 +76,7 @@
 	
 	<!-- 문의 리스트 전체 조회 -->
 	<select id="inqueryList" parameterType="_int" resultMap="inqueryResultSet">
-		SELECT INQ_NO, CATEGORY, INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", STORE_NAME, TO_CHAR(INQ_DATE, 'YY.MM.DD') "ANS_DATE"
+		SELECT INQ_NO, CATEGORY, INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", STORE_NAME, TO_CHAR(ANS_DATE, 'YY.MM.DD') "ANS_DATE"
 		  FROM INQUERY I
 		  JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
 		<if test='cate=="1"'>WHERE CATEGORY = '운영문의'</if>
@@ -98,7 +98,7 @@
 	
 	<!--문의글 상세 조회 -->
 	<select id="selectInquery" parameterType="_int" resultMap="inqueryResultSet">
-		SELECT INQ_NO, CATEGORY, STORE_NAME, INQ_TITLE, INQ_QUERY, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, ANS_DATE
+		SELECT INQ_NO, CATEGORY, STORE_NAME, INQ_TITLE, INQ_QUERY, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, TO_CHAR(ANS_DATE, 'YY.MM.DD') "ANS_DATE"
 		FROM INQUERY I
 		JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
 		WHERE INQ_NO =  #{inqNo}
@@ -106,7 +106,7 @@
 	
 	<!-- 문의글 답변 폼(상세조회+답변 textarea) -->
 	<select id="answerForm" parameterType="com.s5.sand5rang.anna.vo.Inquery" resultMap="answerFormResultSet">
-		SELECT INQ_NO, CATEGORY, STORE_NAME, INQ_TITLE, INQ_QUERY, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", INQ_ANSWER, I.STATUS, ANS_DATE
+		SELECT INQ_NO, CATEGORY, STORE_NAME, INQ_TITLE, INQ_QUERY, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ"_DATE", INQ_ANSWER, I.STATUS, TO_CHAR(ANS_DATE, 'YY.MM.DD') "ANS_DATE"
 		FROM INQUERY I
 		JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
 		WHERE INQ_NO =  #{inqNo}

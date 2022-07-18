@@ -186,22 +186,24 @@
 
 				<!--가맹점이 작성한 문의 제목-->
                 <div class="inq_title"> 
-                  	<div style="padding-bottom:5px; margin-left:10px;"><h1>채소류 발주에 대한 문의 드립니다.</h1></div>
+                  	<div style="padding-bottom:5px; margin-left:10px;"><h1>${i.inqTitle}</h1></div>
                   
                        	<!--작성글 세부 정보 및 답변 상태-->
                        	<div class="inq_info">
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px; ">${i.category}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.storeName}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">${i.inqDate}</div>
-                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변상태</div>
-                            <div style="display:inline-block; font-size:15px;">${i.ansDate}</div>
+                           <div style="display:inline-block; padding-right:10px; font-size:15px;margin-left:10px;">카테고리:  ${i.category} </div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">가맹점:  ${i.storeName}</div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">문의날짜 :  ${i.inqDate} </div>
+                            <div style="display:inline-block; padding-right:10px; font-size:15px;">답변상태: </div>
+                            <div style="display:inline-block; font-size:15px;">
+                            <c:if test="${empty i.ansDate }">답변대기</c:if>
+                            ${i.ansDate}</div>
                         </div><br>
                 </div>
 					</div>
 
 					<!--가맹점이 작성한 문의 본문-->
 					<div class="inq_content"> 
-						<pre>${i.inqQuery}</pre>
+					<p>${i.inqQuery}</p>
 					</div>
 
 				</div><br>
@@ -211,7 +213,7 @@
 					<input type="hidden" name="inqNo" value="${ i.inqNo }">
 				
 					<div class="inq_answer" align="center" style="width:90%;">
-						<textarea style="width:90%; height:400px; resize: none; color:grey;" name="inqAnswer" placeholder="답변내용을 입력하세요."></textarea>
+						<textarea style="width:1130px; height:400px; resize: none; color:grey; align:center;" name="inqAnswer" placeholder="답변내용을 입력하세요."></textarea>
 						</div><br>
 				
 				<div align="right">
