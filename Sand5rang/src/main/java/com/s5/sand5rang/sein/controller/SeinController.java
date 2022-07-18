@@ -344,11 +344,13 @@ public class SeinController {
         return "sein/order_enroll_result";
     }
 	
-	//발주내용 update
+	//B(빵)발주내용 update
 	@RequestMapping(value="orderUpdate1.se")
 	public String orderUpdateController(Model m, int ingNo0, int ingNo1, int ingNo2, 
-			int hidden_iprice0, int hidden_iprice1, int hidden_iprice2, int count0, int count1, int count2, 
-			String indDate0, String indDate1, String indDate2, String ingType0, HttpSession session) {
+			int hidden_iprice0, int hidden_iprice1, int hidden_iprice2, 
+			int count0, int count1, int count2, 
+			String indDate0, String indDate1, String indDate2, 
+			String ingType0, HttpSession session) {
 		
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
@@ -360,7 +362,7 @@ public class SeinController {
 		String[] indDate = {indDate0, indDate1, indDate2};
 		
 		int tott = hidden_iprice0+ hidden_iprice1+ hidden_iprice2;
-		
+	
 		for(int i=0; i<3; i++) {
 			order.setIngNo(ingNo[i]);
 			order.setTotal(hidden_iprice[i]);
@@ -369,8 +371,10 @@ public class SeinController {
 			order.setStoreId(storeId);
 			order.setIngType(ingType0);
 			
+			//원재료 업데이트 전 원재료(해당 원재료를 뺀) 총 가격 
 			int beprice= seinService.selectBeforeChangeIngre(order);
 			
+			//현재잔액조회
 			int pay = seinService.todayMyPayment(storeId);
 			
 			if((tott + beprice)> pay) {
@@ -390,6 +394,210 @@ public class SeinController {
 		}
 		return "redirect:orderList.se";
 	}
+	
+	//V(야채)발주내용 update
+	@RequestMapping(value="orderUpdate2.se")
+	public String orderUpdateController2(Model m, int ingNo3, int ingNo4, int ingNo5, int ingNo6, int ingNo7, int ingNo8, int ingNo9, 
+				int hidden_iprice3, int hidden_iprice4, int hidden_iprice5, int hidden_iprice6, int hidden_iprice7, int hidden_iprice8, int hidden_iprice9, 
+				int count3, int count4, int count5, int count6, int count7, int count8, int count9, 
+				String indDate3, String indDate4, String indDate5, String indDate6, String indDate7, String indDate8, String indDate9, 
+				String ingType3, HttpSession session) {
+			
+			Store loginstore = (Store)session.getAttribute("loginstore");
+			String storeId = loginstore.getStoreId();
+			
+			Order order = new Order();
+			int[] ingNo = {ingNo3, ingNo4, ingNo5, ingNo6, ingNo7, ingNo8, ingNo9};
+			int[] hidden_iprice = {hidden_iprice3, hidden_iprice4, hidden_iprice5, hidden_iprice6, hidden_iprice7, hidden_iprice8, hidden_iprice9 };
+			int[] count = {count3, count4, count5, count6, count7, count8, count9};
+			String[] indDate = {indDate3, indDate4, indDate5, indDate6, indDate7, indDate8, indDate9 };
+			
+			int tott = hidden_iprice3 + hidden_iprice4 + hidden_iprice5 + hidden_iprice6 + hidden_iprice7+ hidden_iprice8+ hidden_iprice9;
+			
+			System.out.println(tott);
+			
+			for(int i=0; i<7; i++) {
+				order.setIngNo(ingNo[i]);
+				order.setTotal(hidden_iprice[i]);
+				order.setCount(count[i]);
+				order.setInDate(indDate[i]);
+				order.setStoreId(storeId);
+				order.setIngType(ingType3);
+				
+				int beprice= seinService.selectBeforeChangeIngre(order);
+				
+				int pay = seinService.todayMyPayment(storeId);
+				
+				if((tott + beprice)> pay) {
+					
+					session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
+					
+				}else {
+					int result = seinService.updateOrder(order);
+					
+					if(result>0) {
+						session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+					}else {
+						session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+					}
+				}
+				
+			}
+			return "redirect:orderList.se";
+		}
+	
+	    //c(치즈)발주내용 update
+		@RequestMapping(value="orderUpdate3.se")
+		public String orderUpdateController3(Model m, int ingNo10, int ingNo11, int ingNo12, 
+				int hidden_iprice10, int hidden_iprice11, int hidden_iprice12, 
+				int count10, int count11, int count12, 
+				String indDate10, String indDate11, String indDate12, 
+				String ingType10, HttpSession session) {
+			
+			Store loginstore = (Store)session.getAttribute("loginstore");
+			String storeId = loginstore.getStoreId();
+			
+			Order order = new Order();
+			int[] ingNo = {ingNo10, ingNo11, ingNo12};
+			int[] hidden_iprice = {hidden_iprice10, hidden_iprice11, hidden_iprice12};
+			int[] count = {count10, count11, count12};
+			String[] indDate = {indDate10, indDate11, indDate12};
+			
+			int tott = hidden_iprice10+ hidden_iprice11+ hidden_iprice12;
+			
+			System.out.println(tott);
+			
+			for(int i=0; i<3; i++) {
+				order.setIngNo(ingNo[i]);
+				order.setTotal(hidden_iprice[i]);
+				order.setCount(count[i]);
+				order.setInDate(indDate[i]);
+				order.setStoreId(storeId);
+				order.setIngType(ingType10);
+				
+				int beprice= seinService.selectBeforeChangeIngre(order);
+				
+				int pay = seinService.todayMyPayment(storeId);
+				
+				if((tott + beprice)> pay) {
+					
+					session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
+					
+				}else {
+					int result = seinService.updateOrder(order);
+					
+					if(result>0) {
+						session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+					}else {
+						session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+					}
+				}
+				
+			}
+			return "redirect:orderList.se";
+		}
+		
+		//M(고기)발주내용 update
+		@RequestMapping(value="orderUpdate4.se")
+		public String orderUpdateController4(Model m, int ingNo13, int ingNo14, int ingNo15, int ingNo16, int ingNo17, int ingNo18, 
+					int hidden_iprice13, int hidden_iprice14, int hidden_iprice15, int hidden_iprice16, int hidden_iprice17, int hidden_iprice18, 
+					int count13, int count14, int count15, int count16, int count17, int count18, 
+					String indDate13, String indDate14, String indDate15, String indDate16, String indDate17, String indDate18, 
+					String ingType13, HttpSession session) {
+				
+				Store loginstore = (Store)session.getAttribute("loginstore");
+				String storeId = loginstore.getStoreId();
+				
+				Order order = new Order();
+				int[] ingNo = { ingNo13, ingNo14, ingNo15, ingNo16, ingNo17, ingNo18 };
+				int[] hidden_iprice = {hidden_iprice13, hidden_iprice14, hidden_iprice15, hidden_iprice16, hidden_iprice17, hidden_iprice18};
+				int[] count = {count13, count14, count15, count16, count17, count18};
+				String[] indDate = {indDate13, indDate14, indDate15, indDate16, indDate17, indDate18};
+				
+				int tott = hidden_iprice13 + hidden_iprice14 + hidden_iprice15 + hidden_iprice16+ hidden_iprice17+ hidden_iprice18;
+				
+				System.out.println(tott);
+				
+				for(int i=0; i<6; i++) {
+					order.setIngNo(ingNo[i]);
+					order.setTotal(hidden_iprice[i]);
+					order.setCount(count[i]);
+					order.setInDate(indDate[i]);
+					order.setStoreId(storeId);
+					order.setIngType(ingType13);
+					
+					int beprice= seinService.selectBeforeChangeIngre(order);
+					
+					int pay = seinService.todayMyPayment(storeId);
+					
+					if((tott + beprice)> pay) {
+						
+						session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
+						
+					}else {
+						int result = seinService.updateOrder(order);
+						
+						if(result>0) {
+							session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+						}else {
+							session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+						}
+					}
+					
+				}
+				return "redirect:orderList.se";
+			}
+		
+		//S(소스)발주내용 update
+		@RequestMapping(value="orderUpdate5.se")
+		public String orderUpdateController5(Model m, int ingNo19, int ingNo20, int ingNo21, int ingNo22, int ingNo23, 
+							int hidden_iprice19, int hidden_iprice20, int hidden_iprice21, int hidden_iprice22, int hidden_iprice23, 
+							int count19, int count20, int count21, int count22, int count23,
+							String indDate19, String indDate20, String indDate21, String indDate22, String indDate23,
+							String ingType19, HttpSession session) {
+						
+						Store loginstore = (Store)session.getAttribute("loginstore");
+						String storeId = loginstore.getStoreId();
+						
+						Order order = new Order();
+						int[] ingNo = {ingNo19, ingNo20, ingNo21, ingNo22, ingNo23};
+						int[] hidden_iprice = { hidden_iprice19, hidden_iprice20, hidden_iprice21, hidden_iprice22, hidden_iprice23};
+						int[] count = {count19, count20, count21, count22, count23};
+						String[] indDate = {indDate19, indDate20, indDate21, indDate22, indDate23};
+						
+						int tott = hidden_iprice19+ hidden_iprice20+ hidden_iprice21 + hidden_iprice22 + hidden_iprice23;
+						
+						System.out.println(tott);
+						
+						for(int i=0; i<5; i++) {
+							order.setIngNo(ingNo[i]);
+							order.setTotal(hidden_iprice[i]);
+							order.setCount(count[i]);
+							order.setInDate(indDate[i]);
+							order.setStoreId(storeId);
+							order.setIngType(ingType19);
+							
+							int beprice= seinService.selectBeforeChangeIngre(order);
+							
+							int pay = seinService.todayMyPayment(storeId);
+							
+							if((tott + beprice)> pay) {
+								
+								session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
+								
+							}else {
+								int result = seinService.updateOrder(order);
+								
+								if(result>0) {
+									session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+								}else {
+									session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+								}
+							}
+							
+						}
+				return "redirect:orderList.se";
+		}
 	
 	//가맹점 결제page 
 	@RequestMapping(value="deposit.se")

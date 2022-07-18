@@ -88,6 +88,7 @@ public class SeinService {
 		return seinDao.myPayment(sqlSession, storeId);
 	}
 
+	//해당하는 원재료를 뺀 다른 원재료들의 합(총 가격)
 	public int selectBeforeChangeIngre(Order order) {
 		return seinDao.selectBeforeChangeIngre(sqlSession, order);
 	}

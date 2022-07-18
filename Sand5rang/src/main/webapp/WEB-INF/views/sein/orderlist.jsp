@@ -439,7 +439,7 @@
 		  </div> 
 		  
 		  <!-- Modal body -->
-		  <form class="order_list" id="${status.index}" action="orderUpdate.se" method="post" style="padding: 0px; margin: 0px;">
+		  <form class="order_list" id="${status.index}" action="orderUpdate2.se" method="post" style="padding: 0px; margin: 0px;">
 		  <div class="modal-body" style="width : 540px; margin: auto; padding: 0px;padding-bottom: 20px;">
 			  <c:forEach var="order" items="${order}" varStatus="status" begin="3" end="9">
 				
@@ -452,7 +452,7 @@
 					<b style="font-size: 11px; color : tomato">[단가 :</b> 
 					<b id="iprice" style="font-size: 11px; color : tomato"> ${order.price}</b>
 					<b style="font-size: 11px; color : tomato">]</b><br>
-					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
+					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
 					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
 					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
 					<div id="price" style="display: block; width : 100px">
@@ -461,14 +461,15 @@
 						<b style="font-size: 11px;">원</b>
 					</div>
 				</div>
-				  <input type="hidden" value="${status.index}" name="ingNo"/>
-				  <input type="hidden" value="${order.total}" name="hidden_iprice"/>
-				
+					<input type="hidden" value="${order.ingNo}" name="ingNo${status.index}"/>
+					<input type="hidden" value="${order.total}" name="hidden_iprice${status.index}" class="hidden_iprice"/>
+					<input type="hidden" value="${order.indDate}" name="indDate${status.index}"/>
+					<input type="hidden" value="${order.ingType}" name="ingType${status.index}"/>
 			  </c:forEach>
 		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer" style="width : 510px; height : 30px">
-			<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(3,9,7);">수정</button>
+			<button type="submit" class="btn btn-success" data-bs-dismiss="modal">수정</button>
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal2" id="btnClose2">취소</button>
 		</div>  
 	</form>
@@ -486,7 +487,7 @@
 		  <h4 class="modal-title">CHEESE(치즈) 발주내역</h4>
 	  </div> 
 	  
-	  <form class="order_list" id="${status.index}"  action="orderUpdate.se" method="post" style="padding: 0px; margin: 0px;">
+	  <form class="order_list" id="${status.index}"  action="orderUpdate3.se" method="post" style="padding: 0px; margin: 0px;">
 	  <!-- Modal body -->
 	  <div class="modal-body" style="width : 530px; margin: auto; padding: 0px;padding-bottom: 20px;">
 		  <c:forEach var="order" items="${order}" varStatus="status" begin="10" end="12">
@@ -501,7 +502,7 @@
 					<b style="font-size: 11px; color : tomato">[단가 :</b> 
 					<b id="iprice" style="font-size: 11px; color : tomato"> ${order.price}</b>
 					<b style="font-size: 11px; color : tomato">]</b><br>
-					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
+					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
 					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
 					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
 					<div id="price" style="display: block; width : 100px">
@@ -510,16 +511,17 @@
 						<b style="font-size: 11px;">원</b>
 					</div>
 				</div>
-				  <input type="hidden" value="${status.index}" name="ingNo"/>
-				  <input type="hidden" value="${order.total}" name="hidden_iprice"/>
-			
+					<input type="hidden" value="${order.ingNo}" name="ingNo${status.index}"/>
+					<input type="hidden" value="${order.total}" name="hidden_iprice${status.index}" class="hidden_iprice"/>
+					<input type="hidden" value="${order.indDate}" name="indDate${status.index}"/>
+					<input type="hidden" value="${order.ingType}" name="ingType${status.index}"/>
 			</c:forEach>
 	  </div>
 
 
   <!-- Modal footer -->
   <div class="modal-footer" style="width : 530px; height : 30px">
-	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="">수정</button>
+	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal">수정</button>
 	  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal3" id="btnClose3">취소</button>
   </div> 
 </form> 
@@ -537,7 +539,7 @@
 			  </div> 
 			  
 			  <!-- Modal body -->
-			  <form class="order_list" id="${status.index}" action="orderUpdate.se" method="post" style="padding: 0px; margin: 0px;">
+			  <form class="order_list" id="${status.index}" action="orderUpdate4.se" method="post" style="padding: 0px; margin: 0px;">
 			  <div class="modal-body" style="width : 550px; margin: auto; padding: 0px;padding-bottom: 20px;">
 				  <c:forEach var="order" items="${order}" varStatus="status" begin="13" end="18">
 				  
@@ -551,7 +553,7 @@
 					<b style="font-size: 11px; color : tomato">[단가 :</b> 
 					<b id="iprice" style="font-size: 11px; color : tomato"> ${order.price}</b>
 					<b style="font-size: 11px; color : tomato">]</b><br>
-					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
+					<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
 					<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
 					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
 					<div id="price" style="display: block; width : 100px">
@@ -560,14 +562,15 @@
 						<b style="font-size: 11px;">원</b>
 					</div>
 				</div>
-				  <input type="hidden" value="${status.index}" name="ingNo"/> 
-				  <input type="hidden" value="${order.total}" name="hidden_iprice"/>
-				
+					<input type="hidden" value="${order.ingNo}" name="ingNo${status.index}"/>
+					<input type="hidden" value="${order.total}" name="hidden_iprice${status.index}" class="hidden_iprice"/>
+					<input type="hidden" value="${order.indDate}" name="indDate${status.index}"/>
+					<input type="hidden" value="${order.ingType}" name="ingType${status.index}"/>
 			  </c:forEach>
 		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer" style="width : 530px; height : 30px">
-			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(13,18, 6);">수정</button>
+			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal">수정</button>
 			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal4" id="btnClose4">취소</button>
 		  </div>  
 		</form>
@@ -586,7 +589,7 @@
 		  <h4 class="modal-title">SAUCE(소스) 발주내역</h4>
 	  </div> 
 	  <!-- Modal body -->
-	  <form class="order_list" id="${status.index}" action="orderUpdate.se" method="post" style="padding: 0px; margin: 0px;"></form>
+	  <form class="order_list" id="${status.index}" action="orderUpdate5.se" method="post" style="padding: 0px; margin: 0px;"></form>
 	  <div class="modal-body" style="width : 550px; margin: auto; padding: 0px;padding-bottom: 20px;">
 				<c:forEach var="order" items="${order}" varStatus="status" begin="19" end="23">
 				  <div class="bimg" style="margin-left: 7px;">
@@ -598,7 +601,7 @@
 							<b style="font-size: 11px; color : tomato">[단가 :</b> 
 							<b id="iprice" style="font-size: 11px; color : tomato">${order.price}</b>
 							<b style="font-size: 11px; color : tomato">]</b><br>
-							<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
+							<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
 							<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
 							<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
 							<div id="price" style="display: block; width : 100px">
@@ -607,14 +610,16 @@
 								<b style="font-size: 11px;">원</b>
 							</div>
 						</div>
-						<input type="hidden" value="${status.index}" name="ingNo"/>
-						<input type="hidden" value="${order.total}" name="hidden_iprice"/>
+						<input type="hidden" value="${order.ingNo}" name="ingNo${status.index}"/>
+						<input type="hidden" value="${order.total}" name="hidden_iprice${status.index}" class="hidden_iprice"/>
+						<input type="hidden" value="${order.indDate}" name="indDate${status.index}"/>
+						<input type="hidden" value="${order.ingType}" name="ingType${status.index}"/>
 					</c:forEach>
 					</div>
 
 					<!-- Modal footer -->
 					<div class="modal-footer" style="width : 530px; height : 30px">
-						<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23, 5);">수정</button>
+						<button type="submit" class="btn btn-success" data-bs-dismiss="modal">수정</button>
 						<button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal5" id="btnClose5">취소</button>
 					</div> 
 				</form>
@@ -638,7 +643,7 @@ var iprice = $("div[class=bb]").children('b[id=iprice]');
 //controller로 넘길 input iprice element
 var hidden_iprice = $('input[class=hidden_iprice]');
 
-console.log(hidden_iprice);
+console.log(hidden_iprice + "찍어줘");
 
 for(var i=0; i<resultElement.length; i++){
 
