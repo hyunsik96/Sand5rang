@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.s5.sand5rang.sangmi.vo.EmailSend;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.hyunsik.service.HyunsikService;
+import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.sangmi.service.SangmiService;
+import com.s5.sand5rang.sangmi.vo.EmailSend;
 import com.s5.sand5rang.sangmi.vo.Enroll;
 import com.s5.sand5rang.sangmi.vo.Inquery;
 import com.s5.sand5rang.sein.vo.Store;
@@ -28,7 +30,8 @@ public class SangmiController {
 	@Autowired
 	private SangmiService SangmiService;
 	
-	
+	@Autowired
+	private HyunsikService hyunsikService;
 	
 	//---------관리자----------------
 	//가맹점 전체리스트 조회
@@ -235,6 +238,9 @@ public class SangmiController {
 		Store user = (Store)session.getAttribute("loginstore");
 
 		String storeId = user.getStoreId();
+		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
 
 		//System.out.println("storeId : "+storeId);
 		//1.게시글 총 갯수 조회
@@ -262,6 +268,10 @@ public class SangmiController {
 		
 		Store user = (Store)session.getAttribute("loginstore");
 		String storeId = user.getStoreId();
+		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
+		
 		i.setStoreId(storeId);
 		
 		String sss = SangmiService.selectInsert(i);
@@ -288,6 +298,9 @@ public class SangmiController {
 
 		String storeId = user.getStoreId();
 		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
+		
 		i.setStoreId(storeId);
 		int result = SangmiService.inquertInsert(i);
 		
@@ -309,7 +322,14 @@ public class SangmiController {
 	
 	//1:1문의 상세조회
 	@RequestMapping(value="indetail.sm")
-	public ModelAndView selectInquery(int ino,ModelAndView mv) {
+	public ModelAndView selectInquery(int ino,HttpSession session,Model model, ModelAndView mv) {
+		
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
+		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
 		
 		Inquery i = SangmiService.selectInquery(ino);
 		
@@ -321,7 +341,14 @@ public class SangmiController {
 	
 	//1:1문의 수정 폼 
 	@RequestMapping(value="inUpdateForm.sm")
-	public String inUpdateForm(int ino, Model model) {
+	public String inUpdateForm(int ino,HttpSession session, Model model) {
+		
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
+		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
 		
 		//해당 상세조회 요청
 		Inquery i = SangmiService.selectInquery(ino);
@@ -335,6 +362,13 @@ public class SangmiController {
 	@RequestMapping(value="inupdate.sm")
 	public String inupdate(Inquery i, HttpSession session, Model model) {
 	
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
+		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
+		
 		int result = SangmiService.inupdate(i);
 		
 		//System.out.println(result + "후");
