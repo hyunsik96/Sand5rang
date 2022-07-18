@@ -224,8 +224,8 @@
 		SELECT TO_CHAR(SAL_DATE,'yy.MM.dd')"SAL_DATE", STORE_ID, SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
 		FROM SALES
         WHERE STORE_ID = #{storeId}
-        GROUP BY TO_CHAR(SAL_DATE,'yy.MM.dd'), STORE_ID
-		ORDER BY TO_CHAR(SAL_DATE,'yy.MM.dd') DESC
+        GROUP BY SAL_DATE, STORE_ID
+		ORDER BY SAL_DATE DESC
 	</select>
 	
 	<select id="MenuSalDate_List" parameterType="com.s5.sand5rang.seonghoon.vo.Sales" resultMap="SalesResultMap">
