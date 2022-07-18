@@ -197,7 +197,7 @@
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
 										<c:choose>
 											
-											<c:when test="${status.first ne true || pi.currentPage ne '1'}">
+											<c:when test="${status.first ne true || pi.currentPage ne '1' || all_Olist.status eq 'Y' || all_Olist.status eq 'AY'}">
 												<tr>
 													<td class="th1">${all_Olist.rowNo}</td>
 													<td class="th3">${all_Olist.b}</td>
@@ -388,7 +388,7 @@
 			  <h4 class="modal-title">Bread(빵) 발주내역</h4>
 		  </div> 
 		  
-		  <form class="order_list" id="${status.index}" action="orderUpdate.se" method="post" style="padding: 0px; margin: 0px;">
+		  <form class="order_list" id="${status.index}" action="orderUpdate1.se" method="post" style="padding: 0px; margin: 0px;">
 		  <!-- Modal body -->
 		  <div class="modal-body" style="padding : 0px; margin:auto; padding-bottom: 20px;">
 			  <c:forEach var="order" items="${order}" varStatus="status" begin="0" end="2">
@@ -402,7 +402,7 @@
 						<b style="font-size: 11px; color : tomato">[단가 :</b> 
 						<b id="iprice" style="font-size: 11px; color : tomato"> ${order.price}</b>
 						<b style="font-size: 11px; color : tomato">]</b><br>
-						<input class="count" id="count" value="${order.count}" style="width : 30px" name="count">
+						<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
 						<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>);"/>
 						<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>);"/>
 						<div id="price" style="display: block; width : 100px">
@@ -411,15 +411,16 @@
 							<b style="font-size: 11px;">원</b>
 						</div>
 					</div>
-					<input type="hidden" value="${status.index}" name="ingNo"/>
-					<input type="hidden" value="${order.total}" name="hidden_iprice"/>
+					<input type="hidden" value="${order.ingNo}" name="ingNo${status.index}"/>
+					<input type="hidden" value="${order.total}" name="hidden_iprice${status.index}" class="hidden_iprice"/>
+					<input type="hidden" value="${order.indDate}" name="indDate${status.index}"/>
+					<input type="hidden" value="${order.ingType}" name="ingType${status.index}"/>
 			  </c:forEach>
 		  </div>
 
-		  
 		  <!-- Modal footer -->
 		  <div class="modal-footer">
-			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(0,2)">수정</button>
+			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal">수정</button>
 			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal1" id="btnClose1">취소</button>
 		  </div>  
 		</form>
@@ -467,7 +468,7 @@
 		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer" style="width : 510px; height : 30px">
-			<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(3,9);">수정</button>
+			<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(3,9,7);">수정</button>
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal2" id="btnClose2">취소</button>
 		</div>  
 	</form>
@@ -518,7 +519,7 @@
 
   <!-- Modal footer -->
   <div class="modal-footer" style="width : 530px; height : 30px">
-	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(10,12);">수정</button>
+	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="">수정</button>
 	  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal3" id="btnClose3">취소</button>
   </div> 
 </form> 
@@ -566,7 +567,7 @@
 		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer" style="width : 530px; height : 30px">
-			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(13,18)">수정</button>
+			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(13,18, 6);">수정</button>
 			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal4" id="btnClose4">취소</button>
 		  </div>  
 		</form>
@@ -608,12 +609,12 @@
 						</div>
 						<input type="hidden" value="${status.index}" name="ingNo"/>
 						<input type="hidden" value="${order.total}" name="hidden_iprice"/>
-						<input type="hidden" value="${order.indDate}" name="indDate"/>
 					</c:forEach>
 					</div>
+
 					<!-- Modal footer -->
 					<div class="modal-footer" style="width : 530px; height : 30px">
-						<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23)">수정</button>
+						<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23, 5);">수정</button>
 						<button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal5" id="btnClose5">취소</button>
 					</div> 
 				</form>
@@ -635,8 +636,9 @@ var tot = $("div[class=bb]").children('div[id=price]').children("b[id=tot]");
 var iprice = $("div[class=bb]").children('b[id=iprice]');
 
 //controller로 넘길 input iprice element
-var hidden_iprice = $('input[name=hidden_iprice]');
+var hidden_iprice = $('input[class=hidden_iprice]');
 
+console.log(hidden_iprice);
 
 for(var i=0; i<resultElement.length; i++){
 
@@ -684,7 +686,7 @@ for(var i=0; i<resultElement.length; i++){
 			tot[i].innerText = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 			//콤마없는 가격 찍어주기
-			//hidden_iprice[i].value = num2;
+			//hidden_iprice[i].innerText = num2;
 			hidden_iprice[i].setAttribute("value", num2);
 
 		}
@@ -760,20 +762,6 @@ for(var j=1; j<6; j++){
 		}
 	});
 }
-
-function updateI(value1, value2, value3){
-
-	// //controller로 넘길 input iprice element
-	// var hidden_iprice = $('input[name=hidden_iprice]');
-	// //발주수량 
-	// var resultElement = $("div[class=bb]").children('input[class=count]');
-
-	// var hidden_iprice = $('input[name=indDate]');
-
-	// location.href = "orderUpdate.se?ingNo1=" + value1 + "&ingNo2=" + value2 + "&totCount=" + value3;
-}
-
-
 </script>
 
 </body>

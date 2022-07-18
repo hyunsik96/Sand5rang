@@ -87,6 +87,10 @@ public class SeinService {
 	public int myPayment(String storeId) {
 		return seinDao.myPayment(sqlSession, storeId);
 	}
+
+	public int selectBeforeChangeIngre(Order order) {
+		return seinDao.selectBeforeChangeIngre(sqlSession, order);
+	}
 	
 }
 

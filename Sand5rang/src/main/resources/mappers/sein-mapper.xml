@@ -63,9 +63,9 @@
 	
 	<!-- 비밀번호 변경 update -->	
 	<update id="newPwdUpdate" parameterType="order">
-		UPDATE STORE SET COUNT = #{count}, IND_DATE = #{inDate}, TOTAL = #{total}, ING_NO = #{ingNo}
-		WHERE STORE_ID = #{storeId} 
-		AND STATUS LIKE '%B'    
+		UPDATE STORE SET STORE_PWD = #{storePwd} 
+					 WHERE STORE_ID = #{storeId} 
+					 AND STATUS = 'Y'    
 	</update>
 	
 	<!-- 발주 체크 select -->
@@ -73,7 +73,7 @@
 		SELECT COUNT(IND_NO)
 		FROM INDENT
 		WHERE STORE_ID = #{storeId} AND
-			  TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD')
+		TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) = TO_NUMBER((TO_CHAR(SYSDATE, 'YYMMDD') || 150000))
 	</select>
 	
 	<!-- 발주insert -->
@@ -105,7 +105,8 @@
 		WHERE I.ING_NO = G.ING_NO AND 
 		I.STORE_ID = P.STORE_ID AND 
         I.STORE_ID = #{storeId} AND
-		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
+		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') AND
+		STATUS LIKE '%B'
 		ORDER BY I.ING_NO ASC
 	</select>
 
@@ -147,7 +148,7 @@
 	
 	<!-- 가맹점 발주대기 상태의 원재료 list select -->
 	<select id="selectOrder2" parameterType="string" resultMap="OrderResultSet">
-		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, PRICE
+		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, PRICE, ING_TYPE
 		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
 		WHERE STORE_ID = #{storeId} AND 
 		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') AND 
@@ -156,8 +157,11 @@
 	</select>
 	
 	<!-- 가맹점 발주내역 수정 update -->
-	<update id="updateOrder" parameterType="string">
-		
+	<update id="updateOrder" parameterType="order">
+		UPDATE INDENT SET COUNT =  #{count}, IND_DATE = #{inDate}, TOTAL =  #{total}, ING_NO = #{ingNo}
+		WHERE STORE_ID = #{storeId} AND
+        ING_NO = #{ingNo} AND 
+        STATUS LIKE '%B'
 	</update>
 	
 	<!-- 가맹신청 내역 조회 -->
@@ -171,7 +175,7 @@
 	
 	<!-- 가맹점 현재 잔액조회 -->
 	<select id="todayMyPayment" parameterType="String" resultType="_int">
-		SELECT SUM(NVL(DEPOSIT,0) + NVL(WITHDRAW,0)) BAL 
+		SELECT NVL(SUM(NVL(DEPOSIT,0) + NVL(WITHDRAW,0)),0) BAL 
 		FROM PAYMENT 
 		WHERE STORE_ID = #{storeId}
 	</select>
@@ -190,5 +194,29 @@
 				GROUP BY SUBSTR(IND_DATE, 1, 10))
 	</select>
 
-	
+
+	<select id="selectBeforeChangeIngre" parameterType="order" resultType="_int">
+		<if test='ingType == "B"'>
+			SELECT SUM(V+C+S+M) AS CHANGE
+		</if>
+		<if test='ingType == "V"'>
+			SELECT SUM(B+C+S+M) AS CHANGE
+		</if>
+		<if test='ingType == "C"'>
+			SELECT SUM(V+B+S+M) AS CHANGE
+		</if>
+		<if test='ingType == "M"'>
+			SELECT SUM(V+C+S+B) AS CHANGE
+		</if>
+		<if test='ingType == "S"'>
+			SELECT SUM(V+C+B+M) AS CHANGE
+		</if>
+			FROM(SELECT * 
+				    FROM(SELECT ING_TYPE, TOTAL 
+				            FROM INDENT I, INGREDIENT G
+				            WHERE I.ING_NO = G.ING_NO AND
+				            STORE_ID = #{storeId} AND
+				            STATUS LIKE '%B')
+				    PIVOT (SUM(TOTAL) FOR ING_TYPE IN('B' AS B, 'V' AS V, 'M' AS M, 'C' AS C, 'S' AS S)))
+	</select>
 </mapper>

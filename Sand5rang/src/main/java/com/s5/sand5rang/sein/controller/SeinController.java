@@ -256,6 +256,7 @@ public class SeinController {
     }
 	
 	/*발주 신청 insert용 */
+	@ResponseBody
 	@RequestMapping(value="orderEnroll.se", produces="text/html; charset=UTF-8")
 	public String orderEnrollController(int order_count, int ingNo, int tot_price, int allPrice, String stat, Model m, HttpSession session) 
 	{
@@ -344,36 +345,50 @@ public class SeinController {
     }
 	
 	//발주내용 update
-	@RequestMapping(value="orderUpdate.se")
-	public String orderUpdateController(Model m, String ingNo1, String ingNo2, String totCount, String inDate,HttpSession session) {
+	@RequestMapping(value="orderUpdate1.se")
+	public String orderUpdateController(Model m, int ingNo0, int ingNo1, int ingNo2, 
+			int hidden_iprice0, int hidden_iprice1, int hidden_iprice2, int count0, int count1, int count2, 
+			String indDate0, String indDate1, String indDate2, String ingType0, HttpSession session) {
 		
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
 		
-		Order o = new Order();
+		Order order = new Order();
+		int[] ingNo = {ingNo0, ingNo1, ingNo2};
+		int[] hidden_iprice = {hidden_iprice0, hidden_iprice1, hidden_iprice2};
+		int[] count = {count0, count1, count2};
+		String[] indDate = {indDate0, indDate1, indDate2};
 		
-		int g1 = Integer.parseInt("ingNo1");
-		int g2 = Integer.parseInt("ingNo2"); 
-		int t = Integer.parseInt("totCount");
+		int tott = hidden_iprice0+ hidden_iprice1+ hidden_iprice2;
 		
-		int g3 = g2 - g1;
-		
-		System.out.println(t);
-		System.out.println(inDate);
-		
-		for(int i=0; i<g3; i++) {
-			//발주 전체 list 상세(원재료) 수정
-			int g4 = g1 + i;
+		for(int i=0; i<3; i++) {
+			order.setIngNo(ingNo[i]);
+			order.setTotal(hidden_iprice[i]);
+			order.setCount(count[i]);
+			order.setInDate(indDate[i]);
+			order.setStoreId(storeId);
+			order.setIngType(ingType0);
 			
-			o.setCount(t);			//총수량
-			o.setIngNo(g4);			//원재료번호
-			o.setInDate(inDate);	//발주날짜
-			o.setStoreId(storeId);	//가맹점id
+			int beprice= seinService.selectBeforeChangeIngre(order);
 			
-			//int result = seinService.updateOrder(o);
+			int pay = seinService.todayMyPayment(storeId);
+			
+			if((tott + beprice)> pay) {
+				
+				session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
+				
+			}else {
+				int result = seinService.updateOrder(order);
+				
+				if(result>0) {
+					session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+				}else {
+					session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+				}
+			}
+			
 		}
-		
-		return "sein/orderlist";
+		return "redirect:orderList.se";
 	}
 	
 	//가맹점 결제page 

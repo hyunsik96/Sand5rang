@@ -151,7 +151,7 @@
 						</div> <!-- /login-fields -->
 				
 						<div>						
-							<button class=" submit button btn btn-success btn-large">보내기</button>
+							<button class=" submit button btn btn-success btn-large">비밀번호 찾기</button>
 						</div>
 					</form>
 					

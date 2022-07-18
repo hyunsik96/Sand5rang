@@ -90,4 +90,9 @@ public class SeinDao {
 	public int myPayment(SqlSessionTemplate sqlSession, String storeId) {
 		return sqlSession.selectOne("seinMapper.myPayment", storeId);
 	}
+
+	public int selectBeforeChangeIngre(SqlSessionTemplate sqlSession, Order order) {
+		return sqlSession.selectOne("seinMapper.selectBeforeChangeIngre", order);
+	}
+	
 }

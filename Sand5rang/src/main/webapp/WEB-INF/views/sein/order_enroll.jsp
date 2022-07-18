@@ -1205,7 +1205,7 @@ function exe(){
                 }
             }
             //location.href = "orderEnrollResult.se";
-			if($("#re").val() == '1'){
+			if($("#result").val() == '1'){
 				location.href = "orderEnrollForm.se";
 			}else{
 				location.href = "orderEnrollResult.se";
