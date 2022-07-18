@@ -152,4 +152,8 @@ public class SeonghoonDao {
 		
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectDisposalList", hashmap,rowBounds );
 	}
+	
+	public int updateDisposal(SqlSessionTemplate sqlSession, HashMap<String,String> hashmap) {
+		return sqlSession.update("seonghoonMapper.updateDisposal",hashmap);
+	}
 }

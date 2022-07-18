@@ -225,7 +225,7 @@
  });
  </script>
 
- <form action="ingredientDisposal1.csh" method="get">
+ <form name="disposalList">
 	<select name="ingType" style="width:100px; margin-top:10px;">
 	  <option value="B">빵</option>
 	  <option value="V">야채</option>
@@ -238,8 +238,10 @@
 	  <option value="화이트">화이트</option>	
 	  <option value="플렛">플렛</option>
 	</select>
-	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
-</form>						
+	<input type="submit" value="검색하기" class="btn btn-success" style="width:100px;" 
+	onclick='btn_click("select");'>
+	<input type="hidden" value="폐기하기" class="btn btn-success" style="width:100px;">
+</form>			
 	  				</div> <!-- /widget-header -->
 					<div class="widget-content">
 
@@ -267,7 +269,11 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<div align="right"><button value="폐기하기" class="btn btn-danger" style="width:100px;"
+	onclick='btn_click("update");'>폐기하기</button></div>	
 </c:if>
+
+
 <c:if test="${empty disposal_list}">
 	<div align="center" style="color:red;">현재 폐기할 재료가 존재하지 않습니다.</div>
 </c:if>
@@ -404,12 +410,16 @@
 
 
 <jsp:include page="include/6.jsp" />
-
 <script>
-
-</script>
- 
- 
+	function btn_click(str){
+		if(str == "select"){
+			disposalList.action="ingredientDisposal1.csh";
+			disposalList.method="get";
+		}else{
+			
+		}
+	}
+</script>			
  </body>
 
 </html>

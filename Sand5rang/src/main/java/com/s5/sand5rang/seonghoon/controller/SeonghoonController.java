@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -530,7 +531,7 @@ public String disposalView(Model model) {
 	return "seonghoon/폐기관리";
 }
 
-// 2. 본격적인 폐기 관리
+// 2. 폐기 관리를 해야할 리스트 
 @RequestMapping(value="ingredientDisposal1.csh")
 public String selectDisposal(
 		Model model,
@@ -567,6 +568,27 @@ public String selectDisposal(
 	model.addAttribute("disposal_list", disposal_list);
 	
 	return "seonghoon/폐기관리";
+}
+
+// 3. 폐기를 진행함
+@PostMapping(value="disposalUpdate.csh")
+public String updateDisposal(
+			String ingType,
+			String ingName,
+			HttpSession session
+		) {
+	Store user = (Store)session.getAttribute("loginstore");
+	String storeId = user.getStoreId();		
+	
+	HashMap<String, String> hashmap = new HashMap<>();
+	hashmap.put("ingType", ingType);
+	hashmap.put("ingName", ingName);
+	hashmap.put("storeId", storeId);
+	
+	int result = seonghoonService.updateDisposal(hashmap);
+
+	
+	return "";
 }
 	
 

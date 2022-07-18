@@ -98,5 +98,9 @@ public class SeonghoonService {
 	public ArrayList<Stock> selectDisposalList(PageInfo pi, HashMap<String, String> hashmap){
 		return seonghoonDao.selectDisposalList(sqlSession, hashmap, pi);
 	}
+	
+	public int updateDisposal(HashMap<String, String> hashmap) {
+		return seonghoonDao.updateDisposal(sqlSession, hashmap);
+	}
 }
 

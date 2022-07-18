@@ -362,4 +362,22 @@
 		AND TO_CHAR(STO_DATE,'yy.MM.dd') <![CDATA[<=]]> TO_CHAR(SYSDATE-EXPIRATION, 'yy.MM.dd')        
        	ORDER BY STO_DATE DESC		
 	</select>
+	
+	<update id="updateDisposal" parameterType="hashmap">
+		UPDATE STOCK
+		SET STATUS = 'X'
+		WHERE 
+		(
+			SELECT TO_CHAR(STO_DATE,'yy.MM.dd')"STO_DATE",ING_NAME,ING_TYPE, COUNT 
+	        FROM STOCK S
+	        JOIN INGREDIENT USING(ING_NO)
+	        WHERE S.STATUS = 'O'
+	        AND STORE_ID = #{storeId}
+	        AND ING_TYPE= #{ingType}
+	        AND ING_NAME= #{ingName}	
+			AND TO_CHAR(STO_DATE,'yy.MM.dd') <![CDATA[<=]]> TO_CHAR(SYSDATE-EXPIRATION, 'yy.MM.dd')        
+	       	ORDER BY STO_DATE DESC		
+		)
+		
+	</update>
 </mapper>
