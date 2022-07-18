@@ -2930,7 +2930,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 }
 .pagination {
 	display: block;
-   text-align: center;
+	text-align: center;
 	height: 36px;
 	margin: 18px 0;
 }
@@ -2960,12 +2960,14 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endCo
 	margin-left: -5px;
 }
 .pagination a:hover, .pagination .active a {
-	background-color: #f5f5f5;
+	color: #f5f5f5;
+	background-color: #999999;
 }
 .pagination .active a {
-	color: #999999;
+	color: #f5f5f5;
+	background-color: #999999;
 	cursor: default;
-}
+} 
 .pagination .disabled span, .pagination .disabled a, .pagination .disabled a:hover {
 	color: #999999;
 	background-color: transparent;
