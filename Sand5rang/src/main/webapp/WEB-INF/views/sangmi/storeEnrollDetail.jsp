@@ -225,7 +225,7 @@
            
           <label for="address">* 가맹점 주소 : 
           <input type="text" class="form-control" id="address_kakao" name="address" placeholder="가맹점  주소 클릭!" style="width:400px;" required>
-                       상세주소:<input type="text" name="address_detail" palceholder="상세주소 써주세요." reauired/>
+                       상세주소:<input type="text" name="address_detail" palceholder="상세주소 써주세요." required/>
         </label>
           <label for="content">^ 내용 : </label>
           <textarea class="form-control" id="content" name="message" placeholder="가맹점 승인이유를  써주세요." style="width:400px; height:100px; resize:none;" required></textarea><br> 

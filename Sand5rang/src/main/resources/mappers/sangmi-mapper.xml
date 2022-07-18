@@ -116,7 +116,7 @@ WHERE ENR_NO = #{enrNo}
 
   
   
-<!-- 반려버튼=> 반려 상태 C로 하기 -->
+<!-- 반려버튼=> 반려 상태 n로 하기 -->
   
  <update id="referStore" parameterType="_int">
 UPDATE ENROLL
