@@ -45,7 +45,7 @@ public class SeinDao {
 		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder", storeId);
 	}
 	
-	//가맹점 발주리스트 조회
+	//가맹점 발주리스트 조회(STATUS=B 또는 N일 경우)
 	public ArrayList<Order> selectAllOrderList(SqlSessionTemplate sqlSession, String storeId, PageInfo pi){
 		
 		int limit = pi.getBoardLimit();
@@ -55,6 +55,7 @@ public class SeinDao {
 		
 		return (ArrayList)sqlSession.selectList("seinMapper.selectAllOrderList", storeId, rowBounds);
 	}
+	
 	
 	//가맹점 발주 리스트 count
 		public int selectListCount(SqlSessionTemplate sqlSession, String storeId) {
@@ -72,8 +73,8 @@ public class SeinDao {
 	}
 	
 	//가맹점 발주(원재료) 수정
-	public int updateOrder(SqlSessionTemplate sqlSession) {
-		return sqlSession.update("seinMapper.updateOrder");
+	public int updateOrder(SqlSessionTemplate sqlSession, Order o) {
+		return sqlSession.update("seinMapper.updateOrder", o);
 	}
 	
 	//가맹점 신청정보 조회

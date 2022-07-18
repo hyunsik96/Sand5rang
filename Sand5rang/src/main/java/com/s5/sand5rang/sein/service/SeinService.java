@@ -53,11 +53,11 @@ public class SeinService {
 		return (ArrayList)seinDao.selectTodayOrder(sqlSession, storeId);
 	}
 	
-	//가맹점 발주내역 리스트조회 select Service
+	////가맹점 발주내역 
 	public ArrayList<Order> selectAllOrderList(String storeId, PageInfo pi){
 		return (ArrayList)seinDao.selectAllOrderList(sqlSession, storeId, pi);
 	}
-	
+
 	//가맹점 자동발주 신청 내역 select
 	public ArrayList<Order> selectAutoOrder(){
 		return (ArrayList)seinDao.selectAutoOrder(sqlSession);
@@ -69,8 +69,8 @@ public class SeinService {
 	}
 	
 	//가맹점 원재료 발주 수정
-	public int updateOrder() {
-		return seinDao.updateOrder(sqlSession);
+	public int updateOrder(Order o) {
+		return seinDao.updateOrder(sqlSession, o);
 	}
 	
 	//가맹점 신청 정보 조회
@@ -87,7 +87,6 @@ public class SeinService {
 	public int myPayment(String storeId) {
 		return seinDao.myPayment(sqlSession, storeId);
 	}
-
 	
 }
 

@@ -62,10 +62,10 @@
 	</select>
 	
 	<!-- 비밀번호 변경 update -->	
-	<update id="newPwdUpdate" parameterType="store">
-		UPDATE STORE SET STORE_PWD = #{storePwd} 
-					 WHERE STORE_ID = #{storeId} 
-					 AND STATUS = 'Y'
+	<update id="newPwdUpdate" parameterType="order">
+		UPDATE STORE SET COUNT = #{count}, IND_DATE = #{inDate}, TOTAL = #{total}, ING_NO = #{ingNo}
+		WHERE STORE_ID = #{storeId} 
+		AND STATUS LIKE '%B'    
 	</update>
 	
 	<!-- 발주 체크 select -->
@@ -100,43 +100,49 @@
 		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, P.BAL
 		FROM INDENT I, INGREDIENT G, (SELECT NVL(SUM(DEPOSIT+WITHDRAW),0) AS BAL, STORE_ID
                                         FROM PAYMENT 
-                                        WHERE STORE_ID = #{store_id}
+                                        WHERE STORE_ID = #{storeId}
                                         GROUP BY STORE_ID) P
 		WHERE I.ING_NO = G.ING_NO AND 
 		I.STORE_ID = P.STORE_ID AND 
-        I.STORE_ID = #{store_id} AND
+        I.STORE_ID = #{storeId} AND
 		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') 
 		ORDER BY I.ING_NO ASC
 	</select>
 
 	<!-- 발주전체조회 select -->
 	<select id="selectAllOrderList" parameterType="string" resultMap="OrderResultSet">
-		SELECT ROWNUM, H.*
-		FROM(SELECT * 
-			FROM(SELECT A, COUNT, ING_TYPE, STORE_ID, STATUS
-			     FROM(SELECT TO_CHAR(IND_DATE, 'YY-MM-DD') A,
-			                TO_CHAR(TO_DATE(IND_DATE, 'YYYY-MM-DD') - INTERVAL '1' DAY, 'YY-MM-DD') || ' '|| 15 B, 
-			                TO_CHAR(IND_DATE, 'YY-MM-DD') || ' ' || 15 C, 
-			                COUNT, 
-			                ING_TYPE,
-			                STORE_ID, 
-			                STATUS
-			         FROM INDENT I, INGREDIENT G
-			         WHERE STORE_ID = #{storeId} AND 
-			              I.ING_NO = G.ING_NO 
-			         ORDER BY A DESC) 
-			WHERE A BETWEEN TO_DATE(B, 'YY-MM-DD HH24') AND TO_DATE(C, 'YY-MM-DD HH24'))
-			PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))) H
+		SELECT ROWNUM, B.*
+		FROM(SELECT H.*
+				FROM(SELECT * 
+						FROM(SELECT IND_DATE, COUNT, ING_TYPE, STORE_ID, STATUS
+						     FROM(SELECT TO_DATE(IND_DATE, 'YY-MM-DD') IND_DATE,
+						                TO_CHAR(TO_DATE(IND_DATE, 'YYYY-MM-DD') - INTERVAL '1' DAY, 'YY-MM-DD') || ' '|| 15 B, 
+						                TO_CHAR(IND_DATE, 'YY-MM-DD') || ' ' || 15 C, 
+						                COUNT, 
+						                ING_TYPE,
+						                STORE_ID, 
+						                STATUS
+						         FROM INDENT I, INGREDIENT G
+						         WHERE STORE_ID = #{storeId} AND 
+						              I.ING_NO = G.ING_NO
+						         ORDER BY IND_DATE DESC) 
+				WHERE IND_DATE BETWEEN TO_DATE(B, 'YY-MM-DD HH24') AND TO_DATE(C, 'YY-MM-DD HH24'))
+				PIVOT (SUM(COUNT) FOR ING_TYPE IN('B', 'V', 'M', 'C', 'S'))) H
+				ORDER BY IND_DATE ASC)B
 		ORDER BY ROWNUM DESC
 	</select>
 	
+	
 	<!-- 자동발주신청 select -->
 	<select id="selectAutoOrder" resultMap="OrderResultSet">
-	     SELECT TO_DATE(IND_DATE, 'YY-MM-DD HH24:MI:SS') IND_DATE, IND_NO, COUNT, TOTAL, STATUS, STORE_ID, ING_NO
-		 FROM INDENT 
-		 WHERE TO_CHAR(IND_DATE, 'YY-MM-DD HH24:MI:SS') BETWEEN TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') - INTERVAL '33' HOUR, 'YY-MM-DD HH24:MI:SS') AND
-		                         TO_CHAR(TO_DATE(SYSDATE, 'YY-MM-DD HH24:MI:SS') + INTERVAL '15' HOUR, 'YY-MM-DD HH24:MI:SS')
-		 AND STATUS ='AB'
+	    SELECT IND_NO, COUNT, TOTAL, STATUS, STORE_ID, ING_NO
+		FROM INDENT
+		WHERE TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) 
+		BETWEEN 
+		TO_NUMBER((TO_CHAR(SYSDATE-2, 'YYMMDD') || 150000))
+		AND 
+		TO_NUMBER((TO_CHAR(SYSDATE-1, 'YYMMDD') || 149999)) AND
+		STATUS = 'AY'
 	</select>
 	
 	<!-- 가맹점 발주대기 상태의 원재료 list select -->
@@ -150,7 +156,8 @@
 	</select>
 	
 	<!-- 가맹점 발주내역 수정 update -->
-	<update id="updateOrder" parameterType="order">
+	<update id="updateOrder" parameterType="string">
+		
 	</update>
 	
 	<!-- 가맹신청 내역 조회 -->

@@ -1,5 +1,6 @@
 package com.s5.sand5rang.sein.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.http.Cookie;
@@ -211,6 +212,7 @@ public class SeinController {
 		//날짜별 발주 합계 list select 
 		ArrayList<Order> allOlist= seinService.selectAllOrderList(storeId, pi);
 		
+		
 		if(allOlist.isEmpty()) {
 			
 			return "sein/noOrderlist";
@@ -222,7 +224,6 @@ public class SeinController {
 			m.addAttribute("all_Olist", allOlist);
 			m.addAttribute("order", order);
 			m.addAttribute("pi", pi);
-			
 			
 	        return "sein/orderlist";
 		}
@@ -344,11 +345,33 @@ public class SeinController {
 	
 	//발주내용 update
 	@RequestMapping(value="orderUpdate.se")
-	public String orderUpdateController(Model m, HttpSession session) {
+	public String orderUpdateController(Model m, String ingNo1, String ingNo2, String totCount, String inDate,HttpSession session) {
 		
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
-		//int result = seinService.updateOrder();
+		
+		Order o = new Order();
+		
+		int g1 = Integer.parseInt("ingNo1");
+		int g2 = Integer.parseInt("ingNo2"); 
+		int t = Integer.parseInt("totCount");
+		
+		int g3 = g2 - g1;
+		
+		System.out.println(t);
+		System.out.println(inDate);
+		
+		for(int i=0; i<g3; i++) {
+			//발주 전체 list 상세(원재료) 수정
+			int g4 = g1 + i;
+			
+			o.setCount(t);			//총수량
+			o.setIngNo(g4);			//원재료번호
+			o.setInDate(inDate);	//발주날짜
+			o.setStoreId(storeId);	//가맹점id
+			
+			//int result = seinService.updateOrder(o);
+		}
 		
 		return "sein/orderlist";
 	}

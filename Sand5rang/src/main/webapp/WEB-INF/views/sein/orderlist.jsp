@@ -196,7 +196,8 @@
 										<tbody>
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
 										<c:choose>
-											<c:when test="${status.first ne true}">
+											
+											<c:when test="${status.first ne true || pi.currentPage ne '1'}">
 												<tr>
 													<td class="th1">${all_Olist.rowNo}</td>
 													<td class="th3">${all_Olist.b}</td>
@@ -204,7 +205,7 @@
 													<td class="th5">${all_Olist.c}</td> 
 													<td class="th6">${all_Olist.m}</td>
 													<td class="th7">${all_Olist.s}</td>
-													<td class="th2">${all_Olist.indD}</td>
+													<td class="th2">${all_Olist.indDate}</td>
 													<c:choose>
 															<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
 																<td class="td-actions" style="color: red;">승인대기</td>
@@ -219,26 +220,27 @@
 												</tr>
 											</c:when>
 											<c:otherwise>
-												<tr>
-													<td class="th1">${all_Olist.rowNo}</td>
-													<td class="th3"><a data-toggle="modal" href="#vModal1" style="color :blue;">${all_Olist.b}</a></td>
-													<td class="th4"><a data-toggle="modal" href="#vModal2" style="color :blue;">${all_Olist.v}</a></td>
-													<td class="th5"><a data-toggle="modal" href="#vModal3" style="color :blue;">${all_Olist.c}</a></td>
-													<td class="th6"><a data-toggle="modal" href="#vModal4" style="color :blue;">${all_Olist.m}</a></td>
-													<td class="th7"><a data-toggle="modal" href="#vModal5" style="color :blue;">${all_Olist.s}</a></td>
-													<td class="th2">${all_Olist.indD}</td>
-													<c:choose>
-														<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
-																<td class="td-actions" style="color: red;">승인대기</td>
-															</c:when>
-															<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
-																<td class="td-actions" style="color: black;">승인완료</td>
-															</c:when>
-															<c:when test="${all_Olist.status eq 'N'}">
-																<td class="td-actions" style="color: red;">반려</td>
-															</c:when>
-													</c:choose>
-												</tr>
+		
+													<tr>
+														<td class="th1">${all_Olist.rowNo}</td>
+														<td class="th3"><a data-toggle="modal" href="#vModal1" style="color :blue;">${all_Olist.b}</a></td>
+														<td class="th4"><a data-toggle="modal" href="#vModal2" style="color :blue;">${all_Olist.v}</a></td>
+														<td class="th5"><a data-toggle="modal" href="#vModal3" style="color :blue;">${all_Olist.c}</a></td>
+														<td class="th6"><a data-toggle="modal" href="#vModal4" style="color :blue;">${all_Olist.m}</a></td>
+														<td class="th7"><a data-toggle="modal" href="#vModal5" style="color :blue;">${all_Olist.s}</a></td>
+														<td class="th2">${all_Olist.indDate}</td>
+														<c:choose>
+															<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
+																	<td class="td-actions" style="color: red;">승인대기</td>
+																</c:when>
+																<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
+																	<td class="td-actions" style="color: black;">승인완료</td>
+																</c:when>
+																<c:when test="${all_Olist.status eq 'N'}">
+																	<td class="td-actions" style="color: red;">반려</td>
+																</c:when>
+														</c:choose>
+													</tr>
 											</c:otherwise>
 										</c:choose>
 											</c:forEach>
@@ -250,37 +252,43 @@
 							
 							<div style="margin-top: 100px">
 							<!-- /widget-content -->
-								<ul class="pagination pagination-sm"> <!-- pagination-sm -->
-									<c:choose>
-										<c:when test="${pi.currentPage eq 1}">
-											<li class="page-item"><a class="page-link" href="#"><</a></li>
-										</c:when>
-										<c:otherwise>
-											<li><li class="page-item"><a class="page-link" href="orderList.se?cpage=${pi.currentPage-1}"><</a></li></li>
-										</c:otherwise>
-									</c:choose>
-
-									<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
-										<li class="page-item"><a class="page-link" href="#">${p}</a></li>
-									</c:forEach>
-
-									<c:choose>
-										<c:when test="${pi.currentPage eq pi.maxPage}">
-											<li class="page-item"><a class="page-link" href="#">></a></li>
-										</c:when>
-										<c:otherwise>
-											<li class="page-item"><a class="page-link" href="orderList.se?cpage=${pi.currentPage + 1}">></a></li>
-										</c:otherwise>
-									</c:choose>
-								</ul>
-							</div>
-					</div>
-				</div>
+							
+					
+							
+			<ul class="pagination pagination-sm">
+			<c:choose>
+				<c:when test="${pi.currentPage eq 1}">
+				<li class="page-item disabled"><a class="page-link" href="#"><</a></li>
+				</c:when>
+				<c:otherwise>
+				<li class="page-item"><a class="page-link" href="orderList.se?cpage=${pi.currentPage - 1}"><</a></li>
+				</c:otherwise>
+			</c:choose>
+			
+			<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+				<c:if test="${pi.currentPage eq p}">
+					<li class="page-item active"><a class="page-link" href="orderList.se?cpage=${p}">${p}</a></li>
+				</c:if>
+				<c:if test="${pi.currentPage ne p}">
+					<li class="page-item"><a class="page-link" href="orderList.se?cpage=${p}">${p}</a></li>
+				</c:if>
+			</c:forEach>
+			
+			<c:choose>
+				<c:when test="${pi.currentPage eq pi.maxPage}">
+				<li class="page-item disabled"><a class="page-link" href="#">></a></li>
+				</c:when>
+				<c:otherwise>
+				<li class="page-item"><a class="page-link" href="orderList.se?cpage=${pi.currentPage + 1}">></a></li>
+				</c:otherwise>
+			</c:choose>
+			</ul>
 			</div>
 		</div>
 	</div>
+	</div>
+	</div>
 </div>
-
 
 
 	<br><br><br>
@@ -510,7 +518,7 @@
 
   <!-- Modal footer -->
   <div class="modal-footer" style="width : 530px; height : 30px">
-	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="">수정</button>
+	  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(10,12);">수정</button>
 	  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal3" id="btnClose3">취소</button>
   </div> 
 </form> 
@@ -558,7 +566,7 @@
 		  </div>
 		  <!-- Modal footer -->
 		  <div class="modal-footer" style="width : 530px; height : 30px">
-			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(13,18);">수정</button>
+			  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(13,18)">수정</button>
 			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal4" id="btnClose4">취소</button>
 		  </div>  
 		</form>
@@ -600,12 +608,12 @@
 						</div>
 						<input type="hidden" value="${status.index}" name="ingNo"/>
 						<input type="hidden" value="${order.total}" name="hidden_iprice"/>
+						<input type="hidden" value="${order.indDate}" name="indDate"/>
 					</c:forEach>
 					</div>
-
 					<!-- Modal footer -->
 					<div class="modal-footer" style="width : 530px; height : 30px">
-						<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23);">수정</button>
+						<button type="submit" class="btn btn-success" data-bs-dismiss="modal" onclick="updateI(19,23)">수정</button>
 						<button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-target="#vModal5" id="btnClose5">취소</button>
 					</div> 
 				</form>
@@ -751,6 +759,18 @@ for(var j=1; j<6; j++){
 			$('#vModal'+i).modal('hide');
 		}
 	});
+}
+
+function updateI(value1, value2, value3){
+
+	// //controller로 넘길 input iprice element
+	// var hidden_iprice = $('input[name=hidden_iprice]');
+	// //발주수량 
+	// var resultElement = $("div[class=bb]").children('input[class=count]');
+
+	// var hidden_iprice = $('input[name=indDate]');
+
+	// location.href = "orderUpdate.se?ingNo1=" + value1 + "&ingNo2=" + value2 + "&totCount=" + value3;
 }
 
 

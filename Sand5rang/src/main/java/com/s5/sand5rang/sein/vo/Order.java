@@ -19,6 +19,7 @@ public class Order {
 	private int indNo;			//발주번호
 	private int count;			//발주갯수
 	private Date indDate;		//발주날짜
+	private String inDate;		//setter를 위한 inDate
 	private int total;			//발주총가격
 	private String status;		//발주상태
 	private String storeId;		//가맹점아이디
