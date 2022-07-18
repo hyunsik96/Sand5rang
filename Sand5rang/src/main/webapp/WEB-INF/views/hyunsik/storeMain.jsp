@@ -149,7 +149,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="depositList.se">대금내역</a></li>
+                        <li><a href="fr1.hs">대금내역</a></li>
 						<li><a href="deposit.se">입금</a></li>
                     </ul>    				
 				</li>

@@ -121,7 +121,7 @@
 					<ul class="dropdown-menu">
                         <li><a href="storeList.sm">가맹점 조회</a></li>
 						<li><a href="storeEnrollList.sm">가맹가입신청</a></li>
-						<li><a href="annatest3.an">문의 조회</a></li>
+						<li><a href="inqList.an">문의 조회</a></li>
                     </ul>    				
 				</li>
                 
