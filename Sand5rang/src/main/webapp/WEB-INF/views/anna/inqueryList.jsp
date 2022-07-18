@@ -178,7 +178,7 @@
 						
 						<div  class="category">
 							<form action="test.do"> <!-- style="display:inline-block;" -->
-								<a href="#">운영문의</a> | <a href="#">재고문의</a> | <a href="#">발주문의</a>
+								<a href="inqList.an?cate=1">운영문의</a> | <a href="inqList.an?cate=2">재고문의</a> | <a href="inqList.an?cate=3">발주문의</a>
 							</form>
 						</div>
 					</div> <!-- /widget-header -->
@@ -228,12 +228,12 @@
 						<li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
 			 		</c:when>
 					<c:otherwise>
-						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ pi.currentPage - 1 }">&lt;</a></li>
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ pi.currentPage - 1 }&cate=${cate}">&lt;</a></li>
 					</c:otherwise>
 				</c:choose> 
 		
 				<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}"> 
-						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ p }">${ p }</a></li>
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ p }&cate=${cate}">${ p }</a></li>
 				</c:forEach>
 		
 				<c:choose>
@@ -241,7 +241,7 @@
 						<li class="page-item disabled"><a class="page-link" href="#">&gt;</a></li>
 				  	</c:when>
 				  	<c:otherwise>
-						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ pi.currentPage + 1 }">&gt;</a></li>
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${ pi.currentPage + 1 }&cate=${cate}">&gt;</a></li>
 				  	</c:otherwise>
 				</c:choose>
 			</ul>

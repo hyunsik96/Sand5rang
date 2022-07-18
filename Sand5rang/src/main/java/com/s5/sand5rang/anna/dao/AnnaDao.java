@@ -17,17 +17,17 @@ public class AnnaDao {
 	
 	
 	// 게시글 총 갯수 조회
-	public int selectListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("annaMapper.selectListCount");
+	public int selectListCount(SqlSessionTemplate sqlSession, int cate) {
+		return sqlSession.selectOne("annaMapper.selectListCount", cate);
 	}
 	
 	// 문의게시판 전체리스트 조회
-	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession, PageInfo pi) {
+	public ArrayList<Inquery> inqueryList(SqlSessionTemplate sqlSession, PageInfo pi, int cate) {
 	
 		int limit = pi.getBoardLimit();
 		int offset =(pi.getCurrentPage()-1) *limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);
-		return (ArrayList)sqlSession.selectList("annaMapper.inqueryList",null, rowBounds);
+		return (ArrayList)sqlSession.selectList("annaMapper.inqueryList",cate, rowBounds);
 	}
 	
 	// 문의게시판 상세 조회 

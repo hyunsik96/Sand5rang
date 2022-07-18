@@ -48,10 +48,13 @@ public class AnnaController {
 	// 문의 게시판 리스트 조회
 	@RequestMapping(value="inqList.an")
 	public String inqueryList(
-			@RequestParam(value="cpage", defaultValue="1") int currentPage, Model model) {
+			@RequestParam(value="cpage", defaultValue="1") int currentPage,
+			@RequestParam(value="cate", defaultValue="0") int cate, Model model) {
+		
+		// cate == 0 ; 전체 . 1. 2. 3.
 		
 		//1.게시글 총 갯수 조회
-		int listCount = annaService.selectListCount();
+		int listCount = annaService.selectListCount(cate);
 		
 		int pageLimit=10;
 		int boardLimit=5;
@@ -59,12 +62,12 @@ public class AnnaController {
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
 		
 		//2.전체리스트 조회
-		ArrayList<Inquery> list = annaService.inqueryList(pi);
+		ArrayList<Inquery> list = annaService.inqueryList(pi, cate);
 		
 		//System.out.println(list+"조회중");
 		model.addAttribute("pi",pi);
 		model.addAttribute("list",list);
-		
+		model.addAttribute("cate", cate);
 		return "anna/inqueryList";
 
 	} 

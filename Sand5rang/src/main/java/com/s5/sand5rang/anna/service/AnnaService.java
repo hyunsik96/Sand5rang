@@ -28,13 +28,13 @@ public class AnnaService {
 	 
 
 	// 문의게시판 총 갯수 조회
-	public int selectListCount() {
-		return annaDao.selectListCount(sqlSession);
+	public int selectListCount(int cate) {
+		return annaDao.selectListCount(sqlSession, cate);
 	}
 
 	// 문의글 리스트 전체 조회
-	public ArrayList<Inquery> inqueryList(PageInfo pi) {
-		return annaDao.inqueryList(sqlSession, pi);
+	public ArrayList<Inquery> inqueryList(PageInfo pi, int cate) {
+		return annaDao.inqueryList(sqlSession, pi, cate);
 	}
 
 	// 문의글상세 조회 

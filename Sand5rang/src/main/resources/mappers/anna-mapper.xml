@@ -66,16 +66,22 @@
 	</select>
 	
 	<!-- 게시글 총 갯수 조회 -->
-	<select id="selectListCount" resultType="_int">
+	<select id="selectListCount" parameterType="_int" resultType="_int">
 		SELECT COUNT(*)
 		FROM INQUERY
+		<if test='cate=="1"'>WHERE CATEGORY = '운영문의'</if>
+		<if test='cate=="2"'>WHERE CATEGORY = '재고문의'</if>
+		<if test='cate=="3"'>WHERE CATEGORY = '발주문의'</if>
 	</select>
 	
 	<!-- 문의 리스트 전체 조회 -->
-	<select id="inqueryList" parameterType="com.s5.sand5rang.anna.vo.Inquery" resultMap="inqueryResultSet">
+	<select id="inqueryList" parameterType="_int" resultMap="inqueryResultSet">
 		SELECT INQ_NO, CATEGORY, INQ_TITLE, TO_CHAR(INQ_DATE, 'YY.MM.DD') "INQ_DATE", STORE_NAME, TO_CHAR(INQ_DATE, 'YY.MM.DD') "ANS_DATE"
 		  FROM INQUERY I
 		  JOIN STORE S ON (I.STORE_ID = S.STORE_ID)
+		<if test='cate=="1"'>WHERE CATEGORY = '운영문의'</if>
+		<if test='cate=="2"'>WHERE CATEGORY = '재고문의'</if>
+		<if test='cate=="3"'>WHERE CATEGORY = '발주문의'</if>
 		 ORDER BY INQ_NO DESC
 	</select>
 	
