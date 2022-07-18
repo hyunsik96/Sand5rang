@@ -138,9 +138,9 @@ ORDER BY INQ_NO DESC
 
 <!-- 문의글 폼 셀렉트 -->
 <select id="selectInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultType="string">
-SELECT STORE_ID
-FROM INQUERY 
-WHERE STORE_ID = #{storeId} 
+    SELECT DISTINCT STORE_ID
+    FROM STORE
+    WHERE STORE_ID = #{storeId}
 </select>
 <!-- 문의글 작성하기 -->
 <insert id="inqueryInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery">

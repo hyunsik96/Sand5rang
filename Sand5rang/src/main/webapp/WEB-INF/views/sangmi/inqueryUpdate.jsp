@@ -199,7 +199,7 @@
                  </tr>
                  <tr>
                    <th><label for="title" style="font-size:18px">작성날짜</label></th> 
-                   <td><input type="date" id="title" class="form-control" name="inqDate" value="${i.inqDate}"></td> 
+                   <td><input type="text" id="title" class="form-control" name="inqDate" value="${i.inqDate}"></td> 
                  </tr>                               
                  <tr>
                 <tr>

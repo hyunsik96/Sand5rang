@@ -211,7 +211,7 @@
      <form id="enrollForm" class="" method="post" action="insertStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
         <div class="form-group" >
             <input type="hidden" name="contact_number">
-
+<input type="hidden" value="${e.email}" name="email">
           <label for="userName">* 가맹점 명 : </label>
           <input type="text" class="form-control" id="storeName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;"><br>
                
@@ -239,7 +239,7 @@
          
             <input type="hidden" name="enrNo" value="${ e.enrNo }">
    
-            <button type="submit" class="btn btn-primary" >확인</button>
+            <button type="submit" class="btn btn-primary" >승인</button>
           
             
         </div>
@@ -248,7 +248,7 @@
   <form id="" class="" method="post" action="referStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
         <div class="form-group" >
             <input type="hidden" name="contact_number">
-
+  <input type="hidden" value="${e.email}" name="email">
 
           <label for="content">^ 내용 : </label>
           <textarea class="form-control" id="content" name="message" placeholder="가맹점  반려이유를 써주세요." style="width:400px; height:100px; resize:none;"></textarea><br> 

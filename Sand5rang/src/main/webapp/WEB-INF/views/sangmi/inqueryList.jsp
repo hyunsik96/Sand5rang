@@ -194,7 +194,7 @@
     <table id="boardList" class="table table-striped table-bordered" align="center">
         <thead>
             <tr>
-                <th width="10%">글번호</th>
+                 <th width="10%">글번호</th>
                  <th width="10%">카테고리</th>
                 <th width="30%">제목</th>
                 <th width="10%">작성자</th>
@@ -205,7 +205,7 @@
         <tbody>
           <c:forEach var="i" items="${list }">
             <tr>
-               <td class="ino">${i.inqNo}</td>
+               <td class="ino">${i.inqNo}</td> 
                  <td>${i.category }</td>
                 <td>${i.inqTitle }</td>
                 <td>${i.storeName }</td>
