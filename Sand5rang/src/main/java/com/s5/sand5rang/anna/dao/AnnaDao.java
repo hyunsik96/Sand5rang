@@ -46,13 +46,15 @@ public class AnnaDao {
 	}
 	
 	
-	// 가맹문의 신청
-	public int joinForm(SqlSessionTemplate sqlSession, Enroll e) {
-		return sqlSession.selectOne("annaMapper.joinForm", e);
+	// 이메일 중복확인
+	public int checkEmail(SqlSessionTemplate sqlSession, String email) {
+		return sqlSession.selectOne("annaMapper.checkEmail", email);
 	}
 
-	
-
+	// 가맹문의 등록 
+	public int insertStore(SqlSessionTemplate sqlSession, Enroll e) {
+		return sqlSession.selectOne("annaMapper.insertStore", e);
+	}
 	
 
 	

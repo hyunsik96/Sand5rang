@@ -121,22 +121,33 @@
 		  WHERE INQ_NO = #{inqNo}
 	</update>
 	
-	<!-- 가맹문의 서비스 -->
-	<insert id="joinForm" parameterType="com.s5.sand5rang.anna.vo.Enroll">
+
+	<!--이메일 체크 -->
+	<select id="checkEmail" parameterType="string" resultType="_int">
+		SELECT COUNT(*) 
+		FROM ENROLL 
+		WHERE EMAIL = #{email} 
+  	</select>
+  	
+  	<!-- 가맹신청 -->
+	<insert id="insertStore" parameterType="com.s5.sand5rang.anna.vo.Enroll">
 		INSERT INTO ENROLL( ENR_NO
 	                  , STORE_NAME
-	                  , PHONE
-	                  , EMAIL
 	                  , ENROLL_ADD
+	                  , EMAIL
+	                  , PHONE
 	                  , TITLE
-	                  , CONTENT)
+	                  , CONTENT
+	                  , STATUS)
 		 VALUES ( SEQ_ENRNO.NEXTVAL
-		          , #{storeName}
-		          , #{phone}
+		          , #{name}
+		          , #{address}
 		          , #{email}
-		          , #{enrollAdd}
+		          , #{phone}
 		          , #{title}
-		          , #{content})
+		          , #{content}
+		          , 'B')
 	</insert>
+  	
 </mapper>
 

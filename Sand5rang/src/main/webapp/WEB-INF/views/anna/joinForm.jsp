@@ -38,63 +38,49 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
   <!-- Latest compiled JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  
-<script type="text/javascript">
-    $("input[name=chk]").click(function() {
-        var total = $("input[class=chk]").length;
-        var checked = $("input[class=chk]:checked").length;
-        
-        if(total != checked) $("#checkbox").prop("checked", false);
-        else $("#checkbox").prop("checked", true); 
-    });
-    
-    $(function() {
-    	$("#input_text").on('input', function(){
-    		if($("input_text").val()=='')
-    			${".btn"}.attr("disabled", true);
-    		else
-    			${".btn"}.attr("")		
-    	});
-    });
-</script>
+
 
 <script>//이메일 체크 
 	function emailCheck(){
 				
 		// 아이디를 입력받을 수 있는 input 요소 객체
-		var $email = $("#enroll-form input[name=email]");
+		var $userEmail = $("#enroll-form input[name=email]");
 		var $checkEmail = $("#enroll-form input[name=checkemail]");
 		// $storeId 요소객체의 value 속성값인 이메일값을 가지고 중복확인
 		$.ajax({
 			
-			url : "emailCheck.me",
-			data : {checkEmail : $email.val()},
+			url : "emailCheck.an",
+			data : {checkEmail : $userEmail.val()},
 		//	type : 생략하면 get
 			success : function(result){
 				
 				if(result=="NNNNN"){
 					alert("이미 존재하거나 탈퇴한 회원의 이메일입니다.");
-					$email.val("");
-					$email.focus();
+					$userEmail.val("");
+					$userEmail.focus();
 					
 				}else{
 					
 					if(confirm("사용 가능한 이메일입니다. 인증번호를 전송하시겠습니까?")){
 						
 
-						$email.attr("readonly", true);
+						$userEmail.attr("readonly", true);
 						
 						/////////////////////////////////// 중복체크 끝 인증번호 전송부분
 						
 						$.ajax({
 								
-								url : "emailSend.me",
-								data : {email : $email.val()},
+								url : "emailSend.an",
+								data : {userEmail : $userEmail.val()},
 							//	type : 생략하면 get
 								success : function(result){
 									alert("인증번호가 전송되었습니다.")
+									$checkEmail.removeAttr("readonly");
+									$("#autBtn").removeAttr("disabled");
 									$checkEmail.focus();
 									$("#hiddenCheck").val(result);
+									$userEmail.attr("readonly", true);
+									$("#send").attr("disabled", true)
 								},
 								error : function(){
 									console.log("이메일 보내기 ajax 통신 실패!");
@@ -105,8 +91,8 @@
 			/////////////////////////////////////////////////////////
 						
 					}else{
-						$email.val("");
-						$email.focus();
+						$userEmail.val("");
+						$userEmail.focus();
 					}
 					
 				}
@@ -131,8 +117,9 @@
            return false;
        } else{
     	   alert("인증에 성공하였습니다.");
-			$("#totalSubmit").removeAttr("disabled");
-			$aaaaa.attr("readonly", true);
+			$("#btn-submit").removeAttr("disabled");
+			$("#checkemail").attr("readonly", true);
+			$("#autBtn").attr("disabled", true);
     	   
        }
 		
@@ -146,20 +133,7 @@
 	}
 }
 </script>
-
-		
- <script> // 텍스트가 채워질 시 버튼 활성화를 하고 싶은데 잘 안됨
-	$(document).ready(function() {
-      	$('button').attr('disabled', 'disabled');
-          $('input[type=text]').on('input', function() {
-                if ($(this).val() !== '') {
-                $('button').removeAttr("disabled");
-                 }
-                else {
-                $('button').attr('disabled', 'disabled');
-                 }
-		});
-</script>		
+	
 
     
 </head>
@@ -253,6 +227,8 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 
 </style>
 <body class="sub_page">
+<input type="hidden" id="hiddenCheck">
+<form action="insertStore.an" method="post" id="enroll-form">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
@@ -295,7 +271,9 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
     <!-- end header section -->
   </div>
 
- 	<!-- 알림창 -->
+
+<br>
+	<!-- 알림창 -->
       <c:if test="${ not empty alertMsg }">
 		<script>
 			alert("${alertMsg}");
@@ -303,11 +281,9 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 			<!-- 일회성 알람 메세지 session scope에 있는 alertMsg 삭제해주기 -->
 			<c:remove var="alertMsg" scope="session"/>
 	</c:if>
+	
+    <div class="inquiry_wrapper" style="width:1300px;">
 
-<br>
-
-    <div class="inquiry_wrapper">
-	<input type="hidden" id="hiddenCheck">
           <div class="subTitle" align="center">
               <h2>가맹 신청ㆍ문의 </h2>
           </div>
@@ -412,18 +388,18 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                               </span>
                           </td>
                       </tr>
-                      <tr>
+                     <tr>
                           <th scope="col">이메일 * <span class="ess"></span></th>
                           <td>
                               <span class="form_text" style="width:200px">
-                                  <input id="franchiseEmail" maxlength="50" name="email" onkeyup="" placeholder="이메일을 입력하세요" type="email" value="" required>
-                                  <button class="button btn btn-success btn-large" onclick="return emailCheck();" disabled id="send">인증번호 발송</button><br>
+                                  <input style="width:350px;" id="email" maxlength="50" name="email" placeholder="이메일을 입력하세요" type="email" value="" required>
+                                  <button class="button btn btn-success btn-large" onclick="return emailCheck();" id="send">인증번호 발송</button><br>
                             </span><br>
 
                               <span class="form_text" style="width:200px">
-                                  <input id="authNum" maxlength="5" name="authNum" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+                                  <input style="width:350px;" id="checkemail" maxlength="5" name="checkemail" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
                                   			type="text" placeholder="인증번호를 입력하세요" value="" required>
-                                  <button class="button btn btn-success btn-large" onclick="return resNumCheck();">인증번호 확인</button>
+                                  <button class="button btn btn-success btn-large" id="autBtn" onclick="return resNumCheck();" disabled>인증번호 확인</button>
                                 </span>
                               <div class="form_select" style="width:196px; margin-left:7px;">
                               </div>
@@ -440,32 +416,31 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                               </div>
                               <div class="form_select" id="select2" style=" display: inline-block;">
                                   <select name="region2">
-                                      <option value="">시/군/구</option>
-                                          <option value="001">강남구</option>
-                                          <option value="002">강동구</option>
-                                          <option value="003">강북구</option>
-                                          <option value="004">강서구</option>
-                                          <option value="005">관악구</option>
-                                          <option value="006">광진구</option>
-                                          <option value="007">구로구</option>
-                                          <option value="008">금천구</option>
-                                          <option value="009">노원구</option>
-                                          <option value="010">도봉구</option>
-                                          <option value="011">동대문구</option>
-                                          <option value="012">동작구</option>
-                                          <option value="013">마포구</option>
-                                          <option value="014">서대문구</option>
-                                          <option value="015">서초구</option>
-                                          <option value="016">성동구</option>
-                                          <option value="017">성북구</option>
-                                          <option value="018">송파구</option>
-                                          <option value="019">양천구</option>
-                                          <option value="020">영등포구</option>
-                                          <option value="021">용산구</option>
-                                          <option value="022">은평구</option>
-                                          <option value="023">종로구</option>
-                                          <option value="024">중구</option>
-                                          <option value="025">중랑구</option>
+                                          <option value="강남구">강남구</option>
+                                          <option value="강동구">강동구</option>
+                                          <option value="강북구">강북구</option>
+                                          <option value="강서구">강서구</option>
+                                          <option value="관악구">관악구</option>
+                                          <option value="광진구">광진구</option>
+                                          <option value="구로구">구로구</option>
+                                          <option value="금천구">금천구</option>
+                                          <option value="노원구">노원구</option>
+                                          <option value="도봉구">도봉구</option>
+                                          <option value="동대문구">동대문구</option>
+                                          <option value="동작구">동작구</option>
+                                          <option value="마포구">마포구</option>
+                                          <option value="서대문구">서대문구</option>
+                                          <option value="서초구">서초구</option>
+                                          <option value="성동구">성동구</option>
+                                          <option value="성북구">성북구</option>
+                                          <option value="송파구">송파구</option>
+                                          <option value="양천구">양천구</option>
+                                          <option value="영등포구">영등포구</option>
+                                          <option value="용산구">용산구</option>
+                                          <option value="은평구">은평구</option>
+                                          <option value="종로구">종로구</option>
+                                          <option value="중구">중구</option>
+                                          <option value="중랑구">중랑구</option>
                                   </select>
                               </div>
                           </td>
@@ -482,9 +457,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <th scope="col">내용 *<span class="ess"></span></th>
                           <td>
                               <span class="form_textarea" style="width:100%";>
-                                  <textarea cols="5" maxlength="1000" name="content" placeholder="가맹점 신청과 관련된 문의사항을 작성해 주세요.
-문의하실 내용을 구체적으로 작성해 주시면 더욱 빠르고 정확한 답변을 드릴 수 있습니다." rows="10" style="width:900px; height:300px;" required>
-                                  </textarea>
+                                  <textarea cols="5" maxlength="1000" name="content" placeholder="가맹점 신청과 관련된 문의사항을 작성해 주세요.&#13;&#10;문의하실 내용을 구체적으로 작성해 주시면 더욱 빠르고 정확한 답변을 드릴 수 있습니다." rows="10" style="width:900px; height:300px;" required></textarea>
                               </span>
                           </td>
                       </tr>   
@@ -512,8 +485,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 	
         <div class="btns_wrapper">
         	<button  class="btn" onclick="clickBack(); history.back();"><span>취소</span></button>
-            <button type="submit" class="btn btn-success" onclick="clickSubmit(); location.href='joinForm2.an'"
-            		id="btn-submit" disabled><span>등록하기</span></button>
+            <button type="submit" class="btn btn-success" id="btn-submit" disabled><span>등록하기</span></button>
         </div>
         
         <script>
@@ -521,9 +493,6 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
 				alert('작성한 내용은 저장되지 않습니다. 취소 하시겠습니까?');
 			}
 			
-			function clickSubmit(){
-				alert('등록하시겠습니까?');
-			}
 			</script>
        </div> 
   
@@ -630,7 +599,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-
+</form>
 </body>
 
 </html>

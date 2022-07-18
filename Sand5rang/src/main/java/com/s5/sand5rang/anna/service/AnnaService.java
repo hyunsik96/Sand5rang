@@ -20,12 +20,15 @@ public class AnnaService {
 	private SqlSessionTemplate sqlSession;
 	
 
+	// 이메일 체크
+	public int checkEmail(String email) {
+		return annaDao.checkEmail(sqlSession, email);
+	}
 	 
-	 //	가맹문의 신청 서비스(insert)
-	 public int joinForm(Enroll e) {
-		return annaDao.joinForm(sqlSession, e);	 
-	 }
-	 
+	// 가맹문의 신청 (insert)
+	public int insertStore(Enroll e) {
+		return annaDao.insertStore(sqlSession, e);
+	}
 
 	// 문의게시판 총 갯수 조회
 	public int selectListCount(int cate) {

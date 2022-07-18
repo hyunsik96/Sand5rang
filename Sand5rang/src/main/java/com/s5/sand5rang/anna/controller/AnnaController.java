@@ -1,19 +1,8 @@
 package com.s5.sand5rang.anna.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.s5.sand5rang.anna.service.AnnaService;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.hyunsik.vo.EmailSendHs;
+import com.s5.sand5rang.anna.vo.EmailSend;
 import com.s5.sand5rang.anna.vo.Enroll;
 import com.s5.sand5rang.anna.vo.Inquery;
 
@@ -109,42 +100,57 @@ public class AnnaController {
 	}
 
 	
-	// 가맹문의 폼
+	// 가맹문의 폼 띄우기 
 	@RequestMapping(value="joinForm.an")
-	public String joinForm(Enroll e, HttpSession session, Model model) {
+	public String joinForm() {
 		return "anna/joinForm";
 	}
-	
-	@RequestMapping(value="joinForm2.an") // 가입 승인 처리(버튼) 
-	public String joinForm2(Enroll e, HttpSession session, Model model) {
-	int result = annaService.joinForm(e);
+
+	 // 이메일 중복 확인 
+	 @ResponseBody // 데이터를 반환해줄 것.. 이메일이 중복되면 매개변수로 NNNNN / 중복되지 않는다면 NNNNY로 
+	 @RequestMapping(value="emailCheck.an", produces="text/html; charset=UTF-8")
+	 public String checkEmail (String checkEmail) {
+
+	 int a = annaService.checkEmail(checkEmail);
+			
+		if(a > 0) { 
+			return "NNNNN";
+		} else {
+			return "NNNNY";
+		}
+	 }
+	 
+	 // 이메일이 중복되지 않을 시 인증번호 발송
+	 @ResponseBody
+	 @RequestMapping(value="emailSend.an", produces="text/html; charset=UTF-8")
+	 public String sendEmail(String userEmail) {
+			
+		int autNo = EmailSend.naverMailSend(userEmail);
+			
+		return Integer.toString(autNo);
+			
+	}
+	 
+	// 가맹문의 등록  
+	@RequestMapping(value="insertStore.an") // 가입 승인 처리(버튼) 
+	public String insertStore(String storeName, String phone, String email, String region2, String subject, String content, HttpSession session) {
+		
+		Enroll e = new Enroll();
+		
+		e.setName(storeName); e.setPhone(phone); e.setEmail(email); 
+		e.setAddress(region2); e.setTitle(subject); e.setContent(content);
+		
+		int result = annaService.insertStore(e);
 		
 		if(result > 0) {
 			session.setAttribute("alertMsg", "성공적으로 문의가 등록되었습니다.");
-			return "redirect:joinForm.an";
-		}
-		else {
-			model.addAttribute("errorMsg", "문의등록에 실패하였습니다. 다시 시도해주세요.");
-			return "common/errorFr";
+			return "redirect:/";
+		}else {
+			session.setAttribute("errorMsg", "문의등록에 실패하였습니다. 다시 시도해주세요.");
+			return "redirect:/";
 		}	
 	}
-	
-	// 이메일 체크 
-	//	 @ResponseBody // 데이터를 반환해줄 것.. 이메일이 중복되면 매개변수로 NNNNN / 중복되지 않는다면 NNNNY로 
-	//	 @RequestMapping(value="emailCheck.me", produces="text/html; charset=UTF-8")
-	//	 	public int emailChecker (String checkEmail) throws Exception {
-	//		
-	//		 int mailAutNo = EmailSend.naverMailSend(checkEmail);
-			
-			 // 이메일이 존재하다면 checkEmaild에다가 (?) 아님 EmailSend 에다가 
-			 // "NNNNN"를 반환
-					
-			//이메일 존재하지 않는다면  (아이디 생성 가능)
-			// "NNNNY" 를 반환  -> 이과정을 적는 코드를 모르겠음
-					
-	//				}
-			 		 
-			 }
+}
 
 	  
 
