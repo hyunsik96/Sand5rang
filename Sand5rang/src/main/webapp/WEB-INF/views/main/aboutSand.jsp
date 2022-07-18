@@ -69,11 +69,11 @@
                   <a class="nav-link" href="branch.ma">지사안내</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="hyunsikTest.hs">가맹문의</a>
+                  <a class="nav-link" href="joinForm.an">가맹문의</a>
                 </li>
               </ul>
               <div class="user_option">
-                <a href="" class="order_online">
+                <a href="login.me" class="order_online">
                   Login
                 </a>
               </div>
@@ -170,22 +170,22 @@
               Contact Us
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="javascript:;">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
                   Location
                 </span>
               </a>
-              <a href="">
+              <a href="javascript:;">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call 02) 807-4421 
                 </span>
               </a>
-              <a href="">
+              <a href="javascript:;">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  Sand5rang@gmail.com
+                  Sand5rang@naver.com
                 </span>
               </a>
             </div>
@@ -193,29 +193,13 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="javascript:;" class="footer-logo">
               Sand5rang
             </a>
             <p>
               Korea tradition Sandwich Franchise Sand5rang 
             </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
-            </div>
+
           </div>
         </div>
         <div class="col-md-4 footer-col">
@@ -233,9 +217,9 @@
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Sand5rang</a><br><br>
+          Sand5rang<br><br>
           &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">Sand5rang</a>
+          Sand5rang
         </p>
       </div>
     </div>
