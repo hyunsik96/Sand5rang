@@ -21,6 +21,7 @@ import com.s5.sand5rang.hyunsik.service.HyunsikService;
 import com.s5.sand5rang.hyunsik.vo.EmailSendHs;
 import com.s5.sand5rang.hyunsik.vo.Enroll;
 import com.s5.sand5rang.hyunsik.vo.Indent;
+import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.Payment;
 import com.s5.sand5rang.hyunsik.vo.StockF;
 import com.s5.sand5rang.hyunsik.vo.StockS;
@@ -195,7 +196,8 @@ public class HyunsikController {
 		Store user = (Store)session.getAttribute("loginstore");
 
 		String storeId = user.getStoreId();
-		
+		Main mm = hyunsikService.befIndent2(storeId);
+        model.addAttribute("mm", mm);
 		StockF sf = new StockF();
 		sf.setStoreId(storeId);
 		 
@@ -269,7 +271,8 @@ if(flowDate!=0) {
 		Store user = (Store)session.getAttribute("loginstore");
 
 		String storeId = user.getStoreId();
-		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
 		int listCount = hyunsikService.payListCount2(storeId);
 		int pageLimit = 10;
 		int boardLimit = 10;
@@ -383,7 +386,8 @@ if(flowDate!=0) {
 		Store user = (Store)session.getAttribute("loginstore");
 
 		String storeId = user.getStoreId();
-		
+		Main m = hyunsikService.befIndent2(storeId);
+        model.addAttribute("m", m);
 		int aaaaa = hyunsikService.countSales(storeId);
 		
 		if(aaaaa!=0) {
