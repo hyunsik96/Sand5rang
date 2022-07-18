@@ -42,11 +42,13 @@ public class SeonghoonService {
 	public ArrayList<Stock> selectStock5(String storeId){ return seonghoonDao.selectStock5(sqlSession, storeId); }
 	
 	// 유통기한
+	/*
 	public ArrayList<Stock> selectExpDate1(String storeId){ return seonghoonDao.selectExpDate1(sqlSession, storeId); }
 	public ArrayList<Stock> selectExpDate2(String storeId){ return seonghoonDao.selectExpDate2(sqlSession, storeId); }
 	public ArrayList<Stock> selectExpDate3(String storeId){ return seonghoonDao.selectExpDate3(sqlSession, storeId); }
 	public ArrayList<Stock> selectExpDate4(String storeId){ return seonghoonDao.selectExpDate4(sqlSession, storeId); }
 	public ArrayList<Stock> selectExpDate5(String storeId){ return seonghoonDao.selectExpDate5(sqlSession, storeId); }
+	*/
 	
 	// ***************** 제품 판매 현황 *************************
 	public int menuSalesListCount(String storeId) {

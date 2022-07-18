@@ -59,6 +59,7 @@ public class SeonghoonDao {
 	}
 	
 	// 유통기한
+	/*
 	public ArrayList<Stock> selectExpDate1(SqlSessionTemplate sqlSession, String storeId){
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate1", storeId);
 	}
@@ -74,7 +75,7 @@ public class SeonghoonDao {
 	public ArrayList<Stock> selectExpDate5(SqlSessionTemplate sqlSession, String storeId){
 		return (ArrayList)sqlSession.selectList("seonghoonMapper.selectExpDate5", storeId);
 	}
-	
+	*/
 	// ******************************* 제품 판매 현황 **********************************
 	public int menuSalesListCount(SqlSessionTemplate sqlSession, String storeId) {
 		return sqlSession.selectOne("seonghoonMapper.menuSalesListCount", storeId);

@@ -202,12 +202,14 @@
 			<span>${s.count}</span>
 			</c:if>
 		</c:forEach>
+	<!-- 	
 	유통기한 : 		
 		<c:forEach var="d" items="${d_list1 }">
 			<c:if test="${i.ingNo eq d.ingNo }">
 			<span>${d.stoDate }</span>
 			</c:if>
 		</c:forEach>
+	 -->		
 	</p>
 </div>
 </c:forEach>
@@ -224,12 +226,14 @@
 		<span>${s.count}</span><br>
 		</c:if>
 	</c:forEach>
+	<!-- 
 	유통기한 : 	
 	<c:forEach var="d" items="${d_list2 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
 		<span>${d.stoDate }</span>
 		</c:if>
 	</c:forEach>
+	 -->
 	</p>
 </div>
 </c:forEach>
@@ -246,12 +250,14 @@
 		<span>${s.count}</span><br>
 		</c:if>
 	</c:forEach>
+	<!-- 
 	유통기한 : 
 	<c:forEach var="d" items="${d_list3 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
 		<span>${d.stoDate }</span>
 		</c:if>
 	</c:forEach>
+	 -->
 	</p>
 </div>
 </c:forEach>
@@ -268,12 +274,14 @@
 		<span>${s.count}</span><br>
 		</c:if>
 	</c:forEach>
+	<!-- 
 	유통기한 : 	
 	<c:forEach var="d" items="${d_list4 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
 		<span>${d.stoDate }</span>
 		</c:if>
 	</c:forEach>
+	 -->
 	</p>
 </div>
 </c:forEach>
@@ -290,12 +298,14 @@
 		<span>${s.count}</span><br>
 		</c:if>
 	</c:forEach>
+	<!-- 
 	유통기한 :	
 	<c:forEach var="d" items="${d_list5 }">
 		<c:if test="${i.ingNo eq d.ingNo }">
  		<span>${d.stoDate }</span>
 		</c:if>
 	</c:forEach>
+	 -->
 	</p>
 </div>
 </c:forEach>

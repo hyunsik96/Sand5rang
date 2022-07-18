@@ -138,6 +138,7 @@
 	</select>
 	
 	<!-- 원재료 유통기한 -->
+	<!-- 
 	<select id="selectExpDate1" parameterType="string" resultMap="StockResultMap">
 		SELECT ING_NO, TO_CHAR(MIN(A.STO_DATE),'yy.MM.dd')"STO_DATE"		
 		FROM 
@@ -208,7 +209,7 @@
 		    )"A"
 		GROUP BY ING_NO
 	</select>		
-	
+	 -->
 	<!-- ******************** 제품 판매 현황 ********************* -->					
 	<select id="menuSalesListCount" parameterType="string" resultType="_int">
         SELECT COUNT(*)
@@ -364,20 +365,18 @@
 	</select>
 	
 	<update id="updateDisposal" parameterType="hashmap">
-		UPDATE STOCK
-		SET STATUS = 'X'
-		WHERE 
-		(
-			SELECT TO_CHAR(STO_DATE,'yy.MM.dd')"STO_DATE",ING_NAME,ING_TYPE, COUNT 
+        UPDATE
+            (
+			SELECT STATUS 
 	        FROM STOCK S
 	        JOIN INGREDIENT USING(ING_NO)
 	        WHERE S.STATUS = 'O'
 	        AND STORE_ID = #{storeId}
 	        AND ING_TYPE= #{ingType}
-	        AND ING_NAME= #{ingName}	
+	        AND ING_NAME= #{ingName}
 			AND TO_CHAR(STO_DATE,'yy.MM.dd') <![CDATA[<=]]> TO_CHAR(SYSDATE-EXPIRATION, 'yy.MM.dd')        
-	       	ORDER BY STO_DATE DESC		
-		)
-		
+	       	ORDER BY STO_DATE DESC
+            )
+        SET STATUS = 'X'
 	</update>
 </mapper>

@@ -240,7 +240,8 @@
 	</select>
 	<input type="submit" value="검색하기" class="btn btn-success" style="width:100px;" 
 	onclick='btn_click("select");'>
-	<input type="hidden" value="폐기하기" class="btn btn-success" style="width:100px;">
+	<input type="submit" value="폐기하기" class="btn btn-danger" style="width:100px;"
+	onclick='btn_click("update");'>
 </form>			
 	  				</div> <!-- /widget-header -->
 					<div class="widget-content">
@@ -269,8 +270,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<div align="right"><button value="폐기하기" class="btn btn-danger" style="width:100px;"
-	onclick='btn_click("update");'>폐기하기</button></div>	
 </c:if>
 
 
@@ -415,8 +414,16 @@
 		if(str == "select"){
 			disposalList.action="ingredientDisposal1.csh";
 			disposalList.method="get";
-		}else{
 			
+		}else{
+			var info = confirm("폐기하시겠습니까?");
+			if(info == true){
+				disposalList.action="disposalUpdate.csh";
+				disposalList.method="post";
+				alert("폐기를 완료하였습니다.");
+			}else{
+				alert("취소하였습니다.");
+			}
 		}
 	}
 </script>			

@@ -78,6 +78,7 @@ public class SeonghoonController {
 		model.addAttribute("s_list5",s_list5);
 		
 		// 유통기한
+		/*
 		ArrayList<Stock> d_list1 = seonghoonService.selectExpDate1(storeId);
 		ArrayList<Stock> d_list2 = seonghoonService.selectExpDate2(storeId);
 		ArrayList<Stock> d_list3 = seonghoonService.selectExpDate3(storeId);
@@ -88,7 +89,7 @@ public class SeonghoonController {
 		model.addAttribute("d_list3",d_list3);
 		model.addAttribute("d_list4",d_list4);
 		model.addAttribute("d_list5",d_list5);
-		
+		*/
 			return "seonghoon/오늘의재고";
 		}
 }
@@ -572,7 +573,7 @@ public String selectDisposal(
 
 // 3. 폐기를 진행함
 @PostMapping(value="disposalUpdate.csh")
-public String updateDisposal(
+public void updateDisposal(
 			String ingType,
 			String ingName,
 			HttpSession session
@@ -585,10 +586,17 @@ public String updateDisposal(
 	hashmap.put("ingName", ingName);
 	hashmap.put("storeId", storeId);
 	
-	int result = seonghoonService.updateDisposal(hashmap);
-
+	System.out.println("ingType : "+ingType);
+	System.out.println("ingName : "+ingName);
+	System.out.println("storeId : "+storeId);
 	
-	return "";
+	int result = seonghoonService.updateDisposal(hashmap);
+	if(result > 0) {
+		// return "redirect:ingredientDisposal.csh";
+	}else {
+		// return "seonghoon/폐기관리";
+	}
+	
 }
 	
 
