@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.hyunsik.service.HyunsikService;
+import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.hyunsik.vo.StockS;
 import com.s5.sand5rang.sein.vo.Store;
 import com.s5.sand5rang.seonghoon.service.SeonghoonService;
@@ -31,6 +33,9 @@ public class SeonghoonController {
 
 	@Autowired
 	private SeonghoonService seonghoonService;
+	
+	@Autowired
+	private HyunsikService hyunsikService;
 	
 	@RequestMapping(value="main.csh")
 	public String mainController(Model model) {
@@ -157,6 +162,9 @@ public class SeonghoonController {
 		Store user = (Store)session.getAttribute("loginstore");
 		String storeId = user.getStoreId();
 		
+		Main m = hyunsikService.befIndent2(storeId);
+	    model.addAttribute("m", m);
+		
 		int listCount = seonghoonService.menuSalesListCount(storeId);
 		
 		int pageLimit = 10;
@@ -165,6 +173,7 @@ public class SeonghoonController {
 		
 		// 제품판매현황의 판매날짜, 총판매개수, 총판매금액을 담은 list
 		// 1. 제품판매현황을 찍어주기 위한 list
+		// 판매날짜, 가맹점아이디, 총개수, 총금액
 		ArrayList<Sales> sales_list1 = seonghoonService.selectMenuSalesList1(pi, storeId);
 		
 		// 2. 페이징바가 먹혀있는 sales_list1에서 
@@ -177,17 +186,19 @@ public class SeonghoonController {
 			// System.out.println(s);
 			menu_list.add(seonghoonService.MenuSalDate_List(s));
 		}
+		for(int i=0; i<menu_list.size(); i++) {
+			System.out.println(menu_list.get(i));
+	
+		}
 		
-//		for(int i=0; i<menu_list.size(); i++) {
-//			System.out.println(menu_list.get(i).get(i));
-//		
-//		}
-		
+		// 2. 페이징바가 먹혀있는 sales_list1에서
+		// salDate를 가져와서 이를 동적쿼리로 대입함
+		// 모달에는 각각 판매된 메뉴의 개수를 가져옴.
+		// 판매된 제품, 판매된 제품의 개수
 		model.addAttribute("pi", pi);
 		model.addAttribute("sales_list1", sales_list1);
 		model.addAttribute("menu_list",menu_list);
-		
-		
+
 		return "seonghoon/제품판매현황";
 	}
 	
@@ -573,7 +584,7 @@ public String selectDisposal(
 
 // 3. 폐기를 진행함
 @PostMapping(value="disposalUpdate.csh")
-public void updateDisposal(
+public String updateDisposal(
 			String ingType,
 			String ingName,
 			HttpSession session
@@ -592,9 +603,9 @@ public void updateDisposal(
 	
 	int result = seonghoonService.updateDisposal(hashmap);
 	if(result > 0) {
-		// return "redirect:ingredientDisposal.csh";
+		return "redirect:ingredientDisposal.csh";
 	}else {
-		// return "seonghoon/폐기관리";
+		return "seonghoon/폐기관리";
 	}
 	
 }

@@ -231,12 +231,11 @@
 	</select>
 	
 	<select id="MenuSalDate_List" parameterType="com.s5.sand5rang.seonghoon.vo.Sales" resultMap="SalesResultMap">
- 		SELECT MEN_NO, SUM(COUNT)"COUNT"
+        SELECT MEN_NO, COUNT
 		FROM SALES
-        WHERE SAL_DATE = #{salDate}
+        WHERE TO_CHAR(SAL_DATE,'yy.MM.dd') = #{salDate}
         AND STORE_ID = #{storeId}
-        GROUP BY MEN_NO 
-        ORDER BY MEN_NO     		
+        ORDER BY MEN_NO   		
 	</select>
 						
 	<!-- *********************판매 기입 페이지******************** -->

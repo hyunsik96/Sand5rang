@@ -173,7 +173,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget " style="width:1200px">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -187,38 +187,38 @@
    temp.children().remove();
    
    if(ingType == 'B'){
-    temp.append('<option value="파마산">파마산</option>');
-    temp.append('<option value="화이트">화이트</option>');
-    temp.append('<option value="플렛">플렛</option>');
+    temp.append('<option name="파마산" value="파마산">파마산</option>');
+    temp.append('<option name="화이트" value="화이트">화이트</option>');
+    temp.append('<option name="플렛" value="플렛">플렛</option>');
    }
    if(ingType == 'V'){
-    temp.append('<option value="양상추">양상추</option>');
-    temp.append('<option value="토마토">토마토</option>');
-    temp.append('<option value="오이">오이</option>');
-    temp.append('<option value="양파">양파</option>');
-    temp.append('<option value="피망">피망</option>');
-    temp.append('<option value="할라피뇨">할라피뇨</option>');
-    temp.append('<option value="아보카도">아보카도</option>');
+    temp.append('<option name="양상추" value="양상추">양상추</option>');
+    temp.append('<option name="토마토" value="토마토">토마토</option>');
+    temp.append('<option name="오이" value="오이">오이</option>');
+    temp.append('<option name="양파" value="양파">양파</option>');
+    temp.append('<option name="피망" value="피망">피망</option>');
+    temp.append('<option name="할라피뇨" value="할라피뇨">할라피뇨</option>');
+    temp.append('<option name="아보카도" value="아보카도">아보카도</option>');
    }
    if(ingType == 'C'){
-    temp.append('<option value="아메리칸">아메리칸</option>');
-    temp.append('<option value="모짜렐라">모짜렐라</option>');
-    temp.append('<option value="슈레드">슈레드</option>');
+    temp.append('<option name="아메리칸" value="아메리칸">아메리칸</option>');
+    temp.append('<option name="모짜렐라" value="모짜렐라">모짜렐라</option>');
+    temp.append('<option name="슈레드" value="슈레드">슈레드</option>');
    }
    if(ingType == 'M'){
-    temp.append('<option value="페퍼로니">페퍼로니</option>');
-    temp.append('<option value="에그마요">에그마요</option>');
-    temp.append('<option value="치킨">치킨</option>');
-    temp.append('<option value="쉬림프">쉬림프</option>');
-    temp.append('<option value="비프">비프</option>');
-    temp.append('<option value="베이컨">베이컨</option>');
+    temp.append('<option name="페퍼로니" value="페퍼로니">페퍼로니</option>');
+    temp.append('<option name="에그마요" value="에그마요">에그마요</option>');
+    temp.append('<option name="치킨" value="치킨">치킨</option>');
+    temp.append('<option name="쉬림프" value="쉬림프">쉬림프</option>');
+    temp.append('<option name="비프" value="비프">비프</option>');
+    temp.append('<option name="베이컨" value="베이컨">베이컨</option>');
    }
    if(ingType == 'S'){
-    temp.append('<option value="랜치">랜치</option>');
-    temp.append('<option value="스위트칠리">스위트칠리</option>');
-    temp.append('<option value="올리브오일">올리브오일</option>');
-    temp.append('<option value="머스타드">머스타드</option>');
-    temp.append('<option value="후추">후추</option>');
+    temp.append('<option name="랜치" value="랜치">랜치</option>');
+    temp.append('<option name="스위트칠리" value="스위트칠리">스위트칠리</option>');
+    temp.append('<option name="올리브오일" value="올리브오일">올리브오일</option>');
+    temp.append('<option name="머스타드" value="머스타드">머스타드</option>');
+    temp.append('<option name="후추" value="후추">후추</option>');
    }      
    
   });
@@ -226,21 +226,22 @@
  </script>
 
  <form action="ingredientStock1.csh" method="get">
-	<select name="ingType" style="width:100px; margin-top:10px;">
+	<select id="ingType" name="ingType" style="width:100px; margin-top:10px;">
 	  <option value="B">빵</option>
 	  <option value="V">야채</option>
 	  <option value="M">고기</option>
 	  <option value="C">치즈</option>
 	  <option value="S">소스</option>
 	</select>
-	<select name="ingName" style="width:100px; margin-top:10px;">
+	<select id="ingName" name="ingName" style="width:100px; margin-top:10px;">
 	  <option value="파마산">파마산</option>	
 	  <option value="화이트">화이트</option>	
 	  <option value="플렛">플렛</option>
 	</select>
 	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
 </form>					
-						
+<script>
+</script>						
 						
 	  				</div> <!-- /widget-header -->
 					
@@ -252,25 +253,25 @@
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 <c:if test="${!empty sort_list}">
-	<table id="st_table" class="table table-bordered">
+	<table class="table table-bordered">
 		<thead>
-			<tr class="st_head">
+			<tr>
 				<th>재료명</th>
-				<th>재고개수</th>
-				<th>입고일</th>
+				<th>재료개수</th>
+				<th>입고날짜</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="ing" items="${sort_list}">
-				<tr>
-					<th>${ing.ingName }</th>					
-					<th>${ing.count }</th>					
-					<th>${ing.stoDate }</th>					
-				</tr>
+			<tr>
+				<td>${ing.ingName}</td>
+				<td>${ing.count}</td>
+				<td>${ing.stoDate}</td>
+			</tr>	
 			</c:forEach>
 		</tbody>
 	</table>
-</c:if>	
+</c:if>
 <c:if test="${empty sort_list}"><div align="center" style="color:red;">해당 재료의 재고가 존재하지 않습니다.</div></c:if>					
 					</div> <!-- /widget-content -->
 				</div> <!-- /widget -->

@@ -180,7 +180,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget " style="width:1200px">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -214,8 +214,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:82%; width:160px;">판매기입 페이지로 이동</a>				
 					</div> <!-- /widget-content -->
+	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:82%; width:160px;">판매기입 페이지로 이동</a>				
 				</div> <!-- /widget -->
 		<!-- /widget-content -->
 <ul class="pagination pagination-sm">
@@ -348,6 +348,7 @@
 
 
 <jsp:include page="include/6.jsp" />
+
 	<!-- The Modal -->
 <c:forEach var="s" items="${menu_list}" varStatus="status">
 	<div class="modal" id="Modal${status.count}" style="display: none;">

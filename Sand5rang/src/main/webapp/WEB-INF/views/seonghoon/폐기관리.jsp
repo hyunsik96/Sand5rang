@@ -173,7 +173,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget " style="width:1200px">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
@@ -254,7 +254,7 @@
 <c:if test="${!empty disposal_list}">
 	<table class="table table-bordered">
 		<thead>
-			<tr class="st_head">
+			<tr>
 				<th>재료명</th>
 				<th>재료개수</th>
 				<th>입고날짜</th>
@@ -262,7 +262,7 @@
 		</thead>
 		<tbody>
 			<c:forEach var="disposal" items="${disposal_list}">
-			<tr class="st_body2">
+			<tr>
 				<td>${disposal.ingName}</td>
 				<td>${disposal.count}</td>
 				<td>${disposal.stoDate}</td>

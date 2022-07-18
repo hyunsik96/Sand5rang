@@ -1000,7 +1000,6 @@ table {
 }
 .table {
 	width: 100%;
-	margin-bottom: 18px;
 }
 .table th, .table td {
 	padding: 8px;

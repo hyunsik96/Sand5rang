@@ -116,7 +116,7 @@
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
 						<li><a href="ingredientStock1.csh">재료별 재고현황</a></li>
 						<li class="active"><a href="ingredientAllStock.csh">전체 재고현황</a></li>
-						<li><a href="ingredientDisposal.csh">폐기관리</a></li>
+						<li><a href="ingredientDisposal1.csh">폐기관리</a></li>
                     </ul>   				
 				</li>
 				
@@ -174,7 +174,7 @@
 	      	
 	      	<div class="span12">      		
 	      		
-	      		<div class="widget ">
+	      		<div class="widget " style="width:1200px">
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
