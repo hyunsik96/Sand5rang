@@ -22,10 +22,9 @@
 
   </head>
 <style>
-   pre { background-color: white;}
    inq_info {font-size: 12px;}
    answer {align: right;}
-   
+ 
 
 </style>
 <body>

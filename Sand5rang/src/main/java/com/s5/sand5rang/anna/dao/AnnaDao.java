@@ -53,7 +53,7 @@ public class AnnaDao {
 
 	// 가맹문의 등록 
 	public int insertStore(SqlSessionTemplate sqlSession, Enroll e) {
-		return sqlSession.selectOne("annaMapper.insertStore", e);
+		return sqlSession.insert("annaMapper.insertStore", e);
 	}
 	
 

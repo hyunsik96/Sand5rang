@@ -410,8 +410,7 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
                           <td>
                               <div class="form_select" style="width:120px; display: inline-block;">
                                   <select name="region1">
-                                      <option value="">시/도</option>
-                                      <option value="001">서울특별시</option>
+                                      <option value="서울특별시">서울특별시</option>
                                   </select>
                               </div>
                               <div class="form_select" id="select2" style=" display: inline-block;">

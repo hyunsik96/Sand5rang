@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.s5.sand5rang.anna.service.AnnaService;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
-import com.s5.sand5rang.hyunsik.vo.EmailSendHs;
 import com.s5.sand5rang.anna.vo.EmailSend;
 import com.s5.sand5rang.anna.vo.Enroll;
 import com.s5.sand5rang.anna.vo.Inquery;
@@ -48,7 +47,7 @@ public class AnnaController {
 		int listCount = annaService.selectListCount(cate);
 		
 		int pageLimit=10;
-		int boardLimit=5;
+		int boardLimit=10;
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
 		
