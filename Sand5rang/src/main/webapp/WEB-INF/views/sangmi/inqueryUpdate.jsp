@@ -189,7 +189,7 @@
                    <td>
                      <select name="category" >
                        
-                        <option style="background:gray;">${i.category}</option>
+                        <option style="background:gray;"><${i.category}></option>
                      	<option value="운영문의" >운영문의</option>
 						<option value="재고문의">재고문의</option> 
 						<option value="발주문의">발주문의</option>
@@ -199,7 +199,7 @@
                  </tr>
                  <tr>
                    <th><label for="title" style="font-size:18px">작성날짜</label></th> 
-                   <td><input type="date" id="title" class="form-control" name="inqDate" value="${i.inqDate} "></td> 
+                   <td><input type="date" id="title" class="form-control" name="inqDate" value="${i.inqDate}"></td> 
                  </tr>                               
                  <tr>
                 <tr>
@@ -213,8 +213,7 @@
                 <tr>
                   <th><label for="content" style="font-size:18px">문의내용</label> </th>
                   <td>
-                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px">
-                  ${ i.inqQuery }
+                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px">${ i.inqQuery }
                    </textarea>
                   </td>
                 </tr>

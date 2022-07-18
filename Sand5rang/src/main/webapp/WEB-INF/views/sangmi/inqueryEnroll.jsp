@@ -182,14 +182,15 @@
 
 
               <form id="enrollForm" method="post" action="insert.sm">
+            
                 <table  align="center">
                 <tr>
                    <th><label for="title" style="font-size:18px">카테고리</label></th> 
                    <td>
                      <select name="category">
-                     <option>운영문의</option>
-                     <option>재고문의</option>
-                     <option>발주문의</option>
+                     <option value="운영문의">운영문의</option>
+                     <option value="재고문의">재고문의</option>
+                     <option value="발주문의">발주문의</option>
                      </select>
                    </td> 
                  </tr>
@@ -199,13 +200,12 @@
                  </tr>                               
                  <tr>
                    <th><label for="writer" style="font-size:18px">작성자</label></th> 
-                   <td><input type="text" id="writer" class="form-control" value="" name="storeId" required placeholder="아이디를 적어주세요"></td> 
+                   <td><input type="text" id="writer" class="form-control" name="storeId" value="${i.storeId}" readonly></td> 
                 </tr>        
                 <tr>
                   <th><label for="content" style="font-size:18px">문의내용</label> </th>
                   <td>
-                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px" placeholder="내용을 적어주세요">
-                   </textarea>
+                   <textarea id="content" class="form-control" name="inqQuery" required style="resize:none; width:100%; height:200px" placeholder="내용을 적어주세요"></textarea>
                   </td>
                 </tr>
                    

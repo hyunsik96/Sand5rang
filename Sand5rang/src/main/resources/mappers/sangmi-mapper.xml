@@ -136,20 +136,27 @@ WHERE I.STORE_ID = #{storeId}
 ORDER BY INQ_NO DESC
 </select>
 
+<!-- 문의글 폼 셀렉트 -->
+<select id="selectInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery" resultType="string">
+SELECT STORE_ID
+FROM INQUERY 
+WHERE STORE_ID = #{storeId} 
+</select>
 <!-- 문의글 작성하기 -->
 <insert id="inqueryInsert" parameterType="com.s5.sand5rang.sangmi.vo.Inquery">
 INSERT INTO INQUERY(INQ_NO
-                  , STORE_ID
                   , INQ_TITLE
                   , INQ_QUERY
-                  , CATEGORY)
+                  , CATEGORY
+                  , STORE_ID)
  VALUES ( SEQ_INQNO.NEXTVAL
-          , #{storeId}
           , #{inqTitle}
           , #{inqQuery}
-          , #{category})
-          
+          , #{category}
+          , #{storeId})  
 </insert>
+
+
 
 <!--문의글 상세 조회 -->
 <select id="selectInquery" parameterType="_int" resultMap="inqueryResultSet">

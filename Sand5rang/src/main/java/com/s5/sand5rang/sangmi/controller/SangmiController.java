@@ -252,16 +252,37 @@ public class SangmiController {
 	
 	//1:1문의 작성폼
 	@RequestMapping(value="inqueryEnroll.sm")
-	public String inqueryEnroll(Model model) {
+	public String inqueryEnroll(Model model, HttpSession session, Inquery i) {
+		
+		Store user = (Store)session.getAttribute("loginstore");
+		String storeId = user.getStoreId();
+		i.setStoreId(storeId);
+		
+		String sss = SangmiService.selectInsert(i);
+		//System.out.println("sss : "+ sss);	
+		
+		i.setStoreId(sss);
+		model.addAttribute("i",i);
+		
 		
 		return "sangmi/inqueryEnroll";
 	}
+	
+	
+	
 	
 	//1:1문의 글 작성
 	@RequestMapping(value="insert.sm")
 	public String inquertInsert(Inquery i, HttpSession session, Model model) {
 		
+
+		Store user = (Store)session.getAttribute("loginstore");
+
+		String storeId = user.getStoreId();
+		
+		i.setStoreId(storeId);
 		int result = SangmiService.inquertInsert(i);
+		
 		
 		if(result >0 ) {
 			

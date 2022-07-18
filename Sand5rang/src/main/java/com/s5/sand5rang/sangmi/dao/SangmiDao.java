@@ -104,6 +104,14 @@ public class SangmiDao {
 		 
 		   return (ArrayList)sqlSession.selectList("sangmiMapper.inqueryList",storeId,rowBounds);
 	   }
+	//게시글 작성하기 select
+	public String selectInsert(SqlSessionTemplate sqlSession, Inquery i) {
+		
+		return sqlSession.selectOne("sangmiMapper.selectInsert",i);
+		
+	}
+	
+	
    //문의 글 작성하기
 	public int inquertInsert(SqlSessionTemplate sqlSession, Inquery i) {
 		

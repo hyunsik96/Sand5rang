@@ -99,6 +99,13 @@ public class SangmiService {
 		return SangmiDao.inqueryList(sqlSession,pi,storeId);
 	}
 	
+	//게시글 작성하기 select
+	public String selectInsert(Inquery i) {
+		
+		return SangmiDao.selectInsert(sqlSession,i);
+	}
+	
+	
 	//가맹점 작성하기
 	public int inquertInsert(Inquery i) {
 		
