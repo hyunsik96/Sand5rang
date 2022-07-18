@@ -213,7 +213,7 @@
         SELECT COUNT(*)
         FROM 
         (
-            SELECT SAL_DATE, STORE_ID, ROW_NUMBER() OVER(PARTITION BY SAL_DATE ORDER BY SAL_DATE DESC) "RN"
+            SELECT TO_CHAR(SAL_DATE,'yy.MM.dd'), STORE_ID, ROW_NUMBER() OVER(PARTITION BY TO_CHAR(SAL_DATE,'yy.MM.dd') ORDER BY TO_CHAR(SAL_DATE,'yy.MM.dd') DESC) "RN"
             FROM SALES
             WHERE STORE_ID = #{storeId}
         )
@@ -224,8 +224,8 @@
 		SELECT TO_CHAR(SAL_DATE,'yy.MM.dd')"SAL_DATE", STORE_ID, SUM(COUNT)"COUNT", SUM(TOTAL)"TOTAL"
 		FROM SALES
         WHERE STORE_ID = #{storeId}
-        GROUP BY SAL_DATE, STORE_ID
-		ORDER BY SAL_DATE DESC
+        GROUP BY TO_CHAR(SAL_DATE,'yy.MM.dd'), STORE_ID
+		ORDER BY TO_CHAR(SAL_DATE,'yy.MM.dd') DESC
 	</select>
 	
 	<select id="MenuSalDate_List" parameterType="com.s5.sand5rang.seonghoon.vo.Sales" resultMap="SalesResultMap">
@@ -310,7 +310,7 @@
         SELECT COUNT(*)
         FROM 
         (
-            SELECT STO_DATE, ROW_NUMBER() OVER(PARTITION BY STO_DATE ORDER BY STO_DATE DESC) "RN"
+            SELECT TO_CHAR(STO_DATE,'yy.MM.dd'), ROW_NUMBER() OVER(PARTITION BY TO_CHAR(STO_DATE,'yy.MM.dd') ORDER BY TO_CHAR(STO_DATE,'yyMMdd') DESC) "RN"
             FROM STOCK S
             JOIN INGREDIENT USING(ING_NO)
             WHERE STORE_ID = #{storeId}
@@ -339,7 +339,7 @@
 		SELECT COUNT(*)
         FROM 
         (
-            SELECT ING_TYPE, TO_CHAR(STO_DATE,'yy.MM.dd')"STO_DATE", ROW_NUMBER() OVER(PARTITION BY STO_DATE ORDER BY STO_DATE DESC) "RN"
+            SELECT ING_TYPE, TO_CHAR(STO_DATE,'yy.MM.dd')"STO_DATE", ROW_NUMBER() OVER(PARTITION BY TO_CHAR(STO_DATE,'yyMMdd') ORDER BY TO_CHAR(STO_DATE,'yyMMdd') DESC) "RN"
             FROM STOCK S
             JOIN INGREDIENT USING(ING_NO)
             WHERE STORE_ID = #{storeId}

@@ -247,7 +247,8 @@
 	추가적으로, 각종  그림으로 표현된 아이콘들은 기존의 파일을 html로 각자 펴서 페이지들을 돌아다니며 class명을 통해 i 태그 속의 이미지 변경과 css 적용이 가능합니다.
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
--->
+--> 
+<c:if test="${!empty disposal_list}">
 	<table class="table table-bordered">
 		<thead>
 			<tr class="st_head">
@@ -266,10 +267,14 @@
 			</c:forEach>
 		</tbody>
 	</table>
+</c:if>
+<c:if test="${empty disposal_list}">
+	<div align="center" style="color:red;">현재 폐기할 재료가 존재하지 않습니다.</div>
+</c:if>
 					</div> <!-- /widget-content -->
-						
 				</div> <!-- /widget -->
 	<!-- /widget-content -->
+<c:if test="${!empty disposal_list}">
 <ul class="pagination pagination-sm">
 <c:choose>
 	<c:when test="${pi.currentPage eq 1}">
@@ -298,6 +303,7 @@
 	</c:otherwise>
 </c:choose>
 </ul>	    		
+</c:if>	
 		    </div> <!-- /span8 -->
 	      	
 	      	

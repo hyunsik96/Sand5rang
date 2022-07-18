@@ -251,7 +251,7 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-	
+<c:if test="${!empty sort_list}">
 	<table id="st_table" class="table table-bordered">
 		<thead>
 			<tr class="st_head">
@@ -270,9 +270,11 @@
 			</c:forEach>
 		</tbody>
 	</table>
+</c:if>	
+<c:if test="${empty sort_list}"><div align="center" style="color:red;">해당 재료의 재고가 존재하지 않습니다.</div></c:if>					
 					</div> <!-- /widget-content -->
-						
 				</div> <!-- /widget -->
+<c:if test="${!empty sort_list }">
 <ul class="pagination pagination-sm">
 <c:choose>
 	<c:when test="${pi.currentPage eq 1}">
@@ -301,6 +303,7 @@
 	</c:otherwise>
 </c:choose>
 </ul>				
+</c:if>				
 	<!-- /widget-content -->
  		
 		    </div> <!-- /span8 -->
