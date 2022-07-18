@@ -184,11 +184,10 @@ public class SangmiController {
 		
 		e.setMessage(message);
 		
-		int result = SangmiService.inreStore(e);
+				
+		int result = SangmiService.referStore(e);
 		
-		int result2 = SangmiService.referStore(e);
-		
-		if(result>0 && result2 >0) {
+		if( result >0) {
 			
 			session.setAttribute("alertMsg","반려처리가 되었습니다");
 			return "redirect:/storeEnrollList.sm";

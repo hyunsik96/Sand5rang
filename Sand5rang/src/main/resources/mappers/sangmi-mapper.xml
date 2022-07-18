@@ -105,12 +105,7 @@ WHERE ENR_NO = #{enrNo}
    WHERE ENR_NO = #{enrNo}
   </update>
   
-<!-- 가맹가입 반려 insert -->
-  <insert id="inreStore" parameterType="com.s5.sand5rang.sangmi.vo.Enroll">
-   INSERT INTO STORE(ENR_NO)           
-	VALUES( #{enrNo}) 
-   </insert>
-  
+
   
   
 <!-- 반려버튼=> 반려 상태 C로 하기 -->

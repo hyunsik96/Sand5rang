@@ -73,14 +73,7 @@ public class SangmiService {
 		return SangmiDao.idCheck(sqlSession,checkId);
 		
 	}
-   //가맹 반려 폼 신청
-   public int inreStore(Enroll e) {
-		
-		int result = SangmiDao.inreStore(sqlSession,e);
-		
-		return result;
-	}
-   
+
    
  //가맹 반려 상태 변화
  	public int referStore(Enroll e) {
