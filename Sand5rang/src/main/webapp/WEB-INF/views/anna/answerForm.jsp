@@ -20,7 +20,12 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  </head>
+<!--스마트에디터 스크립트 -->
+<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<!-- SmartEditor2 -->
+<script type="text/javascript" src = "resources/js/notice-write.js"></script>
 
 <body>
 
@@ -117,7 +122,7 @@
                     </ul>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>가맹점 관리</span>
@@ -213,7 +218,7 @@
 					<input type="hidden" name="inqNo" value="${ i.inqNo }">
 				
 					<div class="inq_answer" align="center" style="width:90%;">
-						<textarea style="width:1130px; height:400px; resize: none; color:grey; align:center;" name="inqAnswer" placeholder="답변내용을 입력하세요."></textarea>
+						<textarea id="smartEditor" style="width:1130px; height:400px; resize: none; color:grey; align:center; overflow: scroll;" name="inqAnswer" placeholder="답변내용을 입력하세요."></textarea>
 						</div><br>
 				
 				<div align="right">
@@ -221,6 +226,52 @@
 					<button type="submit" class="btn btn-primary btn-large">등록하기</button>
 				</div>
 			</form>	
+			
+			<!-- 스마트에디터 스크립트 -->
+			<script>
+			var oEditors = [];
+			nhn.husky.EZCreator.createInIFrame({
+				oAppRef : oEditors,
+				elPlaceHolder : "smartEditor", //
+				sSkinURI : "se2/SmartEditor2Skin.html", 
+				fCreator : "createSEditor2",
+				htParams : {
+					// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+					bUseToolbar : true,
+
+					// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+					bUseVerticalResizer : false,
+
+					// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+					bUseModeChanger : false
+				}
+			});
+
+			$(function() {
+				$("#savebutton").click(function() {
+					oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []); 
+					//textarea의 id를 적어줍니다.
+
+					var content = document.getElementById("smartEditor").value;;
+
+					if(content == "" || content == null || content == '&nbsp;' || 
+							content == '<br>' || content == '<br/>' || content == '<p>&nbsp;</p>'){
+						alert("본문을 작성해주세요.");
+						oEditors.getById["smartEditor"].exec("FOCUS"); //포커싱
+						return;
+					} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.
+					
+					var result = confirm("등록 하시겠습니까?");
+					
+					if(result){
+						alert("등록 완료!");
+						$("#noticeWriteForm").submit();
+					}else{
+						return;
+					}
+				});
+			})
+			</script>
 				
 			</div>
 		
@@ -247,66 +298,40 @@
     
  
 <div class="extra">
-
 	<div class="extra-inner">
-
 		<div class="container">
-
 			<div class="row">
+                    <!-- /span3 -->
                     <div class="span3">
                         <h4>
-                            About Free Admin Template</h4>
+                            Contact Us</h4>
                         <ul>
-                            <li><a href="javascript:;">EGrappler.com</a></li>
-                            <li><a href="javascript:;">Web Development Resources</a></li>
-                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
+                            <li><a href="javascript:;">Call 02) 807-4421</a></li>
+                            <li><a href="javascript:;">Sand5rang@naver.com</a></li>
                         </ul>
                     </div>
                     <!-- /span3 -->
                     <div class="span3">
                         <h4>
-                            Support</h4>
+                            Opening Hours</h4>
                         <ul>
-                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:;">Ask a Question</a></li>
-                            <li><a href="javascript:;">Video Tutorial</a></li>
-                            <li><a href="javascript:;">Feedback</a></li>
+                            <li><a href="javascript:;">Everyday</a></li>
+                            <li><a href="javascript:;">10.00 Am -10.00 Pm</a></li>
                         </ul>
                     </div>
                     <!-- /span3 -->
                     <div class="span3">
                         <h4>
-                            Something Legal</h4>
+		     				 Sand5rang</h4>
                         <ul>
-                            <li><a href="javascript:;">Read License</a></li>
-                            <li><a href="javascript:;">Terms of Use</a></li>
-                            <li><a href="javascript:;">Privacy Policy</a></li>
+	                        <li><a href="javascript:;">&copy; 2022 All Rights Reserved By Sand5rang.</a></li>
+	                        <li><a href="javascript:;">Distributed By Sand5rang.</a></li>
                         </ul>
                     </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="">Open Source jQuery Plugins</a></li>
-                            <li><a href="">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="">Free Contact Form Plugin</a></li>
-                            <li><a href="">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
                 </div> <!-- /row -->
-
 		</div> <!-- /container -->
-
 	</div> <!-- /extra-inner -->
-
 </div> <!-- /extra -->
-
-
-    
-    
 <div class="footer">
 	
 	<div class="footer-inner">
@@ -316,7 +341,7 @@
 			<div class="row">
 				
     			<div class="span12">
-    				&copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.
+    				Korea tradition Sandwich Franchise Sand5rang.
     			</div> <!-- /span12 -->
     			
     		</div> <!-- /row -->
@@ -326,7 +351,6 @@
 	</div> <!-- /footer-inner -->
 	
 </div> <!-- /footer -->
-    
 
 
 <jsp:include page="include/6.jsp" />
