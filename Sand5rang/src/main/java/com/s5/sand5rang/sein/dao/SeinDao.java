@@ -127,5 +127,10 @@ public class SeinDao {
 		return sqlSession.delete("seinMapper.deleteOrder", order);
 	}
 
+	//입금 insert
+	public int depositInsert(SqlSessionTemplate sqlSession, Payment payment) {
+		return sqlSession.insert("seinMapper.depositInsert", payment);
+	}
+
 	
 }

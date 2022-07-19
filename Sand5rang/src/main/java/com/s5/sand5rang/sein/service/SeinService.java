@@ -125,5 +125,10 @@ public class SeinService {
 	public int deleteOrder(Order order) {
 		return seinDao.deleteOrder(sqlSession, order);
 	}
+
+	//입금 insert 
+	public int depositInsert(Payment payment) {
+		return seinDao.depositInsert(sqlSession, payment);
+	}
 }
 

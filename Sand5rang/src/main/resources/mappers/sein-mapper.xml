@@ -311,4 +311,10 @@
 		WHERE STORE_ID = #{storeId} AND 
 		TO_DATE(IND_DATE, 'YY-MM-DD') = TO_DATE(#{inDate}, 'YY-MM-DD')
 	</delete>
+	
+	<!-- 입금 -->
+	<insert id="depositInsert" parameterType="payment">
+		INSERT INTO PAYMENT(PAY_NO, DEPOSIT, WITHDRAW,PAY_DATE, STORE_ID) 
+		VALUES(SEQ_PAYNO.NEXTVAL, #{deposit}, 0, SYSDATE, #{storeId})
+	</insert>
 </mapper>

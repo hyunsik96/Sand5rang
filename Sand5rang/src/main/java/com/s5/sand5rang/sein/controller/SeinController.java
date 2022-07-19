@@ -764,16 +764,25 @@ public class SeinController {
 	
 	
 	//가맹점 결제구현 
-	@RequestMapping(value="")
-	public String depositPlayController() {
+	@RequestMapping(value="depositInsert.se")
+	public String depositPayController(HttpSession session, Model m, String deposit_name, int deposit_price) {
 		
-		return "";
-	}
+		Store loginstore = (Store)session.getAttribute("loginstore");
+		String storeId = loginstore.getStoreId();
+		//int enrNo = loginstore.getEnrNo();
 	
-	@RequestMapping(value="depositList.se")
-    public String depositListController()
-    {
-        return "sein/depositList";
-    }
+		Payment payment = new Payment();
+		payment.setDeposit(deposit_price);
+		payment.setStoreId(storeId);
+		
+		int result = seinService.depositInsert(payment);
+		
+		if(result>0) {
+			session.setAttribute("alertMsg", "결제를 성공하였습니다.");
+		}else {
+			session.setAttribute("alertMsg", "결제를 실패하였습니다. 다시 시도해주세요.");
+		}
+		return "redirect:fr1.hs";
+	}
 	
 }
