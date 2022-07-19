@@ -1,11 +1,8 @@
 package com.s5.sand5rang.sein.controller;
 
 import java.security.SecureRandom;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -25,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
+import com.s5.sand5rang.hyunsik.service.HyunsikService;
+import com.s5.sand5rang.hyunsik.vo.Main;
 import com.s5.sand5rang.sein.service.SeinService;
 import com.s5.sand5rang.sein.vo.EmailSendSe;
 import com.s5.sand5rang.sein.vo.Enroll;
@@ -41,6 +40,8 @@ public class SeinController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;	
 	
+	@Autowired
+	private HyunsikService hyunsikService;
 
 	//main(메인) - 메뉴 
 	@RequestMapping(value="menu.ma")
@@ -257,6 +258,10 @@ public class SeinController {
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
 		
+		
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
+		
 		//페이징처리를 위한 변수들 세팅 => PageInfo 객체
 		
 		int listCount = seinService.selectListCount(storeId);
@@ -288,11 +293,14 @@ public class SeinController {
 	
 	/*발주 신청 페이지 띄우기용*/
 	@RequestMapping(value="orderEnrollForm.se")
-    public String orderEnrollFormController(HttpSession session)
+    public String orderEnrollFormController(HttpSession session, Model m)
     {
 		
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
+		
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
 		
 		//현재 시간뽑기
 		LocalTime now = LocalTime.now();
@@ -345,7 +353,10 @@ public class SeinController {
 	{
 			Store loginstore = (Store)session.getAttribute("loginstore");
 			String storeId = loginstore.getStoreId();
-		
+	
+			Main main = hyunsikService.befIndent2(storeId);
+	        m.addAttribute("m", main);
+			
 			//재료발주 갯수 order_count;
 			//원재료번호 ingNo;
 			//원재료발주 총가격 tot_price;
@@ -446,6 +457,10 @@ public class SeinController {
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
 		
+
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
+		
 		//현재 시간뽑기
 		LocalTime now = LocalTime.now();
 		//15시 기준 뽑기 
@@ -475,6 +490,10 @@ public class SeinController {
 		
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
+		
+
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
 		
 		Order order = new Order();
 		order.setStoreId(storeId);
@@ -788,7 +807,12 @@ public class SeinController {
     {
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		int enrNo = loginstore.getEnrNo();
+		String storeId = loginstore.getStoreId();
 	
+
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
+		
 		Enroll enrollInfo = seinService.selectEnrollInfo(enrNo);
 		
 		m.addAttribute("email", enrollInfo.getEmail());
@@ -796,11 +820,16 @@ public class SeinController {
         return "sein/deposit";
     }
 	
+	//발주 삭제
 	@RequestMapping(value="orderDelete.se")
-	public String deleteDataController(HttpSession session, String inDate) {
+	public String deleteDataController(HttpSession session, String inDate, Model m) {
 		
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
+		
+
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
 		
 		Order order = new Order();
 		order.setStoreId(storeId);
@@ -825,19 +854,29 @@ public class SeinController {
 		String storeId = loginstore.getStoreId();
 		//int enrNo = loginstore.getEnrNo();
 	
+
+		Main main = hyunsikService.befIndent2(storeId);
+        m.addAttribute("m", main);
+		
 		Payment payment = new Payment();
 		payment.setDeposit(deposit_price);
 		payment.setStoreId(storeId);
 		
-		int result = seinService.depositInsert(payment);
-		
-		if(result>0) {
-			session.setAttribute("alertMsg", "결제를 성공하였습니다.");
+		if(deposit_price==0) {
+			
+			session.setAttribute("alertMsg", "입금 금액은 0보다 크게 입력해주세요");
+			
+			return "sein/deposit";
+			
 		}else {
-			session.setAttribute("alertMsg", "결제를 실패하였습니다. 다시 시도해주세요.");
+			int result = seinService.depositInsert(payment);
+			
+			if(result>0) {
+				session.setAttribute("alertMsg", "결제를 성공하였습니다.");
+			}else {
+				session.setAttribute("alertMsg", "결제를 실패하였습니다. 다시 시도해주세요.");
+			}
+			return "redirect:fr1.hs";
 		}
-		return "redirect:fr1.hs";
 	}
-	
-	
 }

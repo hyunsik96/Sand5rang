@@ -29,6 +29,8 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
+
+
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -58,7 +60,7 @@
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
+							<i class="icon-user"></i>
 							${loginstore.storeName}
 							<b class="caret"></b>
 						</a>
@@ -68,7 +70,6 @@
 						</ul>						
 					</li>
 				</ul>
-
 				
 			</div><!--/.nav-collapse -->	
 	
@@ -77,27 +78,18 @@
 	</div> <!-- /navbar-inner -->
 	
 </div> <!-- /navbar -->
-    
-
-
-
-    
 <div class="subnavbar">
-
 	<div class="subnavbar-inner">
 	
 		<div class="container">
-
 			<ul class="mainnav">
 			
-				<li>
+				<li class="active">
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
-                
-                
 				<li class="dropdown">					
 					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
@@ -126,7 +118,6 @@
 						<li><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
-                
 				<li>
 					<a href="inqueryList.sm">
 						<i class="icon-list-alt"></i>
@@ -134,7 +125,7 @@
 					</a>    				
 				</li>
 				
-				<li class="dropdown active">					
+				<li class="dropdown">					
 					<a href="depositList.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-money"></i>
 						<span>결제대금</span>
@@ -142,17 +133,15 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li class="active"><a href="fr1.hs">대금내역</a></li>
+                        <li><a href="fr1.hs">대금내역</a></li>
 						<li><a href="deposit.se">입금</a></li>
                     </ul>    				
 				</li>
 			
 			</ul>
-
 		</div> <!-- /container -->
 	
 	</div> <!-- /subnavbar-inner -->
-
 </div> <!-- /subnavbar -->
     
     
@@ -257,11 +246,8 @@
  
  
 <div class="extra">
-
 	<div class="extra-inner">
-
 		<div class="container">
-
 			<div class="row">
                     <!-- /span3 -->
                     <div class="span3">
@@ -273,7 +259,6 @@
                         </ul>
                     </div>
                     <!-- /span3 -->
-
                     <div class="span3">
                         <h4>
                             Opening Hours</h4>
@@ -292,16 +277,9 @@
                         </ul>
                     </div>
                 </div> <!-- /row -->
-
 		</div> <!-- /container -->
-
 	</div> <!-- /extra-inner -->
-
 </div> <!-- /extra -->
-
-
-    
-    
 <div class="footer">
 	
 	<div class="footer-inner">
@@ -321,7 +299,6 @@
 	</div> <!-- /footer-inner -->
 	
 </div> <!-- /footer -->
-
 
 <jsp:include page="include/6.jsp" />
 

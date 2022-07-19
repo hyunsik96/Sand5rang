@@ -36,6 +36,7 @@
 <jsp:include page="include/3.jsp" />
 <jsp:include page="include/4.jsp" />
 <jsp:include page="include/5.jsp" />
+
 <div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -55,32 +56,26 @@
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
 					<li class="dropdown">						
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
-							설정
-							<b class="caret"></b>
+						<a href="fr1.hs" class="dropdown-toggle">
+							<i class="icon-money"></i>&nbsp;
+							잔액 : ${m.frPay} 원
+							
 						</a>
-						
-						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Settings</a></li>
-							<li><a href="javascript:;">Help</a></li>
-						</ul>						
+					
 					</li>
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
-							관리자 님
+							<i class="icon-user"></i>
+							${loginstore.storeName}
 							<b class="caret"></b>
 						</a>
 						
 						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Profile</a></li>
-							<li><a href="javascript:;">Logout</a></li>
+							<li><a href="logout.me">Logout</a></li>
 						</ul>						
 					</li>
 				</ul>
-
 				
 			</div><!--/.nav-collapse -->	
 	
@@ -89,27 +84,18 @@
 	</div> <!-- /navbar-inner -->
 	
 </div> <!-- /navbar -->
-    
-
-
-
-    
 <div class="subnavbar">
-
 	<div class="subnavbar-inner">
 	
 		<div class="container">
-
 			<ul class="mainnav">
 			
-				<li>
+				<li class="active">
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
-                
-                
 				<li class="dropdown">					
 					<a href="ingredientAllStock.csh" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
@@ -120,24 +106,24 @@
 					<ul class="dropdown-menu">
                         <li><a href="menuSales.csh">매출기입</a></li>
 						<li><a href="todayStock.csh">오늘의 재고</a></li>
-						<li><a href="ingredientAllStock.csh">재고현황</a></li>
-						<li><a href="ingredientDisposal.csh">폐기현황</a></li>
+						<li><a href="ingredientStock1.csh">재료별 재고현황</a></li>
+						<li><a href="ingredientAllStock.csh">전체 재고현황</a></li>
+						<li><a href="ingredientDisposal1.csh">폐기현황</a></li>
                     </ul>    				
 				</li>
 				
-				<li class="dropdown active">					
+				<li class="dropdown">					
 					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>발주</span>
 						<b class="caret"></b>
 					</a>	
 				
-					<ul class="dropdown-menu active">
-                        <li class="active"><a href="orderEnrollForm.se">발주신청</a></li>
+					<ul class="dropdown-menu">
+                        <li><a href="orderEnrollForm.se">발주신청</a></li>
 						<li><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
-                
 				<li>
 					<a href="inqueryList.sm">
 						<i class="icon-list-alt"></i>
@@ -153,17 +139,15 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="depositList.se">대금내역</a></li>
+                        <li><a href="fr1.hs">대금내역</a></li>
 						<li><a href="deposit.se">입금</a></li>
                     </ul>    				
 				</li>
 			
 			</ul>
-
 		</div> <!-- /container -->
 	
 	</div> <!-- /subnavbar-inner -->
-
 </div> <!-- /subnavbar -->
 
 
@@ -837,91 +821,60 @@
 
 	<br><br><br>
 	<div class="extra">
-
 		<div class="extra-inner">
-
 			<div class="container">
-
 				<div class="row">
-					<div class="span3">
-						<h4>About Free Admin Template</h4>
-						<ul>
-							<li><a href="javascript:;">EGrappler.com</a></li>
-							<li><a href="javascript:;">Web Development Resources</a></li>
-							<li><a href="javascript:;">Responsive HTML5 Portfolio
-									Templates</a></li>
-							<li><a href="javascript:;">Free Resources and Scripts</a></li>
-						</ul>
-					</div>
-					<!-- /span3 -->
-					<div class="span3">
-						<h4>Support</h4>
-						<ul>
-							<li><a href="javascript:;">Frequently Asked Questions</a></li>
-							<li><a href="javascript:;">Ask a Question</a></li>
-							<li><a href="javascript:;">Video Tutorial</a></li>
-							<li><a href="javascript:;">Feedback</a></li>
-						</ul>
-					</div>
-					<!-- /span3 -->
-					<div class="span3">
-						<h4>Something Legal</h4>
-						<ul>
-							<li><a href="javascript:;">Read License</a></li>
-							<li><a href="javascript:;">Terms of Use</a></li>
-							<li><a href="javascript:;">Privacy Policy</a></li>
-						</ul>
-					</div>
-					<!-- /span3 -->
-					<div class="span3">
-						<h4>Open Source jQuery Plugins</h4>
-						<ul>
-							<li><a href="">Open Source jQuery Plugins</a></li>
-							<li><a href="">HTML5 Responsive Tempaltes</a></li>
-							<li><a href="">Free Contact Form Plugin</a></li>
-							<li><a href="">Flat UI PSD</a></li>
-						</ul>
-					</div>
-					<!-- /span3 -->
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /extra-inner -->
-
-	</div>
-	<!-- /extra -->
-
-
-
-
+						<!-- /span3 -->
+						<div class="span3">
+							<h4>
+								Contact Us</h4>
+							<ul>
+								<li><a href="javascript:;">Call 02) 807-4421</a></li>
+								<li><a href="javascript:;">Sand5rang@naver.com</a></li>
+							</ul>
+						</div>
+						<!-- /span3 -->
+						<div class="span3">
+							<h4>
+								Opening Hours</h4>
+							<ul>
+								<li><a href="javascript:;">Everyday</a></li>
+								<li><a href="javascript:;">10.00 Am -10.00 Pm</a></li>
+							</ul>
+						</div>
+						<!-- /span3 -->
+						<div class="span3">
+							<h4>
+								  Sand5rang</h4>
+							<ul>
+								<li><a href="javascript:;">&copy; 2022 All Rights Reserved By Sand5rang.</a></li>
+								<li><a href="javascript:;">Distributed By Sand5rang.</a></li>
+							</ul>
+						</div>
+					</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /extra-inner -->
+	</div> <!-- /extra -->
 	<div class="footer">
-
+		
 		<div class="footer-inner">
-
+			
 			<div class="container">
-
+				
 				<div class="row">
-
+					
 					<div class="span12">
-						&copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.
-					</div>
-					<!-- /span12 -->
+						Korea tradition Sandwich Franchise Sand5rang.
+					</div> <!-- /span12 -->
+					
+				</div> <!-- /row -->
+				
+			</div> <!-- /container -->
+			
+		</div> <!-- /footer-inner -->
+		
+	</div> <!-- /footer -->
 
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /footer-inner -->
-
-	</div>
-	<!-- /footer -->
 
 	<jsp:include page="include/6.jsp" />
 
