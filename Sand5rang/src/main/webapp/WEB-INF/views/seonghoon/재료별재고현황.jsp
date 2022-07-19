@@ -169,38 +169,38 @@
    temp.children().remove();
    
    if(ingType == 'B'){
-    temp.append('<option name="파마산" value="파마산">파마산</option>');
-    temp.append('<option name="화이트" value="화이트">화이트</option>');
-    temp.append('<option name="플렛" value="플렛">플렛</option>');
+    temp.append('<option value="파마산">파마산</option>');
+    temp.append('<option value="화이트">화이트</option>');
+    temp.append('<option value="플렛">플렛</option>');
    }
    if(ingType == 'V'){
-    temp.append('<option name="양상추" value="양상추">양상추</option>');
-    temp.append('<option name="토마토" value="토마토">토마토</option>');
-    temp.append('<option name="오이" value="오이">오이</option>');
-    temp.append('<option name="양파" value="양파">양파</option>');
-    temp.append('<option name="피망" value="피망">피망</option>');
-    temp.append('<option name="할라피뇨" value="할라피뇨">할라피뇨</option>');
-    temp.append('<option name="아보카도" value="아보카도">아보카도</option>');
+    temp.append('<option value="양상추">양상추</option>');
+    temp.append('<option value="토마토">토마토</option>');
+    temp.append('<option value="오이">오이</option>');
+    temp.append('<option value="양파">양파</option>');
+    temp.append('<option value="피망">피망</option>');
+    temp.append('<option value="할라피뇨">할라피뇨</option>');
+    temp.append('<option value="아보카도">아보카도</option>');
    }
    if(ingType == 'C'){
-    temp.append('<option name="아메리칸" value="아메리칸">아메리칸</option>');
-    temp.append('<option name="모짜렐라" value="모짜렐라">모짜렐라</option>');
-    temp.append('<option name="슈레드" value="슈레드">슈레드</option>');
+    temp.append('<option value="아메리칸">아메리칸</option>');
+    temp.append('<option value="모짜렐라">모짜렐라</option>');
+    temp.append('<option value="슈레드">슈레드</option>');
    }
    if(ingType == 'M'){
-    temp.append('<option name="페퍼로니" value="페퍼로니">페퍼로니</option>');
-    temp.append('<option name="에그마요" value="에그마요">에그마요</option>');
-    temp.append('<option name="치킨" value="치킨">치킨</option>');
-    temp.append('<option name="쉬림프" value="쉬림프">쉬림프</option>');
-    temp.append('<option name="비프" value="비프">비프</option>');
-    temp.append('<option name="베이컨" value="베이컨">베이컨</option>');
+    temp.append('<option value="페퍼로니">페퍼로니</option>');
+    temp.append('<option value="에그마요">에그마요</option>');
+    temp.append('<option value="치킨">치킨</option>');
+    temp.append('<option value="쉬림프">쉬림프</option>');
+    temp.append('<option value="비프">비프</option>');
+    temp.append('<option value="베이컨">베이컨</option>');
    }
    if(ingType == 'S'){
-    temp.append('<option name="랜치" value="랜치">랜치</option>');
-    temp.append('<option name="스위트칠리" value="스위트칠리">스위트칠리</option>');
-    temp.append('<option name="올리브오일" value="올리브오일">올리브오일</option>');
-    temp.append('<option name="머스타드" value="머스타드">머스타드</option>');
-    temp.append('<option name="후추" value="후추">후추</option>');
+    temp.append('<option value="랜치">랜치</option>');
+    temp.append('<option value="스위트칠리">스위트칠리</option>');
+    temp.append('<option value="올리브오일">올리브오일</option>');
+    temp.append('<option value="머스타드">머스타드</option>');
+    temp.append('<option value="후추">후추</option>');
    }      
    
   });
@@ -221,13 +221,19 @@
 	  <option value="플렛">플렛</option>
 	</select>
 	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
-</form>					
+</form>
+
+<c:forEach var="hidden" items="${sort_list}">
+<input type="hidden" name="ingType" value="${hidden.ingType}">
+<input type="hidden" name="ingName" value="${hidden.ingName}">
+</c:forEach>
 <script>
 	$(function(){
-		$("#")
+		$("#search").click(function(){
+			$("#ingName").val("input[type=hidden name=ingName]");
+		});
 	})
-	
-</script>						
+</script>
 						
 	  				</div> <!-- /widget-header -->
 					

@@ -147,13 +147,13 @@ public class SeonghoonController {
 		
 		ArrayList<Stock> sort_list = seonghoonService.selectSortIngredient(pi, hashmap);
 		
-		/*
 		for(int i=0; i<sort_list.size(); i++) {
 			System.out.println(sort_list.get(i));
 		}
-		*/
+		
 		model.addAttribute("pi", pi);
 		model.addAttribute("sort_list", sort_list);
+		
 		
 		return "seonghoon/재료별재고현황";
 		
