@@ -239,7 +239,7 @@
 						<li class="page-item active"><a class="page-link" href="inqList.an?cpage=${p}&cate=${cate}">${p}</a></li>
 					</c:if>
 					<c:if test="${pi.currentPage ne p}">
-						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${p}&cate${cate}">${p}</a></li>
+						<li class="page-item"><a class="page-link" href="inqList.an?cpage=${p}&cate=${cate}">${p}</a></li>
 					</c:if>
 				</c:forEach>
 		
