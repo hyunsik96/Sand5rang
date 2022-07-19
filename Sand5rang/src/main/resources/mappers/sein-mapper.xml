@@ -58,7 +58,7 @@
 		SELECT STORE_ID, STORE_PWD, STORE_NAME, ADDRESS, STATUS, ENR_NO
 		FROM STORE 
 		WHERE STORE_ID = #{storeId} AND
-		STATUS = 'Y'
+		STATUS = 'Y' OR 'A' 
 	</select>
 	
 	<!-- 비밀번호 변경 update -->	
