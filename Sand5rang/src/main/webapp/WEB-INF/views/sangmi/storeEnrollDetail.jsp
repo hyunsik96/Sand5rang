@@ -147,7 +147,7 @@
     <br><br><br>
   
   
-    <table class="type05" style="margin:auto;"> 
+    <table class="type05" style="margin:auto; border:3px solid grey"> 
            <tr>
                <th scope="row">이름</th>
                <td>${e.storeName}</td>
@@ -174,39 +174,43 @@
            </tr>   
       </table>
     
-    <hr border="1px solid lightgrey;">
+    <hr style="border:0px solid grey; width:60%; margin-left:250px;">
 
     
 
 
-     <form id="enrollForm" class="" method="post" action="insertStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
+     <form id="enrollForm" class="" method="post" action="insertStore.sm" align="center" style="margin:auto; width:600px; border:3px solid grey" >
         <div class="form-group" >
             <input type="hidden" name="contact_number">
 <input type="hidden" value="${e.email}" name="email">
-          <label for="userName">* 가맹점 명 : </label>
-          <input type="text" class="form-control" id="storeName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px;" required><br>
+          <label for="userName" style="margin-left:90px; margin-top:30px;" align="left">* 가맹점 명 : </label>
+          <input type="text" class="form-control" id="storeName" name="storeName" placeholder="가맹점 이름을 써주세요." style="width:400px; margin-left:20px;" required><br>
                
-          
-          <label for="userId">* 가맹점 아이디 : </label>
-          <input type="text" class="form-control" id="storeId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px;" required><br>
+          <br>
+          <label for="userId" style="margin-left:90px;" align="left">* 가맹점 아이디 : </label>
+          <input type="text" class="form-control" id="storeId" name="storeId" placeholder="가맹점 아이디를 써주세요." style="width:400px; margin-left:20px;" required><br>
           <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
       
-          <label for="userPwd">* 가맹점 비밀번호 : </label>
-          <input type="password" class="form-control" id="storePwd" name="storePwd" placeholder="가맹점 비밀번호를 써주세요." style="width:400px;" required><br>
+          <br>
+          <label for="userPwd" style="margin-left:90px;" align="left">* 가맹점 비밀번호 : </label>
+          <input type="password" class="form-control" id="storePwd" name="storePwd" placeholder="가맹점 비밀번호를 써주세요." style="width:400px; margin-left:20px;" required><br>
            
-          <label for="address">* 가맹점 주소 : 
-          <input type="text" class="form-control" id="address_kakao" name="address" placeholder="가맹점  주소 클릭!" style="width:400px;" required>
-                       상세주소:<input type="text" name="address_detail" palceholder="상세주소 써주세요." required/>
+           <br>
+          <label for="address" style="margin-left:95px;" align="left">* 가맹점 주소 : 
+          <input type="text" class="form-control" id="address_kakao" name="address" placeholder="가맹점  주소 클릭!" style="width:400px; margin-left:20px;" required>
+                        상세 주소 :         
+           <input type="text" name="address_detail" placeholder="상세주소 써주세요." style="width:400px; margin-left:20px;" required/>
         </label>
-          <label for="content">^ 내용 : </label>
-          <textarea class="form-control" id="content" name="message" placeholder="가맹점 승인이유를  써주세요." style="width:400px; height:100px; resize:none;" required></textarea><br> 
+        <br>
+          <label for="content" style="margin-left:90px; " align="left">* 메시지 : </label>
+          <textarea class="form-control" id="content" name="message" placeholder="가맹점 승인이유를  써주세요." style="width:400px;  margin-left:20px; height:100px; resize:none;" required></textarea><br> 
         
         </div>
           
       
         <br>
 
-        <div align="right">
+        <div align="right" style="margin-right:10px;">
          
             <input type="hidden" name="enrNo" value="${ e.enrNo }">
    
@@ -214,14 +218,16 @@
           
             
         </div>
+        <br>
+        
     </form>
-
-  <form id="referForm" class="" method="post" action="referStore.sm" align="left" style="margin:auto; width:600px; border:1px solid lightgrey" >
+<br><br>
+  <form id="referForm" class="" method="post" action="referStore.sm" align="center" style="margin:auto; width:600px; border:3px solid grey" >
         <div class="form-group" >
             <input type="hidden" name="contact_number">
   <input type="hidden" value="${e.email}" name="email">
 
-          <label for="content">^ 내용 : </label>
+          <label for="content" style="margin-left:90px; margin-top:30px;" align="left">* 메시지 : </label>
           <textarea class="reContent" id="content" name="message" placeholder="가맹점  반려이유를 써주세요." style="width:400px; height:100px; resize:none;" required></textarea><br> 
         
         </div>
@@ -229,7 +235,7 @@
       
         <br>
 
-        <div align="right">
+        <div align="right" style="margin-right:10px;">
          
             <input type="hidden" name="enrNo" value="${ e.enrNo }">
    
@@ -237,6 +243,7 @@
           
             
         </div>
+        <br>
     </form>
 
 

@@ -148,27 +148,27 @@
 	  				</div> <!-- /widget-header -->
 					
 					
-    <table id="boardList" class="table table-striped table-bordered">
+    <table id="boardList" class="table table-striped table-bordered" >
         <thead> 
            <tr>
-               <th >신청번호</th>
-               <th>이름</th>
-               <th>연락처</th>
-               <th>이메일</th>
-               <th>지역</th>
-               <th>상태</th>
+               <th style="text-align:center;">신청번호</th>
+               <th style="text-align:center;">이름</th>
+               <th style="text-align:center;">연락처</th>
+               <th style="text-align:center;">이메일</th>
+               <th style="text-align:center;">지역</th>
+               <th style="text-align:center;">상태</th>
          
            </tr>
           </thead>
            <tbody>
               <c:forEach var="e" items="${ list }" varStatus="status">
                <tr>
-                 <td class="enr1">${e.enrNo}</td>
-                 <td>${e.storeName}</td>
-                 <td>${e.phone}</td>
-                 <td>${e.email}</td> 
-                 <td>${e.enrollAdd}</td>
-                 <td>
+                 <td class="enr1" style="text-align:center;">${e.enrNo}</td>
+                 <td style="text-align:center;">${e.storeName}</td>
+                 <td style="text-align:center;">${e.phone}</td>
+                 <td style="text-align:center;">${e.email}</td> 
+                 <td style="text-align:center;">${e.enrollAdd}</td>
+                 <td style="text-align:center;">
                   <c:if test="${e.status eq 'B'}">
                                        대기중
                  </c:if>

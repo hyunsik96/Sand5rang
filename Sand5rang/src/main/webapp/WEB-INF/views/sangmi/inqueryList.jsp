@@ -174,15 +174,15 @@
 	      				
 	  				</div> <!-- /widget-header -->
   <c:if test="${not empty list}">
-    <table id="boardList" class="table table-striped table-bordered" align="center">
+    <table id="boardList" class="table table-striped table-bordered" align="center" style="text-align:center;">
         <thead>
             <tr>
-                 <th width="10%">글번호</th>
-                 <th width="10%">카테고리</th>
-                <th width="30%">제목</th>
-                <th width="10%">작성자</th>
-                <th width="10%">작성일</th>
-                <th width="10%">답변상태</th>
+                 <th width="10%" style="text-align:center;">글번호</th>
+                 <th width="10%"style="text-align:center;">카테고리</th>
+                <th width="30%" style="text-align:center;">제목</th>
+                <th width="10%" style="text-align:center;">작성자</th>
+                <th width="10%" style="text-align:center;">작성일</th>
+                <th width="10%" style="text-align:center;">답변상태</th>
             </tr>
         </thead>
         <tbody>
@@ -191,12 +191,12 @@
          		
          <c:forEach var="i" items="${list }">
             <tr>
-               <td class="ino">${i.inqNo}</td> 
-                 <td>${i.category }</td>
-                <td>${i.inqTitle }</td>
-                <td>${i.storeName }</td>
-                <td>${i.inqDate }</td>
-                <td>
+               <td class="ino" style="text-align:center;">${i.inqNo}</td> 
+                <td style="text-align:center;">${i.category }</td>
+                <td style="text-align:center;">${i.inqTitle }</td>
+                <td style="text-align:center;">${i.storeName }</td>
+                <td style="text-align:center;">${i.inqDate }</td>
+                <td style="text-align:center;">
                 <c:if test="${empty i.ansDate }">대기</c:if>${i.ansDate}
                 </td>
             </tr>

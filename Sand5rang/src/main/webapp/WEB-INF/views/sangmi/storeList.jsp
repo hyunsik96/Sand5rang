@@ -19,6 +19,12 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+<style>
+ td{
+  text-align:center;
+}
+</style>
+
 
   </head>
 
@@ -140,27 +146,27 @@
 	  				</div> <!-- /widget-header -->
 					
 	
-			   <table class="table table-striped table-bordered" align="center">
-			       <thead align="center"> 
+			   <table class="table table-striped table-bordered" align="center" >
+			       <thead align="center" style="text-align:center;"> 
 			          <tr>
-			              <th>가맹점명</th>
-			              <th>아이디</th>
-			              <th>주소</th>
-			              <th>번호</th>
-			              <th>이메일</th>
-			              <th>폐업</th>
+			              <th style="text-align:center;">가맹점명</th>
+			              <th style="text-align:center;">아이디</th>
+			              <th style="text-align:center;">주소</th>
+			              <th style="text-align:center;">번호</th>
+			              <th style="text-align:center;">이메일</th>
+			              <th style="text-align:center;">폐업</th>
 			          </tr>
 			         </thead>
 			          <tbody align="center">
 			            
 			             <c:forEach var="s" items="${ list }" varStatus="status">
 			              <tr>
-			                <td>${s.storeName}</td>
-			                <td>${s.storeId}</td>
-			                <td>${s.address}</td> 
-			                <td>${s.phone}</td>
-			                <td>${s.email}</td>
-			                <td>
+			                <td style="text-align:center;">${s.storeName}</td>
+			                <td style="text-align:center;">${s.storeId}</td>
+			                <td style="text-align:center;">${s.address}</td> 
+			                <td style="text-align:center;">${s.phone}</td>
+			                <td style="text-align:center;">${s.email}</td>
+			                <td style="text-align:center;">
 			                
 			                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#${status.index}">폐업</button>
 			                </td>

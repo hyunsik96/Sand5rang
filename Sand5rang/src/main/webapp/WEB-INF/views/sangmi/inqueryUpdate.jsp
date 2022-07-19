@@ -195,8 +195,7 @@
                 <tr>
                   <th><label for="content" style="font-size:18px">문의내용</label> </th>
                   <td>
-                   <textarea id="content" class="form-control" name="inqQuery" maxlength="1000" required style="resize:none; width:100%; height:200px">${ i.inqQuery }
-                   </textarea>
+                   <textarea id="content" class="form-control" name="inqQuery" maxlength="1000" required style="resize:none; width:100%; height:200px">${ i.inqQuery }</textarea>
                   </td>
                 </tr>
                    
@@ -210,7 +209,7 @@
         <div align="center">
         	 
             <button type="submit" class="btn btn-primary">수정하기</button>
-            <button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">뒤로가기</button>
+            <button type="button" class="btn btn-secondary" onclick="javascript:history.go(-1);">뒤로가기</button>
         </div>  
     </form>
 

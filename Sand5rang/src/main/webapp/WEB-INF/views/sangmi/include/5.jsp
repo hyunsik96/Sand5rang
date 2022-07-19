@@ -377,9 +377,8 @@ margin-bottom: 26px;}
 table.type05 {
   border-collapse: separate;
   border-spacing: 1px;
-  text-align: left;
+  text-align: center;
   line-height: 1.5;
-  border-top: 1px solid #ccc;
   margin: 20px 10px;
 }
 table.type05 th {
