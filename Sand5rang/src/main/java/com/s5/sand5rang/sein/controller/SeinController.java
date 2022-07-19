@@ -1,10 +1,13 @@
 package com.s5.sand5rang.sein.controller;
 
+import java.security.SecureRandom;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.sein.service.SeinService;
+import com.s5.sand5rang.sein.vo.EmailSendSe;
 import com.s5.sand5rang.sein.vo.Enroll;
 import com.s5.sand5rang.sein.vo.Order;
 import com.s5.sand5rang.sein.vo.Payment;
@@ -140,7 +144,7 @@ public class SeinController {
 			return mv;
 	}
 	
-	//url 매핑값만 적어줄 경우 value속성 생략 가능
+	//로그아웃
 	@RequestMapping("logout.me")
 	public String logoutMember(HttpSession session) {
 			
@@ -194,6 +198,56 @@ public class SeinController {
 		return mv;
 	}
 	
+	
+	//비밀번호 찾기 
+	@RequestMapping(value="findPwdEmail.se")
+	public String pwdFindController(String email, String storeId, HttpSession session) {
+		
+		Store store = new Store();
+		store.setStoreId(storeId);
+		
+		// 아이디만 일치하는지 1차 체크 
+		Store loginstore = seinService.loginStore(store);
+		
+		if(loginstore != null) {
+			//랜덤 생성될 비밀번호 길이 
+			int newPwd = 10;
+			
+			EmailSendSe.naverMailSend(email, generateRandomPassword(newPwd));
+			
+			session.setAttribute("alertMsg", "작성하신 이메일로 임시비밀번호를 발송하였습니다. 확인 후 반드시 비밀번호 변경해주세요.");
+			
+			return "redirect:sucessMail.me";
+			
+		}else {
+			session.setAttribute("alertMsg", "일치하는 회원정보를 찾을 수 없습니다.");
+			
+			return "sein/findPwd.jsp";
+		}
+		
+	}
+	
+	//비밀번호 찾기 이메일 발송 성공
+	@RequestMapping(value="sucessMail.me")
+	public String successMailController() {
+		return "main/login";
+	}
+	
+	// 특정 길이의 임의의 영숫자 비밀번호를 생성하는 메소드
+    public static String generateRandomPassword(int len)
+    {
+        // ASCII 범위 – 영숫자(0-9, a-z, A-Z)
+        final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+ 
+        SecureRandom random = new SecureRandom();
+ 
+        // 루프의 각 반복은 주어진 문자에서 무작위로 문자를 선택합니다.
+        // ASCII 범위를 `StringBuilder` 인스턴스에 추가합니다.
+        return IntStream.range(0, len)
+                .map(i -> random.nextInt(chars.length()))
+                .mapToObj(randomIndex -> String.valueOf(chars.charAt(randomIndex)))
+                .collect(Collectors.joining());
+    }
 	
 	/*발주 리스트 조회*/
 	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
@@ -784,5 +838,6 @@ public class SeinController {
 		}
 		return "redirect:fr1.hs";
 	}
+	
 	
 }

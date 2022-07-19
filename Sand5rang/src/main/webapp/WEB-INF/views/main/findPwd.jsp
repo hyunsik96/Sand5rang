@@ -125,7 +125,7 @@
 				<div class="login-box"><!-- 가운데 화이트 박스 만들고 싶음 -->
 				<div class="content clearfix heading_container heading_center">
 					
-					<form action="#" method="post">
+					<form action="findPwdEmail.se" method="post">
 					
 			            <div class="changePw">
                    			<img src="resources/images/pwimg.png" style="width:200px; height:150px;"alt="changePw">
@@ -151,7 +151,7 @@
 						</div> <!-- /login-fields -->
 				
 						<div>						
-							<button class=" submit button btn btn-success btn-large">비밀번호 찾기</button>
+							<button type="submit" class=" submit button btn btn-success btn-large">비밀번호 찾기</button>
 						</div>
 					</form>
 					
