@@ -90,7 +90,7 @@
 		<div class="container">
 			<ul class="mainnav">
 			
-				<li class="active">
+				<li>
 					<a href="frmain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
@@ -112,7 +112,7 @@
                     </ul>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="orderEnroll.se" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>발주</span>
@@ -120,7 +120,7 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="orderEnrollForm.se">발주신청</a></li>
+                        <li class="active"><a href="orderEnrollForm.se">발주신청</a></li>
 						<li><a href="orderList.se">발주조회</a></li>
                     </ul>    				
 				</li>
