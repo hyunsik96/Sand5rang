@@ -21,7 +21,7 @@
     <![endif]-->
 
 <!--스마트에디터 스크립트 -->
-<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <!-- SmartEditor2 -->
