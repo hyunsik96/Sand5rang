@@ -154,7 +154,7 @@
 .form_checkbox input[type="checkbox"]{height:0; opacity:0; width:0; position:absolute;}
 .form_checkbox { cursor: pointer; overflow: hidden; position: relative; vertical-align: middle; color: #292929; font-size: 14px; line-height: 26px; letter-spacing: -0.02em;}
 .form_checkbox em {color: #0B571F; font-style: normal;}
-.form_checkbox .icon:before {content: ''; width: 0; height: 20px; background: url(resources/images/icon_checkbox.png) 0 0 no-repeat;
+.form_checkbox .icon:before {content: ''; width: 0; height: 20px; background: url(https://www.subway.co.kr/images/common/icon_checkbox.png) 0 0 no-repeat;
                               position: absolute; left: 4px; top: 0; transition-duration: 0.2s;}
 .form_checkbox .icon { width: 26px; height: 26px; border: 2px solid #dddddd; border-radius: 50px; display: inline-block; position: relative; vertical-align: top; margin-right: 10px;}
 .form_checkbox input[type="checkbox"]:checked+.icon:before {width: 24px;}
@@ -166,17 +166,17 @@
 .inquiry_wrapper{background-color:#f8f9fa; background-clip: content-box; padding:70px 49px; border:1px solid #e8e8e8; font-family: 'Noto Sans KR', sans-serif;}
 .inquiry_wrapper .board_write_wrapper .agree_info{overflow:hidden; padding:25px 0 30px 0; margin:auto; width: 1000px;}
 .inquiry_wrapper .board_write_wrapper .agree_info >p{float:left; color:#666666; font-size:16px; font-weight:300; letter-spacing:-0.03em; text-indent:10px;}
-.inquiry_wrapper .board_write_wrapper .agree_info >p:after{content:''; background:url(resouces/images/icon_ess.png) no-repeat; width:7px; height:6px; display:inline-block; vertical-align:middle; position:relative; margin-left:4px; top:-2px;}
+.inquiry_wrapper .board_write_wrapper .agree_info >p:after{content:''; background:url(../../../resouces/images/icon_ess.png) no-repeat; width:7px; height:6px; display:inline-block; vertical-align:middle; position:relative; margin-left:4px; top:-2px;}
 .inquiry_wrapper .board_write_wrapper .agree_info >.form_checkbox{float:right; top:-5px;}
 
-.inquiry_notice { width:1040px; background: rgb(234 234 234) url(resources/images/icon_exc.png) 25px 50% no-repeat; display: flex;color: #999999; 
+.inquiry_notice { width:1000px; background: rgb(234 234 234) url(https://www.subway.co.kr/images/common/icon_exc.png) 25px 50% no-repeat; display: flex;color: #999999; 
                   flex-direction: column; justify-content: center; font-size: 13px; margin: auto; margin-top: 20px; padding: 15px 15px 10px 81px;min-height: 52px;}
 .inquiry_wrapper .btns_wrapper{position:relative; left:-70px; margin-right:-140px; padding-top:40px;}
 
  /* board-write*/         
 .board_write_wrapper{position:relative; padding: 50px 50px; position: relative; display: flex; flex-direction: column; justify-content: center;}
 .board_write_wrapper .rt_note { color: #999999; font-size: 16px; letter-spacing: -0.05em; position: absolute; right: 100px; top: -29px;
-    background: url(resorces/images/icon_ess.png) 0 7px no-repeat; padding-right: 40px; }
+    background: url(../../..resorces/images/icon_ess.png) 0 7px no-repeat; padding-right: 40px; }
 .board_write_wrapper th{font-weight:300; color:#666666; font-size:16px; height:21px; padding-top:24px; border-bottom:1px solid #e8e8e8; text-align:left; vertical-align:top;}
 .board_write_wrapper td{height:45px; padding:12px 0; border-bottom:1px solid #e8e8e8;}
 .board_write_wrapper td .file_note{font-size:13px; color:#999999; margin-left:25px;} 
@@ -577,11 +577,6 @@ p { display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inlin
     </div>
   </footer>
   <!-- footer section -->
-  
-  
-  
-  
-  
 
   <!-- jQery -->
   <script src="/sand5rang/resources/js/jquery-3.4.1.min.js"></script>
