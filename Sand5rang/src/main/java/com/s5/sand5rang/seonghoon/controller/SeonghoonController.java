@@ -147,9 +147,9 @@ public class SeonghoonController {
 		
 		ArrayList<Stock> sort_list = seonghoonService.selectSortIngredient(pi, hashmap);
 		
-		for(int i=0; i<sort_list.size(); i++) {
-			System.out.println(sort_list.get(i));
-		}
+//		for(int i=0; i<sort_list.size(); i++) {
+//			System.out.println(sort_list.get(i));
+//		}
 		model.addAttribute("ingType", ingType);
 		model.addAttribute("ingName", ingName);
 		model.addAttribute("pi", pi);
@@ -587,6 +587,8 @@ public String selectDisposal(
 	PageInfo pi = Pagination.getPageInfo(listCount, currentPage, pageLimit, boardLimit);
 	ArrayList<Stock> disposal_list = seonghoonService.selectDisposalList(pi,hashmap);
 	
+	model.addAttribute("ingType", ingType);
+	model.addAttribute("ingName", ingName);
 	model.addAttribute("pi", pi);
 	model.addAttribute("disposal_list", disposal_list);
 	
