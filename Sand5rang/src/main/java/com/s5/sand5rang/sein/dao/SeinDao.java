@@ -90,9 +90,19 @@ public class SeinDao {
 	public int myPayment(SqlSessionTemplate sqlSession, String storeId) {
 		return sqlSession.selectOne("seinMapper.myPayment", storeId);
 	}
-
+	//해당하는 원재료를 뺀 다른 원재료들의 합(총 가격)
 	public int selectBeforeChangeIngre(SqlSessionTemplate sqlSession, Order order) {
 		return sqlSession.selectOne("seinMapper.selectBeforeChangeIngre", order);
+	}
+
+	//발주 수량 수정 전 전체 발주량이 0보다 큰지 확인
+	public int balanceCount(SqlSessionTemplate sqlSession, Order order) {
+		return sqlSession.selectOne("seinMapper.balanceCount",order);
+	}
+	
+	//발주list에서 승인된 행의 발주 상세내역 조회
+	public ArrayList<Order> selectOrderResult(SqlSessionTemplate sqlSession, Order order) {
+		return sqlSession.selectOne("seinMapper.selectOrderResult",order);
 	}
 	
 }

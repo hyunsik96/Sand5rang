@@ -2,6 +2,7 @@ package com.s5.sand5rang.sein.service;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.SqlSessionManager;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,5 +94,14 @@ public class SeinService {
 		return seinDao.selectBeforeChangeIngre(sqlSession, order);
 	}
 	
+	//발주수량 변경 전 전체 count가 0이 아닌지 체크 
+	public int balanceCount(Order order) {
+		return seinDao.balanceCount(sqlSession, order);
+	}
+
+	//발주list에서 승인된 행의 발주 상세내역 조회
+	public ArrayList<Order> selectOrderResult(Order order) {
+		return seinDao.selectOrderResult(sqlSession, order);
+	}
 }
 

@@ -196,9 +196,8 @@
 										<tbody>
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
 										<c:choose>
-											
 											<c:when test="${status.first ne true || pi.currentPage ne '1' || all_Olist.status eq 'Y' || all_Olist.status eq 'AY'}">
-												<tr>
+												<tr id="list">
 													<td class="th1">${all_Olist.rowNo}</td>
 													<td class="th3">${all_Olist.b}</td>
 													<td class="th4">${all_Olist.v}</td>
@@ -507,7 +506,9 @@
 					<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
 					<div id="price" style="display: block; width : 100px">
 						<b style="font-size: 11px;">금액 : </b>
-						<b style="font-size: 11px;" id="tot"><fmt:formatNumber value="${order.total}" pattern="###,###,###,###"/></b>
+						<b style="font-size: 11px;" id="tot">
+							<fmt:formatNumber value="${order.total}" pattern="###,###,###,###"/>
+						</b>
 						<b style="font-size: 11px;">원</b>
 					</div>
 				</div>
@@ -529,7 +530,7 @@
 </div>
 </div>
 
-<div class="modal" id="vModal4" style="display: none;" data-backdrop="static" data-keyboard="false">
+		<div class="modal" id="vModal4" style="display: none;" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 			  <div class="modal-content" style="width : 550px">	 
 		  
@@ -589,27 +590,27 @@
 		  <h4 class="modal-title">SAUCE(소스) 발주내역</h4>
 	  </div> 
 	  <!-- Modal body -->
-	  <form class="order_list" id="${status.index}" action="orderUpdate5.se" method="post" style="padding: 0px; margin: 0px;"></form>
+	  <form class="order_list" id="${status.index}" action="orderUpdate5.se" method="post" style="padding: 0px; margin: 0px;">
 	  <div class="modal-body" style="width : 550px; margin: auto; padding: 0px;padding-bottom: 20px;">
 				<c:forEach var="order" items="${order}" varStatus="status" begin="19" end="23">
-				  <div class="bimg" style="margin-left: 7px;">
-					<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
-				  </div>
+				  	<div class="bimg" style="margin-left: 7px;">
+						<img src="/sand5rang/resources/images/ingredient/${order.ingName}.jpg">
+				  	</div>
 					
-						<div class="bb" style="margin-right: 8px;">
-							<b>${order.ingName}</b>
-							<b style="font-size: 11px; color : tomato">[단가 :</b> 
-							<b id="iprice" style="font-size: 11px; color : tomato">${order.price}</b>
-							<b style="font-size: 11px; color : tomato">]</b><br>
-							<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
-							<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
-							<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
-							<div id="price" style="display: block; width : 100px">
-								<b style="font-size: 11px;">금액 : </b>
-								<b style="font-size: 11px;" id="tot"><fmt:formatNumber value="${order.total}" pattern="###,###,###,###"/></b>
-								<b style="font-size: 11px;">원</b>
+							<div class="bb" style="margin-right: 8px;">
+								<b>${order.ingName}</b>
+								<b style="font-size: 11px; color : tomato">[단가 :</b> 
+								<b id="iprice" style="font-size: 11px; color : tomato">${order.price}</b>
+								<b style="font-size: 11px; color : tomato">]</b><br>
+								<input class="count" id="count" value="${order.count}" style="width : 30px" name="count${status.index}">
+								<input type="button" value="▲" style="font-weight: bolder; font-size: 15px;" onclick="countf('plus', <c:out value='${status.index}'/>)">&nbsp;&nbsp;
+								<input type="button" value="▼" style="font-weight: bolder; font-size: 15px;" onclick="countf('minus',<c:out value='${status.index}'/>)">
+								<div id="price" style="display: block; width : 100px">
+									<b style="font-size: 11px;">금액 : </b>
+									<b style="font-size: 11px;" id="tot"><fmt:formatNumber value="${order.total}" pattern="###,###,###,###"/></b>
+									<b style="font-size: 11px;">원</b>
+								</div>
 							</div>
-						</div>
 						<input type="hidden" value="${order.ingNo}" name="ingNo${status.index}"/>
 						<input type="hidden" value="${order.total}" name="hidden_iprice${status.index}" class="hidden_iprice"/>
 						<input type="hidden" value="${order.indDate}" name="indDate${status.index}"/>
@@ -643,9 +644,10 @@ var iprice = $("div[class=bb]").children('b[id=iprice]');
 //controller로 넘길 input iprice element
 var hidden_iprice = $('input[class=hidden_iprice]');
 
-console.log(hidden_iprice + "찍어줘");
 
 for(var i=0; i<resultElement.length; i++){
+
+	console.log(hidden_iprice[i] + "찍어줘");
 
   if(i == num){
 
@@ -693,7 +695,7 @@ for(var i=0; i<resultElement.length; i++){
 			//콤마없는 가격 찍어주기
 			//hidden_iprice[i].innerText = num2;
 			hidden_iprice[i].setAttribute("value", num2);
-
+		    
 		}
  	 }
 	}
@@ -741,7 +743,7 @@ if(amount==1000 || amount>1000){
 var priceElement = $(this).nextAll("div[id=price]").children("b[id=tot]");
 
 //총 가격 보여줄 element(콤마 제거)
-var totElement = $(this).parent("div").nextAll("input[name=hidden_iprice]");
+var totElement = $(this).parent("div").nextAll("input[class=hidden_iprice]");
 
 //단가 
 var iprice = $(this).parent("div").children("b[id=iprice]").text();
@@ -751,7 +753,8 @@ var result = amount*iprice;
 
 //toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 priceElement.text(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-totElement.text(result);
+//totElement.text(result);
+totElement.val(result);
 
 });
 
@@ -767,6 +770,23 @@ for(var j=1; j<6; j++){
 		}
 	});
 }
+
+
+
+for(var e=0; e<5; e++){
+		
+		$("#list").on('click', function(){
+
+			var listDate= $("tr[id=list]").children().prevAll("td[class=th2]");
+
+			console.log(listDate[e].innerHTML);
+
+			location.href = "orderlistResult.se?listDate=" + listDate;
+
+		});	
+
+}
+
 </script>
 
 </body>

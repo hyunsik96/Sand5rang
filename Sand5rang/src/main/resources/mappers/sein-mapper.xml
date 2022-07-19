@@ -194,7 +194,7 @@
 				GROUP BY SUBSTR(IND_DATE, 1, 10))
 	</select>
 
-
+	<!-- 가맹점 발주 수정 시 현재 잔액 조회 -->
 	<select id="selectBeforeChangeIngre" parameterType="order" resultType="_int">
 		<if test='ingType == "B"'>
 			SELECT SUM(V+C+S+M) AS CHANGE
@@ -218,5 +218,47 @@
 				            STORE_ID = #{storeId} AND
 				            STATUS LIKE '%B')
 				    PIVOT (SUM(TOTAL) FOR ING_TYPE IN('B' AS B, 'V' AS V, 'M' AS M, 'C' AS C, 'S' AS S)))
+	</select>
+	
+	<!-- 가맹점 발주 수정 시 전체 count 조회 -->
+	<select id="balanceCount" parameterType="order" resultType="_int">
+		<if test='ingType == "B"'>
+			SELECT SUM(V+C+S+M) AS CHANGE
+		</if>
+		<if test='ingType == "V"'>
+			SELECT SUM(B+C+S+M) AS CHANGE
+		</if>
+		<if test='ingType == "C"'>
+			SELECT SUM(V+B+S+M) AS CHANGE
+		</if>
+		<if test='ingType == "M"'>
+			SELECT SUM(V+C+S+B) AS CHANGE
+		</if>
+		<if test='ingType == "S"'>
+			SELECT SUM(V+C+B+M) AS CHANGE
+		</if>
+			FROM(SELECT * 
+				    FROM(SELECT ING_TYPE, COUNT 
+				            FROM INDENT I, INGREDIENT G
+				            WHERE I.ING_NO = G.ING_NO AND
+				            STORE_ID = #{storeId} AND
+				            STATUS LIKE '%B')
+				    PIVOT (SUM(COUNT) FOR ING_TYPE IN('B' AS B, 'V' AS V, 'M' AS M, 'C' AS C, 'S' AS S)))
+	</select>
+	
+	<!-- 가맹점 발주 리스트 승인된 행 발주내역 상세조회 -->
+	<select id="selectOrderResult" parameterType="order" resultMap="OrderResultSet">
+		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, 
+		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, P.BAL
+		FROM INDENT I, INGREDIENT G, (SELECT NVL(SUM(DEPOSIT+WITHDRAW),0) AS BAL, STORE_ID
+                                        FROM PAYMENT 
+                                        WHERE STORE_ID = #{storeId}
+                                        GROUP BY STORE_ID) P
+		WHERE I.ING_NO = G.ING_NO AND 
+		I.STORE_ID = P.STORE_ID AND 
+        I.STORE_ID = #{storeId} AND
+		TO_DATE(I.IND_DATE, 'YY-MM-DD') = TO_DATE(#{inDate}, 'YY-MM-DD') AND
+		STATUS = 'Y' OR STATUS ='AY' OR STATUS ='N' AND
+		ORDER BY I.ING_NO ASC
 	</select>
 </mapper>

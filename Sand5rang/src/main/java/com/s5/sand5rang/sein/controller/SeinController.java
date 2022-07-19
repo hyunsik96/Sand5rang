@@ -344,6 +344,25 @@ public class SeinController {
         return "sein/order_enroll_result";
     }
 	
+	//발주 리스트에서 발주 신청 결과 페이지 띄우기
+	@RequestMapping(value="orderlistResult.se")
+	public String orderlistResultController(Model m, HttpSession session, String listDate) {
+		
+		Store loginstore = (Store)session.getAttribute("loginstore");
+		String storeId = loginstore.getStoreId();
+		
+		Order order = new Order();
+		order.setStoreId(storeId);
+		order.setInDate(listDate);
+		
+		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
+		ArrayList<Order> olist = seinService.selectOrderResult(order);
+				
+		m.addAttribute("olist", olist);
+				
+		return "sein/order_enroll_result";
+	}
+	
 	//B(빵)발주내용 update
 	@RequestMapping(value="orderUpdate1.se")
 	public String orderUpdateController(Model m, int ingNo0, int ingNo1, int ingNo2, 
@@ -362,7 +381,8 @@ public class SeinController {
 		String[] indDate = {indDate0, indDate1, indDate2};
 		
 		int tott = hidden_iprice0+ hidden_iprice1+ hidden_iprice2;
-	
+		int Ucount = count0 + count1 + count2;
+		
 		for(int i=0; i<3; i++) {
 			order.setIngNo(ingNo[i]);
 			order.setTotal(hidden_iprice[i]);
@@ -380,14 +400,22 @@ public class SeinController {
 			if((tott + beprice)> pay) {
 				
 				session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
-				
+			
 			}else {
-				int result = seinService.updateOrder(order);
+				//현재 발주 총 수량이 0보다는 커야됨 
+				int bCount = seinService.balanceCount(order);
 				
-				if(result>0) {
-					session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+				//현재 모든 count가 0일때
+				if(Ucount == 0 && bCount == 0) {
+					session.setAttribute("alertMsg", "당일 전체발주 수량은 0보다 커야합니다. 다시입력해주세요.");
 				}else {
-					session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+					int result = seinService.updateOrder(order);
+					
+					if(result>0) {
+						session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+					}else {
+						session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+					}
 				}
 			}
 			
@@ -413,8 +441,7 @@ public class SeinController {
 			String[] indDate = {indDate3, indDate4, indDate5, indDate6, indDate7, indDate8, indDate9 };
 			
 			int tott = hidden_iprice3 + hidden_iprice4 + hidden_iprice5 + hidden_iprice6 + hidden_iprice7+ hidden_iprice8+ hidden_iprice9;
-			
-			System.out.println(tott);
+			int Ucount = count3 + count4 + count5 + count6 + count7 + count8 + count9;
 			
 			for(int i=0; i<7; i++) {
 				order.setIngNo(ingNo[i]);
@@ -433,12 +460,20 @@ public class SeinController {
 					session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
 					
 				}else {
-					int result = seinService.updateOrder(order);
+					//현재 발주 총 수량이 0보다는 커야됨 
+					int bCount = seinService.balanceCount(order);
 					
-					if(result>0) {
-						session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+					//현재 모든 count가 0일때
+					if(Ucount == 0 && bCount == 0) {
+						session.setAttribute("alertMsg", "당일 전체발주 수량은 0보다 커야합니다. 다시입력해주세요.");
 					}else {
-						session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+						int result = seinService.updateOrder(order);
+						
+						if(result>0) {
+							session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+						}else {
+							session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+						}
 					}
 				}
 				
@@ -464,8 +499,8 @@ public class SeinController {
 			String[] indDate = {indDate10, indDate11, indDate12};
 			
 			int tott = hidden_iprice10+ hidden_iprice11+ hidden_iprice12;
-			
-			System.out.println(tott);
+			int Ucount = count10 + count11 + count12;
+		
 			
 			for(int i=0; i<3; i++) {
 				order.setIngNo(ingNo[i]);
@@ -484,12 +519,20 @@ public class SeinController {
 					session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
 					
 				}else {
-					int result = seinService.updateOrder(order);
+					//현재 발주 총 수량이 0보다는 커야됨 
+					int bCount = seinService.balanceCount(order);
 					
-					if(result>0) {
-						session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+					//현재 모든 count가 0일때
+					if(Ucount == 0 && bCount == 0) {
+						session.setAttribute("alertMsg", "당일 전체발주 수량은 0보다 커야합니다. 다시입력해주세요.");
 					}else {
-						session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+						int result = seinService.updateOrder(order);
+						
+						if(result>0) {
+							session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+						}else {
+							session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+						}
 					}
 				}
 				
@@ -515,8 +558,7 @@ public class SeinController {
 				String[] indDate = {indDate13, indDate14, indDate15, indDate16, indDate17, indDate18};
 				
 				int tott = hidden_iprice13 + hidden_iprice14 + hidden_iprice15 + hidden_iprice16+ hidden_iprice17+ hidden_iprice18;
-				
-				System.out.println(tott);
+				int Ucount = count13 + count14 + count15 + count16 + count17 + count18;
 				
 				for(int i=0; i<6; i++) {
 					order.setIngNo(ingNo[i]);
@@ -535,12 +577,20 @@ public class SeinController {
 						session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
 						
 					}else {
-						int result = seinService.updateOrder(order);
+						//현재 발주 총 수량이 0보다는 커야됨 
+						int bCount = seinService.balanceCount(order);
 						
-						if(result>0) {
-							session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+						//현재 모든 count가 0일때
+						if(Ucount == 0 && bCount == 0) {
+							session.setAttribute("alertMsg", "당일 전체발주 수량은 0보다 커야합니다. 다시입력해주세요.");
 						}else {
-							session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+							int result = seinService.updateOrder(order);
+							
+							if(result>0) {
+								session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+							}else {
+								session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+							}
 						}
 					}
 					
@@ -566,8 +616,8 @@ public class SeinController {
 						String[] indDate = {indDate19, indDate20, indDate21, indDate22, indDate23};
 						
 						int tott = hidden_iprice19+ hidden_iprice20+ hidden_iprice21 + hidden_iprice22 + hidden_iprice23;
-						
-						System.out.println(tott);
+						int Ucount = count19 + count20 + count21 + count22 + count23;
+					
 						
 						for(int i=0; i<5; i++) {
 							order.setIngNo(ingNo[i]);
@@ -586,12 +636,20 @@ public class SeinController {
 								session.setAttribute("alertMsg", "현재 잔액보다 발주금액이 큽니다. 다시 입력해주세요.");
 								
 							}else {
-								int result = seinService.updateOrder(order);
+								//현재 발주 총 수량이 0보다는 커야됨 
+								int bCount = seinService.balanceCount(order);
 								
-								if(result>0) {
-									session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+								//현재 모든 count가 0일때
+								if(Ucount == 0 && bCount == 0) {
+									session.setAttribute("alertMsg", "당일 전체발주 수량은 0보다 커야합니다. 다시입력해주세요.");
 								}else {
-									session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+									int result = seinService.updateOrder(order);
+									
+									if(result>0) {
+										session.setAttribute("alertMsg", "발주 수정이 완료되었습니다.");
+									}else {
+										session.setAttribute("alertMsg", "발주 수정이 실패되었습니다.");
+									}
 								}
 							}
 							
