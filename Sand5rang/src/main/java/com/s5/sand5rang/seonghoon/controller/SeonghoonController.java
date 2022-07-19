@@ -48,6 +48,9 @@ public class SeonghoonController {
 		Store user = (Store)session.getAttribute("loginstore");
 		String storeId = user.getStoreId();		
 		
+		Main m = hyunsikService.befIndent2(storeId);
+	    model.addAttribute("m", m);		
+		
 		// STORE_ID가 테이블에 없는 경우 아래의 구문이 실행되지 않게끔.
 		int a = seonghoonService.selectStoreId_list(storeId);
 		if(a==0) {
@@ -115,6 +118,8 @@ public class SeonghoonController {
 				@RequestParam(value="ingName", defaultValue="파마산") String ingName,
 				HttpSession session
 			) {
+		
+		
 		// 세션에 담긴 로그인 정보 가져오기
 		Store user = (Store)session.getAttribute("loginstore");
 		String storeId = user.getStoreId();		
@@ -123,6 +128,8 @@ public class SeonghoonController {
 		System.out.println("ingName : "+ingName);
 		System.out.println("storeId : "+storeId);
 		*/
+		Main m = hyunsikService.befIndent2(storeId);
+		model.addAttribute("m", m);
 		
 		// select태그 2개의 값 가져오기
 		HashMap<String, String> hashmap = new HashMap<>();
@@ -154,7 +161,8 @@ public class SeonghoonController {
 	
 	/*********** 제품판매현황 ************/
 	@RequestMapping(value="menuSales.csh")
-	public String menuSalesList(Model model,
+	public String menuSalesList(
+			Model model,
 			@RequestParam(value="p", defaultValue="1") int currentPage,
 			HttpSession session
 			) {
@@ -211,9 +219,8 @@ public class SeonghoonController {
 	public void orderEnrollController(int order_count, int ingNo, int tot_price, Model model, HttpSession session) {
 		
 		Store user = (Store)session.getAttribute("loginstore");
-
 		String storeId = user.getStoreId();
-
+		
 		ArrayList<Ingredient> ingList111 = seonghoonService.selectIngMen(ingNo);
 		
 		ArrayList<Stock> s_list111 = seonghoonService.selectStock1(storeId);
@@ -556,6 +563,9 @@ public String selectDisposal(
 	Store user = (Store)session.getAttribute("loginstore");
 	String storeId = user.getStoreId();	
 	
+	Main m = hyunsikService.befIndent2(storeId);
+    model.addAttribute("m", m);
+	
 	// 두개의 select태그의 name값을 hashmap에
 	HashMap<String, String> hashmap = new HashMap<>();
 	hashmap.put("ingType",ingType);
@@ -585,12 +595,16 @@ public String selectDisposal(
 // 3. 폐기를 진행함
 @PostMapping(value="disposalUpdate.csh")
 public String updateDisposal(
+			Model model,
 			String ingType,
 			String ingName,
 			HttpSession session
 		) {
 	Store user = (Store)session.getAttribute("loginstore");
-	String storeId = user.getStoreId();		
+	String storeId = user.getStoreId();	
+	
+	Main m = hyunsikService.befIndent2(storeId);
+    model.addAttribute("m", m);
 	
 	HashMap<String, String> hashmap = new HashMap<>();
 	hashmap.put("ingType", ingType);
