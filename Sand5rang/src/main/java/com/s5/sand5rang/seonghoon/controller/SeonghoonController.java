@@ -150,7 +150,8 @@ public class SeonghoonController {
 		for(int i=0; i<sort_list.size(); i++) {
 			System.out.println(sort_list.get(i));
 		}
-		
+		model.addAttribute("ingType", ingType);
+		model.addAttribute("ingName", ingName);
 		model.addAttribute("pi", pi);
 		model.addAttribute("sort_list", sort_list);
 		

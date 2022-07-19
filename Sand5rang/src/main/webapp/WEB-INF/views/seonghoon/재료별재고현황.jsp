@@ -161,59 +161,123 @@
 	      				<i class="icon-user"></i>
 	      				<h3>재료별 재고 현황</h3>
 						 
+<input type="hidden" value="${ingType}" id="iT">
+<input type="hidden" value="${ingName}" id="iN">
 <script>
+
+$(function() {
+	
+	 if($("#iT").val()=="B"){ $("#bb").attr("selected", true);
+	   var temp = $("select[name=ingName]");
+	   temp.children().remove();
+	   
+	   temp.append('<option value="파마산">파마산</option>');
+	   temp.append('<option value="화이트">화이트</option>');
+	   temp.append('<option value="플렛">플렛</option>');
+	   
+	   $("option[value=${ingName}]").attr("selected", true);
+
+	 };
+	 if($("#iT").val()=="V"){ $("#vv").attr("selected", true);
+	   var temp = $("select[name=ingName]");
+	   
+	   temp.children().remove();
+	    temp.append('<option value="양상추">양상추</option>');
+	    temp.append('<option value="토마토">토마토</option>');
+	    temp.append('<option value="오이">오이</option>');
+	    temp.append('<option value="양파">양파</option>');
+	    temp.append('<option value="피망">피망</option>');
+	    temp.append('<option value="할라피뇨">할라피뇨</option>');
+	    temp.append('<option value="아보카도">아보카도</option>');
+	    
+		   $("option[value=${ingName}]").attr("selected", true);
+	 };
+	 if($("#iT").val()=="M"){ $("#mm").attr("selected", true);
+	   var temp = $("select[name=ingName]");
+	   
+	   temp.children().remove();
+	    temp.append('<option value="페퍼로니">페퍼로니</option>');
+	    temp.append('<option value="에그마요">에그마요</option>');
+	    temp.append('<option value="치킨">치킨</option>');
+	    temp.append('<option value="쉬림프">쉬림프</option>');
+	    temp.append('<option value="비프">비프</option>');
+	    temp.append('<option value="베이컨">베이컨</option>');
+		   $("option[value=${ingName}]").attr("selected", true);
+	 };
+	 if($("#iT").val()=="C"){ $("#cc").attr("selected", true);
+	   var temp = $("select[name=ingName]");
+	   
+	   temp.children().remove();
+	   
+	    temp.append('<option value="아메리칸">아메리칸</option>');
+	    temp.append('<option value="모짜렐라">모짜렐라</option>');
+	    temp.append('<option value="슈레드">슈레드</option>');
+		   $("option[value=${ingName}]").attr("selected", true);
+	 };
+	 if($("#iT").val()=="S"){ $("#ss").attr("selected", true);
+	   var temp = $("select[name=ingName]");
+	   var ingType = $(this).val();
+	   temp.children().remove();
+	    temp.append('<option value="랜치">랜치</option>');
+	    temp.append('<option value="스위트칠리">스위트칠리</option>');
+	    temp.append('<option value="올리브오일">올리브오일</option>');
+	    temp.append('<option value="머스타드">머스타드</option>');
+	    temp.append('<option value="후추">후추</option>');
+		   $("option[value=${ingName}]").attr("selected", true);
+	 };
+});
+ 
  $(function() {
-  $("select[name=ingType]").change(function() {
-   var temp = $("select[name=ingName]");
-   var ingType = $(this).val();
-   temp.children().remove();
-   
-   if(ingType == 'B'){
-    temp.append('<option value="파마산">파마산</option>');
-    temp.append('<option value="화이트">화이트</option>');
-    temp.append('<option value="플렛">플렛</option>');
-   }
-   if(ingType == 'V'){
-    temp.append('<option value="양상추">양상추</option>');
-    temp.append('<option value="토마토">토마토</option>');
-    temp.append('<option value="오이">오이</option>');
-    temp.append('<option value="양파">양파</option>');
-    temp.append('<option value="피망">피망</option>');
-    temp.append('<option value="할라피뇨">할라피뇨</option>');
-    temp.append('<option value="아보카도">아보카도</option>');
-   }
-   if(ingType == 'C'){
-    temp.append('<option value="아메리칸">아메리칸</option>');
-    temp.append('<option value="모짜렐라">모짜렐라</option>');
-    temp.append('<option value="슈레드">슈레드</option>');
-   }
-   if(ingType == 'M'){
-    temp.append('<option value="페퍼로니">페퍼로니</option>');
-    temp.append('<option value="에그마요">에그마요</option>');
-    temp.append('<option value="치킨">치킨</option>');
-    temp.append('<option value="쉬림프">쉬림프</option>');
-    temp.append('<option value="비프">비프</option>');
-    temp.append('<option value="베이컨">베이컨</option>');
-   }
-   if(ingType == 'S'){
-    temp.append('<option value="랜치">랜치</option>');
-    temp.append('<option value="스위트칠리">스위트칠리</option>');
-    temp.append('<option value="올리브오일">올리브오일</option>');
-    temp.append('<option value="머스타드">머스타드</option>');
-    temp.append('<option value="후추">후추</option>');
-   }      
-   
-  });
- });
+	  $("select[name=ingType]").change(function() {
+	   var temp = $("select[name=ingName]");
+	   var ingType = $(this).val();
+	   temp.children().remove();
+	   if(ingType == 'B'){
+	    temp.append('<option value="파마산">파마산</option>');
+	    temp.append('<option value="화이트">화이트</option>');
+	    temp.append('<option value="플렛">플렛</option>');
+	   }
+	   if(ingType == 'V'){
+	    temp.append('<option value="양상추">양상추</option>');
+	    temp.append('<option value="토마토">토마토</option>');
+	    temp.append('<option value="오이">오이</option>');
+	    temp.append('<option value="양파">양파</option>');
+	    temp.append('<option value="피망">피망</option>');
+	    temp.append('<option value="할라피뇨">할라피뇨</option>');
+	    temp.append('<option value="아보카도">아보카도</option>');
+	   }
+	   if(ingType == 'C'){
+	    temp.append('<option value="아메리칸">아메리칸</option>');
+	    temp.append('<option value="모짜렐라">모짜렐라</option>');
+	    temp.append('<option value="슈레드">슈레드</option>');
+	   }
+	   if(ingType == 'M'){
+	    temp.append('<option value="페퍼로니">페퍼로니</option>');
+	    temp.append('<option value="에그마요">에그마요</option>');
+	    temp.append('<option value="치킨">치킨</option>');
+	    temp.append('<option value="쉬림프">쉬림프</option>');
+	    temp.append('<option value="비프">비프</option>');
+	    temp.append('<option value="베이컨">베이컨</option>');
+	   }
+	   if(ingType == 'S'){
+	    temp.append('<option value="랜치">랜치</option>');
+	    temp.append('<option value="스위트칠리">스위트칠리</option>');
+	    temp.append('<option value="올리브오일">올리브오일</option>');
+	    temp.append('<option value="머스타드">머스타드</option>');
+	    temp.append('<option value="후추">후추</option>');
+	   }
+	  });
+	 });
+ 
  </script>
 
  <form action="ingredientStock1.csh" method="get">
 	<select id="ingType" name="ingType" style="width:100px; margin-top:10px;">
-	  <option value="B">빵</option>
-	  <option value="V">야채</option>
-	  <option value="M">고기</option>
-	  <option value="C">치즈</option>
-	  <option value="S">소스</option>
+	  <option value="B" id="bb">빵</option>
+	  <option value="V" id="vv">야채</option>
+	  <option value="M" id="mm">고기</option>
+	  <option value="C" id="cc">치즈</option>
+	  <option value="S" id="ss">소스</option>
 	</select>
 	<select id="ingName" name="ingName" style="width:100px; margin-top:10px;">
 	  <option value="파마산">파마산</option>	
@@ -223,17 +287,6 @@
 	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
 </form>
 
-<c:forEach var="hidden" items="${sort_list}">
-<input type="hidden" name="ingType" value="${hidden.ingType}">
-<input type="hidden" name="ingName" value="${hidden.ingName}">
-</c:forEach>
-<script>
-	$(function(){
-		$("#search").click(function(){
-			$("#ingName").val("input[type=hidden name=ingName]");
-		});
-	})
-</script>
 						
 	  				</div> <!-- /widget-header -->
 					
