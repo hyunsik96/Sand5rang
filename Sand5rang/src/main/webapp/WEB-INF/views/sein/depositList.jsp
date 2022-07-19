@@ -244,39 +244,39 @@
     
     
  
- 
+<br><br><br> 
 <div class="extra">
 	<div class="extra-inner">
 		<div class="container">
 			<div class="row">
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Contact Us</h4>
-                        <ul>
-                            <li><a href="javascript:;">Call 02) 807-4421</a></li>
-                            <li><a href="javascript:;">Sand5rang@naver.com</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Opening Hours</h4>
-                        <ul>
-                            <li><a href="javascript:;">Everyday</a></li>
-                            <li><a href="javascript:;">10.00 Am -10.00 Pm</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-		     				 Sand5rang</h4>
-                        <ul>
-	                        <li><a href="javascript:;">&copy; 2022 All Rights Reserved By Sand5rang.</a></li>
-	                        <li><a href="javascript:;">Distributed By Sand5rang.</a></li>
-                        </ul>
-                    </div>
-                </div> <!-- /row -->
+					<!-- /span3 -->
+					<div class="span3">
+						<h4>
+							Contact Us</h4>
+						<ul>
+							<li><a href="javascript:;">Call 02) 807-4421</a></li>
+							<li><a href="javascript:;">Sand5rang@naver.com</a></li>
+						</ul>
+					</div>
+					<!-- /span3 -->
+					<div class="span3">
+						<h4>
+							Opening Hours</h4>
+						<ul>
+							<li><a href="javascript:;">Everyday</a></li>
+							<li><a href="javascript:;">10.00 Am -10.00 Pm</a></li>
+						</ul>
+					</div>
+					<!-- /span3 -->
+					<div class="span3">
+						<h4>
+							  Sand5rang</h4>
+						<ul>
+							<li><a href="javascript:;">&copy; 2022 All Rights Reserved By Sand5rang.</a></li>
+							<li><a href="javascript:;">Distributed By Sand5rang.</a></li>
+						</ul>
+					</div>
+				</div> <!-- /row -->
 		</div> <!-- /container -->
 	</div> <!-- /extra-inner -->
 </div> <!-- /extra -->
@@ -288,12 +288,12 @@
 			
 			<div class="row">
 				
-    			<div class="span12">
-    				Korea tradition Sandwich Franchise Sand5rang.
-    			</div> <!-- /span12 -->
-    			
-    		</div> <!-- /row -->
-    		
+				<div class="span12">
+					Korea tradition Sandwich Franchise Sand5rang.
+				</div> <!-- /span12 -->
+				
+			</div> <!-- /row -->
+			
 		</div> <!-- /container -->
 		
 	</div> <!-- /footer-inner -->

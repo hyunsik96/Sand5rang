@@ -317,4 +317,11 @@
 		INSERT INTO PAYMENT(PAY_NO, DEPOSIT, WITHDRAW,PAY_DATE, STORE_ID) 
 		VALUES(SEQ_PAYNO.NEXTVAL, #{deposit}, 0, SYSDATE, #{storeId})
 	</insert>
+	
+	<!-- 매장검색 -->
+	<select id="searchBranch" parameterType="enroll" resultMap="EnrollResultSet">
+		SELECT STORE_NAME, ENROLL_ADD, PHONE FROM ENROLL 
+		WHERE STORE_NAME LIKE '%' || #{storeName} || '%' AND 
+		STATUS = 'Y'
+	</select>
 </mapper>

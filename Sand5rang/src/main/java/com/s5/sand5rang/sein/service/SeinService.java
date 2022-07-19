@@ -130,5 +130,10 @@ public class SeinService {
 	public int depositInsert(Payment payment) {
 		return seinDao.depositInsert(sqlSession, payment);
 	}
+
+	//매장검색 
+	public ArrayList<Enroll> searchBranch(Enroll enroll) {
+		return seinDao.searchBranch(sqlSession, enroll);
+	}
 }
 

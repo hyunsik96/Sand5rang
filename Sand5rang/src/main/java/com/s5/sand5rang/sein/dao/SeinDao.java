@@ -132,5 +132,10 @@ public class SeinDao {
 		return sqlSession.insert("seinMapper.depositInsert", payment);
 	}
 
+	//매장검색
+	public ArrayList<Enroll> searchBranch(SqlSessionTemplate sqlSession, Enroll enroll) {
+		return (ArrayList)sqlSession.selectList("seinMapper.searchBranch",enroll);
+	}
+
 	
 }

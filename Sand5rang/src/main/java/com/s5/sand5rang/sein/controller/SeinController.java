@@ -250,6 +250,21 @@ public class SeinController {
                 .collect(Collectors.joining());
     }
 	
+    //메인 매장검색
+    @RequestMapping(value="searchBranch.ma")
+    public String searchBranchController(String searchkey, Model m) {
+    	
+    	Enroll enroll = new Enroll();
+    	enroll.setStoreName(searchkey);
+    	
+    	ArrayList<Enroll> storeList = seinService.searchBranch(enroll);
+    	
+    	m.addAttribute("storeList", storeList);
+    	
+    	return "main/branch";
+    }
+    
+    
 	/*발주 리스트 조회*/
 	@RequestMapping(value="orderList.se", produces="text/html; charset=UTF-8")
     public String orderListController(Model m, HttpSession session, @RequestParam(value="cpage", defaultValue="1") int currentPage)

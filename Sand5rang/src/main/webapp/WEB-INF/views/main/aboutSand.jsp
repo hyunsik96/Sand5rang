@@ -92,19 +92,16 @@
   <!-- About Start -->
   <div class="container-xxl py-7">
     <div class="container">
-        <!-- <div class="row g-5 align-items-center"> -->
+       
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                 <div class="about-img position-relative pe-0">
                     <img class="img-fluid w-100" src="resources/images/about2.png" style="margin-left: 250px; margin-left:66 ;">
-                    <!-- <h1 class="display-5 mb-4">About Sand5rang</h1> -->
-                    <!-- <p style="font-family: 'Noto Sans KR', sans-serif; margin-left: 250px;"><i class="fa fa-check text-primary me-3"></i>엄격한 규율에 따라 세척 과정을 거친 야채들만 제공됩니다</p>
-                    <p style="font-family: 'Noto Sans KR', sans-serif;"><i class="fa fa-check text-primary me-3"></i>당일 판매되는 양만큼 준비되며 언제나 신선한 최상의 야채를 제공합니다</p>
-                    <p style="font-family: 'Noto Sans KR', sans-serif;"><i class="fa fa-check text-primary me-3"></i>신선도와 안전성을 따져 원재료를 제공하는 것이 샌드오랑의 목표입니다.</p> -->
+                  
                 </div>
             </div>
             <br>
             <div>
-                <!-- <h1 class="display-5 mb-4">About Sand5rang</h1> -->
+                
                  <p style="font-family: 'Noto Sans KR', sans-serif; text-align: center;"><i class="fa fa-check text-primary me-3"></i>엄격한 규율에 따라 세척 과정을 거친 야채들만 제공됩니다</p> 
                 <p style="font-family: 'Noto Sans KR', sans-serif; text-align: center;"><i class="fa fa-check text-primary me-3"></i>당일 판매되는 양만큼 준비되며 언제나 신선한 최상의 야채를 제공합니다</p> 
                 <p style="font-family: 'Noto Sans KR', sans-serif; text-align: center;"><i class="fa fa-check text-primary me-3"></i>신선도와 안전성을 따져 원재료를 제공하는 것이 샌드오랑의 목표입니다.</p> 

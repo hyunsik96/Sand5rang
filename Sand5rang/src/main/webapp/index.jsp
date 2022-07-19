@@ -183,12 +183,12 @@
   <!-- offer section -->
   <br><br>
   <!-- <h2 style="margin-left: 750px; margin-top : 100px; font-weight: bolder;">Sand5rang Best Menu3</h2> -->
-  <section class="offer_section layout_padding-bottom">
+  <section class="offer_section" style="margin-bottom : 70px">
     <div class="offer_container">
       <div class="main_wrapper">
       <div class="container ">
         <div class="heading_container">
-          <h2 style="margin-left: 410px; margin-top: 50px;">
+          <h2 style="margin-left: 410px; margin-top: 50px; ">
             Sand5rang Best Menu3
           </h2>
         </div>
