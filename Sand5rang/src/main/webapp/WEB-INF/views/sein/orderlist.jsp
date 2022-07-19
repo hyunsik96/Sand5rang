@@ -197,7 +197,7 @@
 										<c:forEach var="all_Olist" items="${all_Olist}" varStatus="status">
 										<c:choose>
 											<c:when test="${status.first ne true || pi.currentPage ne '1' || all_Olist.status eq 'Y' || all_Olist.status eq 'AY'}">
-												<tr id="list">
+												<tr id="list${status.index}">
 													<td class="th1">${all_Olist.rowNo}</td>
 													<td class="th3">${all_Olist.b}</td>
 													<td class="th4">${all_Olist.v}</td>
@@ -207,7 +207,7 @@
 													<td class="th2">${all_Olist.indDate}</td>
 													<c:choose>
 															<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
-																<td class="td-actions" style="color: red;">승인대기</td>
+																<td class="td-actions" style="color: rgb(16, 133, 12);">승인대기</td>
 															</c:when>
 															<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
 																<td class="td-actions" style="color: black;">승인완료</td>
@@ -230,13 +230,19 @@
 														<td class="th2">${all_Olist.indDate}</td>
 														<c:choose>
 															<c:when test="${all_Olist.status eq 'B' || all_Olist.status eq'AB'}">
-																	<td class="td-actions" style="color: red;">승인대기</td>
+																	<td class="td-actions" style="color: rgb(16, 133, 12);">승인대기
+																		<button class="btn btn-danger" style="width : 40px; font-size: 10; padding : 0px; margin : 0px"
+																		onclick="del('${all_Olist.indDate}')">삭제</button></td>
 																</c:when>
 																<c:when test="${all_Olist.status eq 'Y' || all_Olist.status eq'AY'}">
-																	<td class="td-actions" style="color: black;">승인완료</td>
+																	<td class="td-actions" style="color: black;">승인완료
+																		<button class="btn btn-danger" style="width : 40px; font-size: 10; padding : 0px; margin : 0px"
+																		onclick="del('${all_Olist.indDate}')">삭제</button></td>
 																</c:when>
 																<c:when test="${all_Olist.status eq 'N'}">
-																	<td class="td-actions" style="color: red;">반려</td>
+																	<td class="td-actions" style="color: red;">반려
+																		<button class="btn btn-danger" style="width : 40px; font-size: 10; padding : 0px; margin : 0px"
+																		onclick="del('${all_Olist.indDate}')">삭제</button></td>
 																</c:when>
 														</c:choose>
 													</tr>
@@ -771,20 +777,20 @@ for(var j=1; j<6; j++){
 	});
 }
 
-
-
 for(var e=0; e<5; e++){
-		
-		$("#list").on('click', function(){
 
-			var listDate= $("tr[id=list]").children().prevAll("td[class=th2]");
+	$("#list"+e).on('click', function(){
 
-			console.log(listDate[e].innerHTML);
+		var listDate= $(this).children("td[class=th2]");
 
-			location.href = "orderlistResult.se?listDate=" + listDate;
+		location.href = "orderlistResult.se?listDate=" + $(this).children("td[class=th2]").text();
 
-		});	
+	});	
+}
 
+function del(value1){
+
+	location.href = "orderDelete.se?inDate="  + value1;
 }
 
 </script>

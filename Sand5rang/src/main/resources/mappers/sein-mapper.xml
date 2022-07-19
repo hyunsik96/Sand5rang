@@ -68,16 +68,24 @@
 					 AND STATUS = 'Y'    
 	</update>
 	
-	<!-- 발주 체크 select -->
+	<!-- 15시이전 발주 체크 select -->
 	<select id="selectOrder" parameterType="string" resultType="_int">
 		SELECT COUNT(IND_NO)
 		FROM INDENT
 		WHERE STORE_ID = #{storeId} AND
-		TO_NUMBER(TO_CHAR(IND_DATE, 'YYMMDDHH24MMSS')) = TO_NUMBER((TO_CHAR(SYSDATE, 'YYMMDD') || 150000))
+		TO_CHAR(IND_DATE, 'YYMMDD') = TO_CHAR(SYSDATE, 'YYMMDD')
 	</select>
 	
-	<!-- 발주insert -->
-	<insert id="insertOrder" parameterType="order">
+	<!-- 15시이후 발주 체크 select -->
+	<select id="selectOrder3" parameterType="string" resultType="_int">
+		SELECT COUNT(IND_NO)
+		FROM INDENT
+		WHERE STORE_ID = #{storeId} AND
+		TO_CHAR(IND_DATE, 'YYMMDD') = TO_CHAR(SYSDATE+1, 'YYMMDD')
+	</select>
+	
+	<!-- 15시 이전 발주insert -->
+	<insert id="insertOrderBefore" parameterType="order">
 		INSERT INTO INDENT(IND_NO, 
                     		COUNT, 
                     		IND_DATE, 
@@ -92,7 +100,25 @@
 						 #{status}, 
 						 #{storeId}, 
 						 #{ingNo})
-	</insert>
+	</insert>	
+
+	<!-- 15시 이후 발주insert -->
+	<insert id="insertOrderAfter" parameterType="order">
+		INSERT INTO INDENT(IND_NO, 
+                    		COUNT, 
+                    		IND_DATE, 
+                    		TOTAL, 
+                    		STATUS,
+                    		STORE_ID,
+                    		ING_NO)  
+					VALUES(SEQ_INDENTNO.NEXTVAL, 
+						 #{count}, 
+						 TO_DATE(SYSDATE+1, 'YY-MM-DD'), 
+						 #{total}, 
+						 #{status}, 
+						 #{storeId}, 
+						 #{ingNo})
+	</insert>	
 	
 	<!-- 발주상세조회 select -->
 	<select id="selectTodayOrder" parameterType="string" resultMap="OrderResultSet">
@@ -109,6 +135,23 @@
 		STATUS LIKE '%B'
 		ORDER BY I.ING_NO ASC
 	</select>
+
+	<!-- 발주상세조회 select -->
+	<select id="selectTodayOrder2" parameterType="string" resultMap="OrderResultSet">
+		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, 
+		I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.ING_TYPE, P.BAL
+		FROM INDENT I, INGREDIENT G, (SELECT NVL(SUM(DEPOSIT+WITHDRAW),0) AS BAL, STORE_ID
+                                        FROM PAYMENT 
+                                        WHERE STORE_ID = #{storeId}
+                                        GROUP BY STORE_ID) P
+		WHERE I.ING_NO = G.ING_NO AND 
+		I.STORE_ID = P.STORE_ID AND 
+        I.STORE_ID = #{storeId} AND
+		TO_CHAR(I.IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE+1, 'YY-MM-DD') AND
+		STATUS LIKE '%B'
+		ORDER BY I.ING_NO ASC
+	</select>
+	
 
 	<!-- 발주전체조회 select -->
 	<select id="selectAllOrderList" parameterType="string" resultMap="OrderResultSet">
@@ -151,7 +194,8 @@
 		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, PRICE, ING_TYPE
 		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
 		WHERE STORE_ID = #{storeId} AND 
-		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') AND 
+		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') OR 
+		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE+1, 'YY-MM-DD') AND
 		      STATUS LIKE '%B' 
 		ORDER BY ING_NO
 	</select>
@@ -257,8 +301,14 @@
 		WHERE I.ING_NO = G.ING_NO AND 
 		I.STORE_ID = P.STORE_ID AND 
         I.STORE_ID = #{storeId} AND
-		TO_DATE(I.IND_DATE, 'YY-MM-DD') = TO_DATE(#{inDate}, 'YY-MM-DD') AND
-		STATUS = 'Y' OR STATUS ='AY' OR STATUS ='N' AND
+		TO_DATE(I.IND_DATE, 'YY-MM-DD') = TO_DATE(#{inDate}, 'YY-MM-DD')
 		ORDER BY I.ING_NO ASC
 	</select>
+	
+	<!-- 당일 발주 건 삭제 -->
+	<delete id="deleteOrder" parameterType="order">
+		DELETE FROM INDENT 
+		WHERE STORE_ID = #{storeId} AND 
+		TO_DATE(IND_DATE, 'YY-MM-DD') = TO_DATE(#{inDate}, 'YY-MM-DD')
+	</delete>
 </mapper>

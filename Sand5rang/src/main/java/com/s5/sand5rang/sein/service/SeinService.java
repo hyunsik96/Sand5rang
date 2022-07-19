@@ -39,19 +39,36 @@ public class SeinService {
 		return seinDao.newPwdUpdate(sqlSession, store);
 	}
 	
-	//가맹점 당일 발주 건 있는지 체크 select Service 
+	//가맹점 당일 발주 건 있는지 체크 select Service (15시 이전)
 	public int selectOrder(String storeId) {
 		return seinDao.selectOrder(sqlSession, storeId);
 	}
 	
-	//가맹점 발주 insert Service
-	public int insertOrder(Order order) {
-		return seinDao.insertOrder(sqlSession, order);
+	//가맹점 당일 발주 건 있는지 체크 select Service(15시 이후)
+	public int selectOrder3(String storeId) {
+		return seinDao.selectOrder3(sqlSession, storeId);
 	}
 	
-	//가맹점 발주내역 상세조회 select Service
+	
+	//가맹점 발주 insert Service(15시 이전)
+	public int insertOrderBefore(Order order) {
+		return seinDao.insertOrderBefore(sqlSession, order);
+	}
+	
+	
+	//가맹점 발주 insert Service(15시 이후)
+	public int insertOrderAfter(Order order) {
+		return seinDao.insertOrderAfter(sqlSession, order);
+	}
+		
+	//가맹점 발주내역 상세조회 select Service(15이전)
 	public ArrayList<Order> selectTodayOrder(String storeId){
 		return (ArrayList)seinDao.selectTodayOrder(sqlSession, storeId);
+	}
+	
+	//가맹점 발주내역 상세조회 select Service(15시이후)
+	public ArrayList<Order> selectTodayOrder2(String storeId){
+		return (ArrayList)seinDao.selectTodayOrder2(sqlSession, storeId);
 	}
 	
 	////가맹점 발주내역 
@@ -102,6 +119,11 @@ public class SeinService {
 	//발주list에서 승인된 행의 발주 상세내역 조회
 	public ArrayList<Order> selectOrderResult(Order order) {
 		return seinDao.selectOrderResult(sqlSession, order);
+	}
+
+	//당일 발주 삭제
+	public int deleteOrder(Order order) {
+		return seinDao.deleteOrder(sqlSession, order);
 	}
 }
 

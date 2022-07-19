@@ -1,7 +1,10 @@
 package com.s5.sand5rang.sein.controller;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -237,22 +240,48 @@ public class SeinController {
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
 		
-		//당일 발주 신청 건이 있는지 선체크 해주고 페이지 띄워주기 
-		int result = seinService.selectOrder(storeId);
+		//현재 시간뽑기
+		LocalTime now = LocalTime.now();
+		//15시 기준 뽑기 
+		LocalTime time = LocalTime.of(15, 00); 
 		
-		if(result==24) {
+		//15시 기준으로 현재 시간이 이전일 경우 
+		if(now.isBefore(time)) {
+			//당일 발주 신청 건이 있는지 선체크 해주고 페이지 띄워주기 
+			int result = seinService.selectOrder(storeId);
 			
-			String alertMsg ="당일 발주 신청한 내역이 있습니다. 발주 취소 후 다시 신청해주세요."; 
-			//당일 선 발주건 있음 
-		
-			session.setAttribute("alertMsg", alertMsg);
+			if(result==24) {
+				
+				String alertMsg ="당일 발주 신청한 내역이 있습니다. 발주 취소 후 다시 신청해주세요."; 
+				//당일 선 발주건 있음 
 			
-			return "redirect:orderList.se";
-			 
+				session.setAttribute("alertMsg", alertMsg);
+				
+				return "redirect:orderList.se";
+				 
+			}else {
+				//당일 선 발주건 없음 
+				return "sein/order_enroll";
+			}
 		}else {
-			//당일 선 발주건 없음 
-			return "sein/order_enroll";
+			//당일 발주 신청 건이 있는지 선체크 해주고 페이지 띄워주기 
+			int result = seinService.selectOrder3(storeId);
+		
+			if(result==24) {
+				
+				String alertMsg ="당일 발주 신청한 내역이 있습니다. 발주 취소 후 다시 신청해주세요."; 
+				//당일 선 발주건 있음 
+			
+				session.setAttribute("alertMsg", alertMsg);
+				
+				return "redirect:orderList.se";
+				 
+			}else {
+				//당일 선 발주건 없음 
+				return "sein/order_enroll";
+			}
 		}
+		
     }
 	
 	/*발주 신청 insert용 */
@@ -280,23 +309,50 @@ public class SeinController {
 			//payment행 조회
 			int payCount = seinService.myPayment(storeId);
 			
-			//payment행이 아예 없을 경우에는 발주 실행이 되지 않도록 만들어주기 
-			//발주 금액 > 현재 잔액
-			if(allPrice<balance && payCount>0) {
-				//현재 잔액보다 발주 금액이 작으면 발주 가능 
-				int result = seinService.insertOrder(order);
-				
-				//성공 => 게시글 리스트페이지로 url재요청
-				session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
-				
-				return (result>0) ? "success" : "error";
+			//발주 날짜가 당일 날짜의 15시 이후 인지 이전인지 체크하여 INSET DATE 날짜 다르게 넣어줘야함
+
+			//현재 시간뽑기
+			LocalTime now = LocalTime.now();
+			//15시 기준 뽑기 
+			LocalTime time = LocalTime.of(15, 00); 
+			
+			//15시 기준으로 현재 시간이 이전일 경우 
+			if(now.isBefore(time)) {
+				//payment행이 아예 없을 경우에는 발주 실행이 되지 않도록 만들어주기 
+				//발주 금액 > 현재 잔액
+				if(allPrice<balance && payCount>0) {
+					//현재 잔액보다 발주 금액이 작으면 발주 가능 
+					int result = seinService.insertOrderBefore(order);
+					//성공 => 게시글 리스트페이지로 url재요청
+					session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
+					
+					return (result>0) ? "success" : "error";
+					
+				}else {
+					session.setAttribute("alertMsg", "잔액보다 발주금액이 큽니다. 잔액 충전 후 발주해주세요.");
+					
+					return "1";
+				}
 				
 			}else {
-				session.setAttribute("alertMsg", "잔액보다 발주금액이 큽니다. 잔액 충전 후 발주해주세요.");
-				
-				return "1";
+			//15시 기준으로 현재 시간이 이후일 경우 
+				//payment행이 아예 없을 경우에는 발주 실행이 되지 않도록 만들어주기 
+				//발주 금액 > 현재 잔액
+				if(allPrice<balance && payCount>0) {
+					//현재 잔액보다 발주 금액이 작으면 발주 가능 
+					int result = seinService.insertOrderAfter(order);
+					
+					//성공 => 게시글 리스트페이지로 url재요청
+					session.setAttribute("alertMsg", "발주가 성공적으로 등록되었습니다.");
+					
+					return (result>0) ? "success" : "error";
+					
+				}else {
+					session.setAttribute("alertMsg", "잔액보다 발주금액이 큽니다. 잔액 충전 후 발주해주세요.");
+					
+					return "1";
+				}
 			}
-			
 	}
 	
 	// 자동발주
@@ -318,7 +374,7 @@ public class SeinController {
     		order.setStatus(olist.get(i).getStatus());
     		order.setStoreId(olist.get(i).getStoreId());
     		
-    		int result = seinService.insertOrder(order);
+    		int result = seinService.insertOrderBefore(order);
     		
     		if(result>0) {
         		System.out.println("자동발주 성공!");
@@ -336,10 +392,25 @@ public class SeinController {
 		Store loginstore = (Store)session.getAttribute("loginstore");
 		String storeId = loginstore.getStoreId();
 		
-		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
-		ArrayList<Order> olist = seinService.selectTodayOrder(storeId);
+		//현재 시간뽑기
+		LocalTime now = LocalTime.now();
+		//15시 기준 뽑기 
+		LocalTime time = LocalTime.of(15, 00); 
 		
-		m.addAttribute("olist", olist);
+		//15시 기준으로 현재 시간이 이전일 경우 
+		if(now.isBefore(time)) {
+			//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
+			
+			ArrayList<Order> olist = seinService.selectTodayOrder(storeId);
+		
+			m.addAttribute("olist", olist);
+		}else {
+			//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
+			
+			ArrayList<Order> olist = seinService.selectTodayOrder2(storeId);
+		
+			m.addAttribute("olist", olist);
+		}
 		
         return "sein/order_enroll_result";
     }
@@ -355,12 +426,12 @@ public class SeinController {
 		order.setStoreId(storeId);
 		order.setInDate(listDate);
 		
-		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 
+		//실제로는 세션에 로그인된 가맹점 id로 당일 발주내역 조회해오면 됨 			
 		ArrayList<Order> olist = seinService.selectOrderResult(order);
 				
 		m.addAttribute("olist", olist);
-				
-		return "sein/order_enroll_result";
+		
+		return "sein/order_enroll_result2";
 	}
 	
 	//B(빵)발주내용 update
@@ -670,6 +741,27 @@ public class SeinController {
 		
         return "sein/deposit";
     }
+	
+	@RequestMapping(value="orderDelete.se")
+	public String deleteDataController(HttpSession session, String inDate) {
+		
+		Store loginstore = (Store)session.getAttribute("loginstore");
+		String storeId = loginstore.getStoreId();
+		
+		Order order = new Order();
+		order.setStoreId(storeId);
+		order.setInDate(inDate);
+		
+		int result = seinService.deleteOrder(order);
+		
+		if(result>0) {
+			session.setAttribute("alertMsg", "당일 발주건이 성공적으로 삭제되었습니다.");
+		}else {
+			session.setAttribute("aleretMsg", "당일 발주건 삭제가 실패되었습니다.");
+		}
+		return "redirect:orderList.se";
+	}
+	
 	
 	//가맹점 결제구현 
 	@RequestMapping(value="")

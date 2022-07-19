@@ -28,21 +28,38 @@ public class SeinDao {
 		return sqlSession.update("seinMapper.newPwdUpdate", store);
 	}
 
-	//가맹점 당일 발주건 있는지 체크 select문
+	//가맹점 당일 발주건 있는지 체크 select문(15시이전)
 	public int selectOrder(SqlSessionTemplate sqlSession, String storeId) {
 		
 		return sqlSession.selectOne("seinMapper.selectOrder", storeId);
 	}
 	
-	//발주 insert문
-	public int insertOrder(SqlSessionTemplate sqlSession, Order order) {
-		
-		return sqlSession.insert("seinMapper.insertOrder", order);
+	//가맹점 당일 발주건 있는지 체크 select문(15시이후)
+	public int selectOrder3(SqlSessionTemplate sqlSession, String storeId) {
+			
+		return sqlSession.selectOne("seinMapper.selectOrder3", storeId);
 	}
 	
-	//발주상세내역 조회 select문
+	//발주 insert문(15시이전)
+	public int insertOrderBefore(SqlSessionTemplate sqlSession, Order order) {
+		
+		return sqlSession.insert("seinMapper.insertOrderBefore", order);
+	}
+	
+	//발주 insert문(15시이후)
+	public int insertOrderAfter(SqlSessionTemplate sqlSession, Order order) {
+			
+		return sqlSession.insert("seinMapper.insertOrderAfter", order);
+	}
+	
+	//발주상세내역 조회 select문(15시이전)
 	public ArrayList<Order> selectTodayOrder(SqlSessionTemplate sqlSession, String storeId){
 		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder", storeId);
+	}
+	
+	//발주상세내역 조회 select문(15시이후)
+	public ArrayList<Order> selectTodayOrder2(SqlSessionTemplate sqlSession, String storeId){
+		return (ArrayList)sqlSession.selectList("seinMapper.selectTodayOrder2", storeId);
 	}
 	
 	//가맹점 발주리스트 조회(STATUS=B 또는 N일 경우)
@@ -102,7 +119,13 @@ public class SeinDao {
 	
 	//발주list에서 승인된 행의 발주 상세내역 조회
 	public ArrayList<Order> selectOrderResult(SqlSessionTemplate sqlSession, Order order) {
-		return sqlSession.selectOne("seinMapper.selectOrderResult",order);
+		return (ArrayList)sqlSession.selectList("seinMapper.selectOrderResult",order);
 	}
+
+	//당일발주건 삭제
+	public int deleteOrder(SqlSessionTemplate sqlSession, Order order) {
+		return sqlSession.delete("seinMapper.deleteOrder", order);
+	}
+
 	
 }
