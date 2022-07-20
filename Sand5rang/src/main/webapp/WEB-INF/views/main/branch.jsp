@@ -96,9 +96,9 @@
       </div>
       <br>
       <div style="margin-left: 450px; margin-top: 50px;">
-        <img src="resources/images/지사2.png" style="width: 330px; height: 40px; margin-bottom: 50px;">
+        <img src="resources/images/지사2.png" style="width: 270px; height: 40px; margin-bottom: 50px;">
       </div>
-    </div>
+    </div> 
 
   <div style="margin-right: 160px; margin-top: 150px; width : 600px; height : 500px;  display: block; float: right;">
       <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; margin-bottom : 60px; margin-top: 50px;font-weight: bolder; color: #1b521b; ">SAND5RANG 매장검색</h2>
