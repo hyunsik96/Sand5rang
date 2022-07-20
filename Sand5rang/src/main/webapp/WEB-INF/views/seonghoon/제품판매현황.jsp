@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -57,7 +58,7 @@
 					<li class="dropdown">						
 						<a href="fr1.hs" class="dropdown-toggle">
 							<i class="icon-money"></i>&nbsp;
-							잔액 : ${m.frPay} 원
+							잔액 : <fmt:formatNumber value="${m.frPay}" pattern="###,###,###,###"/> 원
 							
 						</a>
 					
@@ -191,7 +192,7 @@
 			<tr class="st_body">
 				<td>${sales.salDate}</td>
 				<td><a data-toggle="modal" href="#Modal${status.count}">${sales.count}</a></td>
-				<td>${sales.total}</td>
+				<td><fmt:formatNumber value="${sales.total}" pattern="###,###,###,###"/></td>
 			</tr>
 			</c:forEach>
 		</tbody>
