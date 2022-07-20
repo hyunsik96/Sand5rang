@@ -284,7 +284,10 @@ $(function() {
 	  <option value="화이트">화이트</option>	
 	  <option value="플렛">플렛</option>
 	</select>
-	<input type="submit" id="search" value="검색" class="btn btn-success" style="width:80px;">
+	<input type="submit" value="검색하기" class="btn btn-success" style="width:100px;" 
+	onclick='btn_click("select");'>
+	<input type="submit" value="폐기하기" class="btn btn-danger" style="width:100px;"
+	onclick='btn_click("update");'>
 </form>		
 	  				</div> <!-- /widget-header -->
 					<div class="widget-content">
