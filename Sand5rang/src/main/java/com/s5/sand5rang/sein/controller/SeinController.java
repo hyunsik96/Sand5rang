@@ -440,6 +440,7 @@ public class SeinController {
     @Scheduled(cron="00 00 14 * * ?")
     public void orderEnrollOutoController() 
 	{
+    	
     	//0. 자동발주 신청 내역 조회
     	ArrayList<Order> olist = seinService.selectAutoOrder();
     	
@@ -451,7 +452,7 @@ public class SeinController {
     		order.setCount(olist.get(i).getCount());
     		order.setIngNo(olist.get(i).getIngNo());
     		order.setTotal(olist.get(i).getTotal());
-    		order.setStatus(olist.get(i).getStatus());
+    		order.setStatus("AY");
     		order.setStoreId(olist.get(i).getStoreId());
     		
     		int result = seinService.insertOrderBefore(order);
