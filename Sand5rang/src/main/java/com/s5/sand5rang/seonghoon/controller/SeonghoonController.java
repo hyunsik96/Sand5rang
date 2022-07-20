@@ -197,10 +197,10 @@ public class SeonghoonController {
 			// System.out.println(s);
 			menu_list.add(seonghoonService.MenuSalDate_List(s));
 		}
-		for(int i=0; i<menu_list.size(); i++) {
-			// System.out.println(menu_list.get(i));
-	
-		}
+//		for(int i=0; i<menu_list.size(); i++) {
+//			System.out.println(menu_list.get(i));
+//	
+//		}
 		
 		// 2. 페이징바가 먹혀있는 sales_list1에서
 		// salDate를 가져와서 이를 동적쿼리로 대입함

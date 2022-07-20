@@ -271,7 +271,7 @@ $(function() {
  
  </script>
 
- <form action="ingredientDisposal1.csh" method="get">
+ <form name="disposalList">
 	<select id="ingType" name="ingType" style="width:100px; margin-top:10px;">
 	  <option value="B" id="bb">빵</option>
 	  <option value="V" id="vv">야채</option>
