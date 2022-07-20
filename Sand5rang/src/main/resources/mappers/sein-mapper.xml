@@ -323,8 +323,10 @@
 	
 	<!-- 매장검색 -->
 	<select id="searchBranch" parameterType="enroll" resultMap="EnrollResultSet">
-		SELECT STORE_NAME, ENROLL_ADD, PHONE FROM ENROLL 
-		WHERE STORE_NAME LIKE '%' || #{storeName} || '%' AND 
-		STATUS = 'Y'
+		SELECT S.STORE_NAME, ADDRESS AS ENROLL_ADD, PHONE
+        FROM STORE S
+        JOIN ENROLL USING (ENR_NO)
+		WHERE S.STORE_NAME LIKE '%' || #{storeName} || '%' AND 
+		S.STATUS = 'Y'
 	</select>
 </mapper>
