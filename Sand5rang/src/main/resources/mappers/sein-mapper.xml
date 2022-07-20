@@ -205,13 +205,14 @@
 	
 	<!-- 가맹점 발주대기 상태의 원재료 list select -->
 	<select id="selectOrder2" parameterType="string" resultMap="OrderResultSet">
-		SELECT IND_NO, COUNT, IND_DATE, TOTAL, STATUS, STORE_ID, ING_NO, ING_NAME, PRICE, ING_TYPE
-		FROM INDENT JOIN INGREDIENT USING(ING_NO) 
-		WHERE STORE_ID = #{storeId} AND 
-		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE, 'YY-MM-DD') OR 
-		      TO_CHAR(IND_DATE, 'YY-MM-DD') = TO_CHAR(SYSDATE+1, 'YY-MM-DD') AND
-		      STATUS LIKE '%B' 
-		ORDER BY ING_NO
+		SELECT I.IND_NO, I.COUNT, I.IND_DATE, I.TOTAL, I.STATUS, I.STORE_ID, G.ING_NO, G.ING_NAME, G.PRICE, G.ING_TYPE
+		FROM INDENT I, INGREDIENT G
+		WHERE I.ING_NO = G.ING_NO AND 
+              I.STORE_ID = #{storeId} AND 
+		      (TO_DATE(I.IND_DATE, 'YY-MM-DD') = TO_DATE(SYSDATE, 'YY-MM-DD') OR 
+		      TO_DATE(I.IND_DATE, 'YY-MM-DD') = TO_DATE(SYSDATE+1, 'YY-MM-DD')) AND
+		      I.STATUS LIKE '%B' 
+		ORDER BY G.ING_NO
 	</select>
 	
 	<!-- 가맹점 발주내역 수정 update -->
