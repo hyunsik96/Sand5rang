@@ -3,7 +3,7 @@ package com.s5.sand5rang.common.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import com.s5.sand5rang.sein.vo.Store;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -22,7 +22,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * 2. HandlerInterceptorAdapter 클래스를 상속받는 방법 : 내가 원하는 애들만 오버라이딩이 가능하다.
  */
 
-public class LoginInterceptor extends HandlerInterceptorAdapter {
+public class LoginInterceptor2 extends HandlerInterceptorAdapter {
 	
 	// 1. preHandle (선처리)
 	@Override
@@ -37,11 +37,19 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		
 		// 로그인이 된 상태인지 검사하는 코드 추가 => session 에 loginUser 가 있는지 검사
 		HttpSession session = request.getSession();
+		Store s = new Store();
 		
 		if(session.getAttribute("loginstore") != null) {
+		 s = (Store)(session.getAttribute("loginstore"));
+		}else {
+			s.setStoreId("111111");
+		}
+		
+		if( s.getStoreId() == "admin") {
 			return true;
 		}else {
-			session.setAttribute("alertMsg", "로그인 후 이용 가능한 서비스입니다.");
+			session.setAttribute("alertMsg", "관리자만 이용 가능한 서비스입니다.");
+			session.removeAttribute("loginstore");
 			response.sendRedirect(request.getContextPath());
 			return false;
 		}

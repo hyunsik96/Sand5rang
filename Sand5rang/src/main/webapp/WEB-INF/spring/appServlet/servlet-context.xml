@@ -32,10 +32,34 @@
 
 	
   	 <interceptors>
+  	 
 	 	<interceptor>
-	 		<mapping path="/xxxxxxxxx" />
+	 		<mapping path="/frmain.hs" />
+	 		<mapping path="/menuSales.csh" />
+	 		<mapping path="/todayStock.csh" />
+	 		<mapping path="/ingredientStock1.csh" />
+	 		<mapping path="/ingredientAllStock.csh" />
+	 		<mapping path="/ingredientDisposal1.csh" />
+	 		<mapping path="/orderEnrollForm.se" />
+	 		<mapping path="/orderList.se" />
+	 		<mapping path="/inqueryList.sm" />
+	 		<mapping path="/fr1.hs" />
+	 		<mapping path="/deposit.se" />
 	 		<beans:bean class="com.s5.sand5rang.common.interceptor.LoginInterceptor" id="loginInterCeptor" />
 	 	</interceptor>
+	 	
+    	<interceptor>
+	 		<mapping path="/admain.hs" />
+	 		<mapping path="/ad1.hs" />
+	 		<mapping path="/ad2.hs" />
+	 		<mapping path="/ad3.hs" />
+	 		<mapping path="/storeList.sm" />
+	 		<mapping path="/storeEnrollList.sm" />
+	 		<mapping path="/inqList.an" />
+
+	 		<beans:bean class="com.s5.sand5rang.common.interceptor.LoginInterceptor2" id="loginInterCeptor2" />
+	 	</interceptor>
+	 	
 	 </interceptors>
 	
 </beans:beans>
