@@ -141,7 +141,7 @@
 	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
+	      				<i class="icon-map-marker"></i>
 	      				<h3>가맹점 전체조회</h3>
 	  				</div> <!-- /widget-header -->
 					
