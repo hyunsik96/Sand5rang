@@ -205,7 +205,7 @@
           <br>
           <label for="userId" style="margin-left:90px; font-size:16px; padding-bottom:10px;" align="left">가맹점 아이디</label>
           <input type="text" class="form-control" id="storeId" name="storeId" placeholder="가맹점 아이디를 store00의 형식으로 입력하세요" style="width:1000px; margin-left:20px;" required><br>
-          <div id="checkResult" style="font-size:0.8em; display:none;"></div>     
+          <div id="checkResult" style="font-size:0.8em; display:none; margin-left:100px;" align="left" ></div>     
       
           <br>
           <label for="userPwd" style="margin-left:90px; font-size:16px; padding-bottom:10px;" align="left">가맹점 비밀번호  </label>
