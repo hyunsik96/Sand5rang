@@ -214,8 +214,19 @@ public class SeinController {
 		if(loginstore != null) {
 			//랜덤 생성될 비밀번호 길이 
 			int newPwd = 10;
+			String newPwd2 = generateRandomPassword(newPwd);
 			
-			EmailSendSe.naverMailSend(email, generateRandomPassword(newPwd));
+			EmailSendSe.naverMailSend(email, newPwd2);
+			
+			store.setStorePwd(bCryptPasswordEncoder.encode(newPwd2));
+			
+			int result = seinService.newPwdUpdate(store);
+			
+			if(result>0) {
+				System.out.println("비밀번호 변경 성공");
+			}else {
+				System.out.println("비밀번호 변경 실패");
+			}
 			
 			session.setAttribute("alertMsg", "작성하신 이메일로 임시비밀번호를 발송하였습니다. 확인 후 반드시 비밀번호 변경해주세요.");
 			
@@ -240,7 +251,7 @@ public class SeinController {
     {
         // ASCII 범위 – 영숫자(0-9, a-z, A-Z)
         final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
- 
+        
         SecureRandom random = new SecureRandom();
  
         // 루프의 각 반복은 주어진 문자에서 무작위로 문자를 선택합니다.
@@ -256,10 +267,14 @@ public class SeinController {
     @RequestMapping(value="searchBranch.ma", produces="application/json; charset=UTF-8")
     public String searchBranchController(String value1) {
     	
-    	Enroll enroll = new Enroll();
-    	enroll.setStoreName(value1);
+    	Store store = new Store();
+    	store.setStoreName(value1);
     	
-    	ArrayList<Enroll> storeList = seinService.searchBranch(enroll);
+    	System.out.println(value1);
+    	
+    	ArrayList<Store> storeList = seinService.searchBranch(store);
+    	
+    	System.out.println(storeList);
     	
     	return new Gson().toJson(storeList);
     }

@@ -133,8 +133,8 @@ public class SeinDao {
 	}
 
 	//매장검색
-	public ArrayList<Enroll> searchBranch(SqlSessionTemplate sqlSession, Enroll enroll) {
-		return (ArrayList)sqlSession.selectList("seinMapper.searchBranch",enroll);
+	public ArrayList<Store> searchBranch(SqlSessionTemplate sqlSession, Store store) {
+		return (ArrayList)sqlSession.selectList("seinMapper.searchBranch",store);
 	}
 
 	

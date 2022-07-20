@@ -132,8 +132,8 @@ public class SeinService {
 	}
 
 	//매장검색 
-	public ArrayList<Enroll> searchBranch(Enroll enroll) {
-		return seinDao.searchBranch(sqlSession, enroll);
+	public ArrayList<Store> searchBranch(Store store) {
+		return seinDao.searchBranch(sqlSession, store);
 	}
 }
 

@@ -92,23 +92,23 @@
         Sand5rang 지사안내
       </h2>
       <div style="margin-left: 100px;">
-        <img src="resources/images/branch_map01.png"> 
+        <img src="resources/images/branch_map01.png" style="width : 600px"> 
       </div>
       <br>
-      <div style="margin-left: 450px; margin-top: 50px;">
+      <div style="margin-left: 400px; margin-top: 50px;">
         <img src="resources/images/지사2.png" style="width: 320px; height: 40px; margin-bottom: 50px;">
       </div>
     </div> 
 
-  <div style="margin-right: 160px; margin-top: 150px; width : 600px; height : 500px;  display: block; float: right;">
+  <div style="margin-right: 90px; margin-top: 150px; width : 600px; height : 500px;  display: block; float: right; position: relative; ">
       <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; margin-bottom : 60px; margin-top: 50px;font-weight: bolder; color: #1b521b; ">SAND5RANG 매장검색</h2>
 
-        <div id="g1" style="display: block; margin-left: 55px; float: left;">
+        <div id="g1" style="display: block; margin-left: 55px; float: left; ">
             <input type="text" name="searchkey" id="searchkey"
-                style="width : 400px; height : 50px;  border-radius: 10px; border : solid 1px lightgray;" placeholder="&nbsp;* 매장명을 입력해주세요">
+                style="width : 370px; height : 40px;  border-radius: 10px; border : solid 1px lightgray;" placeholder="&nbsp;* 매장명을 입력해주세요">
         </div>
         <div style="display: block; margin-left: 10px; float: left; margin-bottom: 10px;">
-          <input type="button" id="btn" style="width : 100px; height: 50px; border-radius: 10px; font-family: 'Noto Sans KR', sans-serif; background-color: #1b521b; color: #ffffff" class="btn" value="검색">
+          <input type="button" id="btn" style="width : 100px; height: 40px; border-radius: 10px; font-family: 'Noto Sans KR', sans-serif; background-color: #1b521b; color: #ffffff" class="btn" value="검색">
         </div>
         <p class="mb-1" style="font-family: 'Noto Sans KR', sans-serif; margin-top : 50px; margin-left: 60px; width : 400px;">* 운영시간은 매장 사정에 따라 변경될 수 있습니다. </p>
 
@@ -221,39 +221,52 @@
         
       $("#btn").click(function(){
 
-        var resultStr = "";
-
-              var value1 = $("#searchkey").val();
+              var resultStr = "";
+              var resultStr2 = "";
+              var messages = "※ 검색된 결과가 없습니다.";
 
               $.ajax({
                 type: "get",
                 url : "searchBranch.ma",
-                data : value1,
+                data : {value1 : $("#searchkey").val()},
                 dataType: 'json',
                 success : function(orderList){
 
-                  if(orderList != null){
-                        for(var i=0; i<orderList.length; i++){
-                       
+                
+                  if(orderList == null){
 
-                          resultStr += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
-                              + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
-
-                              + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px;'>"
-                                          + orderList[i].storeName + ": " + "</h5>"
-                              +"<h6 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px;'> " 
-                                          + orderList[i].enrollAdd + "</h6>"
-                              +"<h6 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px; color: darkgreen;'>" 
-                                          + orderList[i].phone + "</h6>"
-                              +"</div>";
+                            resultStr2 += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
                              
-                              +"</div>";
-                            }
-                  }else{
-                        resultStr += "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px; color: red;'>" + "※ 검색된 결과가 없습니다." + "</h5>";
-                   }
-                  console.log(resultStr);
-                  $("#all").html(resultStr);
+                             + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
+                            
+                             + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px; color: red;'>" + messages + "</h5>";
+                   
+                             +"</div>";
+                             
+                             +"</div>";
+
+                             $("#all").html(resultStr2);
+                      
+                  }else{  
+                          for(var i=0; i<orderList.length; i++){
+                      
+                                    resultStr += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
+                                  
+                                    + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
+
+                                    + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 90px; font-size : 15px; font-weight: bolder;'>"
+                                                + orderList[i].storeName + ": " + "</h5>"
+                                    +"<h6 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px;'> " 
+                                                + orderList[i].enrollAdd + "</h6>"
+                                    +"<h6 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px; color: darkgreen; font-size : 12px;'>" 
+                                                +"[ 전화번호 : " + orderList[i].phone + " ]"+"</h6>"
+                                    +"</div>";
+                                  
+                                    +"</div>";
+
+                        }
+                        $("#all").html(resultStr);
+                 }
                 },
                 error : function(result){
                   console.log("ajax 통신 실패!");
