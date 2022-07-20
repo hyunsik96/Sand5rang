@@ -234,7 +234,7 @@
 	</table>				
 	
 </c:if>					
-<c:if test="${confirm eq 1}"><div style="width:250px; margin:auto; margin-top:30px; margin-bottom:30px; font-size:15px; color:red;">입출금 내역이 없습니다.</div></c:if>
+<c:if test="${confirm eq 1}"><div style="width:250px; margin:auto; margin-top:30px; margin-bottom:30px; font-size:15px; color:red;">재고의 입고, 출고 내역이 없습니다.</div></c:if>
 					</div> <!-- /widget-content -->
 
 				</div> <!-- /widget -->

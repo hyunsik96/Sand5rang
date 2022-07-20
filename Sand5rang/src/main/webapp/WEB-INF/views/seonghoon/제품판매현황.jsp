@@ -177,7 +177,7 @@
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 	<!-- 가게 마감 시간에 제품이 실제로 판매가 이루어졌다고 가정하고 해당 리스트에 오늘판매된 제품 목록을 기입해줌. -->
-	
+<c:if test="${!empty sales_list1 }">
 	<table class="table table-bordered">
 		<thead>
 			<tr class="st_head">
@@ -196,10 +196,17 @@
 			</c:forEach>
 		</tbody>
 	</table>
+</c:if>	
+<c:if test="${empty sales_list1 }">
+	<div align="center" style="color:red;">현재 판매된 내역이 존재하지 않습니다.</div>
+</c:if>
 					</div> <!-- /widget-content -->
 	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:82%; width:160px;">판매기입 페이지로 이동</a>				
 				</div> <!-- /widget -->
+				
+				
 		<!-- /widget-content -->
+<c:if test="${!empty sales_list1}">
 <ul class="pagination pagination-sm">
 	<c:choose>
 		<c:when test="${pi.currentPage eq 1}">
@@ -228,6 +235,7 @@
 		</c:otherwise>
 	</c:choose>
 </ul>		
+</c:if>
 		
 		 		
 		    </div> <!-- /span8 -->

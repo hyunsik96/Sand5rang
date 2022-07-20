@@ -54,7 +54,9 @@ public class SeonghoonController {
 		// STORE_ID가 테이블에 없는 경우 아래의 구문이 실행되지 않게끔.
 		int a = seonghoonService.selectStoreId_list(storeId);
 		if(a==0) {
-			return "common/errorFr";
+			// setAttribute를 이용하여 메세지 담아주기
+			session.setAttribute("alertMsg", "해당하는 아이디의 재고가 존재하지 않습니다.");
+			return "hyunsik/storeMain";
 		}else {
 			
 		// 원재료명, 원재료 이미지
