@@ -186,7 +186,10 @@
 		TO_NUMBER((TO_CHAR(SYSDATE-2, 'YYMMDD') || 150000))
 		AND 
 		TO_NUMBER((TO_CHAR(SYSDATE-1, 'YYMMDD') || 149999)) AND
-		STATUS = 'AY'
+		STATUS = 'AY' AND
+        STORE_ID NOT IN (SELECT STORE_ID
+        FROM INDENT
+        WHERE IND_DATE = TO_CHAR(SYSDATE, 'YYMMDD')) 
 	</select>
 	
 	<!-- 가맹점 발주대기 상태의 원재료 list select -->
