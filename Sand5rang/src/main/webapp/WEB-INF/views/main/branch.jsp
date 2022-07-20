@@ -86,7 +86,7 @@
 
   <!-- 지사안내 -->
   <div>
-    <div class="branch_img" style="background-color: #ffffff; width : 400px; display: inline-block; ">
+    <div class="branch_img" style="background-color: #ffffff; width : 300px; display: inline-block; ">
       <br><br>
       <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; font-weight: bolder; color: #ffffff; font-size: 30px;">
         Sand5rang 지사안내
@@ -96,7 +96,7 @@
       </div>
       <br>
       <div style="margin-left: 450px; margin-top: 50px;">
-        <img src="resources/images/지사2.png" style="width: 270px; height: 40px; margin-bottom: 50px;">
+        <img src="resources/images/지사2.png" style="width: 320px; height: 40px; margin-bottom: 50px;">
       </div>
     </div> 
 
