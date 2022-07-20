@@ -323,11 +323,11 @@
 	</insert>
 	
 	<!-- 매장검색 -->
-	<select id="searchBranch" parameterType="store" resultMap="StoreResultSet">
-		SELECT S.STORE_NAME, S.ADDRESS, PHONE
+	<select id="searchBranch" parameterType="enroll" resultMap="EnrollResultSet">
+		SELECT S.STORE_NAME, ADDRESS AS ENROLL_ADD, PHONE
         FROM STORE S
         JOIN ENROLL USING (ENR_NO)
-		WHERE S.STORE_NAME LIKE '%' || #{storeId} || '%' AND 
+		WHERE S.STORE_NAME = #{storeName} AND 
 		S.STATUS = 'Y'
 	</select>
 </mapper>

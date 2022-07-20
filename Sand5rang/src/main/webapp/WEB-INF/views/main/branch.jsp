@@ -233,19 +233,21 @@
                 success : function(orderList){
 
                 
-                  if(orderList == null){
+                  if(orderList == ""){
 
-                            resultStr2 += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
-                             
-                             + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
-                            
-                             + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px; color: red;'>" + messages + "</h5>";
-                   
-                             +"</div>";
-                             
-                             +"</div>";
+                          resultStr += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
+                        
+                          + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
 
-                             $("#all").html(resultStr2);
+                          + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 90px; font-size : 15px; font-weight: bolder;'>"
+                                      + "없음" + "</h5>"
+
+                          +"</div>";
+                        
+                          +"</div>";
+
+              
+              $("#all").html(resultStr);
                       
                   }else{  
                           for(var i=0; i<orderList.length; i++){

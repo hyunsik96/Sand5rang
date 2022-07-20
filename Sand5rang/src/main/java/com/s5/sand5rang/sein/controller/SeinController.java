@@ -267,14 +267,10 @@ public class SeinController {
     @RequestMapping(value="searchBranch.ma", produces="application/json; charset=UTF-8")
     public String searchBranchController(String value1) {
     	
-    	Store store = new Store();
-    	store.setStoreName(value1);
+    	Enroll enroll = new Enroll();
+    	enroll.setStoreName(value1);
     	
-    	System.out.println(value1);
-    	
-    	ArrayList<Store> storeList = seinService.searchBranch(store);
-    	
-    	System.out.println(storeList);
+    	ArrayList<Enroll> storeList = seinService.searchBranch(enroll);
     	
     	return new Gson().toJson(storeList);
     }
