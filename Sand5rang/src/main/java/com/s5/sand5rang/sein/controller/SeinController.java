@@ -161,42 +161,48 @@ public class SeinController {
 	@RequestMapping("newPwd.me")
 	public ModelAndView newPwdController(ModelAndView mv, Store store, String newPwd, HttpSession session) {
 		
-		
-		//입력한 id값으로 기존 pwd뽑아오기
-		Store storeResult = seinService.loginStore(store);
-		
-		//입력받은 현재 pwd값과 기존 비밀번호 일치하는지 확인
-		if(store != null && bCryptPasswordEncoder.matches(store.getStorePwd(), storeResult.getStorePwd())){
+		if(store.getStoreId()=="" && store.getStorePwd()=="" && newPwd == "") {
 			
-			//비밀번호 변경 가능
-			//입력받은 새 비밀번호 복호화하기 
-			String enPwd = bCryptPasswordEncoder.encode(newPwd);
-			
-			store.setStorePwd(enPwd);
-			
-			//새 비밀번호 Store에 update
-			int result = seinService.newPwdUpdate(store);
-			
-			if(result>0) {
-				//새로운 비밀번호 변경 성공 
-				session.setAttribute("alertMsg", "비밀번호변경에 성공하였습니다.");
-				
-				mv.setViewName("redirect:login.me");
-				
-			}else {
-				
-				session.setAttribute("alertMsg", "비밀번호변경에 실패하였습니다.");
-				
-				mv.setViewName("redirect:updatePwd.me");
-			}
-			
-		}else {
-			//기존 비밀번호와 일치하지 않음 에러 발생시키기 
-			session.setAttribute("alertMsg", "기존 비밀번호와 일치하지 않습니다. 다시 시도해주세요.");
+			session.setAttribute("alertMsg", "필수 입력값을 모두 입력해주세요.");
 			
 			mv.setViewName("redirect:updatePwd.me");
-		}
-		
+			
+		}else {
+					//입력한 id값으로 기존 pwd뽑아오기
+					Store storeResult = seinService.loginStore(store);
+					
+					//입력받은 현재 pwd값과 기존 비밀번호 일치하는지 확인
+					if(store != null && bCryptPasswordEncoder.matches(store.getStorePwd(), storeResult.getStorePwd())){
+						
+						//비밀번호 변경 가능
+						//입력받은 새 비밀번호 복호화하기 
+						String enPwd = bCryptPasswordEncoder.encode(newPwd);
+						
+						store.setStorePwd(enPwd);
+						
+						//새 비밀번호 Store에 update
+						int result = seinService.newPwdUpdate(store);
+						
+						if(result>0) {
+							//새로운 비밀번호 변경 성공 
+							session.setAttribute("alertMsg", "비밀번호변경에 성공하였습니다.");
+							
+							mv.setViewName("redirect:login.me");
+							
+						}else {
+							
+							session.setAttribute("alertMsg", "비밀번호변경에 실패하였습니다.");
+							
+							mv.setViewName("redirect:updatePwd.me");
+						}
+						
+					}else {
+						//기존 비밀번호와 일치하지 않음 에러 발생시키기 
+						session.setAttribute("alertMsg", "기존 비밀번호와 일치하지 않습니다. 다시 시도해주세요.");
+						
+						mv.setViewName("redirect:updatePwd.me");
+						}
+				}
 		return mv;
 	}
 	
@@ -207,11 +213,16 @@ public class SeinController {
 		
 		Store store = new Store();
 		store.setStoreId(storeId);
+		store.setEmail(email);
 		
 		// 아이디만 일치하는지 1차 체크 
 		Store loginstore = seinService.loginStore(store);
 		
-		if(loginstore != null) {
+		
+		int emailCheck = seinService.emailCheck(store);
+		
+		
+		if(loginstore != null && emailCheck>0) {
 			//랜덤 생성될 비밀번호 길이 
 			int newPwd = 10;
 			String newPwd2 = generateRandomPassword(newPwd);
@@ -235,7 +246,7 @@ public class SeinController {
 		}else {
 			session.setAttribute("alertMsg", "일치하는 회원정보를 찾을 수 없습니다.");
 			
-			return "sein/findPwd.jsp";
+			return "redirect:findPwd.me";
 		}
 		
 	}

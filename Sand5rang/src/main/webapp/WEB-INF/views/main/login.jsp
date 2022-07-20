@@ -147,12 +147,12 @@
 							
 							<br>
 							<div class="input-box">
-				                <input id="username" type="text" name="storeId" placeholder="아이디" value="${ cookie.saveId.value }">
+				                <input id="username" type="text" name="storeId" placeholder="아이디" value="${ cookie.saveId.value }" maxlength="20">
 				                <label for="username">아이디</label>
 				            </div>
 				
 				            <div class="input-box">
-				                <input id="password" type="password" name="storePwd" placeholder="비밀번호">
+				                <input id="password" type="password" name="storePwd" placeholder="비밀번호" maxlength="20">
 				                <label for="password">비밀번호</label>
 				            </div>				
 						</div> <!-- /login-fields -->

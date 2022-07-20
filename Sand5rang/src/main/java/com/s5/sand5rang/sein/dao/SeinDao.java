@@ -137,5 +137,10 @@ public class SeinDao {
 		return (ArrayList)sqlSession.selectList("seinMapper.searchBranch",enroll);
 	}
 
+	//로그인 email 체크
+	public int emailCheck(SqlSessionTemplate sqlSession, Store store) {
+		return sqlSession.selectOne("seinMapper.emailCheck", store);
+	}
+
 	
 }

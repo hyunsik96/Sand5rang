@@ -135,5 +135,10 @@ public class SeinService {
 	public ArrayList<Enroll> searchBranch(Enroll enroll) {
 		return seinDao.searchBranch(sqlSession, enroll);
 	}
+
+	//로그인 이메일 검사
+	public int emailCheck(Store store) {
+		return seinDao.emailCheck(sqlSession, store);
+	}
 }
 

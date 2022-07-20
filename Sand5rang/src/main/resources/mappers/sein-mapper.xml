@@ -32,6 +32,7 @@
 		<result column="STATUS" property="status"/>
 		<result column="ENR_NO" property="enrNo"/>
 		<result column="PHONE" property="phone"/>
+		<result column="EMAIL" property="email"/>
 	</resultMap>
 		
 	<resultMap type="enroll" id="EnrollResultSet">
@@ -68,6 +69,15 @@
 					 WHERE STORE_ID = #{storeId} 
 					 AND STATUS = 'Y'    
 	</update>
+	
+	<!-- 비밀번호 변경 전 email체크 -->
+	<select id="emailCheck" parameterType="store" resultType="_int">
+		SELECT COUNT(*) FROM STORE S, ENROLL E 
+		WHERE S.ENR_NO = E.ENR_NO AND 
+		S.STORE_ID = #{storeId} AND
+		E.EMAIL = #{email}
+	</select>
+	
 	
 	<!-- 15시이전 발주 체크 select -->
 	<select id="selectOrder" parameterType="string" resultType="_int">

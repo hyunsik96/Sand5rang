@@ -73,6 +73,12 @@
 
 <body class="sub_page">
 
+	<c:if test="${ not empty alertMsg }">
+		<script>
+			alert("${alertMsg}");
+		</script>
+		<c:remove var="alertMsg" scope="session"/>
+	 </c:if> 
 
   <div class="hero_area">
    
