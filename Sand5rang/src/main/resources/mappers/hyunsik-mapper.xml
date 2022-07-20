@@ -47,6 +47,7 @@
 		<result column="FRFAC" property="frFac" />
 		<result column="FRPAY" property="frPay" />
 		<result column="FRINQ" property="frInq" />
+		<result column="FRSAL" property="frSal" />
 	</resultMap>
 	
 	<resultMap id="chartResultSet" type="com.s5.sand5rang.hyunsik.vo.Chart">
@@ -402,7 +403,10 @@
 		WHERE STORE_ID = #{storeId}) FRPAY, 
 		(SELECT COUNT(*)
 		FROM INQUERY
-		WHERE STORE_ID = #{storeId}) FRINQ
+		WHERE STORE_ID = #{storeId}) FRINQ, 
+        (SELECT SUM(COUNT)
+        FROM SALES
+        WHERE TO_CHAR(SYSDATE-1, 'YYMMDD') = TO_CHAR(SAL_DATE, 'YYMMDD') AND STORE_ID = #{storeId}) FRSAL
 		FROM DUAL
   	</select>
   	

@@ -185,8 +185,8 @@
                     <div class="stat"> <div>오늘의입고</div><a href="ingredientAllStock.csh" class="aTag"><span class="value">&nbsp;${m.frFac}&nbsp;</span></a> </div>
                     <!-- 어제 발주 승인되어 오늘 들어오기로한 원재료 총 수 -->
                     
-                    <div class="stat"> <div>발주잔액</div> <a href="fr1.hs" class="aTag"><span class="value">&nbsp;${m.frPay}&nbsp;</span></a> </div>
-                    <!-- 발주잔액 -->
+                   <div class="stat"> <div>작일매출갯수</div> <a href="fr1.hs" class="aTag"><span class="value">&nbsp;${m.frSal}&nbsp;</span></a> </div> 
+                    <!-- 어제 판매된 샌드위치 갯수 -->
                     
                     <div class="stat"> <div>문의현황</div> <a href="inqueryList.sm" class="aTag"><span class="value">&nbsp;${m.frInq}&nbsp;</span></a> </div>
                     <!-- 가맹점주가 작성한 문의글 총 수 --> 

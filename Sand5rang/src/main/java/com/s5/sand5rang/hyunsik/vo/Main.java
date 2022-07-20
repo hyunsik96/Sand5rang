@@ -22,5 +22,7 @@ public class Main {
 	private int frFac;
 	private int frPay;
 	private int frInq;
+	
+	private int frSal;
 
 }
