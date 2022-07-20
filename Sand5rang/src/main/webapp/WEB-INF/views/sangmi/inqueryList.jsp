@@ -155,7 +155,7 @@
 
 <div class="main">
 	
-	<div class="main-inner">
+	<div class="main-inner" style="margin-bottom:300px;">
 
 	    <div class="container">
 	
