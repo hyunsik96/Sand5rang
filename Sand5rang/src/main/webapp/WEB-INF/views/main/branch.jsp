@@ -86,82 +86,41 @@
 
   <!-- 지사안내 -->
   <div>
-  <div class="branch_img" style="background-color: #ffffff; display: inline-block;">
-    <br><br>
-    <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; font-weight: bolder; color: #ffffff; font-size: 30px;">
-      Sand5rang 지사안내
-    </h2>
-    <div style="margin-left: 40%; margin-top: 80px;">
-      <img src="resources/images/branch_map01.png"> 
-    </div>
-    <br>
-    <div style="margin-left: 100%; margin-top: 50px;">
-      <img src="resources/images/지사2.png" style="width: 330px; height: 40px; margin-bottom: 50px;">
-    </div>
-  </div>
-  <div style="float: right; margin-right: 15%; margin-top: 10%; width : 850px; height : 800px;display: block;">
-      <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; margin-bottom : 60px; margin-top: 50px;font-weight: bolder; color: #4e504e; ">SAND5RANG 매장검색</h2>
-      <p class="mb-1" style="font-family: 'Noto Sans KR', sans-serif; margin-left: 55%; width : 400px;">* 운영시간은 매장 사정에 따라 변경될 수 있습니다. </p>
-    
-
-
-      <form action="searchBranch.ma" method="get">
-          <div style="display: block; margin-left: 15%; float: left; margin-top: 35px;">
-            <input type="text" name="searchkey"
-                style="width : 550px; height : 50px;  border-radius: 10px; border : solid 1px lightgray;" placeholder="&nbsp;* 매장명을 입력해주세요">
-        </div>
-        <div style="display: block; margin-left: 10px; float: left; margin-top: 35px;">
-          <input type="submit" style="width : 100px; height: 50px; border-radius: 10px; font-family: 'Noto Sans KR', sans-serif; " class="btn btn-dark" value="검색">
-        </div>
-     </form>
-
-
-
-    <div style="display: block; margin-left: 15%; float: left; margin-top: 35px;">
-      
-      <c:forEach var="storeList" items="${storeList}" varStatus="status">
-          <c:choose>
-            <c:when test="${not empty storeList}">
-                <div style="width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px;
-                box-shadow: 4px 4px 4px slategray">
-                
-                  <div style="text-align: center; font-family: 'Noto Sans KR', sans-serif;">
-                    <h5 style="margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px;">${storeList.storeName} : </h5> 
-                    <h6 style="margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px;"> &nbsp;&nbsp;${storeList.enrollAdd}</h6>
-                    <h6 style="margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px; color: darkgreen;">[ 전화문의 : ${storeList.phone} ]</h6>
-                  </div>
-                </div>
-            </c:when>
-            <c:otherwise>
-              <div style="width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px;
-              box-shadow: 4px 4px 4px slategray">
-              
-                <div style="text-align: center; font-family: 'Noto Sans KR', sans-serif;">
-                  <h5 style="margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px; color: red;"> ※ 검색된 결과가 없습니다.</h5> 
-                </div>
-              </div>
-            </c:otherwise>
-          </c:choose>
-      </c:forEach>
-    </div>
-      <!-- <div style="width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px;
-       box-shadow: 4px 4px 4px slategray">
-        <p style="text-align: center; font-family: 'Noto Sans KR', sans-serif;">
-          <b>강남지사 : </b>강남구 강남동 강남지사
-        </p>
-      </div><div style="width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px;
-       box-shadow: 4px 4px 4px slategray">
-        <p style="text-align: center; font-family: 'Noto Sans KR', sans-serif;">
-          <b>강남지사 : </b>강남구 강남동 강남지사
-        </p>
+    <div class="branch_img" style="background-color: #ffffff; width : 400px; display: inline-block; ">
+      <br><br>
+      <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; font-weight: bolder; color: #ffffff; font-size: 30px;">
+        Sand5rang 지사안내
+      </h2>
+      <div style="margin-left: 100px;">
+        <img src="resources/images/branch_map01.png"> 
       </div>
-      <div style="width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px;
-       box-shadow: 4px 4px 4px slategray">
-        <p style="text-align: center; font-family: 'Noto Sans KR', sans-serif;">
-          <b>강남지사 : </b>강남구 강남동 강남지사
-        </p>
-      </div> -->
-    
+      <br>
+      <div style="margin-left: 500px; margin-top: 50px;">
+        <img src="resources/images/지사2.png" style="width: 330px; height: 40px; margin-bottom: 50px;">
+      </div>
+    </div>
+
+  <div style="margin-right: 160px; margin-top: 150px; width : 600px; height : 500px;  display: block; float: right;">
+      <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; margin-bottom : 60px; margin-top: 50px;font-weight: bolder; color: #4e504e; ">SAND5RANG 매장검색</h2>
+
+        <div id="g1" style="display: block; margin-left: 55px; float: left;">
+            <input type="text" name="searchkey" id="searchkey"
+                style="width : 400px; height : 50px;  border-radius: 10px; border : solid 1px lightgray;" placeholder="&nbsp;* 매장명을 입력해주세요">
+        </div>
+        <div style="display: block; margin-left: 10px; float: left; margin-bottom: 10px;">
+          <input type="button" id="btn" style="width : 100px; height: 50px; border-radius: 10px; font-family: 'Noto Sans KR', sans-serif; " class="btn btn-dark" value="검색">
+        </div>
+        <p class="mb-1" style="font-family: 'Noto Sans KR', sans-serif; margin-top : 50px; margin-left: 120px; width : 400px;">* 운영시간은 매장 사정에 따라 변경될 수 있습니다. </p>
+
+
+
+        <div id="all" style="display: block; margin-left : 30px;float: left; margin-top: 35px;">
+              <div id="d1" style="width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px;
+                    box-shadow: 4px 4px 4px slategray">
+                    
+                      <div id="d2" style="text-align: center; font-family: 'Noto Sans KR', sans-serif;"></div>
+              </div>   
+        </div>
     </div>
   </div>
     
@@ -261,8 +220,43 @@
 
 
   <script>
-    
 
+      $(function(){
+        var resultStr = "zz";
+      $("#btn").click(function(){
+
+              var value1 = $("#searchkey").val();
+
+              $.ajax({
+                type: "get",
+                url : "searchBranch.ma",
+                data : value1,
+                dataType: 'json',
+                success : function(orderList){
+console.log(orderList);
+                  if(orderList != null){
+                        for(var i=0; i<orderList.length; i++){
+                          
+                           
+                          resultStr +=     "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px;'>"
+                                          + orderList[i].storeName + ": " + "</h5>"
+                              +"<h6 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px;'> " 
+                                          + orderList[i].enrollAdd + "</h6>"
+                              +"<h6 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 10px; color: darkgreen;'>" 
+                                          + orderList[i].phone + "</h6>";
+                            }
+                  }else{
+                        resultStr = "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 70px; color: red;'>" + "※ 검색된 결과가 없습니다." + "</h5>";
+                   }
+                  console.log(resultStr);
+                  $("#d2").html(resultStr);
+                },
+                error : function(result){
+                  console.log("ajax 통신 실패!");
+                }
+            });
+         });
+      });
   </script>
 
 </body>

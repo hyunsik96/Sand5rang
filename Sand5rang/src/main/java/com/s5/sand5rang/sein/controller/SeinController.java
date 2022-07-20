@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.s5.sand5rang.common.model.vo.PageInfo;
 import com.s5.sand5rang.common.template.Pagination;
 import com.s5.sand5rang.hyunsik.service.HyunsikService;
@@ -251,17 +252,16 @@ public class SeinController {
     }
 	
     //메인 매장검색
-    @RequestMapping(value="searchBranch.ma")
-    public String searchBranchController(String searchkey, Model m) {
+    @ResponseBody
+    @RequestMapping(value="searchBranch.ma", produces="application/json; charset=UTF-8")
+    public String searchBranchController(String value1) {
     	
     	Enroll enroll = new Enroll();
-    	enroll.setStoreName(searchkey);
+    	enroll.setStoreName(value1);
     	
     	ArrayList<Enroll> storeList = seinService.searchBranch(enroll);
     	
-    	m.addAttribute("storeList", storeList);
-    	
-    	return "main/branch";
+    	return new Gson().toJson(storeList);
     }
     
     
