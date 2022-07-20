@@ -85,7 +85,7 @@
   </div>
 
   <!-- 지사안내 -->
-  <div>
+  <div style="width : 1500px;">
     <div class="branch_img" style="background-color: #ffffff; width : 300px; display: inline-block; ">
       <br><br>
       <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center; font-weight: bolder; color: #ffffff; font-size: 30px;">
@@ -95,7 +95,7 @@
         <img src="resources/images/branch_map01.png" style="width : 600px"> 
       </div>
       <br>
-      <div style="margin-left: 400px; margin-top: 50px;">
+      <div style="margin-left: 400px; margin-top: 50px; ">
         <img src="resources/images/지사2.png" style="width: 320px; height: 40px; margin-bottom: 50px;">
       </div>
     </div> 
@@ -232,23 +232,20 @@
                 dataType: 'json',
                 success : function(orderList){
 
-                
-                  if(orderList == ""){
+                  if(orderList == ''){
 
-                          resultStr += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
-                        
-                          + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
+                    resultStr2 += "<div id='d1' style='width : 550px; height : 100px;  border-radius: 10px; border : solid 1px lightgray; margin-bottom: 10px; line-height: 100px; box-shadow: 4px 4px 4px slategray'>"     
+                    
+                    + "<div id='d2' style='text-align: center; font-family: 'Noto Sans KR', sans-serif;'>"
 
-                          + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 90px; font-size : 15px; font-weight: bolder;'>"
-                                      + "없음" + "</h5>"
+                    + "<h5 style='margin : 0px; padding : 0px; display: block; float: left; line-height: 100px; margin-left: 160px; color: red; font-family: 'Noto Sans KR', sans-serif; font-size : 10px' >" + messages + "</h5>";
 
-                          +"</div>";
-                        
-                          +"</div>";
+                    +"</div>";
+                    
+                    +"</div>";
 
-              
-              $("#all").html(resultStr);
-                      
+                    $("#all").html(resultStr2);
+
                   }else{  
                           for(var i=0; i<orderList.length; i++){
                       
