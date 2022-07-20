@@ -299,20 +299,20 @@ $(function() {
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
 <c:if test="${!empty sort_list}">
-	<table class="table table-bordered">
+	<table class="table table-bordered" >
 		<thead>
-			<tr>
-				<th>재료명</th>
-				<th>재료개수</th>
-				<th>입고날짜</th>
+			<tr >
+				<th style="font-size: 13px; text-align: center;">재료명</th>
+				<th style="font-size: 13px; text-align: center;">재료개수</th>
+				<th style="font-size: 13px; text-align: center;">입고날짜</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="ing" items="${sort_list}">
 			<tr>
-				<td>${ing.ingName}</td>
-				<td>${ing.count}</td>
-				<td>${ing.stoDate}</td>
+				<td style="font-size: 13px; text-align: center;">${ing.ingName}</td>
+				<td style="font-size: 13px; text-align: center;">${ing.count}</td>
+				<td style="font-size: 13px; text-align: center;">${ing.stoDate}</td>
 			</tr>	
 			</c:forEach>
 		</tbody>

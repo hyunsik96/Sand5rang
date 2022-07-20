@@ -273,7 +273,7 @@ $(function() {
  </script>
 
  <form name="disposalList">
-	<select id="ingType" name="ingType" style="width:100px; margin-top:10px;">
+	<select id="ingType" name="ingType" style="width:100px; margin-top:10px; ">
 	  <option value="B" id="bb">빵</option>
 	  <option value="V" id="vv">야채</option>
 	  <option value="M" id="mm">고기</option>
@@ -285,9 +285,9 @@ $(function() {
 	  <option value="화이트">화이트</option>	
 	  <option value="플렛">플렛</option>
 	</select>
-	<input type="submit" value="검색하기" class="btn btn-success" style="width:100px;" 
+	<input type="submit" value="검색" class="btn btn-success" style="width:60px;" 
 	onclick='btn_click("select");'>
-	<input type="submit" value="폐기하기" class="btn btn-danger" style="width:100px;"
+	<input type="submit" value="폐기" class="btn btn-danger" style="width:60px;"
 	onclick='btn_click("update");'>
 </form>		
 	  				</div> <!-- /widget-header -->
@@ -302,17 +302,17 @@ $(function() {
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>재료명</th>
-				<th>재료개수</th>
-				<th>입고날짜</th>
+				<th style="font-size: 13px; text-align: center;">재료명</th>
+				<th style="font-size: 13px; text-align: center;">재료개수</th>
+				<th style="font-size: 13px; text-align: center;">입고날짜</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="disposal" items="${disposal_list}">
 			<tr>
-				<td>${disposal.ingName}</td>
-				<td>${disposal.count}</td>
-				<td>${disposal.stoDate}</td>
+				<td style="font-size: 13px; text-align: center;">${disposal.ingName}</td>
+				<td style="font-size: 13px; text-align: center;">${disposal.count}</td>
+				<td style="font-size: 13px; text-align: center;">${disposal.stoDate}</td>
 			</tr>	
 			</c:forEach>
 		</tbody>

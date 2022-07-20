@@ -175,18 +175,17 @@
 	각자 views 폴더에 있는 본인의 폴더에서만 작업하며 마찬가지로 resources 폴더의 member 폴더의 본인의 폴더의 css 및 script를 변경합니다.
 	가급적 모든 페이지의 css 는 css 파일을 통해 적용하는 것으로 연습해봅시다.
 -->
-
-<hr>
+<br>
 <h3 style="margin-left:20px">빵(Bread)</h3>
 <c:forEach var="i" items="${i_list1}">
 <div class="${i.ingType}">
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
-	<p>
+	<p style="margin-left: 25px; font-weight: bolder;">
 	현재재고 : 
 		<c:forEach var="s" items="${s_list1}">
 			<c:if test="${i.ingNo eq s.ingNo}">
-			<span>${s.count}</span>
+			<span style="color : rgb(7, 168, 77)">${s.count}</span> 개 
 			</c:if>
 		</c:forEach>
 	<!-- 	
@@ -206,11 +205,11 @@
 <div class="${i.ingType}">
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName }.jpg" width="150" height="150">
-	<p>
+	<p style="font-weight: bolder; margin-left: 20px;">
 	현재재고 : 	
 	<c:forEach var="s" items="${s_list2}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		<span>${s.count}</span><br>
+		<span style="color : rgb(7, 168, 77);">${s.count}</span> 개
 		</c:if>
 	</c:forEach>
 	<!-- 
@@ -230,11 +229,11 @@
 <div class="${i.ingType}">
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
-	<p>
+	<p style="margin-left: 25px; font-weight: bolder;">
 	현재재고 : 	
 	<c:forEach var="s" items="${s_list3}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		<span>${s.count}</span><br>
+		<span style="color : rgb(7, 168, 77)">${s.count}</span> 개 <br>
 		</c:if>
 	</c:forEach>
 	<!-- 
@@ -254,11 +253,11 @@
 <div class="${i.ingType}">
 	<h4>${i.ingName }</h4>
 	<img src="resources/images/ingredient/${i.ingName}.jpg" width="150" height="150">
-	<p>
+	<p style="margin-left: 25px; font-weight: bolder;">
 	현재재고 : 
 	<c:forEach var="s" items="${s_list4}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		<span>${s.count}</span><br>
+		<span style="color : rgb(7, 168, 77)">${s.count}</span> 개 <br>
 		</c:if>
 	</c:forEach>
 	<!-- 
@@ -275,14 +274,14 @@
 <hr>
 <h3 style="margin-left:20px">치즈(Cheese)</h3>
 <c:forEach var="i" items="${i_list5}">
-<div class="${i.ingType}">
+<div class="${i.ingType}" style="margin-bottom: 50px;">
 	<h4>${i.ingName}</h4>
 	<img src="resources/images/ingredient/${i.ingName }.jpg" width="150" height="150">
-	<p>
+	<p style="margin-left: 25px; font-weight: bolder;">
 	현재재고 : 	
 	<c:forEach var="s" items="${s_list5}">
 		<c:if test="${i.ingNo eq s.ingNo}">
-		<span>${s.count}</span><br>
+		<span style="color : rgb(7, 168, 77)">${s.count}</span> 개 <br> 
 		</c:if>
 	</c:forEach>
 	<!-- 

@@ -182,20 +182,20 @@
 	<table class="table table-bordered stockTable1">
 		<thead>
 			<tr class="st_head">
-				<th>빵</th>
-				<th>야채</th>
-				<th>고기</th>
-				<th>치즈</th>
-				<th>소스</th>
+				<th style="font-size: 13px;">빵</th>
+				<th style="font-size: 13px;">야채</th>
+				<th style="font-size: 13px;">고기</th>
+				<th style="font-size: 13px;">치즈</th>
+				<th style="font-size: 13px;">소스</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="st_body">
-				<td>${b}</td>		
-				<td>${v}</td>
-				<td>${m}</td>
-				<td>${c}</td>
-				<td>${s}</td>		
+				<td style="font-size: 13px; text-align: center;">${b}</td>		
+				<td style="font-size: 13px; text-align: center;">${v}</td>
+				<td style="font-size: 13px; text-align: center;">${m}</td>
+				<td style="font-size: 13px; text-align: center;">${c}</td>
+				<td style="font-size: 13px; text-align: center;">${s}</td>		
 			</tr>
 		</tbody>
 	</table>

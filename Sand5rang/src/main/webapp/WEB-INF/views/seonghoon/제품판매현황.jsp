@@ -179,20 +179,20 @@
 -->
 	<!-- 가게 마감 시간에 제품이 실제로 판매가 이루어졌다고 가정하고 해당 리스트에 오늘판매된 제품 목록을 기입해줌. -->
 <c:if test="${!empty sales_list1 }">
-	<table class="table table-bordered">
+	<table class="table table-bordered" style="font-size: 15px;">
 		<thead>
 			<tr class="st_head">
-				<th>판매날짜</th>
-				<th>총판매개수</th>
-				<th>총매출액</th>
+				<th style="font-size: 15px;">판매날짜</th>
+				<th style="font-size: 15px;">총판매개수</th>
+				<th style="font-size: 15px;">총매출액</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="sales" items="${sales_list1}" varStatus="status">
 			<tr class="st_body">
-				<td>${sales.salDate}</td>
-				<td><a data-toggle="modal" href="#Modal${status.count}">${sales.count}</a></td>
-				<td><fmt:formatNumber value="${sales.total}" pattern="###,###,###,###"/></td>
+				<td style="text-align: center;">${sales.salDate}</td>
+				<td style="text-align: center;"><a data-toggle="modal" href="#Modal${status.count}">${sales.count}</a></td>
+				<td style="text-align: center;"><fmt:formatNumber value="${sales.total}" pattern="###,###,###,###"/></td>
 			</tr>
 			</c:forEach>
 		</tbody>
@@ -202,7 +202,8 @@
 	<div align="center" style="color:red;">현재 판매된 내역이 존재하지 않습니다.</div>
 </c:if>
 					</div> <!-- /widget-content -->
-	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:82%; width:160px;">판매기입 페이지로 이동</a>				
+					<br>
+	<a href="salesPage0.csh" class="btn btn-success" style="display:inline-block; margin-left:84%; width:160px;">판매기입 페이지로 이동</a>				
 				</div> <!-- /widget -->
 				
 				
