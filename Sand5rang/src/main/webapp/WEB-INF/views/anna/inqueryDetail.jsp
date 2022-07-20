@@ -50,39 +50,25 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Sand5rang Admin				
+			<a class="brand" href="admain.hs">
+				Sand5rang 관리자				
 			</a>		
 			
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
-					<li class="dropdown">						
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
-							설정
-							<b class="caret"></b>
-						</a>
-						
-						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Settings</a></li>
-							<li><a href="javascript:;">Help</a></li>
-						</ul>						
-					</li>
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
+							<i class="icon-user"></i>
 							관리자 님
 							<b class="caret"></b>
 						</a>
 						
 						<ul class="dropdown-menu">
-							<li><a href="javascript:;">Profile</a></li>
-							<li><a href="javascript:;">Logout</a></li>
+							<li><a href="logout.me">Logout</a></li>
 						</ul>						
 					</li>
 				</ul>
-
 				
 			</div><!--/.nav-collapse -->	
 	
@@ -91,27 +77,18 @@
 	</div> <!-- /navbar-inner -->
 	
 </div> <!-- /navbar -->
-    
-
-
-
-    
 <div class="subnavbar">
-
 	<div class="subnavbar-inner">
 	
 		<div class="container">
-
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="admain.hs">
 						<i class="icon-dashboard"></i>
 						<span>메인</span>
 					</a>	    				
 				</li>
-                
-                
 				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
@@ -120,12 +97,12 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 주문처리</a></li>
-						<li><a href="faq.html">공장발주내역</a></li>
+                        <li><a href="ad1.hs">가맹점 주문처리</a></li>
+						<li><a href="ad2.hs">공장발주내역</a></li>
                     </ul>    				
 				</li>
 				
-				<li class="dropdown">					
+				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>가맹점 관리</span>
@@ -133,28 +110,24 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                        <li><a href="icons.html">가맹점 조회</a></li>
-						<li><a href="faq.html">가맹가입신청</a></li>
-						<li><a href="faq.html">문의 조회</a></li>
+                        <li><a href="storeList.sm">가맹점 조회</a></li>
+						<li><a href="storeEnrollList.sm">가맹가입신청</a></li>
+						<li><a href="inqList.an">문의 조회</a></li>
                     </ul>    				
 				</li>
-                
 				
 				<li>
-					<a href="reports.html">
-						<i class="icon-list-alt"></i>
+					<a href="ad3.hs">
+						<i class="icon-money"></i>
 						<span>결제대금</span>
 					</a>    				
 				</li>
 			
 			</ul>
-
 		</div> <!-- /container -->
 	
 	</div> <!-- /subnavbar-inner -->
-
 </div> <!-- /subnavbar -->
-    
     
 
 <div class="main">
