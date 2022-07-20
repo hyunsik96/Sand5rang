@@ -198,7 +198,7 @@ public class SeonghoonController {
 			menu_list.add(seonghoonService.MenuSalDate_List(s));
 		}
 		for(int i=0; i<menu_list.size(); i++) {
-			System.out.println(menu_list.get(i));
+			// System.out.println(menu_list.get(i));
 	
 		}
 		
@@ -616,9 +616,9 @@ public String updateDisposal(
 	hashmap.put("ingName", ingName);
 	hashmap.put("storeId", storeId);
 	
-	System.out.println("ingType : "+ingType);
-	System.out.println("ingName : "+ingName);
-	System.out.println("storeId : "+storeId);
+//	System.out.println("ingType : "+ingType);
+//	System.out.println("ingName : "+ingName);
+//	System.out.println("storeId : "+storeId);
 	
 	int result = seonghoonService.updateDisposal(hashmap);
 	if(result > 0) {
