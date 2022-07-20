@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.s5.sand5rang.sein.vo.Store;
+
 /*
  * * Interceptor(인터셉터)
  * - 컨트롤러로 들어오는 요청과 응답을 가로채는 역할
@@ -38,10 +40,19 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		// 로그인이 된 상태인지 검사하는 코드 추가 => session 에 loginUser 가 있는지 검사
 		HttpSession session = request.getSession();
 		
+		Store s = new Store();
+		
 		if(session.getAttribute("loginstore") != null) {
+		 s = (Store)(session.getAttribute("loginstore"));
+		}else {
+			s.setStoreId("1111111111111111");
+		}
+		
+		if((session.getAttribute("loginstore") != null) && !s.getStoreId().equals("admin")) {
 			return true;
 		}else {
-			session.setAttribute("alertMsg", "로그인 후 이용 가능한 서비스입니다.");
+			session.setAttribute("alertMsg", "가맹점으로 로그인 후 이용 가능한 서비스입니다.");
+			session.removeAttribute("loginstore");
 			response.sendRedirect(request.getContextPath());
 			return false;
 		}

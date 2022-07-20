@@ -44,8 +44,8 @@ public class LoginInterceptor2 extends HandlerInterceptorAdapter {
 		}else {
 			s.setStoreId("111111");
 		}
-		
-		if( s.getStoreId() == "admin") {
+
+		if(s.getStoreId().equals("admin")) {
 			return true;
 		}else {
 			session.setAttribute("alertMsg", "관리자만 이용 가능한 서비스입니다.");
