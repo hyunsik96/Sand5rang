@@ -166,8 +166,8 @@
 	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				문의글 전체 리스트&nbsp;
+	      				<i class="icon-comment-alt"></i>
+	      		<h3>본사 문의</h3>
 	      				
 	      			
 	      				

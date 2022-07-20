@@ -169,15 +169,19 @@
 	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3>문의글  상세페이지</h3>
+	      				<i class="icon-comment-alt"></i>
+	      				<h3>본사 문의 - 상세</h3>
 	  				</div> <!-- /widget-header -->
-					<div class="widget-content" style="height:700px;">
+					<div class="widget-content" >
+   <br>
 
-          <div class="inq_content" style="width:800px; height:800px; margin:100px 100px;"  >
+    
+       
+     
+          <div class="inq_content"   >
               <!--가맹점이 작성한 문의 제목-->
              <div class="inq_title"> 
-               	<div style="padding-bottom:5px; margin-left:10px;">
+               	<div style="padding-bottom:5px; margin-left:10px; margin-right:10px;">
                		<h1>${i.inqTitle}</h1>
                	</div>
                
@@ -194,18 +198,19 @@
              
              <!--가맹점이 작성한 문의 본문-->
                 <div class="inq_content"> 
-                    <pre name="inqQuery" style="resize:none; width:100%; height:200px" >${ i.inqQuery }</pre>
+                    <pre name="inqQuery" style="resize:none; width:98%; height:180px" >${ i.inqQuery }</pre>
                 </div>
                 
                 <c:if test="${not empty i.inqAnswer}">
                 <div class="inq_content"> 
-                    <pre name="inqAnswer"  style="resize:none; width:100%; height:200px" >${ i.inqAnswer }</pre>
+                    <pre name="inqAnswer"  style="resize:none; width:98%; height:180px" >${ i.inqAnswer }</pre>
                 </div>
                  </c:if>
                  
-            </div><br>
+   
+             </div><br>
         
-        <div align="center">
+        <div align="right" >
    <c:if test="${ empty i.inqAnswer }"> 
       
             <a class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</a>
@@ -226,6 +231,7 @@
                  }
                </script>
               </div>  
+              </div>
       
 						</div>
 				</div> <!-- /widget -->
@@ -276,7 +282,7 @@
 	                        <li><a href="javascript:;">&copy; 2022 All Rights Reserved By Sand5rang.</a></li>
 	                        <li><a href="javascript:;">Distributed By Sand5rang.</a></li>
                         </ul>
-                    </div>
+
                 </div> <!-- /row -->
 		</div> <!-- /container -->
 	</div> <!-- /extra-inner -->

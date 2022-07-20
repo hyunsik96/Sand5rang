@@ -155,8 +155,8 @@
 	      		<div class="widget" style="width:1200px;">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3>문의글  수정</h3>
+	      				<i class="icon-comment-alt"></i>
+	      				<h3>본사 문의 - 수정</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -208,7 +208,7 @@
 
         <div align="center">
         	 
-            <button type="submit" class="btn btn-primary">수정하기</button>
+            <button type="submit" class="btn btn-primary">등록</button>
             <button type="button" class="btn btn-secondary" onclick="javascript:history.go(-1);">뒤로가기</button>
         </div>  
     </form>
