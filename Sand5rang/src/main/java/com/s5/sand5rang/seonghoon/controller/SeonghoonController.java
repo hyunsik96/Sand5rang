@@ -622,7 +622,7 @@ public String updateDisposal(
 	
 	int result = seonghoonService.updateDisposal(hashmap);
 	if(result > 0) {
-		return "redirect:ingredientDisposal.csh";
+		return "redirect:ingredientDisposal1.csh";
 	}else {
 		return "seonghoon/폐기관리";
 	}
