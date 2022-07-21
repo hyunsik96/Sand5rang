@@ -186,14 +186,14 @@
 					<h2>* 입금자명 : </h2>
 
 					<div class="deposit_name">
-						<input id="deposit_name" type="text" placeholder="*필수입력 값입니다." name="deposit_name">
+						<input id="deposit_name" type="text" placeholder="*필수입력 값입니다." name="deposit_name" required>
 					</div>
 					<br>
 					<br>
 					<h2>* 결제금액 : </h2>
 
 					<div class="deposit_price">
-						<input id="deposit_price" type="text" placeholder="*필수입력 값입니다." name="deposit_price">&nbsp;(단위/원)
+						<input id="deposit_price" type="number" placeholder="*필수입력 값입니다." name="deposit_price" required min=10 max=2000000>&nbsp;(단위/원)
 					</div>
 					<br>
 					<br>
@@ -210,12 +210,12 @@
 
 					<div class="deposit_email">
 					
-						<input id="deposit_email" type="text" style="width : 180px" value="&nbsp;<c:out value='${email}'/>" disabled>&nbsp;&nbsp;&nbsp;
+						<input id="deposit_email" type="text" style="width : 180px" value="&nbsp;<c:out value='${email}'/>" readonly>&nbsp;&nbsp;&nbsp;
 						<b style="line-height: 30%; margin-top: 20px;"> &nbsp;* 가입시 기입한 이메일로 결제명세서가 발행됩니다.</b>
 					</div>
 				</div> 
 			
-        </div>
+        
         <div class="btn_deposit">
             <button type="submit" id="btn" class="btn btn-success btn-lg" data-bs-dismiss="modal">결제</button>
             <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal" onclick="back();">취소</button>
