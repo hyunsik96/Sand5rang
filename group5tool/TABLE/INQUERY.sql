@@ -169,3 +169,4 @@ VALUES (SEQ_INQNO.NEXTVAL, '현재 채소류 주문가능 수량 관련 문의�
 INSERT INTO INQUERY (INQ_NO, INQ_TITLE, INQ_DATE, INQ_QUERY, INQ_ANSWER, STATUS, ANS_DATE, CATEGORY, STORE_ID) 
 VALUES (SEQ_INQNO.NEXTVAL, '매장 운영시간과 관련하여 상담이 필요합니다.', to_date('22.07.21', 'RRRR-MM-DD'), '매장 운영시간을 개인사정으로 인하여 변경하고 싶은데 가능할까요?', '안녕하세요 샌드오랑 담당자 케이트 입니다. 아쉽게도 현재는 매장 운영 시간은 불가능 하십니다. 관련 문의가 많아 관련 부서에 해당 내용을 전달해드린 상황입니다. 관련 부서에서 매장 운영 시간에대한 변경사항 생기면 전체공지로 전달해드리도록 하겠습니다. 만족스러운 답변이 아니셨겠지만 추후 변경될 수도 있는 부분이니 좋은소식 알려드리도록 하겠습니다 오늘도 건강하고 즐거운 하루 보내세요!!', 'Y', to_date('22.07.21', 'RRRR-MM-DD'), '운영문의', 'store16');
 
+COMMIT;

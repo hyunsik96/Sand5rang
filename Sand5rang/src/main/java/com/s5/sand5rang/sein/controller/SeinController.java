@@ -474,7 +474,7 @@ public class SeinController {
     		order.setCount(olist.get(i).getCount());
     		order.setIngNo(olist.get(i).getIngNo());
     		order.setTotal(olist.get(i).getTotal());
-    		order.setStatus("AY");
+    		order.setStatus("AB");
     		order.setStoreId(olist.get(i).getStoreId());
     		
     		int result = seinService.insertOrderBefore(order);

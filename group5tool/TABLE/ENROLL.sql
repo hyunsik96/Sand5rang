@@ -103,3 +103,4 @@ VALUES (SEQ_ENRNO.NEXTVAL, '김주형', '강북구', '331130@gmail.com', '010-00
 INSERT INTO ENROLL (ENR_NO, STORE_NAME, ENROLL_ADD, EMAIL, PHONE, TITLE, CONTENT, STATUS) 
 VALUES (SEQ_ENRNO.NEXTVAL, '송가원', '종로구', '3322330@gmail.com', '010-0000-0000', '문의드릴 사항이 있습니다.', '일정 맞춰서 조율해주세요!', 'B');
 
+COMMIT;

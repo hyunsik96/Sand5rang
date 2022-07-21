@@ -160,7 +160,7 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>폐기 현황</h3>
+	      				<h3>폐기 대기 목록</h3>
 
 <input type="hidden" value="${ingType}" id="iT">
 <input type="hidden" value="${ingName}" id="iN">

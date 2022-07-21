@@ -167,7 +167,7 @@
                     <div class="stat"> <div>가맹신청</div> <a href="storeEnrollList.sm" class="aTag"><span class="value">&nbsp;${m.adEnr}&nbsp;</span></a> </div>
                     <!-- 미처리 가맹신청 수 -->
                     
-                    <div class="stat"> <div>문의글</div><a href="ad1.hs" class="aTag"> <span class="value">&nbsp;${m.adInq}&nbsp;</span></a> </div>
+                    <div class="stat"> <div>문의글</div><a href="inqList.an" class="aTag"> <span class="value">&nbsp;${m.adInq}&nbsp;</span></a> </div>
                     <!-- 미답변 문의글 수 --> 
                   </div>
                 </div>
