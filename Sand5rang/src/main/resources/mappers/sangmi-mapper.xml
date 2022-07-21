@@ -43,6 +43,7 @@
  <select id="selectListCount1" resultType="_int">
   SELECT COUNT(*)
   FROM STORE
+  WHERE STATUS = 'Y' 
  </select>
  <!--가맹점 전체리스트 조회-->
   <select id="storeList" resultMap="storeResultSet">
@@ -73,6 +74,7 @@
  SELECT ENR_NO,STORE_NAME, PHONE, EMAIL, ENROLL_ADD, STATUS 
  FROM ENROLL
  WHERE STATUS = 'B'
+ ORDER BY ENR_NO DESC 
 </select>
 
 
