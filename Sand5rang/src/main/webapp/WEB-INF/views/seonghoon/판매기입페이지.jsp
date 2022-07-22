@@ -497,7 +497,7 @@
                                 <form class="order_list" id="14" style="width : 200px; display: inline-block;">
 								<div class="bread">
 									<h4>*K-바비큐</h4>
-									<img src="resources/images/menu/K-바비큐.png" width="150" height="150">
+									<img src="resources/images/menu/K바비큐.png" width="150" height="150">
 									<br>
 								    <b>매출 수량 : </b>
 								    <div style="display: inline-block;">
