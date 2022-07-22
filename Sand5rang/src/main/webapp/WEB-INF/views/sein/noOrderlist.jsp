@@ -150,7 +150,7 @@
 						<!-- <div class="widget-content widget-table action-table"> -->
 							<div class="widget-header">
 								<i class="icon-user"></i>
-								<h3>XXX 가맹점 발주 리스트 조회</h3>
+								<h3>가맹점 발주 리스트 조회</h3>
 							</div>
 
 							<div class="widget-content"> 

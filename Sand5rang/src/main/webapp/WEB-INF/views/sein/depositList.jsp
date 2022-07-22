@@ -160,7 +160,7 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-money"></i>
-	      				<h3>xxx가맹점 결제내역 리스트 조회</h3>
+	      				<h3>가맹점 결제내역 리스트 조회</h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">

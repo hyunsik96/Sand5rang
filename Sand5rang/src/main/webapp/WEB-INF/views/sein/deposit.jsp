@@ -147,7 +147,7 @@
 						<div class="widget-content widget-table action-table" style="width:1200px;">
 							<div class="widget-header">
 								<i class="icon-user"></i>
-								<h3>XXX 가맹점 결제</h3>
+								<h3>가맹점 결제</h3>
 							</div>
 
 
