@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -175,9 +176,9 @@
                   <tr>
                     <td>${payment.payNo}</td>
                     <td>${payment.storeName}</td>
-                    <td>${payment.deposit}</td>
-                    <td>${payment.withdraw}</td>
-                    <td>${payment.total}</td>
+                    <td><fmt:formatNumber value="${payment.deposit}" pattern="###,###,###,###"/></td>
+                    <td><fmt:formatNumber value="${payment.withdraw}" pattern="###,###,###,###"/></td>
+                    <td><fmt:formatNumber value="${payment.total}" pattern="###,###,###,###"/></td>
                     <td>성현식</td>
                     <td>${payment.date}</td>
                     <td>${payment.email}</td>
