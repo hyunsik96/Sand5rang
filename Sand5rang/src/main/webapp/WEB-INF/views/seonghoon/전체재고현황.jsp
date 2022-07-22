@@ -52,7 +52,7 @@
 					<li class="dropdown">						
 						<a href="fr1.hs" class="dropdown-toggle">
 							<i class="icon-money"></i>&nbsp;
-							잔액 : <fmt:formatNumber value="${m.frPay}" pattern="###,###,###,###"/> 원
+							잔액 : <fmt:formatNumber value="${mm.frPay}" pattern="###,###,###,###"/> 원
 							
 						</a>
 					
