@@ -191,9 +191,9 @@
                   <tr>
                     <td>${payment.payNo}</td>
                     <td>${payment.storeName}</td>
-                    <td>${payment.deposit}</td>
-                    <td>${payment.withdraw}</td>
-                    <td>${payment.total}</td>
+                    <td><fmt:formatNumber value="${payment.deposit}" pattern="###,###,###,###"/></td>
+                    <td><fmt:formatNumber value="${payment.withdraw}" pattern="###,###,###,###"/></td>
+                    <td><fmt:formatNumber value="${payment.total}" pattern="###,###,###,###"/></td>
                     <td>성현식</td>
                     <td>${payment.date}</td>
                     <td>${payment.email}</td>
