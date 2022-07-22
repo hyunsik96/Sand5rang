@@ -148,7 +148,7 @@
 </div> <!-- /subnavbar -->
     
 	<div class="main">
-		<div class="main-inner">
+		<div class="main-inner" style="margin-bottom:100px;">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
