@@ -9,7 +9,7 @@ Sand5rang는 샌드위치 가맹점 관리 및 재고관리를 진행하는 사�
 ## 팀원 소개
 박유리안나 : https://github.com/1azypony  
 성현식 : https://github.com/hyunsik96  
-오상미 : https://github.com/sangmi  
+오상미 : https://github.com/sangmi24  
 천성훈 : https://github.com/gutengtaco  
 한세인 : https://github.com/seinHan  
 
