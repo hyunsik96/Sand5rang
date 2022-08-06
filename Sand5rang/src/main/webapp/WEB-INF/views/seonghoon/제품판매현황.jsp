@@ -183,7 +183,7 @@
 		<thead>
 			<tr class="st_head">
 				<th style="font-size: 15px;">판매날짜</th>
-				<th style="font-size: 15px;">총판매개수</th							>
+				<th style="font-size: 15px;">총판매개수</th>
 				<th style="font-size: 15px;">총매출액</th>
 			</tr>
 		</thead>
